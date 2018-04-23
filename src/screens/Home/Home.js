@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap';
+import TopBar from '../../components/TopBar';
+import Post from '../../components/Post';
 import './styles.css';
 
-export default class Home extends Component {
+const testData = ["description0", "description1", "description2", "description3", "description4", "description5", "description6", "description7"];
+
+class Home extends Component {
   render() {
     return (
-      <div className="container">
-        <h1>title</h1>
-        <Alert bsStyle="warning">
-          <strong>check bootstrap install</strong> Best check yo self, you're not looking too
-          good.
-        </Alert>
+      <div>
+        <TopBar />
+        {testData.map((item) => 
+          <Post description={ item } ></Post>
+        )}
       </div>
     );
   }
 }
+
+export default Home;
