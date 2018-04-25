@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TopBar from '../../components/TopBar';
+import BottomBar from '../../components/BottomBar';
 import Post from '../../components/Post';
 import './styles.css';
 
@@ -13,6 +14,7 @@ class Home extends Component {
         {testPosts.map((item) => 
           <Post description={ item } ></Post>
         )}
+        <BottomBar />
       </div>
     );
   }
