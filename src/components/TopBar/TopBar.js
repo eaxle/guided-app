@@ -4,12 +4,11 @@ import './styles.css';
 
 
 class TopBar extends Component {
-    state = {}
     render() { 
         return (
             <Navbar fixedTop navbar-expand-sm>
                 <Nav bsStyle="pills" pullLeft>
-                    <NavItem>
+                    <NavItem onClick={() => this.props.toggleSidebar()}>
                         <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
