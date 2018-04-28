@@ -12,7 +12,16 @@ class Home extends Component {
       <div>
         <TopBar />
         {testPosts.map((item) => 
-          <Post description={ item } ></Post>
+          <Post 
+            title={ item.title }
+            user={ item.user }
+            duration={ item.duration }
+            location={ item.location }
+            rating={ item.rating }
+            price={ item.price }
+            review={ item.review }
+            guestNum={ item.guestNum }
+          />
         )}
         <BottomBar />
       </div>
