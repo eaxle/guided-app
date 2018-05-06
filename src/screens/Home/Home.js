@@ -3,6 +3,7 @@ import Sidebar from 'react-sidebar';
 import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
+import SecBottomBar from '../../components/SecBottomBar';
 import Post from '../../components/Post';
 import './styles.css';
 
@@ -31,18 +32,19 @@ class Home extends Component {
           open={this.state.sidebarOpen}
           onSetOpen={this.onSetSidebarOpen}
           styles={sidebarStyle}>
-        {testPosts.map((item) => 
-          <Post 
-            title={ item.title }
-            user={ item.user }
-            duration={ item.duration }
-            location={ item.location }
-            rating={ item.rating }
-            price={ item.price }
-            review={ item.review }
-            guestNum={ item.guestNum }
-          />
-        )}
+          {testPosts.map((item) => 
+            <Post 
+              title={ item.title }
+              user={ item.user }
+              duration={ item.duration }
+              location={ item.location }
+              rating={ item.rating }
+              price={ item.price }
+              review={ item.review }
+              guestNum={ item.guestNum }
+            />
+          )}
+        <SecBottomBar />
         <BottomBar />
         </Sidebar>
       </div>

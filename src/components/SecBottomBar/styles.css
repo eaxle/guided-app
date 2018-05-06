@@ -53,6 +53,10 @@
     text-align: center;
 }
 
-.active {
-    border-bottom: 2px solid purple;
+#secBar {
+    margin-bottom: 33px;
+}
+
+.secActive {
+    border-bottom: 2px solid green;
 }
