@@ -34,11 +34,19 @@
 }
 
 @media only screen and (max-width: 420px) {
-     .collapse {
-        display: none;
-     }
+    .collapse {
+    display: none;
+    }
 
-     .navbar-header {
-        display: block;
-     }
+    .navbar-header {
+    display: block;
+    }
+}
+
+.buttomRow {
+    margin: 0px;
+}
+
+.tab {
+    text-align: center;
 }

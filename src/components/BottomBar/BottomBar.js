@@ -8,18 +8,18 @@ class BottomBar extends Component {
         return (
             <Navbar fixedBottom>
                 <Grid>
-                    <Row>
+                    <Row className="bottomRow">
                         <Col xs={3}>
-                            Post
+                            <div className="tab">Post</div>
                         </Col>
                         <Col xs={3}>
-                            Do
+                            <div className="tab">Do</div>
                         </Col>
                         <Col xs={3}>
-                            Use
+                            <div className="tab">Use</div>
                         </Col>
                         <Col xs={3}>
-                            Stay
+                            <div className="tab">Stay</div>
                         </Col>
                     </Row>
                 </Grid>
