@@ -8,7 +8,7 @@ class Post extends Component {
 
     render() { 
         return (  
-            <Thumbnail alt="242*200" src="/sampleImg.jpg">
+            <Thumbnail alt="242x200" src="/sampleImg.jpg">
                 <Grid>
                     <Row>
                         <Col xs={8}>

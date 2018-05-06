@@ -30,7 +30,9 @@ class Home extends Component {
           open={this.state.sidebarOpen}
           onSetOpen={this.onSetSidebarOpen}
           styles={sidebarStyle}>
-          <Feed />  
+          <div className="content">
+            <Feed />  
+          </div>
           <SecBottomBar />
           <BottomBar />
         </Sidebar>
