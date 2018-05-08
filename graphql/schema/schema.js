@@ -1,4 +1,4 @@
-import makeExecutableSchema from 'graphql-tools';
+import { makeExecutableSchema } from 'graphql-tools';
 import { v1 as neo4j } from 'neo4j-driver';
 
 // neo4j database schema

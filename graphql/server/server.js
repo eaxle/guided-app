@@ -1,7 +1,7 @@
 import express from 'express';
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import bodyParser from 'body-parser';
-import { schema, rootValue, context } from './schema';
+import { schema, rootValue, context } from '../schema/schema';
 
 // initialize the server
 const server = express();
