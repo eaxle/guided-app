@@ -34,6 +34,7 @@ export const schema = makeExecutableSchema({
     resolvers
 });
 
+// export a function to get context
 let driver;
 
 export function context(headers, secrets) {
@@ -43,4 +44,15 @@ export function context(headers, secrets) {
   return {
       driver
   }  
+};
+
+// export a root value
+export const rootValue = {};
+
+// export a root function
+export function rootFunction(hearder, secrets) {
+    return {
+        hearder,
+        secrets
+    }
 };
