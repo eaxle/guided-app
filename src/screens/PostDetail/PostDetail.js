@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Thumbnail, Image, Grid, Row, Col } from 'react-bootstrap';
 import Rating from '../../components/Rating';
 import OverflowText from '../../components/OverflowText';
+import TextFrom from '../../components/TextForm';
 import './styles.css';
 
 class PostDetail extends Component {
@@ -48,7 +49,7 @@ class PostDetail extends Component {
         <span className="title">Discription</span>
         <a href="#"><span className="title">(Edit)</span></a>
         <OverflowText text={this.props.description} /> 
-        <textarea className="textBox"/>
+        <TextFrom />
       </Thumbnail>
     )
   }

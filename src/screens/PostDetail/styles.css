@@ -30,8 +30,3 @@ Row {
 .right {
     float: right;
 }
-
-.textBox {
-    border: solid 1px black;
-    width: 100%;
-}
