@@ -27,11 +27,14 @@ server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
     query: `
         {
-            UserByName(name: "Jerry") {
-                name
-            }
+
         }
-   `
+    `,
+    mutation: `
+        {
+
+        }
+    `
   }));
 
 server.listen(PORT, () => {

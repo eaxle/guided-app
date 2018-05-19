@@ -9,25 +9,24 @@ const typeDefs = `
     }
 
     type Query {
-        UserByName(name: String): [User]
+        userByName(name: String): [User]
+    }
+
+    type Mutation {
+        createUser(name: String): User
     }
 `;
 
 // resolver functions for schema field
 const resolvers = {
     Query: {
-        // userByName: (root, args, context) => {
-        //     let session = context.driver.session();
-        //     let query = "";
-        //     return session.run(query, args)
-        //         .then(result => {
-        //             return result.records.map(record => {
-        //                 return record.get("user").properties
-        //             })
-        //         })
-        // }
-        UserByName(object, params, ctx, resolveInfo) {
-            return neo4jgraphql(object, params, ctx, resolveInfo);
+        userByName: function(object, params, ctx, resolveInfo) {
+            return neo4jgraphql(object, params, ctx, resolveInfo, true);
+        }
+    },
+    Mutation: {
+        createUser: function({object, params, ctx, resolveInfo}) {
+            return neo4jgraphql(object, params, ctx, resolveInfo, true);
         }
     }
 };
@@ -42,12 +41,12 @@ export const schema = makeExecutableSchema({
 let driver;
 
 export function context(headers, secrets) {
-  if (!driver) {
-      driver = neo4j.driver(secrets.NEO4J_URI || "bolt://localhost:7687", neo4j.auth.basic(secrets.NEO4J_USER || "neo4j", secrets.NEO4J_PASSWORD || "123456"))
-  }
-  return {
-      driver
-  }  
+    if (!driver) {
+        driver = neo4j.driver(secrets.NEO4J_URI || "bolt://localhost:7687", neo4j.auth.basic(secrets.NEO4J_USER || "neo4j", secrets.NEO4J_PASSWORD || "123456"))
+    }
+    return {
+        driver
+    }
 };
 
 // export a root value
