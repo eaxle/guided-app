@@ -27,7 +27,7 @@ server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
     query: `
         {
-            userByName(subString:"Jerry") {
+            UserByName(name: "Jerry") {
                 name
             }
         }

@@ -1,5 +1,6 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { v1 as neo4j } from 'neo4j-driver';
+import { neo4jgraphql } from 'neo4j-graphql-js';
 
 // neo4j database schema
 const typeDefs = `
@@ -8,22 +9,25 @@ const typeDefs = `
     }
 
     type Query {
-        userByName(subString: String!): [User]
+        UserByName(name: String): [User]
     }
 `;
 
 // resolver functions for schema field
 const resolvers = {
     Query: {
-        userByName: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "";
-            return session.run(query, args)
-                .then(result => {
-                    return result.records.map(record => {
-                        return record.get("user").properties
-                    })
-                })
+        // userByName: (root, args, context) => {
+        //     let session = context.driver.session();
+        //     let query = "";
+        //     return session.run(query, args)
+        //         .then(result => {
+        //             return result.records.map(record => {
+        //                 return record.get("user").properties
+        //             })
+        //         })
+        // }
+        UserByName(object, params, ctx, resolveInfo) {
+            return neo4jgraphql(object, params, ctx, resolveInfo);
         }
     }
 };
