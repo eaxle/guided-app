@@ -24,9 +24,10 @@ const resolvers = {
             return neo4jgraphql(object, params, ctx, resolveInfo, true);
         }
     },
+    
     Mutation: {
-        createUser: function({object, params, ctx, resolveInfo}) {
-            return neo4jgraphql(object, params, ctx, resolveInfo, true);
+        createUser: function() {
+            return 
         }
     }
 };
