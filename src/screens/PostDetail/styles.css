@@ -30,3 +30,7 @@ Row {
 .right {
     float: right;
 }
+
+.section {
+    padding-top: 20px;
+}

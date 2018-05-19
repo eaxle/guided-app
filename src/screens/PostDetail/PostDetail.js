@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
-import { Thumbnail, Image, Grid, Row, Col } from 'react-bootstrap';
+import { Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
 import Rating from '../../components/Rating';
 import OverflowText from '../../components/OverflowText';
 import TextFrom from '../../components/TextForm';
+import ListEditor from '../../components/ListEditor';
 import './styles.css';
 
 class PostDetail extends Component {
-  state = {}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      toggleEditDiscription: false,
+      toggleEditProvide: false,
+    }
+
+    this.editDiscription = this.editDiscription.bind(this);
+    this.editProvide = this.editProvide.bind(this);
+  }
+
+  editDiscription() {
+    this.setState((prevStat) => ({
+      toggleEditDiscription: !prevStat.toggleEditDiscription
+    }));
+  }
+
+  editProvide() {
+    this.setState(prevStat => ({
+      toggleEditProvide: !prevStat.toggleEditProvide
+    }))
+  }
 
   render() {
     return (
@@ -46,11 +69,21 @@ class PostDetail extends Component {
             </Col>
           </Row>
         </Grid>
-        <span className="title">Discription</span>
-        <a href="#"><span className="title">(Edit)</span></a>
-        <OverflowText text={this.props.description} /> 
-        <TextFrom />
-      </Thumbnail>
+        <div className="section">
+          <span className="title">Discription</span>
+          <a onClick={this.editDiscription} className="title">{this.state.toggleEditDiscription ? "(Discard)" : "(Edit)"}</a>
+          {this.state.toggleEditDiscription ? <TextFrom /> : <OverflowText text={this.props.description} />}
+        </div>
+        <div className="section">
+          <span className="title">What's provided?</span>
+          <a onClick={this.editProvide}><span className="title">{this.state.toggleEditProvide ? "(Discard)" : "(Edit)"}</span></a>
+          {this.state.toggleEditProvide ? <ListEditor /> :
+            <ListGroup>
+            {this.props.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
+            </ListGroup>
+          }
+        </div>
+        </Thumbnail>
     )
   }
 }
