@@ -27,12 +27,16 @@ server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
     query: `
         {
-
+            userByName(name: "Sharon") {
+                name
+            }
         }
     `,
     mutation: `
         {
-
+            createUser(name: "Shadow") {
+                name
+            }
         }
     `
   }));

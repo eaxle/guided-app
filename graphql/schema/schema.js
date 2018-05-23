@@ -1,6 +1,6 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { v1 as neo4j } from 'neo4j-driver';
-import { neo4jgraphqljs } from 'neo4j-graphql-js';
+import { neo4jgraphql } from 'neo4j-graphql-js';
 
 // neo4j database schema
 const typeDefs = `
@@ -13,7 +13,7 @@ const typeDefs = `
     }
 
     type Mutation {
-        createUser(name: String): [User]
+        createUser(name: String): User
     }
 `;
 
@@ -21,13 +21,13 @@ const typeDefs = `
 const resolvers = {
     Query: {
         userByName: function(object, params, ctx, resolveInfo) {
-            return neo4jgraphqljs(object, params, ctx, resolveInfo, true);
+            return neo4jgraphql(object, params, ctx, resolveInfo, true);
         }
     },
 
     Mutation: {
-        createUser: function() {
-            return 
+        createUser: function(object, params, ctx, resolveInfo) {
+            return neo4jgraphql(object, params, ctx, resolveInfo, true);
         }
     }
 };
