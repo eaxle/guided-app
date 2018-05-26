@@ -4,6 +4,7 @@ import Rating from '../../components/Rating';
 import OverflowText from '../../components/OverflowText';
 import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
+import MapSnap from '../../components/MapSnap';
 import './styles.css';
 
 class PostDetail extends Component {
@@ -82,6 +83,9 @@ class PostDetail extends Component {
             {this.props.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
             </ListGroup>
           }
+        </div>
+        <div className="section">
+          <MapSnap></MapSnap>
         </div>
         </Thumbnail>
     )
