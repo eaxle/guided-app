@@ -3,7 +3,7 @@ import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import bodyParser from 'body-parser';
 import { schema, rootValue, context } from '../schema/schema';
 
-// initialize the server
+// Initialize the server
 const server = express();
 const PORT = 3000;
 
@@ -23,22 +23,23 @@ server.use('/graphql', bodyParser.json(), graphqlExpress(request => ({
     context: context(request.headers, process.env)
 })));
 
+// Use graphiql to test Query and Mutation functions
 server.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql',
-    query: `
-        {
-            userByName(name: "Sharon") {
-                name
-            }
-        }
-    `,
-    mutation: `
-        {
-            createUser(name: "Shadow") {
-                name
-            }
-        }
-    `
+    endpointURL: '/graphql'
+    // query: `
+    //     {
+    //         userByName(name: "Sharon") {
+    //             name
+    //         }
+    //     }
+    // `,
+    // mutation: `
+    //     {
+    //         createUser(name: "Shadow") {
+    //             name
+    //         }
+    //     }
+    // `
   }));
 
 server.listen(PORT, () => {

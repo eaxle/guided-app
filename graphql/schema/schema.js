@@ -2,7 +2,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { v1 as neo4j } from 'neo4j-driver';
 import { neo4jgraphql } from 'neo4j-graphql-js';
 
-// neo4j database schema
+// Database schema
 const typeDefs = `
     type User {
         name: String
@@ -17,14 +17,16 @@ const typeDefs = `
     }
 `;
 
-// resolver functions for schema field
+// Resolver functions for schema
 const resolvers = {
+    // Query is used for match data
     Query: {
         userByName: function(object, params, ctx, resolveInfo) {
             return neo4jgraphql(object, params, ctx, resolveInfo, true);
         }
     },
 
+    // Mutation is used for create, update, and delete data
     Mutation: {
         createUser: function(object, params, ctx, resolveInfo) {
             return neo4jgraphql(object, params, ctx, resolveInfo, true);
@@ -32,13 +34,13 @@ const resolvers = {
     }
 };
 
-// generate schema and export as "schema"
+// Generate schema and export as "schema"
 export const schema = makeExecutableSchema({
     typeDefs,
     resolvers
 });
 
-// export a function to get context
+// Export a function to get context
 let driver;
 
 export function context(headers, secrets) {
@@ -50,10 +52,10 @@ export function context(headers, secrets) {
     }
 };
 
-// export a root value
+// Export a root value
 export const rootValue = {};
 
-// export a root function
+// Export a root function
 export function rootFunction(hearder, secrets) {
     return {
         hearder,
