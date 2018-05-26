@@ -8,6 +8,9 @@ class LocSearchBox extends Component {
   constructor(props) {
     super(props);
     this.inputBox = React.createRef();
+    this.state = {
+      location: ""
+    }
   }
 
   componentDidMount() {
@@ -29,9 +32,13 @@ class LocSearchBox extends Component {
           yesIWantToUseGoogleMapApiInternals
         />
         <input 
+          className="searchInput"
           ref={this.inputBox}
           type="text"
+          value={this.state.location}
+          onChange={e => { this.setState({ location: e.target.value }) }}
         />
+        <a onClick={e => {this.setState({location: ""}) }}>clear</a>
       </div>
     )
   }

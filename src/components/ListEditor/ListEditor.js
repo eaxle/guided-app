@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InputGroup, Button, FormGroup, FormControl, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { InputGroup, Button, FormControl, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './styles.css';
 
 class ListEditor extends Component {
