@@ -34,3 +34,14 @@ Row {
 .section {
     padding-top: 20px;
 }
+
+.floatButtonGroup {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+}
+
+.floatButton {
+    margin: 5px;
+    width: 70px;
+}
