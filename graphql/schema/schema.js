@@ -13,6 +13,7 @@ const typeDefs = `
 
     type Mutation {
         createUser(name:String): User
+        updateUser(name:String): User
     }
 `;
 
@@ -25,7 +26,7 @@ const resolvers = {
             let session = context.driver.session();
             let query = "MATCH (user:User {name:{name}}) RETURN user";
             return session.run(query, args)
-                .then( result => { return result.records.map(record => { return record.get("user").properties})});
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
         }
     },
 
@@ -36,6 +37,14 @@ const resolvers = {
             let session = context.driver.session();
             let query = "CREATE (:User {name:{name}})";
             session.run(query, args);
+        },
+
+        // Update a user
+        updateUser: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (user:User {name:{name}}) SET user.name = 'NameChanged' RETURN user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
         }
     }
 
