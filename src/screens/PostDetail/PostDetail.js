@@ -5,6 +5,7 @@ import OverflowText from '../../components/OverflowText';
 import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
 import MapSnap from '../../components/MapSnap';
+import LocSearchBox from '../../components/LocSearchBox';
 import './styles.css';
 
 class PostDetail extends Component {
@@ -85,7 +86,8 @@ class PostDetail extends Component {
           }
         </div>
         <div className="section">
-          <MapSnap></MapSnap>
+        
+          <LocSearchBox></LocSearchBox>
         </div>
         </Thumbnail>
     )
