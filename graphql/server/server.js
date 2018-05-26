@@ -28,13 +28,16 @@ server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql'
 // Query Type test
 // query {
-//     usersByName(name: "") {
+//     usersByName(name: "Jerry") {
 //         name
 //     }
 // }
 // Mutation Type test
 // mutation {
-//     createUser(name: "") {
+//     createUser(name: "Jerry") {
+//         name
+//     }
+//     updateUser(name: "Jerry") {
 //         name
 //     }
 // }
