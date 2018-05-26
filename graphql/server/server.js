@@ -26,20 +26,18 @@ server.use('/graphql', bodyParser.json(), graphqlExpress(request => ({
 // Use graphiql to test Query and Mutation functions
 server.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql'
-    // query: `
-    //     {
-    //         userByName(name: "Sharon") {
-    //             name
-    //         }
-    //     }
-    // `,
-    // mutation: `
-    //     {
-    //         createUser(name: "Shadow") {
-    //             name
-    //         }
-    //     }
-    // `
+// Query Type test
+// query {
+//     usersByName(name: "") {
+//         name
+//     }
+// }
+// Mutation Type test
+// mutation {
+//     createUser(name: "") {
+//         name
+//     }
+// }
   }));
 
 server.listen(PORT, () => {
