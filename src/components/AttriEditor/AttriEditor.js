@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Col, Grid, Row, InputGroup } from 'react-bootstrap';
+import { FormControl, Col, Grid, Row } from 'react-bootstrap';
 import './styles.css';
 
 class AttriEditor extends Component {
@@ -68,6 +68,8 @@ class AttriEditor extends Component {
           guestMax: e.target.value
         })
         break;
+      default:
+        console.log("uncatched case, error");
     }
   }
 
