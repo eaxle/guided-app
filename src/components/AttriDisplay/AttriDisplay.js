@@ -15,10 +15,10 @@ class AttriDisplay extends Component {
           <span className="title">{this.props.post.title}</span>
           <Row>
             <Col xs={6}>
-              <span className="attr">{this.props.post.location}</span>
+              <span className="attr">{this.props.post.location.city + ", " + this.props.post.location.country}</span>
             </Col>
             <Col xs={6}>
-              <span className="attr right">{this.props.post.duration}</span>
+              <span className="attr right">{this.props.post.duration + " " + this.props.post.timeUnit}</span>
             </Col>
           </Row>
           <Row>
@@ -26,15 +26,21 @@ class AttriDisplay extends Component {
               <span className="attr"><Rating rating={this.props.post.rating} /></span>
             </Col>
             <Col xs={6}>
-              <span className="attr right">{'$' + this.props.post.price}</span>
+              <span className="attr right">{
+                this.props.post.currency + 
+                this.props.post.price +
+                " Per " + 
+                this.props.post.guestNum + 
+                " Guests"
+              }</span>
             </Col>
           </Row>
           <Row>
             <Col xs={6}>
-              <span className="attr">{this.props.post.review + " Reviews"}</span>
+              <span className="attr">{this.props.post.reviewCount + " Reviews"}</span>
             </Col>
             <Col xs={6}>
-              <span className="attr right">{"Per " + this.props.post.guestNum + " Guests"}</span>
+              <span className="attr right">{"Max " + this.props.post.guestMax + " Guests"}</span>
             </Col>
           </Row>
         </Grid>
