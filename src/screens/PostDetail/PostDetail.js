@@ -62,46 +62,46 @@ class PostDetail extends Component {
                 <Image className="icon" src="/sampleIcon.jpg" circle />
               </Col>
               <Col xs={4}>
-                <span className="attr right">{this.props.user}</span>
+                <span className="attr right">{this.props.post.user}</span>
               </Col>
             </Row>
-            <span className="title">{this.props.title}</span>
+            <span className="title">{this.props.post.title}</span>
             <Row>
               <Col xs={6}>
-                <span className="attr">{this.props.location}</span>
+                <span className="attr">{this.props.post.location}</span>
               </Col>
               <Col xs={6}>
-                <span className="attr right">{this.props.duration}</span>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6}>
-                <span className="attr"><Rating rating={this.props.rating} /></span>
-              </Col>
-              <Col xs={6}>
-                <span className="attr right">{'$' + this.props.price}</span>
+                <span className="attr right">{this.props.post.duration}</span>
               </Col>
             </Row>
             <Row>
               <Col xs={6}>
-                <span className="attr">{this.props.review + " Reviews"}</span>
+                <span className="attr"><Rating rating={this.props.post.rating} /></span>
               </Col>
               <Col xs={6}>
-                <span className="attr right">{"Per " + this.props.guestNum + " Guests"}</span>
+                <span className="attr right">{'$' + this.props.post.price}</span>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={6}>
+                <span className="attr">{this.props.post.review + " Reviews"}</span>
+              </Col>
+              <Col xs={6}>
+                <span className="attr right">{"Per " + this.props.post.guestNum + " Guests"}</span>
               </Col>
             </Row>
           </Grid>
           <div className="section">
             <span className="title">Discription</span>
             <a onClick={this.editDiscription} className="title">{this.state.toggleEditDiscription ? "(Discard)" : "(Edit)"}</a>
-            {this.state.toggleEditDiscription ? <TextFrom /> : <OverflowText text={this.props.description} />}
+            {this.state.toggleEditDiscription ? <TextFrom /> : <OverflowText text={this.props.post.description} />}
           </div>
           <div className="section">
             <span className="title">What's provided?</span>
             <a onClick={this.editProvide}><span className="title">{this.state.toggleEditProvide ? "(Discard)" : "(Edit)"}</span></a>
             {this.state.toggleEditProvide ? <ListEditor /> :
               <ListGroup>
-              {this.props.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
+              {this.props.post.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
               </ListGroup>
             }
           </div>
