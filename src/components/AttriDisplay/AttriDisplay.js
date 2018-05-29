@@ -12,7 +12,6 @@ class AttriDisplay extends Component {
     return ( 
       <div>
         <Grid>
-          <span className="title">{this.props.post.title}</span>
           <Row>
             <Col xs={6}>
               <span className="attr">{this.props.post.location.city + ", " + this.props.post.location.country}</span>

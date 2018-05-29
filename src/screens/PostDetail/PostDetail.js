@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
 import AttriDisplay from '../../components/AttriDisplay';
+import AttriEditor from '../../components/AttriEditor';
 import OverflowText from '../../components/OverflowText';
 import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
@@ -13,15 +14,23 @@ class PostDetail extends Component {
     super(props);
 
     this.state = {
+      AttriEditMode: false,
       DescriptionEditMode: false,
       ProvideEditMode: false,
       MeetLocEditMode: false,
     }
 
+    this.toggleEditAttri = this.toggleEditAttri.bind(this);
     this.toggleEditDescription = this.toggleEditDescription.bind(this);
     this.editDescription = this.editDescription.bind(this);
     this.toggleEditProvide = this.toggleEditProvide.bind(this);
     this.toggleEditMeetLoc = this.toggleEditMeetLoc.bind(this);
+  }
+
+  toggleEditAttri() {
+    this.setState((prevStat) => ({
+      AttriEditMode: !prevStat.AttriEditMode
+    }));
   }
 
   toggleEditDescription() {
@@ -72,7 +81,17 @@ class PostDetail extends Component {
                 </Col>
               </Row>
           </Grid>
-          <AttriDisplay post={this.props.post}/>
+          <div className="section">
+            {this.state.AttriEditMode ?
+              <span className="title">Attribute</span> :
+              <span className="title">{this.props.post.title}</span>
+            }
+            <a onClick={this.toggleEditAttri} className="title">{this.state.AttriEditMode ? "(Discard)" : "(Edit)"}</a>
+            {this.state.AttriEditMode ?
+              <AttriEditor post={this.props.post}/> :
+              <AttriDisplay post={this.props.post}/>
+            }
+          </div>
           <div className="section">
             <span className="title">Description</span>
             <a onClick={this.toggleEditDescription} className="title">{this.state.DescriptionEditMode ? "(Discard)" : "(Edit)"}</a>
