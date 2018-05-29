@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
-import Rating from '../../components/Rating';
+import AttriDisplay from '../../components/AttriDisplay';
 import OverflowText from '../../components/OverflowText';
 import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
@@ -69,34 +69,10 @@ class PostDetail extends Component {
               </Col>
               <Col xs={4}>
                 <span className="attr right">{this.props.post.user}</span>
-              </Col>
-            </Row>
-            <span className="title">{this.props.post.title}</span>
-            <Row>
-              <Col xs={6}>
-                <span className="attr">{this.props.post.location}</span>
-              </Col>
-              <Col xs={6}>
-                <span className="attr right">{this.props.post.duration}</span>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6}>
-                <span className="attr"><Rating rating={this.props.post.rating} /></span>
-              </Col>
-              <Col xs={6}>
-                <span className="attr right">{'$' + this.props.post.price}</span>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6}>
-                <span className="attr">{this.props.post.review + " Reviews"}</span>
-              </Col>
-              <Col xs={6}>
-                <span className="attr right">{"Per " + this.props.post.guestNum + " Guests"}</span>
-              </Col>
-            </Row>
+                </Col>
+              </Row>
           </Grid>
+          <AttriDisplay post={this.props.post}/>
           <div className="section">
             <span className="title">Description</span>
             <a onClick={this.toggleEditDescription} className="title">{this.state.DescriptionEditMode ? "(Discard)" : "(Edit)"}</a>
