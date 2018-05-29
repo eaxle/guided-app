@@ -15,7 +15,7 @@ class PostDetail extends Component {
     this.state = {
       DescriptionEditMode: false,
       ProvideEditMode: false,
-      ProvideEditMeetLoc: false,
+      MeetLocEditMode: false,
     }
 
     this.toggleEditDescription = this.toggleEditDescription.bind(this);
@@ -43,7 +43,7 @@ class PostDetail extends Component {
 
   toggleEditMeetLoc() {
     this.setState(prevStat => ({
-      ProvideEditMeetLoc: !prevStat.ProvideEditMeetLoc
+      MeetLocEditMode: !prevStat.MeetLocEditMode
     }))
   }
 
@@ -92,8 +92,8 @@ class PostDetail extends Component {
           </div>
           <div className="section">
             <span className="title">Where will we meet?</span>
-            <a onClick={this.toggleEditMeetLoc}><span className="title">{this.state.ProvideEditMeetLoc ? "(Discard)" : "(Edit)"}</span></a>
-            {this.state.ProvideEditMeetLoc ? <LocSearchBox /> : <MapSnap />
+            <a onClick={this.toggleEditMeetLoc}><span className="title">{this.state.MeetLocEditMode ? "(Discard)" : "(Edit)"}</span></a>
+            {this.state.MeetLocEditMode ? <LocSearchBox /> : <MapSnap />
             }
           </div>
         </Thumbnail>
