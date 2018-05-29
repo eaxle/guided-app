@@ -13,31 +13,37 @@ class PostDetail extends Component {
     super(props);
 
     this.state = {
-      toggleEditDiscription: false,
-      toggleEditProvide: false,
-      toggleEditMeetLoc: false,
+      DescriptionEditMode: false,
+      ProvideEditMode: false,
+      ProvideEditMeetLoc: false,
     }
 
-    this.editDiscription = this.editDiscription.bind(this);
-    this.editProvide = this.editProvide.bind(this);
-    this.editMeetLoc = this.editMeetLoc.bind(this);
+    this.toggleEditDescription = this.toggleEditDescription.bind(this);
+    this.editDescription = this.editDescription.bind(this);
+    this.toggleEditProvide = this.toggleEditProvide.bind(this);
+    this.toggleEditMeetLoc = this.toggleEditMeetLoc.bind(this);
   }
 
-  editDiscription() {
+  toggleEditDescription() {
     this.setState((prevStat) => ({
-      toggleEditDiscription: !prevStat.toggleEditDiscription
+      DescriptionEditMode: !prevStat.DescriptionEditMode
     }));
   }
 
-  editProvide() {
+  editDescription(newDescription) {
+    this.props.editDescription(newDescription);
+    this.toggleEditDescription();
+  }
+
+  toggleEditProvide() {
     this.setState(prevStat => ({
-      toggleEditProvide: !prevStat.toggleEditProvide
+      ProvideEditMode: !prevStat.ProvideEditMode
     }))
   }
 
-  editMeetLoc() {
+  toggleEditMeetLoc() {
     this.setState(prevStat => ({
-      toggleEditMeetLoc: !prevStat.toggleEditMeetLoc
+      ProvideEditMeetLoc: !prevStat.ProvideEditMeetLoc
     }))
   }
 
@@ -92,14 +98,17 @@ class PostDetail extends Component {
             </Row>
           </Grid>
           <div className="section">
-            <span className="title">Discription</span>
-            <a onClick={this.editDiscription} className="title">{this.state.toggleEditDiscription ? "(Discard)" : "(Edit)"}</a>
-            {this.state.toggleEditDiscription ? <TextFrom /> : <OverflowText text={this.props.post.description} />}
+            <span className="title">Description</span>
+            <a onClick={this.toggleEditDescription} className="title">{this.state.DescriptionEditMode ? "(Discard)" : "(Edit)"}</a>
+            {this.state.DescriptionEditMode ? 
+              <TextFrom text={this.props.post.description} handleSubmit={this.editDescription}/> : 
+              <OverflowText text={this.props.post.description} />
+            }
           </div>
           <div className="section">
             <span className="title">What's provided?</span>
-            <a onClick={this.editProvide}><span className="title">{this.state.toggleEditProvide ? "(Discard)" : "(Edit)"}</span></a>
-            {this.state.toggleEditProvide ? <ListEditor /> :
+            <a onClick={this.toggleEditProvide}><span className="title">{this.state.ProvideEditMode ? "(Discard)" : "(Edit)"}</span></a>
+            {this.state.ProvideEditMode ? <ListEditor /> :
               <ListGroup>
               {this.props.post.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
               </ListGroup>
@@ -107,8 +116,8 @@ class PostDetail extends Component {
           </div>
           <div className="section">
             <span className="title">Where will we meet?</span>
-            <a onClick={this.editMeetLoc}><span className="title">{this.state.toggleEditMeetLoc ? "(Discard)" : "(Edit)"}</span></a>
-            {this.state.toggleEditMeetLoc ? <LocSearchBox /> : <MapSnap />
+            <a onClick={this.toggleEditMeetLoc}><span className="title">{this.state.ProvideEditMeetLoc ? "(Discard)" : "(Edit)"}</span></a>
+            {this.state.ProvideEditMeetLoc ? <LocSearchBox /> : <MapSnap />
             }
           </div>
         </Thumbnail>
