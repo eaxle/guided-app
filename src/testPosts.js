@@ -10,7 +10,7 @@ const testPosts = [
         review: 18,
         guestNum: 2,
         description: "1234567890",
-        provide: ["line1", "line2", "line3"],
+        provided: ["line1", "line2", "line3"],
         required: ["line1", "line2", "line3"],
         accessibility: "On recommend tolerably my belonging or am. Mutual has cannot beauty indeed",
         address: "123 ABC street, DEF"

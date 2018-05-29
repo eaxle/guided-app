@@ -110,7 +110,7 @@ class PostDetail extends Component {
             <a onClick={this.toggleEditProvide}><span className="title">{this.state.ProvideEditMode ? "(Discard)" : "(Edit)"}</span></a>
             {this.state.ProvideEditMode ? <ListEditor /> :
               <ListGroup>
-              {this.props.post.provide.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
+              {this.props.post.provided.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
               </ListGroup>
             }
           </div>
