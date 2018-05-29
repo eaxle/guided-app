@@ -25,22 +25,12 @@ server.use('/graphql', bodyParser.json(), graphqlExpress(request => ({
 
 // Use graphiql to test Query and Mutation functions
 server.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql'
-    // query: `
-    //     {
-    //         userByName(name: "Sharon") {
-    //             name
-    //         }
-    //     }
-    // `,
-    // mutation: `
-    //     {
-    //         createUser(name: "Shadow") {
-    //             name
-    //         }
-    //     }
-    // `
-  }));
+    endpointURL: '/graphql',
+// Query Type test 
+    query: ``,
+// Mutation Type test
+    mutation: ``
+}));
 
 server.listen(PORT, () => {
     console.log(`GraphQL Server is now running on http://localhost:${PORT}/graphql`);

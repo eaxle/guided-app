@@ -1,6 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { v1 as neo4j } from 'neo4j-driver';
-import { neo4jgraphql } from 'neo4j-graphql-js';
 
 // Database schema
 const typeDefs = `
@@ -9,11 +8,13 @@ const typeDefs = `
     }
 
     type Query {
-        userByName(name: String): [User]
+        usersByName(name: String): [User]
     }
 
     type Mutation {
-        createUser(name: String): User
+        createUser(name:String): User
+        updateUser(name:String): User
+        deleteUser(name:String): User
     }
 `;
 
@@ -21,17 +22,42 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        userByName: function(object, params, ctx, resolveInfo) {
-            return neo4jgraphql(object, params, ctx, resolveInfo, true);
+        // Fetch users by name
+        usersByName: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (user:User {name:{name}}) RETURN user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
         }
     },
 
     // Mutation is used for create, update, and delete data
     Mutation: {
-        createUser: function(object, params, ctx, resolveInfo) {
-            return neo4jgraphql(object, params, ctx, resolveInfo, true);
+        // Create a new user
+        createUser: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "CREATE (:User {name:{name}})";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+        },
+
+        // Update a user
+        updateUser: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (user:User {name:{name}}) SET user.name = 'NameChanged' RETURN user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+        },
+
+        // Delete a user
+        deleteUser: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (user:User {name:{name}}) DELETE user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
         }
     }
+
 };
 
 // Generate schema and export as "schema"
