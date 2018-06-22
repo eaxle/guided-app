@@ -7,6 +7,7 @@ import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
 import MapSnap from '../../components/MapSnap';
 import LocSearchBox from '../../components/LocSearchBox';
+import CompactCalendar from '../../components/CompactCalendar';
 import './styles.css';
 
 class PostDetail extends Component {
@@ -114,6 +115,10 @@ class PostDetail extends Component {
             <a onClick={this.toggleEditMeetLoc}><span className="title">{this.state.MeetLocEditMode ? "(Discard)" : "(Edit)"}</span></a>
             {this.state.MeetLocEditMode ? <LocSearchBox /> : <MapSnap />
             }
+          </div>
+          <div className="section">
+            <span className="title">Where will we meet?</span>
+            <CompactCalendar />
           </div>
         </Thumbnail>
       </div>
