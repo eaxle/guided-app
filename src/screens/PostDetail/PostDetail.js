@@ -7,7 +7,7 @@ import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
 import MapSnap from '../../components/MapSnap';
 import LocSearchBox from '../../components/LocSearchBox';
-import CompactCalendar from '../../components/CompactCalendar';
+import EventTimeDisplay from '../../components/EventTimeDisplay';
 import './styles.css';
 
 class PostDetail extends Component {
@@ -117,8 +117,8 @@ class PostDetail extends Component {
             }
           </div>
           <div className="section">
-            <span className="title">Where will we meet?</span>
-            <CompactCalendar />
+            <span className="title">When will we meet?</span>
+            <EventTimeDisplay />
           </div>
         </Thumbnail>
       </div>
