@@ -4,7 +4,8 @@ import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-import CurrentPost from '../../containers/CurrentPost';
+// import CurrentPost from '../../containers/CurrentPost';
+import CalendarView from '../CalendarView';
 import './styles.css';
 
 class Home extends Component {
@@ -31,7 +32,7 @@ class Home extends Component {
           onSetOpen={this.onSetSidebarOpen}
           styles={sidebarStyle}>
           <div className="content">
-            <CurrentPost />
+            <CalendarView />
           </div>
           <SecBottomBar />
           <BottomBar />
