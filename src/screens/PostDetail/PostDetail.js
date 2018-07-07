@@ -96,8 +96,8 @@ class PostDetail extends Component {
           <div className="section">
             <span className="title">Description</span>
             <a onClick={this.toggleEditDescription} className="title">{this.state.DescriptionEditMode ? "(Discard)" : "(Edit)"}</a>
-            {this.state.DescriptionEditMode ? 
-              <TextFrom text={this.props.post.description} handleSubmit={this.editDescription}/> : 
+            {this.state.DescriptionEditMode ?
+              <TextFrom text={this.props.post.description} handleSubmit={this.editDescription}/> :
               <OverflowText text={this.props.post.description} />
             }
           </div>

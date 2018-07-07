@@ -4,7 +4,7 @@ import './styles.css';
 
 
 class TopBar extends Component {
-    render() { 
+    render() {
         return (
             <Navbar fixedTop navbar-expand-sm>
                 <Nav bsStyle="pills" pullLeft>
@@ -24,5 +24,5 @@ class TopBar extends Component {
         );
     }
 }
- 
+
 export default TopBar;
