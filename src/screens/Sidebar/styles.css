@@ -1,8 +1,27 @@
 .sidebarContainer {
     margin-top: 50px;
+    border-color: #979797;
+    border: 3px;
+    margin-bottom: 60px;
 }
 
 .type {
+    height: 5vh;
     font-size: 12px;
-    background: grey;
+    background: #D8D8D8;
+    border-color: #979797;
+    padding: 5px 0 5px 6px;
+
+}
+
+.othertype {
+  border-color: #979797;
+  height: 5%;
+  padding: 5px 0 5px 0;
+
+}
+
+.SidebarContainer img {
+    width: 10px;
+    height: 10px;
 }
