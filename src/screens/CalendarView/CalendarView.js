@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Calendar from 'react-calendar';
-import Calendar from 'react-calendar/dist/entry.nostyle'
+import Calendar from 'react-calendar/dist/entry.nostyle';
 
 var ScrollArea = require('react-scrollbar');
 // var ReactDOM = require('react-dom');
@@ -15,7 +15,7 @@ class CalendarView extends Component {
   render() {
     return (
       <div>
-        <ScrollArea
+        <div
           speed={0.8}
           className="area"
           contentClassName="content"
@@ -27,7 +27,7 @@ class CalendarView extends Component {
               value={this.state.date}
               />
           </div>
-        </ScrollArea>
+        </div>
       </div>
     );
   }
