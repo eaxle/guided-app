@@ -4,6 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import './index.css';
+import Home from './screens/Home';
+import Login from './screens/login/login';
 import Profile from './screens/Profile';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -11,7 +13,8 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Profile />
+
+    <Login />
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
