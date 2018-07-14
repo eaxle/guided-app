@@ -5,7 +5,7 @@ import './styles.css';
 class AttriEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       title: this.props.post.title,
       country: this.props.post.location.country,
       city: this.props.post.location.city,
@@ -73,8 +73,8 @@ class AttriEditor extends Component {
     }
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div>
         <form>
           <Grid>
@@ -192,10 +192,11 @@ class AttriEditor extends Component {
               </Col>
             </Row>
           </Grid>
+          <input class="button" />
         </form>
-      </div> 
+      </div>
     )
   }
 }
- 
+
 export default AttriEditor;

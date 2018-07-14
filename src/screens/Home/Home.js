@@ -33,9 +33,10 @@ class Home extends Component {
           <div className="content">
             <CurrentPost />
           </div>
-          <SecBottomBar />
           <BottomBar />
+          <SecBottomBar />
         </Sidebar>
+
       </div>
     );
   }
