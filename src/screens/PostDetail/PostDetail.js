@@ -62,13 +62,13 @@ class PostDetail extends Component {
       <div>
         <div className="floatButtonGroup">
           <div>
-            <Button className="floatButton">Publish</Button>
+            <Button className="floatButton publish">Publish</Button>
           </div>
           <div>
-            <Button className="floatButton">Draft</Button>
+            <Button className="floatButton draft">Draft</Button>
           </div>
           <div>
-            <Button className="floatButton">Delete</Button>
+            <Button className="floatButton delete">Delete</Button>
           </div>
         </div>
         <Thumbnail alt="242x200" src="/sampleImg.jpg">

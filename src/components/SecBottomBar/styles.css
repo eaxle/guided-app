@@ -43,6 +43,13 @@
     }
 }
 
+.mySecBtmBar {
+  position: fixed;
+  bottom: 0px;
+  z-index: 0;
+  width: 100%;
+}
+
 .bottomRow {
     margin: 0px;
     margin-top: 5px;

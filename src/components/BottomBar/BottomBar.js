@@ -18,7 +18,7 @@ class BottomBar extends Component {
         } else {
             return "tab";
         }
-    } 
+    }
 
     changeTab(e) {
         this.setState({
@@ -26,9 +26,9 @@ class BottomBar extends Component {
         })
     }
 
-    render() { 
+    render() {
         return (
-            <Navbar fixedBottom>
+            <Navbar className="myBtmBar">
                 <Grid>
                     <Row className="bottomRow">
                         <Col xs={3}>
@@ -49,5 +49,5 @@ class BottomBar extends Component {
         )
     }
 }
- 
+
 export default BottomBar;

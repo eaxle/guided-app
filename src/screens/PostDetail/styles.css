@@ -42,6 +42,24 @@ Row {
 }
 
 .floatButton {
-    margin: 5px;
-    width: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    width: 75px;
+    color: white;
+}
+
+.publish{
+  background-color: #3E9378;
+  border-color: #3E9378;
+}
+
+.draft{
+  background-color: #4C0C7E;
+  border-color: #4C0C7E;
+}
+
+.delete{
+  background-color: #CB191F;
+  border-color: #CB191F;
 }

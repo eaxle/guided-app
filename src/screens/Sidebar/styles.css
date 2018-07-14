@@ -3,6 +3,7 @@
     border-color: #979797;
     border: 3px;
     margin-bottom: 60px;
+    z-index: 100000;
 }
 
 .type {

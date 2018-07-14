@@ -34,9 +34,10 @@ class Home extends Component {
           <div className="content">
             <Login />
           </div>
-          <SecBottomBar />
           <BottomBar />
+          <SecBottomBar />
         </Sidebar>
+
       </div>
     );
   }
