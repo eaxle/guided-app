@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editDescription } from '../actions'
+import { editDescription, editAttributes } from '../actions'
 import PostDetail from '../screens/PostDetail';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  editDescription: description => dispatch(editDescription(description))
+  editDescription: description => dispatch(editDescription(description)),
+  editAttributes: attribute => dispatch(editAttributes(attribute))
 })
 
 export default connect(
