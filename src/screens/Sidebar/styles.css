@@ -1,28 +1,176 @@
-.sidebarContainer {
-    margin-top: 50px;
-    border-color: #979797;
-    border: 3px;
-    margin-bottom: 60px;
-    z-index: 100000;
-}
 
-.type {
-    height: 5vh;
-    font-size: 12px;
-    background: #D8D8D8;
-    border-color: #979797;
-    padding: 5px 0 5px 6px;
+  .sidebarContainer {
+      margin-top: 50px;
+      border-color: #979797;
+      border: 3px;
+      margin-bottom: 60px;
+      z-index: 100000;
+      width:300px;
+    }
 
-}
+  .type {
+      height: 4%;
+      font-size: 12px;
+      background: #D8D8D8;
+      border-color: #979797;
+      padding: 5px 0 5px 6px;
 
-.othertype {
-  border-color: #979797;
-  height: 5%;
-  padding: 5px 0 5px 0;
+    }
 
-}
+    .othertype {
+      border-color: #979797;
+      height: 10%;
+      padding: 5px 0 5px 0;
 
-.SidebarContainer img {
-    width: 10px;
-    height: 10px;
-}
+    }
+
+    .SidebarContainer img {
+      width: 10px;
+      height: 10px;
+    }
+
+
+/* iphone X */
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+      .sidebarContainer {
+          margin-top: 50px;
+          border-color: #979797;
+          border: 3px;
+          margin-bottom: 60px;
+          z-index: 100000;
+        }
+
+      .type {
+          height: 40px;
+          font-size: 13px;
+          background: #D8D8D8;
+          border-color: #979797;
+          padding: 12px 0 5px 6px;
+
+        }
+
+        .othertype {
+          border-color: #979797;
+          height: 69px;
+          padding: 15px 0 5px 0;
+          font-size: 15px;
+
+        }
+
+        .SidebarContainer img {
+          width: 10px;
+          height: 10px;
+        }
+    }
+
+/*  iphone 6/7/8 */
+@media only screen
+      and (device-width : 375px)
+      and (device-height : 667px)
+      and (-webkit-device-pixel-ratio : 2) {
+        .sidebarContainer {
+            margin-top: 50px;
+            border-color: #979797;
+            border: 3px;
+            margin-bottom: 60px;
+            z-index: 100000;
+          }
+
+        .type {
+            height: 30px;
+            font-size: 12px;
+            background: #D8D8D8;
+            border-color: #979797;
+            padding: 6px 0 5px 6px;
+
+          }
+
+          .othertype {
+            border-color: #979797;
+            height: 57px;
+            padding: 10px 0 5px 0;
+            font-size: 14px;
+
+          }
+
+          .SidebarContainer img {
+            width: 10px;
+            height: 10px;
+          }
+      }
+
+/* iphone 6/7/8 Plus */
+@media only screen
+      and (device-width : 414px)
+      and (device-height : 736px)
+      and (-webkit-device-pixel-ratio : 3) {
+        .sidebarContainer {
+            margin-top: 50px;
+            border-color: #979797;
+            border: 3px;
+            margin-bottom: 60px;
+            z-index: 100000;
+          }
+
+        .type {
+            height: 35px;
+            font-size: 12px;
+            background: #D8D8D8;
+            border-color: #979797;
+            padding: 10px 0 5px 6px;
+
+          }
+
+          .othertype {
+            border-color: #979797;
+            height: 64px;
+            padding: 10px 0 5px 0;
+            font-size: 14px;
+
+          }
+
+          .SidebarContainer img {
+            width: 10px;
+            height: 10px;
+          }
+      }
+
+
+/* iphone 5/SE */
+@media only screen
+      and (device-width : 320px)
+      and (device-height : 568px){
+        .sidebarContainer {
+            margin-top: 50px;
+            border-color: #979797;
+            border: 3px;
+            margin-bottom: 60px;
+            z-index: 100000;
+          }
+
+        .type {
+            height: 25px;
+            font-size: 12px;
+            background: #D8D8D8;
+            border-color: #979797;
+            padding: 6px 0 5px 6px;
+
+          }
+
+          .othertype {
+            border-color: #979797;
+            height: 48px;
+            padding: 6px 0 5px 0;
+            font-size: 14px;
+
+          }
+
+          .SidebarContainer img {
+            width: 10px;
+            height: 10px;
+          }
+
+      }
