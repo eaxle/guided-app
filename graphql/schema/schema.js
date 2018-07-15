@@ -4,7 +4,9 @@ import { v1 as neo4j } from 'neo4j-driver';
 // Database schema
 const typeDefs = `
     type User {
-        name: String
+        user_id: String
+        first_name: String
+        last_name: String
     }
 
     type Query {
@@ -12,9 +14,7 @@ const typeDefs = `
     }
 
     type Mutation {
-        createUser(name:String): User
-        updateUser(name:String): User
-        deleteUser(name:String): User
+        createUser(first_name: String, last_name: String): User
     }
 `;
 
@@ -22,40 +22,12 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        // Fetch users by name
-        usersByName: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "MATCH (user:User {name:{name}}) RETURN user";
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        }
     },
 
     // Mutation is used for create, update, and delete data
     Mutation: {
-        // Create a new user
-        createUser: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "CREATE (:User {name:{name}})";
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        },
-
-        // Update a user
-        updateUser: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "MATCH (user:User {name:{name}}) SET user.name = 'NameChanged' RETURN user";
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        },
-
-        // Delete a user
-        deleteUser: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "MATCH (user:User {name:{name}}) DELETE user";
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        }
+        // Create a user node in database
+        createUser(root, args, context)
     }
 
 };
