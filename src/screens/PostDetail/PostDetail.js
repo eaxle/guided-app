@@ -26,6 +26,7 @@ class PostDetail extends Component {
     this.editDescription = this.editDescription.bind(this);
     this.toggleEditProvide = this.toggleEditProvide.bind(this);
     this.toggleEditMeetLoc = this.toggleEditMeetLoc.bind(this);
+    this.editAttributes = this.editAttributes.bind(this);
   }
 
   toggleEditAttri() {
@@ -43,6 +44,11 @@ class PostDetail extends Component {
   editDescription(newDescription) {
     this.props.editDescription(newDescription);
     this.toggleEditDescription();
+  }
+
+  editAttributes(newAttributes) {
+    this.props.editAttributes(newAttributes);
+    this.toggleEditAttri();
   }
 
   toggleEditProvide() {
@@ -89,7 +95,7 @@ class PostDetail extends Component {
             }
             <a onClick={this.toggleEditAttri} className="title">{this.state.AttriEditMode ? "(Discard)" : "(Edit)"}</a>
             {this.state.AttriEditMode ?
-              <AttriEditor post={this.props.post}/> :
+              <AttriEditor post={this.props.post} handleSubmit={this.editAttributes}/> :
               <AttriDisplay post={this.props.post}/>
             }
           </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormControl, Col, Grid, Row } from 'react-bootstrap';
+import { FormControl, Col, Grid, Row, Button } from 'react-bootstrap';
 import './styles.css';
 
 class AttriEditor extends Component {
@@ -18,7 +18,15 @@ class AttriEditor extends Component {
     }
 
     this.handleValueChange = this.handleValueChange.bind(this);
+    this.saveChanges = this.saveChanges.bind(this);
 
+  }
+
+  saveChanges(e) {
+    let newAttributes = {
+      title: this.state.title
+    }
+    this.props.handleSubmit(newAttributes);
   }
 
   handleValueChange(e) {
@@ -192,7 +200,7 @@ class AttriEditor extends Component {
               </Col>
             </Row>
           </Grid>
-          <input class="button" />
+          <Button onClick={this.saveChanges}>Save</Button>
         </form>
       </div>
     )

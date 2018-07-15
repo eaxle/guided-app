@@ -24,6 +24,10 @@ const post = (state = testPosts[0], action) => {
       let newState = Object.assign({}, state);
       newState.description = action.description;
       return newState;
+    case 'EDIT_ATTRIBUTES':
+      let newState0 = Object.assign({}, state);
+      newState0.title = action.attribute.title;
+      return newState0;
     default:
       return state;
   }
