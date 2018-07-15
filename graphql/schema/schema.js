@@ -4,9 +4,22 @@ import { v1 as neo4j } from 'neo4j-driver';
 // Database schema
 const typeDefs = `
     type User {
+        name: String
         id: String
         first_name: String
         last_name: String
+    }
+
+    type Email {
+        name: String
+        email: String
+    }
+
+    type Birth {
+        name: String
+        day: String
+        month: String
+        year: String
     }
 
     type Query {
@@ -14,7 +27,7 @@ const typeDefs = `
     }
 
     type Mutation {
-        createUser(first_name: String, last_name: String): User
+        createUser(first_name: String, last_name: String, email: String, birth_day: String, birth_month: String, birth_year: String): User
     }
 `;
 
@@ -30,10 +43,12 @@ const resolvers = {
         createUser: (root, args, context) => {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
-            "CREATE (user:User {id: uid, first_name: {first_name}, last_name: {last_name}})";
-            let relation_query = "";
+            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (email:Email {name: 'Email', email: {email}}), " +
+            "(birth:Birth {name: 'Birth Date', day: {birth_day}, month: {birth_month}, year: {birth_year}})";
+            let relation_query = "CREATE (user)-[:has]->(birth)";
             let query = node_query + relation_query;
-            return session.run(query, args);
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
         },
     }
 
