@@ -25,12 +25,22 @@ const typeDefs = `
         phone: String
     }
 
+    type Gender {
+        name: String
+        gender: String
+    }
+
+    type Password {
+        name: String
+        password: String
+    }
+
     type Query {
         usersByName(name: String): [User]
     }
 
     type Mutation {
-        createUser(first_name: String, last_name: String, email: String, birth: String, phone: String): User
+        createUser(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String): User
     }
 `;
 
@@ -47,8 +57,9 @@ const resolvers = {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
             "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (email:Email {name: 'Email', email: {email}}), " +
-            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}})";
-            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone)";
+            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}}), " +
+            "(password:Password {name: 'Password', password: {password}})";
+            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), (user)-[:has]->(password)";
             let query = node_query + relation_query;
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("user").properties})});
