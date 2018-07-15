@@ -4,7 +4,7 @@ import { v1 as neo4j } from 'neo4j-driver';
 // Database schema
 const typeDefs = `
     type User {
-        user_id: String
+        id: String
         first_name: String
         last_name: String
     }
@@ -27,7 +27,14 @@ const resolvers = {
     // Mutation is used for create, update, and delete data
     Mutation: {
         // Create a user node in database
-        createUser(root, args, context)
+        createUser: (root, args, context) => {
+            let session = context.driver.session();
+            let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
+            "CREATE (user:User {id: uid, first_name: {first_name}, last_name: {last_name}})";
+            let relation_query = "";
+            let query = node_query + relation_query;
+            return session.run(query, args);
+        },
     }
 
 };
