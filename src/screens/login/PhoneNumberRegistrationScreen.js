@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
 import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-class BirthdayRegistrationScreen extends React.Component {
+class PhoneNumberRegistrationScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -37,19 +37,16 @@ class BirthdayRegistrationScreen extends React.Component {
 
     <div className="row">
         <div className="col-sm-2 form-group">
-            <input type="Number" placeholder="Day" className="col-sm-4 form-control form-control-sm  " />
+            <input type="Number" placeholder="Country" className="col-sm-4 form-control form-control-sm  " />
             </div>
             <div className="col-sm-2 form-group">
-            <input type="text" placeholder="Month" className="col-sm-4 form-control form-control-sm  " />
-            </div>
-            <div className="col-sm-2 form-group">
-            <input type="Number" placeholder="Year" className="col-sm-4 form-control form-control-sm  " />
+            <input type="text" placeholder="Phone Number" className="col-sm-4 form-control form-control-sm  " />
             </div>
 
             </div>
             <div className="row col-sm-12">
                         <NavLink
-                                     to="/PhoneNumberRegistrationScreen" className="btn  btn-success">
+                                     to="/PasswordRegistrationScreen" className="btn  btn-success">
                                     Continue
                                    </NavLink></div>
           <div className="row">
@@ -59,4 +56,4 @@ class BirthdayRegistrationScreen extends React.Component {
     );
   }
 }
-export default BirthdayRegistrationScreen;
+export default PhoneNumberRegistrationScreen;
