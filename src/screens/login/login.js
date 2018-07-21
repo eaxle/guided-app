@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import './loginStyles.css';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -30,38 +32,35 @@ class Login extends React.Component {
     return (
 
 
-    <div className="container-fluid text-center">
+    <div id="parent" className="container-fluid text-center container">
 
         <MetaTags>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </MetaTags>
-        <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
+        <div className="row col-sm-12 welcome">Welcome to Guided
         </div>
-        <div className="row">
-
-        <div className="col-sm-12 font-weight-bold h4">
+        <div>
+          <div id="children" className="col-sm-12 subtitle">
             The social marketplace for  things to do or use, and places to stay</div>
-        </div>
+            </div>
+          <div id="children" className="row col-sm-12 center">
+            <NavLink
+            to="/MainRegistrationScreen" className="btn btn-success btncreate">
+            Create Account
+            </NavLink>
+          </div>
+            <div id="children" className="row col-sm-12 center">or</div>
+            <div id="children" className="row col-sm-12 center"><button className="btn btn-primary btnlogin" onClick={this.intoLogin}>Login</button></div>
 
-
-      <div className="row col-sm-12">
-
-      <NavLink
-          to="/MainRegistrationScreen" className="btn  btn-success">
-         Create Account
-        </NavLink>
-      </div>
-           <span className="row col-sm-12"> or</span>
-            <div className="row col-sm-12"><button className="btn btn-primary" onClick={this.intoLogin}>Login</button></div>
             <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy</div>
 
-        <NavLink
-          to="#" className="row col-sm-12 h4 font-weight-bold">
-         Continue as Guest
-        </NavLink>
-    </div>
-    );
-  }
+              <NavLink
+              to="#" className="row col-sm-12 h4 font-weight-bold">
+              Continue as Guest
+              </NavLink>
+              </div>
+            );
+          }
 }
 
 

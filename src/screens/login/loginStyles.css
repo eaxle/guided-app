@@ -1,0 +1,54 @@
+.welcome{
+  position: relative;
+  min-height: 1px;
+  padding:50px 20px 0px 20px;
+  font-size: 30px;
+  color:black;
+  font-family:"Helvetica Neue";
+}
+
+.subtitle{
+  position: relative;
+  font-size: 17px;
+  color:black;
+  font-family:"Helvetica Neue";
+  border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+  display:table-cell;
+  padding: 0 60px 0 60px;
+  align-items:center;
+
+}
+
+#children{
+  position: relative;
+  width: 220px;
+  /* padding: 0 60px 0 60px; */
+  margin: 0 0 0 0;
+  border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+  justify-content:center;//子元素水平居中
+  align-items:center;//子元素垂直居中
+  display:-webkit-flex;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  background-color: #000;
+  width:50%;
+  height: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.btncreate{
+  width: 200px;
+  background-color: #3E9378;
+  font-size: 15px;
+}
+
+.btnlogin{
+  width: 200px;
+  background-color: #4C0C7E;
+  font-size: 15px;
+
+}
