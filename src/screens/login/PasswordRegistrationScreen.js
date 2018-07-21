@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
 import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
+
 class PasswordRegistrationScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +22,6 @@ class PasswordRegistrationScreen extends React.Component {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
-
 
   render() {
     return (
