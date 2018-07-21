@@ -19,6 +19,7 @@ class PostDetail extends Component {
       DescriptionEditMode: false,
       ProvideEditMode: false,
       MeetLocEditMode: false,
+      RequiredEditMode: false,
     }
 
     this.toggleEditAttri = this.toggleEditAttri.bind(this);
@@ -27,6 +28,8 @@ class PostDetail extends Component {
     this.toggleEditProvide = this.toggleEditProvide.bind(this);
     this.toggleEditMeetLoc = this.toggleEditMeetLoc.bind(this);
     this.editAttributes = this.editAttributes.bind(this);
+    this.toggleEditRequire = this.toggleEditRequire.bind(this);
+    this.editRequire = this.editRequire.bind(this);
   }
 
   toggleEditAttri() {
@@ -61,6 +64,17 @@ class PostDetail extends Component {
     this.setState(prevStat => ({
       MeetLocEditMode: !prevStat.MeetLocEditMode
     }))
+  }
+
+  toggleEditRequire(){
+    this.setState((prevStat)=>({
+      RequiredEditMode: !prevStat.RequiredEditMode
+    }))
+  }
+
+  editRequire(newRequired){
+    this.props.editRequire(newRequired);
+    this.toggleEditRequire();
   }
 
   render() {
@@ -108,7 +122,7 @@ class PostDetail extends Component {
             }
           </div>
           <div className="section">
-            <span className="title">What's provided?</span>
+            <span className="title">Whats provided?</span>
             <a onClick={this.toggleEditProvide}><span className="title">{this.state.ProvideEditMode ? "(Discard)" : "(Edit)"}</span></a>
             {this.state.ProvideEditMode ? <ListEditor /> :
               <ListGroup>
@@ -116,6 +130,25 @@ class PostDetail extends Component {
               </ListGroup>
             }
           </div>
+          <div className="section">
+            <span className="title">whats required of guests?</span>
+            <a onClick={this.toggleEditRequire} className="title">{this.state.RequiredEditMode ? "(Discard)" : "(Edit)"}</a>
+            {this.state.RequiredEditMode ? <ListEditor /> :
+              <ListGroup>
+              {this.props.post.required.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
+              </ListGroup>
+            }
+          </div>
+          <div className="section">
+            <span className="title">Accessibility Notes</span>
+            <a onClick={this.toggleEditRequire} className="title">{this.state.RequiredEditMode ? "(Discard)" : "(Edit)"}</a>
+            {this.state.RequiredEditMode ? <ListEditor /> :
+              <ListGroup>
+              {this.props.post.required.map(ele => <ListGroupItem>{ele}</ListGroupItem>)}
+              </ListGroup>
+            }
+          </div>
+
           <div className="section">
             <span className="title">Where will we meet?</span>
             <a onClick={this.toggleEditMeetLoc}><span className="title">{this.state.MeetLocEditMode ? "(Discard)" : "(Edit)"}</span></a>
@@ -126,6 +159,15 @@ class PostDetail extends Component {
             <span className="title">When will we meet?</span>
             <EventTimeDisplay />
           </div>
+          <div className="section">
+            <span className="title">Cancelation Policy</span>
+            <a onClick={this.toggleEditDescription} className="title">{this.state.DescriptionEditMode ? "(Discard)" : "(Edit)"}</a>
+            {this.state.DescriptionEditMode ?
+              <TextFrom text={this.props.post.description} handleSubmit={this.editDescription}/> :
+              <OverflowText text={this.props.post.description} />
+            }
+          </div>
+
         </Thumbnail>
       </div>
     )
