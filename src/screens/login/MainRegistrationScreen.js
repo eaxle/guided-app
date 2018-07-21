@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
-import MetaTags from 'react-meta-tags';
-import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-class MainRegistrationScreen extends React.Component {
+import validator from 'validator';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {email: '',disable:true};
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit= this.handleSubmit.bind(this);
+    this.required= this.required.bind(this);
+    this.email= this.email.bind(this);
+    if(this.state.email){
+    this.state.disable=false;
+    }
   }
 
   handleChange(event) {
-  alert();
-    this.setState({value: event.target.value});
+    this.setState({email: event.target.value});
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
+required(value){
+  if (!value.toString().trim().length) {
 
+    return <p className='form-control alert alert-danger'>required!</p>;
+  }
+};
+ email(){
+  if (!validator.isEmail(this.state.email)) {
+    return <p className="form-control alert alert-danger">{this.state.email} is not a valid email!</p>;
+  }
+};
 
   render() {
     return (
    <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-           <MetaTags>
-               <meta name="viewport" content="width=device-width, initial-scale=1" />
-           </MetaTags>
-           <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
+           <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">
+           welcome to the guided
            </div>
            <div className="row">
 
@@ -37,10 +45,14 @@ class MainRegistrationScreen extends React.Component {
 
     <div className="row">
         <div className="col-sm-4">
-            <input type="email" placeholder="Email Address" className="col-sm-6 form-control form-control-sm  form-inline" />
+        <Form>
+    <Input type="email" value={this.state.email} onChange={this.handleChange}
+    placeholder="Email Address" validations={[this.required,this.email]}
+    className="col-sm-6 form-control form-control-sm  form-inline" />
+            </Form>
             </div>
             <NavLink
-                         to="/NameRegistrationScreen" className="btn  btn-success">
+                         to="/NameRegistrationScreen" className="btn  btn-success" disabled={this.disable}>
                         Continue
                        </NavLink>
             </div>
