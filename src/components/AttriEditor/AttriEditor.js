@@ -24,7 +24,15 @@ class AttriEditor extends Component {
 
   saveChanges(e) {
     let newAttributes = {
-      title: this.state.title
+      title: this.state.title,
+      country: this.state.country,
+      duration: this.state.duration,
+      timeUnit: this.state.timeUnit,
+      currency: this.state.currency,
+      price: this.state.price,
+      guestNum: this.state.guestNum,
+      guestMax: this.state.guestMax
+
     }
     this.props.handleSubmit(newAttributes);
   }

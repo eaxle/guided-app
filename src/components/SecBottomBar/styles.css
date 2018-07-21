@@ -46,14 +46,16 @@
 .mySecBtmBar {
   position: fixed;
   bottom: 0px;
-  z-index: 0;
+  z-index: 1;
   width: 100%;
 }
+
 
 .bottomRow {
     margin: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
+
 }
 
 .tab {
@@ -65,5 +67,5 @@
 }
 
 .secActive {
-    border-bottom: 2px solid green;
+    border-bottom: 3px solid green;
 }
