@@ -54,13 +54,14 @@ class Login extends React.Component {
 
             <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy</div>
 
-              <NavLink
-              to="#" className="row col-sm-12 h4 font-weight-bold">
-              Continue as Guest
-              </NavLink>
-              </div>
-            );
-          }
+        <NavLink
+          to="#" className="row col-sm-12 h4 font-weight-bold">
+         Continue as Guest
+        </NavLink>
+
+    </div>
+    );
+  }
 }
 
 

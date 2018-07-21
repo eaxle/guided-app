@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+import FbLogin from './facebook/fb';
 class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
@@ -10,13 +11,17 @@ class MainRegistrationScreen extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.required= this.required.bind(this);
     this.email= this.email.bind(this);
-    if(this.state.email){
-    this.state.disable=false;
-    }
+
   }
 
   handleChange(event) {
     this.setState({email: event.target.value});
+     if (validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
+        this.state.disable=false;
+      }else{
+              this.state.disable=true;
+      }
+
   }
 
 required(value){
@@ -52,7 +57,7 @@ required(value){
             </Form>
             </div>
             <NavLink
-                         to="/NameRegistrationScreen" className="btn  btn-success" disabled={this.disable}>
+                         to="/NameRegistrationScreen" className="btn  btn-success" disabled={this.state.disable}>
                         Continue
                        </NavLink>
             </div>
@@ -76,7 +81,7 @@ required(value){
                             </div>
                    <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
                </div>
-
+        <FbLogin/>
        </div>
     );
   }
