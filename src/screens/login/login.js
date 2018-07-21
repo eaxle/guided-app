@@ -59,6 +59,7 @@ class Login extends React.Component {
           to="#" className="row col-sm-12 h4 font-weight-bold">
          Continue as Guest
         </NavLink>
+
     </div>
     );
   }
