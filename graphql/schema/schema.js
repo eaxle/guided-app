@@ -10,6 +10,15 @@ const typeDefs = `
         last_name: String
     }
 
+    type Personal_Account {
+        name: String
+    }
+
+    type Account_Status {
+        name: String
+        active: String
+    }
+
     type Account_Login {
         name: String
     }
@@ -80,11 +89,13 @@ const resolvers = {
         createUser: (root, args, context) => {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u#'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
-            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (email:Email {name: 'Email', email: {email}}), " +
-            "(account_login:Account_Login {name: 'Account_Login'}), (login_direct:Login_Direct {name: 'Login_Direct'}), (password:Password {name: 'Password', password: {password}}), " +
+            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (personal_account:Personal_Account {name: 'Personal Account'}), " +
+            "(account_status:Account_Status {name: 'Account Status', active: 'false'}), (account_login:Account_Login {name: 'Account Login'}), (login_direct:Login_Direct {name: 'Login Direct'}), " +
+            "(email:Email {name: 'Email', email: {email}}), (password:Password {name: 'Password', password: {password}}), " +
             "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}})";
-            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), " +
-            "(user)-[:has]->(account_login), (account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
+            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), (user)-[:has]->(personal_account), " +
+            "(personal_account)-[:has]->(account_login), (personal_account)-[:has]->(account_status), " +
+            "(account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
             let query = node_query + relation_query;
             session.run(query, args);                
         },
