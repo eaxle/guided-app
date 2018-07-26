@@ -53,12 +53,12 @@ const typeDefs = `
     }
 
     type Query {
-        userById(id: String): [User]
         loginViaEmail(email: String, password: String): [User]
     }
 
     type Mutation {
         createUser(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String): User
+        updateAccountStatus(id: String, active: String): Account_Status
     }
 `;
 
@@ -66,14 +66,6 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        // Search User by user id
-        userByFirstName: (root, args, context) => {
-            let session = context.driver.session();
-            let query = "MATCH (user:User {id: {id}}) RETURN user";
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        },
-
         // Login using email address and password
         loginViaEmail: (root, args, context) => {
             let session = context.driver.session();
@@ -100,6 +92,13 @@ const resolvers = {
             let query = node_query + relation_query;
             session.run(query, args);                
         },
+
+        // Updating account status to active or inactive
+        updateAccountStatus: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (:User {id: {id}})--(p_ac:Personal_Account), (p_ac)--(ac_status:Account_Status) SET ac_status.active = {active}";
+            session.run(query, args);
+        }
     }
 
 };
