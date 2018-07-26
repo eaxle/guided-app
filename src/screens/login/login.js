@@ -47,12 +47,12 @@ class Login extends React.Component {
           <div id = "buttons" >
             <div className="row col-sm-12 center">
               <NavLink
-              to="/MainRegistrationScreen" className="btn btncreate">
+              to="/MainRegistrationScreen" className="btn btncreate generalbtn">
               Create Account
               </NavLink>
               </div>
             <div id = "child2" className="row col-sm-12 center">or</div>
-            <div className="row col-sm-12 center"><button className="btn btnlogin" onClick={this.intoLogin}>Login</button></div>
+            <div className="row col-sm-12 center"><button className="btn btnlogin generalbtn" onClick={this.intoLogin}>Login</button></div>
           </div>
             <div id = "child3" className="row font-weight-bold">
             <p>By continuing, you agree to Guided's</p>

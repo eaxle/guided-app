@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+import './mainRegistrationScreenStyles.css';
+import './loginStyles.css';
+
 class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
@@ -33,50 +36,56 @@ required(value){
 
   render() {
     return (
-   <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-           <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">
-           welcome to the guided
+   <div className="container-fluid text-center container ">
+           <div className="row col-sm-12 welcome">
+           Welcome to Guided
            </div>
-           <div className="row">
+           <div id="parent2">
 
-           <div className="col-sm-12 font-weight-bold h4">
-               Choose an account creation option</div>
+           <div id = "child21" className="col-sm-12 subtitle">
+               <p>Choose an account</p>
+               <p>creation option</p>
            </div>
 
-    <div className="row">
-        <div className="col-sm-4">
-        <Form>
-    <Input type="email" value={this.state.email} onChange={this.handleChange}
-    placeholder="Email Address" validations={[this.required,this.email]}
-    className="col-sm-6 form-control form-control-sm  form-inline" />
-            </Form>
+
+           <div id="child22">
+
+            <div id="email" className="col-sm-4">
+              <Form>
+               <div id = "formEmail">
+                <Input type="email" value={this.state.email} onChange={this.handleChange}
+                placeholder="Email Address" validations={[this.required,this.email]}
+                className="col-sm-6 form1 form-control form-control-sm  form-inline" />
+                </div>
+             </Form>
             </div>
+
             <NavLink
-                         to="/NameRegistrationScreen" className="btn  btn-success" disabled={this.disable}>
+                         to="/NameRegistrationScreen" className="btn btncreate generalbtn" disabled={this.disable}>
                         Continue
-                       </NavLink>
-            </div>
-          <div className="row">
+            </NavLink>
 
-         </div>
-              <span className="row col-sm-12"> or</span>
+              <div id="or" className="row col-sm-12 center generalbtn">or</div>
+
               <div className="row">
-                <div className=" col-sm-12"><NavLink
-                                                                    to="/login" className="btn  btn-primary">
-                                                                   Sign-Up Facebook
-                                                                  </NavLink></div></div>
-               <div className="row col-sm-12"><NavLink
-                                                                       to="/login" className="btn  btn-primary">
-                                                                      Sign-Up LinkedIn
-                                                                     </NavLink></div>
-                            <div className="row col-sm-12"><NavLink
-                                                                       to="/login" className="btn  btn-primary">
-                                                                      Sign-Up Google
-                                                                     </NavLink>
-                            </div>
-                   <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
-               </div>
+                <div className="col-sm-12"><NavLink
+                      to="/login" className="btn btnfb generalbtn">
+                      Sign-Up Facebook
+                      </NavLink>
+                </div>
 
+                <div className="row col-sm-12"><NavLink
+                      to="/login" className="btn  btngg generalbtn">
+                    Sign-Up Google
+                    </NavLink></div>
+                <div className="row col-sm-12"><NavLink
+                     to="/login" className="btn  btnlk generalbtn">
+                    Sign-Up LinkedIn
+                    </NavLink></div>
+                  <div className="row font-weight-bold h5">Already have an account?</div>
+              </div>
+          </div>
+          </div>
        </div>
     );
   }
