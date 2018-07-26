@@ -53,7 +53,7 @@ const typeDefs = `
     }
 
     type Query {
-        userByFirstName(first_name: String): [User]
+        userById(id: String): [User]
         loginViaEmail(email: String, password: String): [User]
     }
 
@@ -66,10 +66,10 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        // Search User by first name
+        // Search User by user id
         userByFirstName: (root, args, context) => {
             let session = context.driver.session();
-            let query = "MATCH (user:User {first_name: {first_name}}) RETURN user";
+            let query = "MATCH (user:User {id: {id}}) RETURN user";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("user").properties})});
         },
@@ -77,7 +77,8 @@ const resolvers = {
         // Login using email address and password
         loginViaEmail: (root, args, context) => {
             let session = context.driver.session();
-            let query = "";
+            let query = "MATCH (:Email {email: {email}})--(login:Login_Direct), (:Password {password: {password}})--(login:Login_Direct), (login)--(ac_login:Account_Login), " +
+            "(ac_login)--(p_ac:Personal_Account), (p_ac)--(user:User) RETURN user";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("user").properties})});
         },
