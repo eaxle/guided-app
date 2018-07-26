@@ -69,7 +69,7 @@ const resolvers = {
         // Search User by first name
         userByFirstName: (root, args, context) => {
             let session = context.driver.session();
-            let query = "MATCH (user:User {name: {first_name}}) RETURN user";
+            let query = "MATCH (user:User {first_name: {first_name}}) RETURN user";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("user").properties})});
         },
