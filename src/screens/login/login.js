@@ -48,6 +48,23 @@ class Login extends React.Component {
             to="/MainRegistrationScreen" className="btn btn-success btncreate">
             Create Account
             </NavLink>
+        <div className="row col-sm-12 welcome">Welcome to Guided</div>
+        <div id="parent">
+          <div id="child1" className="col-sm-12 subtitle">
+            <p>The social marketplace</p>
+            <p>for  things to do or use,</p>
+            <p>and places to stay</p>
+          </div>
+
+          <div id = "buttons" >
+            <div className="row col-sm-12 center">
+              <NavLink
+              to="/MainRegistrationScreen" className="btn btncreate generalbtn">
+              Create Account
+              </NavLink>
+              </div>
+            <div id = "child2" className="row col-sm-12 center">or</div>
+            <div className="row col-sm-12 center"><button className="btn btnlogin generalbtn" onClick={this.intoLogin}>Login</button></div>
           </div>
             <div id="children" className="row col-sm-12 center">or</div>
             <div id="children" className="row col-sm-12 center"><button className="btn btn-primary btnlogin" onClick={this.intoLogin}>Login</button></div>
