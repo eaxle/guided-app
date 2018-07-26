@@ -11,15 +11,21 @@ class MainRegistrationScreen extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.required= this.required.bind(this);
     this.email= this.email.bind(this);
+    this.toogleButton= this.toogleButton.bind(this);
 
   }
-
+toogleButton(event){
+if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
+       event.preventDefault();
+      }
+      }
   handleChange(event) {
     this.setState({email: event.target.value});
+    this.props={email:event.target.value};
      if (validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
-        this.state.disable=false;
+            this.setState({disable: false});
       }else{
-              this.state.disable=true;
+          this.setState({disable: true});
       }
 
   }
@@ -50,38 +56,42 @@ required(value){
 
     <div className="row">
         <div className="col-sm-4">
-        <Form>
+        <Form className="form-group">
     <Input type="email" value={this.state.email} onChange={this.handleChange}
     placeholder="Email Address" validations={[this.required,this.email]}
-    className="col-sm-6 form-control form-control-sm  form-inline" />
+    className="col-sm-6 form-control form-control-sm  " />
             </Form>
             </div>
-            <NavLink
-                         to="/NameRegistrationScreen" className="btn  btn-success" disabled={this.state.disable}>
+            <div className="col-sm-12 btn">
+            <NavLink onClick={this.toogleButton}
+                         to={{
+                         pathname:"/NameRegistrationScreen",
+                          state:{email:this.state.email}}} className="btn  btn-success" disabled={this.state.disable} >
                         Continue
-                       </NavLink>
+                       </NavLink></div>
             </div>
           <div className="row">
 
          </div>
               <span className="row col-sm-12"> or</span>
               <div className="row">
-                <div className=" col-sm-12"><NavLink
-                                                                    to="/login" className="btn  btn-primary">
+                <div className="col-sm-12 btn">  <FbLogin><NavLink
+                                                                    to="/login" className="btn  btn-primary" >
                                                                    Sign-Up Facebook
-                                                                  </NavLink></div></div>
-               <div className="row col-sm-12"><NavLink
+                                                                  </NavLink></FbLogin>
+                                                                  </div></div>
+               <div className="col-sm-12 btn"><NavLink
                                                                        to="/login" className="btn  btn-primary">
                                                                       Sign-Up LinkedIn
                                                                      </NavLink></div>
-                            <div className="row col-sm-12"><NavLink
+                            <div className="col-sm-12 btn"><NavLink
                                                                        to="/login" className="btn  btn-primary">
                                                                       Sign-Up Google
                                                                      </NavLink>
                             </div>
                    <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
                </div>
-        <FbLogin/>
+
        </div>
     );
   }
