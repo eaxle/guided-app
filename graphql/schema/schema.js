@@ -44,7 +44,8 @@ const typeDefs = `
     }
 
     type Query {
-        usersByName(name: String): [User]
+        userByFirstName(first_name: String): [User]
+        loginViaEmail(email: String, password: String): [User]
     }
 
     type Mutation {
@@ -56,6 +57,21 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
+        // Search User by first name
+        userByFirstName: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (user:User {name: {first_name}}) RETURN user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+        },
+
+        // Login using email address and password
+        loginViaEmail: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+        },
     },
 
     // Mutation is used for create, update, and delete data
@@ -70,8 +86,7 @@ const resolvers = {
             let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), " +
             "(user)-[:has]->(account_login), (account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
             let query = node_query + relation_query;
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+            session.run(query, args);                
         },
     }
 
