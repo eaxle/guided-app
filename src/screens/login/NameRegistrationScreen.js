@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
-import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-class NameRegistrationScreen extends React.Component {
+import Form from 'react-validation/build/form';
+class NameRegistrationScreen extends Component {
   constructor(props) {
-  console.log(props.value)
     super(props);
-    this.state = {fName: ''};
-    this.state = {lName: ''};
-    this.handleFname = this.handleFname.bind(this);
-    this.handleLname= this.handleLname.bind(this);
+    this.state={ email:'', fName:'',lName:''}
+    this.state.email=this.props.location.state.email;
+    this.handleFormData = this.handleFormData.bind(this);
   }
 
-  handleFname(event) {
-  console.log(JSON.stringify(this.state))
-    this.setState({fName: event.target.fName});
+  handleFormData(event) {
+    console.log(event.target);
+    if(event.target.name=="fName"){
+        this.setState({fName: event.target.value});
+    }else{
+    this.setState({lName: event.target.value});
+    }
+    console.log(JSON.stringify(this.state))
   }
-  handleLname(event) {
-    this.setState({lName: event.target.lName});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
 
   render() {
     return (
@@ -39,22 +33,22 @@ class NameRegistrationScreen extends React.Component {
            <div className="col-sm-12 font-weight-bold h4">
                Choose an account creation option</div>
            </div>
-
+<Form>
     <div className="row">
         <div className="col-sm-12">
-            <input type="text" placeholder="First Name" value={this.state.fName} onChange={this.handleFname} className="col-sm-4 form-control form-control-sm  " />
+            <input type="text" placeholder="First Name" name="fName" value={this.state.fName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
             </div>
             <div className="col-sm-12">
-            <input type="text" placeholder="Last Name" value={this.state.lName} onChange={this.handleLname} className="col-sm-4 form-control form-control-sm  " />
+            <input type="text" placeholder="Last Name" name="lName" value={this.state.lName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
             </div>
-            <NavLink
-                         to="/BirthdayRegistrationScreen" className="btn  btn-success">
+            <NavLink to={{pathname:"/BirthdayRegistrationScreen",
+                                               state:{value:this.state}}}
+                          className="btn  btn-success">
                         Continue
                        </NavLink>
             </div>
           <div className="row">
-
-         </div>
+         </div></Form>
                      </div>
     );
   }

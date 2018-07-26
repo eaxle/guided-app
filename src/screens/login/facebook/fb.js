@@ -79,14 +79,12 @@ render() {
     return (
       <main>
         <Grid fluid>
-            <h1>
-              Facebook Login
-            </h1>
+
         </Grid>
         <Grid>
           <Row>
             <Col xs={12}>
-              <a href="#" onClick={this.handleClick} onlogin={this.checkLoginState}>Login</a>
+              <button href="#" onClick={this.handleClick} onLogin={this.checkLoginState} className="btn btn-primary"> Sign-Up Facebook</button>
               <div id="status"></div>
             </Col>
           </Row>

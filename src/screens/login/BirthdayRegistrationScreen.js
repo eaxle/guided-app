@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
 import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Form from 'react-validation/build/form';
 class BirthdayRegistrationScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -34,19 +35,19 @@ class BirthdayRegistrationScreen extends React.Component {
            <div className="col-sm-12 font-weight-bold h4">
                Choose an account creation option</div>
            </div>
-
+    <Form className="form-inline">
     <div className="row">
-        <div className="col-sm-2 form-group">
-            <input type="Number" placeholder="Day" className="col-sm-4 form-control form-control-sm  " />
+    <div className="col-auto">
+   <input type="Number" placeholder="Day" className="form-control " />
+   </div>
+    <div className="col-auto">
+            <input type="text" placeholder="Month" className="form-control " />
             </div>
-            <div className="col-sm-2 form-group">
-            <input type="text" placeholder="Month" className="col-sm-4 form-control form-control-sm  " />
-            </div>
-            <div className="col-sm-2 form-group">
-            <input type="Number" placeholder="Year" className="col-sm-4 form-control form-control-sm  " />
-            </div>
-
-            </div>
+             <div className="col-auto">
+            <input type="Number" placeholder="Year" className="form-control " />
+</div>
+        </div>
+        </Form>
             <div className="row col-sm-12">
                         <NavLink
                                      to="/PhoneNumberRegistrationScreen" className="btn  btn-success">

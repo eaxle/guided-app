@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-import './mainRegistrationScreenStyles.css';
-import './loginStyles.css';
-
+import FbLogin from './facebook/fb';
 class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +11,23 @@ class MainRegistrationScreen extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.required= this.required.bind(this);
     this.email= this.email.bind(this);
-    if(this.state.email){
-    this.state.disable=false;
-    }
-  }
+    this.toogleButton= this.toogleButton.bind(this);
 
+  }
+toogleButton(event){
+if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
+       event.preventDefault();
+      }
+      }
   handleChange(event) {
     this.setState({email: event.target.value});
+    this.props={email:event.target.value};
+     if (validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
+            this.setState({disable: false});
+      }else{
+          this.setState({disable: true});
+      }
+
   }
 
 required(value){
@@ -36,56 +44,54 @@ required(value){
 
   render() {
     return (
-   <div className="container-fluid text-center container ">
-           <div className="row col-sm-12 welcome">
-           Welcome to Guided
+   <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
+           <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">
+           welcome to the guided
            </div>
-           <div id="parent2">
+           <div className="row">
 
-           <div id = "child21" className="col-sm-12 subtitle">
-               <p>Choose an account</p>
-               <p>creation option</p>
+           <div className="col-sm-12 font-weight-bold h4">
+               Choose an account creation option</div>
            </div>
 
-
-           <div id="child22">
-
-            <div id="email" className="col-sm-4">
-              <Form>
-               <div id = "formEmail">
-                <Input type="email" value={this.state.email} onChange={this.handleChange}
-                placeholder="Email Address" validations={[this.required,this.email]}
-                className="col-sm-6 form1 form-control form-control-sm  form-inline" />
-                </div>
-             </Form>
+    <div className="row">
+        <div className="col-sm-4">
+        <Form className="form-group">
+    <Input type="email" value={this.state.email} onChange={this.handleChange}
+    placeholder="Email Address" validations={[this.required,this.email]}
+    className="col-sm-6 form-control form-control-sm  " />
+            </Form>
             </div>
-
-            <NavLink
-                         to="/NameRegistrationScreen" className="btn btncreate generalbtn" disabled={this.disable}>
+            <div className="col-sm-12 btn">
+            <NavLink onClick={this.toogleButton}
+                         to={{
+                         pathname:"/NameRegistrationScreen",
+                          state:{email:this.state.email}}} className="btn  btn-success" disabled={this.state.disable} >
                         Continue
-            </NavLink>
+                       </NavLink></div>
+            </div>
+          <div className="row">
 
-              <div id="or" className="row col-sm-12 center generalbtn">or</div>
-
+         </div>
+              <span className="row col-sm-12"> or</span>
               <div className="row">
-                <div className="col-sm-12"><NavLink
-                      to="/login" className="btn btnfb generalbtn">
-                      Sign-Up Facebook
-                      </NavLink>
-                </div>
+                <div className="col-sm-12 btn">  <FbLogin><NavLink
+                                                                    to="/login" className="btn  btn-primary" >
+                                                                   Sign-Up Facebook
+                                                                  </NavLink></FbLogin>
+                                                                  </div></div>
+               <div className="col-sm-12 btn"><NavLink
+                                                                       to="/login" className="btn  btn-primary">
+                                                                      Sign-Up LinkedIn
+                                                                     </NavLink></div>
+                            <div className="col-sm-12 btn"><NavLink
+                                                                       to="/login" className="btn  btn-primary">
+                                                                      Sign-Up Google
+                                                                     </NavLink>
+                            </div>
+                   <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
+               </div>
 
-                <div className="row col-sm-12"><NavLink
-                      to="/login" className="btn  btngg generalbtn">
-                    Sign-Up Google
-                    </NavLink></div>
-                <div className="row col-sm-12"><NavLink
-                     to="/login" className="btn  btnlk generalbtn">
-                    Sign-Up LinkedIn
-                    </NavLink></div>
-                  <div className="row font-weight-bold h5">Already have an account?</div>
-              </div>
-          </div>
-          </div>
        </div>
     );
   }
