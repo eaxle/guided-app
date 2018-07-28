@@ -91,7 +91,6 @@ required(value){
                             </div>
                    <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
                </div>
-
        </div>
     );
   }

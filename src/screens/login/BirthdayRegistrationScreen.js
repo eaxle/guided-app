@@ -3,24 +3,23 @@ import MetaTags from 'react-meta-tags';
 import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Form from 'react-validation/build/form';
-class BirthdayRegistrationScreen extends React.Component {
+import Input from 'react-validation/build/input';
+class BirthdayRegistrationScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit= this.handleSubmit.bind(this);
+     this.state={ email:this.props.location.state.value.email, fName:this.props.location.state.value.fName,lName:this.props.location.state.value.lName,day:'',month:'',year:''}
+    this.handleFormData= this.handleFormData.bind(this);
   }
-
-  handleChange(event) {
-  alert();
-    this.setState({value: event.target.value});
+    handleFormData(event) {
+    if(event.target.name==="day"){
+        this.setState({day: event.target.value});
+    }else if(event.target.name==="month"){
+        this.setState({month: event.target.value});
+    }else{
+    this.setState({year: event.target.value});
+    }
+    console.log(JSON.stringify(this.state))
   }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
 
   render() {
     return (
@@ -38,21 +37,23 @@ class BirthdayRegistrationScreen extends React.Component {
     <Form className="form-inline">
     <div className="row">
     <div className="col-auto">
-   <input type="Number" placeholder="Day" className="form-control " />
+   <Input type="Number" name="day" placeholder="Day" className="form-control " value={this.state.day} onChange={this.handleFormData}/>
    </div>
     <div className="col-auto">
-            <input type="text" placeholder="Month" className="form-control " />
+            <Input type="text"  name="month" placeholder="Month" className="form-control " value={this.state.month} onChange={this.handleFormData}/>
             </div>
              <div className="col-auto">
-            <input type="Number" placeholder="Year" className="form-control " />
+            <Input type="Number" name="year" placeholder="Year" className="form-control " value={this.state.year} onChange={this.handleFormData}/>
 </div>
         </div>
         </Form>
             <div className="row col-sm-12">
-                        <NavLink
-                                     to="/PhoneNumberRegistrationScreen" className="btn  btn-success">
-                                    Continue
-                                   </NavLink></div>
+                                   <NavLink onClick={this.toogleButton} to={{pathname:"/PhoneNumberRegistrationScreen",
+                                                                                  state:{value:this.state}}}
+                                                             className="btn  btn-success" disabled={this.state.disable}>
+                                                           Continue
+                                                          </NavLink>
+                                   </div>
           <div className="row">
 
          </div>
