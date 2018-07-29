@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import MetaTags from 'react-meta-tags';
 import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-
 
 class PasswordRegistrationScreen extends React.Component {
   constructor(props) {
@@ -21,22 +19,24 @@ class PasswordRegistrationScreen extends React.Component {
      password:'',
      rePassword:''}
     this.handleFormData= this.handleFormData.bind(this);
+    this.registerUser= this.registerUser.bind(this);
   }
+   registerUser(){
+    
+   }
     handleFormData(event) {
     if(event.target.name==="password"){
         this.setState({password: event.target.value});
     }else {
         this.setState({rePassword: event.target.value});
     }
+
     console.log(JSON.stringify(this.state));
     }
 
   render() {
     return (
    <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-           <MetaTags>
-               <meta name="viewport" content="width=device-width, initial-scale=1" />
-           </MetaTags>
            <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
            </div>
            <div className="row">
@@ -55,7 +55,7 @@ class PasswordRegistrationScreen extends React.Component {
             </div>
             <div className="row col-sm-12">
                         <NavLink
-                                     to="/login" className="btn  btn-success">
+                                     to="/#" className="btn  btn-success" onClick={this.registerUser}>
                                     Continue
                                    </NavLink></div>
           <div className="row">
