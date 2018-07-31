@@ -7,11 +7,8 @@
     "bootstrap-sass": "^3.3.7",
     "google-map-react": "^1.0.3",
     "graphql": "^0.13.2",
-    "immutability-helper": "^2.7.1",
     "react": "^16.4.1",
-    "rc-calendar": "^9.6.1",
-    "graphql": "^0.13.2",
-    "graphql-tag": "^2.9.2",
+    "immutability-helper": "^2.7.1",
     "react": "^16.3.2",
     "react-apollo": "^2.1.9",
     "react-bootstrap": "^0.32.1",
@@ -29,9 +26,6 @@
     "react-validation": "^3.0.7",
     "redux": "^4.0.0",
     "validator": "^10.4.0"
-    "react-swipe": "^5.1.1",
-    "redux": "^4.0.0",
-    "swipe-js-iso": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -14,13 +14,18 @@ import Profile from './screens/Profile';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_URI
+//  uri: process.env.REACT_APP_GRAPHQL_URI
+  uri: "http://45.32.189.215:3000/graphql",
+  /* fetchOptions: {
+      mode: 'no-cors',
+    },*/
 });
-
+//alert(process.env.REACT_APP_GRAPHQL_URI)
 ReactDOM.render(
   <ApolloProvider client={client}>
 <Router >
 <div>
+<Route exact path="/" render={pros=> <Login {...pros}/>}   />
 <Switch>
     <Route exact path="/PasswordRegistrationScreen" render={pros=> <PasswordRegistrationScreen {...pros}/>} />
     <Route exact path="/GenderRegistrationScreen"  render={pros=> <GenderRegistrationScreen {...pros}/>} />
@@ -28,7 +33,7 @@ ReactDOM.render(
     <Route exact path="/BirthdayRegistrationScreen" render={pros=> <BirthdayRegistrationScreen {...pros}/>} />
     <Route exact path="/MainRegistrationScreen" render={pros=> <MainRegistrationScreen {...pros}/>}  />
     <Route exact path="/NameRegistrationScreen" render={pros=> <NameRegistrationScreen {...pros}/>}   />
-    <Route exact path="/" render={pros=> <Login {...pros}/>}   /></Switch>
+    </Switch>
     </div>
     </Router>
   </ApolloProvider>,

@@ -32,22 +32,10 @@ class Login extends React.Component {
     return (
 
 
-    <div id="parent" className="container-fluid text-center container">
-
+    <div id ="body" className="container-fluid text-center container">
         <MetaTags>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </MetaTags>
-        <div className="row col-sm-12 welcome">Welcome to Guided
-        </div>
-        <div>
-          <div id="children" className="col-sm-12 subtitle">
-            The social marketplace for  things to do or use, and places to stay</div>
-            </div>
-          <div id="children" className="row col-sm-12 center">
-            <NavLink
-            to="/MainRegistrationScreen" className="btn btn-success btncreate">
-            Create Account
-            </NavLink>
         <div className="row col-sm-12 welcome">Welcome to Guided</div>
         <div id="parent">
           <div id="child1" className="col-sm-12 subtitle">
@@ -66,19 +54,19 @@ class Login extends React.Component {
             <div id = "child2" className="row col-sm-12 center">or</div>
             <div className="row col-sm-12 center"><button className="btn btnlogin generalbtn" onClick={this.intoLogin}>Login</button></div>
           </div>
-            <div id="children" className="row col-sm-12 center">or</div>
-            <div id="children" className="row col-sm-12 center"><button className="btn btn-primary btnlogin" onClick={this.intoLogin}>Login</button></div>
+            <div id = "child3" className="row font-weight-bold">
+            <p>By continuing, you agree to Guided's</p>
+            <p><a href="null">Terms</a>, <a href = "null">Data Policy</a>, and <a href = "null">Cookie Policy</a>. </p>
+            </div>
 
-            <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy</div>
-
-        <NavLink
-          to="#" className="row col-sm-12 h4 font-weight-bold">
-         Continue as Guest
-        </NavLink>
-
-    </div>
-    );
-  }
+              <NavLink
+              to="#" className="row col-sm-12 h4 font-weight-bold">
+              Continue as Guest
+              </NavLink>
+              </div>
+              </div>
+            );
+          }
 }
 
 
