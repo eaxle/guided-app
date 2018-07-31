@@ -1,7 +1,8 @@
 import express from 'express';
-import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
+import { apolloExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import { schema, rootValue, context } from '../schema/schema';
+import cors from 'cors';
 
 // Initialize the server
 const server = express();
@@ -17,7 +18,7 @@ if (typeof process.env.NEO4J_PASSWORD === 'undefined') {
     console.warn('WARNING: process.env.NEI4J_PASSWORD is not defined. Check README.md for more information')
 }
 
-server.use('/graphql', bodyParser.json(), graphqlExpress(request => ({
+server.use('/graphql', cors(), bodyParser.json(), apolloExpress(request => ({
     schema,
     rootValue,
     context: context(request.headers, process.env)
