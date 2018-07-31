@@ -45,7 +45,7 @@ class PhoneNumberRegistrationScreen extends Component {
             </div>
             </div>
             <div className="row col-sm-12">
-                                   <NavLink onClick={this.toogleButton} to={{pathname:"/PasswordRegistrationScreen",
+                                   <NavLink onClick={this.toogleButton} to={{pathname:"/GenderRegistrationScreen",
                                    state:{value:this.state}}}
                                    className="btn  btn-success" disabled={this.state.disable}>
                                    Continue

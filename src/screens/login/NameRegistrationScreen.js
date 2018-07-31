@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
 import { NavLink } from 'react-router-dom';
-<<<<<<< HEAD
 import './loginStyles.css';
-
-// import {
-//     AppRegistry,
-//     StyleSheet,
-//     Text,
-//     View,
-//     Dimensions,
-// } from 'react-native';
-//
-// const {screenWidth,screenHeight} = Dimensions.get('window')
-
-class NameRegistrationScreen extends React.Component {
-=======
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 class NameRegistrationScreen extends Component {
->>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
   constructor(props) {
     super(props);
     this.state={ email:'', fName:'',lName:'',disable:true}
@@ -68,25 +53,10 @@ class NameRegistrationScreen extends Component {
            <div className="col-sm-12 subsubtitle">
              <p>Please enter the name you use in real life</p>
            </div>
-<<<<<<< HEAD
-           </div>
 
-
-    <div className="row">
-      <div className="inputs">
-            <div className="col-sm-12 inputName">
-            <input type="text" placeholder="First Name" value={this.state.fName} onChange={this.handleFname} className="col-sm-4 form-control form-control-sm  " />
-            </div>
-            <div className="col-sm-12 inputName">
-            <input type="text" placeholder="Last Name" value={this.state.lName} onChange={this.handleLname} className="col-sm-4 form-control form-control-sm  " />
-            </div>
-        </div>
-            <NavLink
-                         to="/BirthdayRegistrationScreen" className="btn  btncreate generalbtn">
-=======
 <Form>
     <div className="row">
-        <div className="col-sm-12">
+        <div className="col-sm-12 inputs inputName">
             <Input type="text" placeholder="First Name" name="fName" value={this.state.fName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
             </div>
             <div className="col-sm-12">
@@ -94,23 +64,18 @@ class NameRegistrationScreen extends Component {
             </div>
             <NavLink onClick={this.toogleButton} to={{pathname:"/BirthdayRegistrationScreen",
                                                state:{value:this.state}}}
-                          className="btn  btn-success" disabled={this.state.disable}>
->>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
+                          className="btn  btncreate generalbtn" disabled={this.state.disable}>
                         Continue
                        </NavLink>
             </div>
               <div className="row font-weight-bold h5">Already have an account?</div>
 
           <div className="row">
-<<<<<<< HEAD
 
          </div>
          <footer>step 1 of 6</footer>
-=======
-         </div></Form>
->>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
-                     </div>
-
+</Form>
+</div></div>
     );
   }
 }

@@ -9,6 +9,7 @@ class BirthdayRegistrationScreen extends Component {
     super(props);
      this.state={ email:this.props.location.state.value.email, fName:this.props.location.state.value.fName,lName:this.props.location.state.value.lName,day:'',month:'',year:''}
     this.handleFormData= this.handleFormData.bind(this);
+  console.log(this.props)
   }
     handleFormData(event) {
     if(event.target.name==="day"){
