@@ -1,5 +1,5 @@
 import express from 'express';
-import { apolloExpress, graphiqlExpress } from 'apollo-server-express';
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import bodyParser from 'body-parser';
 import { schema, rootValue, context } from '../schema/schema';
 import cors from 'cors';
@@ -18,7 +18,7 @@ if (typeof process.env.NEO4J_PASSWORD === 'undefined') {
     console.warn('WARNING: process.env.NEI4J_PASSWORD is not defined. Check README.md for more information')
 }
 
-server.use('/graphql', cors(), bodyParser.json(), apolloExpress(request => ({
+server.use('/graphql', cors(), bodyParser.json(), graphqlExpress(request => ({
     schema,
     rootValue,
     context: context(request.headers, process.env)
@@ -26,11 +26,7 @@ server.use('/graphql', cors(), bodyParser.json(), apolloExpress(request => ({
 
 // Use graphiql to test Query and Mutation functions
 server.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql',
-// Query Type test 
-    query: ``,
-// Mutation Type test
-    mutation: ``
+    endpointURL: '/graphql'
 }));
 
 server.listen(PORT, () => {
