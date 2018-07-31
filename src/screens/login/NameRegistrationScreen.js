@@ -1,40 +1,42 @@
 import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
+import {Provider} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import validator from 'validator';
-import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
-class NameRegistrationScreen extends Component {
+import './loginStyles.css';
+
+// import {
+//     AppRegistry,
+//     StyleSheet,
+//     Text,
+//     View,
+//     Dimensions,
+// } from 'react-native';
+//
+// const {screenWidth,screenHeight} = Dimensions.get('window')
+
+class NameRegistrationScreen extends React.Component {
   constructor(props) {
+  console.log(props.value)
     super(props);
-    this.state={ email:'', fName:'',lName:'',disable:true}
-    this.state.email=this.props.location.state.email;
-    this.handleFormData = this.handleFormData.bind(this);
-    this.toogleButton= this.toogleButton.bind(this);
-
+    this.state = {fName: ''};
+    this.state = {lName: ''};
+    this.handleFname = this.handleFname.bind(this);
+    this.handleLname= this.handleLname.bind(this);
   }
 
-  handleFormData(event) {
-   // console.log(event.target);
-    if(event.target.name==="fName"){
-        this.setState({fName: event.target.value});
-    }else{
-    this.setState({lName: event.target.value});
-    }
-   if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) ) {
-          this.setState({disable:true})
-         }else{
-          this.setState({disable:false})
-         }
+  handleFname(event) {
+  console.log(JSON.stringify(this.state))
+    this.setState({fName: event.target.fName});
+  }
+  handleLname(event) {
+    this.setState({lName: event.target.lName});
   }
 
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
 
-    toogleButton(event){
-    //console.log("sd");
-        if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) ) {
-       event.preventDefault();
-      }
-      }
 
   render() {
     return (
@@ -42,30 +44,41 @@ class NameRegistrationScreen extends Component {
            <MetaTags>
                <meta name="viewport" content="width=device-width, initial-scale=1" />
            </MetaTags>
-           <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
+
+           <div className="row col-sm-12 welcome">Welcome to Guided
            </div>
            <div className="row">
-
-           <div className="col-sm-12 font-weight-bold h4">
-               Choose an account creation option</div>
+           <div className="col-sm-12 font-weight-bold subtitle">
+               <p>Whats your name? </p>
            </div>
-<Form>
+           <div className="col-sm-12 subsubtitle">
+             <p>Please enter the name you use in real life</p>
+           </div>
+           </div>
+
+
     <div className="row">
-        <div className="col-sm-12">
-            <Input type="text" placeholder="First Name" name="fName" value={this.state.fName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
+      <div className="inputs">
+            <div className="col-sm-12 inputName">
+            <input type="text" placeholder="First Name" value={this.state.fName} onChange={this.handleFname} className="col-sm-4 form-control form-control-sm  " />
             </div>
-            <div className="col-sm-12">
-            <Input type="text" placeholder="Last Name" name="lName" value={this.state.lName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
+            <div className="col-sm-12 inputName">
+            <input type="text" placeholder="Last Name" value={this.state.lName} onChange={this.handleLname} className="col-sm-4 form-control form-control-sm  " />
             </div>
-            <NavLink onClick={this.toogleButton} to={{pathname:"/BirthdayRegistrationScreen",
-                                               state:{value:this.state}}}
-                          className="btn  btn-success" disabled={this.state.disable}>
+        </div>
+            <NavLink
+                         to="/BirthdayRegistrationScreen" className="btn  btncreate generalbtn">
                         Continue
                        </NavLink>
             </div>
+              <div className="row font-weight-bold h5">Already have an account?</div>
+
           <div className="row">
-         </div></Form>
+
+         </div>
+         <footer>step 1 of 6</footer>
                      </div>
+
     );
   }
 }
