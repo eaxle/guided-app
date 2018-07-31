@@ -59,6 +59,7 @@ class Login extends React.Component {
             <p><a href="null">Terms</a>, <a href = "null">Data Policy</a>, and <a href = "null">Cookie Policy</a>. </p>
             </div>
 
+<<<<<<< HEAD
               <NavLink
               to="#" className="row col-sm-12 h4 font-weight-bold">
               Continue as Guest
@@ -67,6 +68,27 @@ class Login extends React.Component {
               </div>
             );
           }
+=======
+      <div className="row col-sm-12">
+
+      <NavLink
+          to="/MainRegistrationScreen" className="btn  btn-success">
+         Create Account
+        </NavLink>
+      </div>
+           <span className="row col-sm-12"> or</span>
+            <div className="row col-sm-12"><button className="btn btn-primary" onClick={this.intoLogin}>Login</button></div>
+            <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy</div>
+
+        <NavLink
+          to="#" className="row col-sm-12 h4 font-weight-bold">
+         Continue as Guest
+        </NavLink>
+
+    </div>
+    );
+  }
+>>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
 }
 
 

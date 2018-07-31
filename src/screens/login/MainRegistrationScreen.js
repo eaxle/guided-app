@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+<<<<<<< HEAD
 import './mainRegistrationScreenStyles.css';
 import './loginStyles.css';
 
+=======
+import FbLogin from './facebook/fb';
+>>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
 class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +17,23 @@ class MainRegistrationScreen extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.required= this.required.bind(this);
     this.email= this.email.bind(this);
-    if(this.state.email){
-    this.state.disable=false;
-    }
-  }
+    this.toogleButton= this.toogleButton.bind(this);
 
+  }
+toogleButton(event){
+if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
+       event.preventDefault();
+      }
+      }
   handleChange(event) {
     this.setState({email: event.target.value});
+    this.props={email:event.target.value};
+     if (validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
+            this.setState({disable: false});
+      }else{
+          this.setState({disable: true});
+      }
+
   }
 
 required(value){
@@ -47,6 +61,7 @@ required(value){
                <p>creation option</p>
            </div>
 
+<<<<<<< HEAD
 
            <div id="child22">
 
@@ -66,8 +81,28 @@ required(value){
             </NavLink>
 
               <div id="or" className="row col-sm-12 center generalbtn">or</div>
+=======
+    <div className="row">
+        <div className="col-sm-4">
+        <Form className="form-group">
+    <Input type="email" value={this.state.email} onChange={this.handleChange}
+    placeholder="Email Address" validations={[this.required,this.email]}
+    className="col-sm-6 form-control form-control-sm  " />
+            </Form>
+            </div>
+            <div className="col-sm-12 btn">
+            <NavLink onClick={this.toogleButton}
+                         to={{
+                         pathname:"/NameRegistrationScreen",
+                          state:{email:this.state.email}}} className="btn  btn-success" disabled={this.state.disable} >
+                        Continue
+                       </NavLink></div>
+            </div>
+          <div className="row">
+>>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
 
               <div className="row">
+<<<<<<< HEAD
                 <div className="col-sm-12"><NavLink
                       to="/login" className="btn btnfb generalbtn">
                       Sign-Up Facebook
@@ -86,6 +121,24 @@ required(value){
               </div>
           </div>
           </div>
+=======
+                <div className="col-sm-12 btn">  <FbLogin><NavLink
+                                                                    to="/login" className="btn  btn-primary" >
+                                                                   Sign-Up Facebook
+                                                                  </NavLink></FbLogin>
+                                                                  </div></div>
+               <div className="col-sm-12 btn"><NavLink
+                                                                       to="/login" className="btn  btn-primary">
+                                                                      Sign-Up LinkedIn
+                                                                     </NavLink></div>
+                            <div className="col-sm-12 btn"><NavLink
+                                                                       to="/login" className="btn  btn-primary">
+                                                                      Sign-Up Google
+                                                                     </NavLink>
+                            </div>
+                   <div className="row font-weight-bold h4">By continuing, you agree to Guided's Term, Data Policy, Cookie Policy
+               </div>
+>>>>>>> a43405166aa51121ad64505185b46dfe36f9aef5
        </div>
     );
   }

@@ -13,7 +13,7 @@ import PhoneNumberRegistrationScreen from './screens/login/PhoneNumberRegistrati
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 const client = new ApolloClient({
-  uri: "https://guided-au.atlassian.net/wiki/spaces/GUID/pages/2228244/Schema-User"
+  uri: process.env.REACT_APP_GRAPHQL_URI
 });
 
 ReactDOM.render(
