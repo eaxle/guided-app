@@ -10,7 +10,27 @@ const typeDefs = `
         last_name: String
     }
 
+    type Created_At {
+        name: String
+    }
+
+    type Updated_At {
+        name: String
+    }
+
     type Personal_Account {
+        name: String
+    }
+
+    type Profile {
+        name: String
+    }
+
+    type Image {
+        name: String
+    }
+
+    type Album {
         name: String
     }
 
@@ -20,6 +40,10 @@ const typeDefs = `
     }
 
     type Account_Login {
+        name: String
+    }
+
+    type Account_Payment {
         name: String
     }
 
@@ -82,12 +106,17 @@ const resolvers = {
         createUser: (root, args, context) => {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u#'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
-            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (personal_account:Personal_Account {name: 'Personal Account'}), " +
+            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), " + 
+            "(profile:Profile {name: 'Profile'}), (personal_account:Personal_Account {name: 'Personal Account'}), " +
             "(account_status:Account_Status {name: 'Account Status', active: 'false'}), (account_login:Account_Login {name: 'Account Login'}), (login_direct:Login_Direct {name: 'Login Direct'}), " +
             "(email:Email {name: 'Email', email: {email}}), (password:Password {name: 'Password', password: {password}}), " +
-            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}})";
-            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), (user)-[:has]->(personal_account), " +
-            "(personal_account)-[:has]->(account_login), (personal_account)-[:has]->(account_status), " +
+            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}}), " +
+            "(image:Image {name: 'Image'}), (album:Album {name: 'Album'}), " +
+            "(created:Created_At {name: 'Create Date'}), (updated:Updated_At {name: 'Update Date'}), " + 
+            "(account_payment:Account_Payment {name: 'Account Payment'})";
+            let relation_query = "CREATE (user)-[:has]->(profile), (user)-[:has]->(personal_account), (user)-[:has]->(album), (user)-[:has]->(created), " +
+            "(profile)-[:has]->(email), (profile)-[:has]->(birth), (profile)-[:has]->(phone), (profile)-[:has]->(gender), (profile)-[:has]->(image), (profile)-[:has]->(updated), " +
+            "(personal_account)-[:has]->(account_login), (personal_account)-[:has]->(account_status), (personal_account)-[:has]->(account_payment), " +
             "(account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
             let query = node_query + relation_query;
             session.run(query, args);                
