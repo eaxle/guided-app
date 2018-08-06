@@ -12,11 +12,19 @@ class NameRegistrationScreen extends Component {
     this.state.email=this.props.location.state.email;
     this.handleFormData = this.handleFormData.bind(this);
     this.toogleButton= this.toogleButton.bind(this);
+    this.onBackButtonEvent= this.onBackButtonEvent.bind(this);
 
   }
+    onBackButtonEvent=function(e) {
 
+        e.preventDefault();
+        localStorage.setItem( 'email', this.state.email);;
+        e.goBack();
+    }
+    componentDidMount() {
+        window.onpopstate = this.onBackButtonEvent;
+    }
   handleFormData(event) {
-   // console.log(event.target);
     if(event.target.name==="fName"){
         this.setState({fName: event.target.value});
     }else{
@@ -31,7 +39,7 @@ class NameRegistrationScreen extends Component {
 
 
     toogleButton(event){
-    //console.log("sd");
+
         if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) ) {
        event.preventDefault();
       }
