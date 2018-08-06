@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,browserHistory } from 'react-router-dom';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -10,11 +10,14 @@ class MainRegistrationScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {email: '',disable:true};
+    if(localStorage.getItem('email')){
+        this.state.email=localStorage.getItem('email');
+        this.state.disable=false;
+    }
     this.handleChange = this.handleChange.bind(this);
     this.required= this.required.bind(this);
     this.email= this.email.bind(this);
     this.toogleButton= this.toogleButton.bind(this);
-
   }
 toogleButton(event){
 if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
