@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
+import Recaptcha from 'react-recaptcha';
 import ReactPasswordStrength from 'react-password-strength';
 
 const ADD_USER = gql`
@@ -130,8 +131,11 @@ class PasswordRegistrationScreen extends Component {
                                className="col-sm-4 form-control form-control-sm  "/>
                     </div>
 
-
+                    <Recaptcha
+                        sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
+                    />
                 </div>
+
                 <div className="row col-sm-12">
                     <NavLink disabled={this.state.disable}
                              to="/#" className="btn  btn-success" onClick={this.submitForm}>
