@@ -16,6 +16,7 @@
     "react-meta-tags": "^0.4.1",
     "react-native-fbsdk": "^0.7.0",
     "react-password-strength": "^2.3.1",
+    "react-recaptcha": "^2.3.10",
     "react-redux": "^5.0.7",
     "react-redux-form": "^1.16.9",
     "react-router-dom": "^4.1.1",
