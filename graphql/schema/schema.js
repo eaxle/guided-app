@@ -12,10 +12,12 @@ const typeDefs = `
 
     type Created_At {
         name: String
+        datetime: String
     }
 
     type Updated_At {
         name: String
+        datetime: String
     }
 
     type Personal_Account {
@@ -26,7 +28,15 @@ const typeDefs = `
         name: String
     }
 
-    type Image {
+    type Profile_Image {
+        name: String
+    }
+
+    type Cover_Image {
+        name: String
+    }
+
+    type Item_Image {
         name: String
     }
 
@@ -71,17 +81,12 @@ const typeDefs = `
         gender: String
     }
 
-    type Password {
-        name: String
-        password: String
-    }
-
     type Query {
         loginViaEmail(email: String, password: String): [User]
     }
 
     type Mutation {
-        createUser(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String): User
+        createUserViaEmail(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String, created_at: String, updated_at: String): User
         updateAccountStatus(id: String, active: String): Account_Status
     }
 `;
@@ -103,7 +108,7 @@ const resolvers = {
     // Mutation is used for create, update, and delete data
     Mutation: {
         // Create a user node in database
-        createUser: (root, args, context) => {
+        createUserViaEmail: (root, args, context) => {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u#'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
             "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), " + 
@@ -111,11 +116,10 @@ const resolvers = {
             "(account_status:Account_Status {name: 'Account Status', active: 'false'}), (account_login:Account_Login {name: 'Account Login'}), (login_direct:Login_Direct {name: 'Login Direct'}), " +
             "(email:Email {name: 'Email', email: {email}}), (password:Password {name: 'Password', password: {password}}), " +
             "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}}), " +
-            "(image:Image {name: 'Image'}), (album:Album {name: 'Album'}), " +
-            "(created:Created_At {name: 'Create Date'}), (updated:Updated_At {name: 'Update Date'}), " + 
-            "(account_payment:Account_Payment {name: 'Account Payment'})";
+            "(created:Created_At {name: 'Create Date', datetime: {created_at}}), (updated:Updated_At {name: 'Update Date', datetime: {updated_at}}), " + 
+            "(album:Album {name: 'Album'}), (account_payment:Account_Payment {name: 'Account Payment'})";
             let relation_query = "CREATE (user)-[:has]->(profile), (user)-[:has]->(personal_account), (user)-[:has]->(album), (user)-[:has]->(created), " +
-            "(profile)-[:has]->(email), (profile)-[:has]->(birth), (profile)-[:has]->(phone), (profile)-[:has]->(gender), (profile)-[:has]->(image), (profile)-[:has]->(updated), " +
+            "(profile)-[:has]->(email), (profile)-[:has]->(birth), (profile)-[:has]->(phone), (profile)-[:has]->(gender), (profile)-[:has]->(updated), " +
             "(personal_account)-[:has]->(account_login), (personal_account)-[:has]->(account_status), (personal_account)-[:has]->(account_payment), " +
             "(account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
             let query = node_query + relation_query;
