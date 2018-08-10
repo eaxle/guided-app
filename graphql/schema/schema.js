@@ -10,7 +10,50 @@ const typeDefs = `
         last_name: String
     }
 
+    type Created_At {
+        name: String
+        datetime: String
+    }
+
+    type Updated_At {
+        name: String
+        datetime: String
+    }
+
+    type Personal_Account {
+        name: String
+    }
+
+    type Profile {
+        name: String
+    }
+
+    type Profile_Image {
+        name: String
+    }
+
+    type Cover_Image {
+        name: String
+    }
+
+    type Item_Image {
+        name: String
+    }
+
+    type Album {
+        name: String
+    }
+
+    type Account_Status {
+        name: String
+        active: String
+    }
+
     type Account_Login {
+        name: String
+    }
+
+    type Account_Payment {
         name: String
     }
 
@@ -38,17 +81,13 @@ const typeDefs = `
         gender: String
     }
 
-    type Password {
-        name: String
-        password: String
-    }
-
     type Query {
-        usersByName(name: String): [User]
+        loginViaEmail(email: String, password: String): [User]
     }
 
     type Mutation {
-        createUser(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String): User
+        createUserViaEmail(first_name: String, last_name: String, email: String, birth: String, phone: String, gender: String, password: String, created_at: String, updated_at: String): User
+        updateAccountStatus(id: String, active: String): Account_Status
     }
 `;
 
@@ -56,23 +95,43 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
+        // Login using email address and password
+        loginViaEmail: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (:Email {email: {email}})--(login:Login_Direct), (:Password {password: {password}})--(login:Login_Direct), (login)--(ac_login:Account_Login), " +
+            "(ac_login)--(p_ac:Personal_Account), (p_ac)--(user:User) RETURN user";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+        },
     },
 
     // Mutation is used for create, update, and delete data
     Mutation: {
         // Create a user node in database
-        createUser: (root, args, context) => {
+        createUserViaEmail: (root, args, context) => {
             let session = context.driver.session();
             let node_query = "MERGE (id:UniqueId{name: 'User', str: 'u#'}) ON CREATE SET id.count = 1 ON MATCH SET id.count = id.count + 1 WITH id.str + id.count AS uid " +
-            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), (email:Email {name: 'Email', email: {email}}), " +
-            "(account_login:Account_Login {name: 'Account_Login'}), (login_direct:Login_Direct {name: 'Login_Direct'}), (password:Password {name: 'Password', password: {password}}), " +
-            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}})";
-            let relation_query = "CREATE (user)-[:has]->(email), (user)-[:has]->(birth), (user)-[:has]->(phone), (user)-[:has]->(gender), " +
-            "(user)-[:has]->(account_login), (account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
+            "CREATE (user:User {name: 'User', id: uid, first_name: {first_name}, last_name: {last_name}}), " + 
+            "(profile:Profile {name: 'Profile'}), (personal_account:Personal_Account {name: 'Personal Account'}), " +
+            "(account_status:Account_Status {name: 'Account Status', active: 'false'}), (account_login:Account_Login {name: 'Account Login'}), (login_direct:Login_Direct {name: 'Login Direct'}), " +
+            "(email:Email {name: 'Email', email: {email}}), (password:Password {name: 'Password', password: {password}}), " +
+            "(birth:Birth {name: 'Birth Date', birth_date: {birth}}), (phone:Phone {name: 'Phone Number', phone: {phone}}), (gender:Gender {name: 'Gender', phone: {gender}}), " +
+            "(created:Created_At {name: 'Create Date', datetime: {created_at}}), (updated:Updated_At {name: 'Update Date', datetime: {updated_at}}), " + 
+            "(album:Album {name: 'Album'}), (account_payment:Account_Payment {name: 'Account Payment'})";
+            let relation_query = "CREATE (user)-[:has]->(profile), (user)-[:has]->(personal_account), (user)-[:has]->(album), (user)-[:has]->(created), " +
+            "(profile)-[:has]->(email), (profile)-[:has]->(birth), (profile)-[:has]->(phone), (profile)-[:has]->(gender), (profile)-[:has]->(updated), " +
+            "(personal_account)-[:has]->(account_login), (personal_account)-[:has]->(account_status), (personal_account)-[:has]->(account_payment), " +
+            "(account_login)-[:has]->(login_direct), (login_direct)-[:has]->(email), (login_direct)-[:has]->(password)";
             let query = node_query + relation_query;
-            return session.run(query, args)
-                .then(result => { return result.records.map(record => { return record.get("user").properties})});
+            session.run(query, args);                
         },
+
+        // Updating account status to active or inactive
+        updateAccountStatus: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "MATCH (:User {id: {id}})--(p_ac:Personal_Account), (p_ac)--(ac_status:Account_Status) SET ac_status.active = {active}";
+            session.run(query, args);
+        }
     }
 
 };
