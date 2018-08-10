@@ -49,7 +49,7 @@ class PasswordRegistrationScreen extends Component {
         this.registerUser = this.registerUser.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.matchPassword = this.matchPassword.bind(this);
-        this.verifyCallback = this.verifyCallback.bind(this);
+        this.verifyCall = this.verifyCall.bind(this);
     }
 
     registerUser(score, password, isValid) {
@@ -77,6 +77,11 @@ class PasswordRegistrationScreen extends Component {
         }
     }
 
+    verifyCall(response) {
+        this.recaptchaPass = true;
+        console.log(response);
+    };
+
     submitForm(e) {
         e.preventDefault();
         if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
@@ -102,10 +107,6 @@ class PasswordRegistrationScreen extends Component {
         })
     }
 
-    verifyCallback(response) {
-        this.recaptchaPass = true;
-        console.log(response);
-    };
 
     render() {
         let {data} = this.props
@@ -141,7 +142,7 @@ class PasswordRegistrationScreen extends Component {
                     </div>
 
                     <Recaptcha
-                        verifyCallback={verifyCallback}
+                        verifyCallback={this.verifyCall}
                         sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
                 </div>
