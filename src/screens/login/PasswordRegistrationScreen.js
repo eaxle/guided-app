@@ -29,6 +29,7 @@ const ADD_USER = gql`
 class PasswordRegistrationScreen extends Component {
     constructor(props) {
         super(props);
+        this.recaptchaPass = false;
         this.state = {
             email: this.props.location.state.value.email,
             fName: this.props.location.state.value.fName,
@@ -48,10 +49,11 @@ class PasswordRegistrationScreen extends Component {
         this.registerUser = this.registerUser.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.matchPassword = this.matchPassword.bind(this);
+        this.verifyCallback = this.verifyCallback.bind(this);
     }
 
     registerUser(score, password, isValid) {
-        this.setState({password: score.password},this.matchPassword);
+        this.setState({password: score.password}, this.matchPassword);
 
     }
 
@@ -67,7 +69,7 @@ class PasswordRegistrationScreen extends Component {
     }
 
     matchPassword() {
-        console.log(this.state.password,this.rePassword);
+        //console.log(this.state.password, this.rePassword);
         if ((this.state.password == this.rePassword) && this.state.password.toString().trim().length) {
             this.setState({disable: false});
         } else {
@@ -77,7 +79,7 @@ class PasswordRegistrationScreen extends Component {
 
     submitForm(e) {
         e.preventDefault();
-        if (this.state.disable || !this.state.password.toString().trim().length) {
+        if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
             return
         }
         this.props.mutate({
@@ -91,12 +93,19 @@ class PasswordRegistrationScreen extends Component {
                 password: this.state.password
             }
         }).then(res => {
+            localStorage.setItem('email', "");
+            ;
             alert('success')
 
         }).catch(err => {
             alert('error')
         })
     }
+
+    verifyCallback(response) {
+        this.recaptchaPass = true;
+        console.log(response);
+    };
 
     render() {
         let {data} = this.props
@@ -132,6 +141,7 @@ class PasswordRegistrationScreen extends Component {
                     </div>
 
                     <Recaptcha
+                        verifyCallback={verifyCallback}
                         sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
                 </div>
