@@ -52,7 +52,7 @@ required(value){
            </div>
            <div id="parent2">
 
-           <div id = "child21" className="col-sm-12 subtitle">
+           <div id = "child21" className="row col-sm-12 h5 subtitle ">
                <p>Choose an account</p>
                <p>creation option</p>
            </div>
@@ -60,34 +60,37 @@ required(value){
 
     <div className="row" id="child22">
         <div className="col-sm-4" id="email">
-        <Form className="form-group" id="formEmail">
+        <Form className="form-group formEmail">
     <Input type="email" value={this.state.email} onChange={this.handleChange}
     placeholder="Email Address" validations={[this.required,this.email]}
     className="col-sm-6 form-control form-control-sm  " />
             </Form>
             </div>
-            <div className="col-sm-12 btn">
+            <div className = "row">
+            <div className="row col-sm-12">
             <NavLink onClick={this.toogleButton}
                          to={{
                          pathname:"/NameRegistrationScreen",
-                          state:{email:this.state.email}}} className="btn  btn-success" disabled={this.state.disable} >
+                          state:{email:this.state.email}}} className="btn btncreate generalbtn" disabled={this.state.disable} >
                         Continue
                        </NavLink></div>
             </div>
+            </div>
+            <div className="row col-sm-12 h5 ">or</div>
           <div className="row">
-                <div className="col-sm-12"><FbLogin><NavLink
+                <div className="row col-sm-12"><FbLogin><NavLink
                       to="/login" className="btn btnfb generalbtn">
-                      Sign-Up Facebook
+                      Sign-Up With Facebook
                       </NavLink></FbLogin>
                 </div>
 
                 <div className="row col-sm-12"><NavLink
                       to="/login" className="btn  btngg generalbtn">
-                    Sign-Up Google
+                    Sign-Up With Google
                     </NavLink></div>
                 <div className="row col-sm-12"><NavLink
                      to="/login" className="btn  btnlk generalbtn">
-                    Sign-Up LinkedIn
+                    Sign-Up With LinkedIn
                     </NavLink></div>
                   <div className="row font-weight-bold h5">Already have an account?</div>
               </div>

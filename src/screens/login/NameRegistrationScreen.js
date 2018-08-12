@@ -54,28 +54,31 @@ class NameRegistrationScreen extends Component {
              <p>Please enter the name you use in real life</p>
            </div>
 
+
 <Form>
     <div className="row">
-        <div className="col-sm-12 inputs inputName">
+          <div className="col-sm-12 inputs inputName ">
             <Input type="text" placeholder="First Name" name="fName" value={this.state.fName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
-            </div>
-            <div className="col-sm-12">
+          </div>
+          <div className="col-sm-12 inputName">
             <Input type="text" placeholder="Last Name" name="lName" value={this.state.lName} onChange={this.handleFormData} className="col-sm-4 form-control form-control-sm  " />
-            </div>
+          </div>
+          <div className = "row col-sm-12 Continuebottonmargin">
             <NavLink onClick={this.toogleButton} to={{pathname:"/BirthdayRegistrationScreen",
                                                state:{value:this.state}}}
                           className="btn  btncreate generalbtn" disabled={this.state.disable}>
                         Continue
                        </NavLink>
-            </div>
-              <div className="row font-weight-bold h5">Already have an account?</div>
+          </div>
+        </div>
+      </Form>
 
-          <div className="row">
+              <div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
 
-         </div>
-         <footer>step 1 of 6</footer>
-</Form>
-</div></div>
+         <footer className="page-footer footer-costomized">step 1 of 6</footer>
+
+      </div>
+  </div>
     );
   }
 }
