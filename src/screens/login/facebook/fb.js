@@ -1,6 +1,8 @@
 /*global FB*/
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import '../loginStyles.css';
+
 class FbLogin extends Component{
  constructor(props) {
     super(props);
@@ -83,8 +85,8 @@ render() {
         </Grid>
         <Grid>
           <Row>
-            <Col xs={12}>
-              <button href="#" onClick={this.handleClick} onLogin={this.checkLoginState} className="btn btn-primary"> Sign-Up Facebook</button>
+            <Col sm={12}>
+              <button href="#" onClick={this.handleClick} onLogin={this.checkLoginState} className="btn btnfb generalbtn"> Sign-Up With Facebook</button>
               <div id="status"></div>
             </Col>
           </Row>

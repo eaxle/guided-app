@@ -1,24 +1,25 @@
+
+body { font-size: 62.5%; }
+
 .welcome{
   position: relative;
-  min-height: 1px;
-  padding:50px 20px 0px 20px;
-  font-size: 30px;
-  color:black;
-  font-family:"Helvetica Neue";
-  margin-top: 30px;
+  min-height: 1em;
+  padding: 10% 5% 5% 5%;
+  font-size: 4em;
+  color: black;
+  font-family: "Helvetica Neue";
+  margin-top: 10%;
 }
 
 .subtitle{
   position: relative;
-  font-size: 17px;
+  font-size: 2.5em;
   color:black;
-  font-family:"Helvetica Neue";
-  display:table-cell;
-  padding: 0 60px 0 60px;
+  /* font-family:"Helvetica Neue"; */
+  padding: 5% 5% 5% 5%;
   align-items:center;
-  width: 345px;
-  padding: 10px 45px 20px 45px;
-  margin: 0 0 0 0;
+  /* width: 345px; */
+  margin: -5% 0 25% 0;
   /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/ */
   justify-content:center;//子元素水平居中
   align-items:center;//子元素垂直居中
@@ -36,16 +37,7 @@
   width: 345px;
 }
 
-#child1{
-  position: relative;
-  width: 345px;
-  padding: 10px 45px 20px 45px;
-  margin: 0 0 0 0;
-  border:4px solid #beceeb; /*为了便于观察，显示出边框*/
-  justify-content:center;//子元素水平居中
-  align-items:center;//子元素垂直居中
-  display:-webkit-flex;
-}
+
 
 #child2{
   position: relative;
@@ -70,14 +62,14 @@
   font-size: 10px;
 }
 
-#child22{
+/* #child22{
   margin-left: 45px;
   margin-right: 45px;
   margin-top: 55px;
-}
+} */
 
 p{
-    margin: 0 15px 0 15px;
+    margin: 0 2% 0 2%;
 }
 
 #buttons{
@@ -97,12 +89,12 @@ p{
 }
 
 .generalbtn{
-  height: 40px;
-  width: 200px;
-  font-size: 15px;
-  margin-bottom: 10px;
+  height: 12%;
+  width: 60%;
+  font-size: 2.5em;
+  margin-bottom: 1%;
   text-align: center;
-  padding-top: 7px;
+  margin-top: 1%;
 }
 .btncreate{
 
@@ -158,9 +150,9 @@ p{
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-#formEmail{
-  padding: 0 20px 0 8px;
-  margin: 0 0 10px 0;
+.formEmail{
+  margin: 0 10% 5% 10%;
+  width: 80%;
 }
 
 #or{
@@ -175,25 +167,26 @@ p{
 }
 
 /*  Associated with NameRegistrationScreen*/
-.inputName{
-  width: 80%;
-  padding: 0 0 0 0;
-  margin: 0 0 0 0 ;
-  border:4px solid #beceeb; /*为了便于观察，显示出边框*/
 
+.inputName{
+  margin: 0 15% 0% 15%;
+  width: 70%;
 }
 
 .subsubtitle{
-  font-size: 13px;
+  font-size: 2em;
   padding: 0 0 0 0;
-  margin: -10px 0 20px 0;
+  margin: -27% 0 5% 0;
 }
 
-.inputs{
-  padding: 0 0 0 0;
-  margin: 10px 0 20px 60px;
+.Continuebottonmargin{
+  margin: 5% 0 0% 0;
 
 }
+#account{
+  margin: 5% 0 0 0;
+}
+
 /*
 .footer{
   position:absolute;
@@ -202,7 +195,89 @@ p{
   height:100px;
   background-color: #ffc0cb;
 } */
+.footer-costomized {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:10%;   /* Height of the footer */
+   background-color: transparent;
+   font-size: 2em;
+
+}
 
 .container{min-height:100%;}
 
 .footer{height:100px;margin-top:-100px;background-color: #ffc0cb;}/* margin-top（负值的）高度等于footer的height值 */
+
+
+/*  Used in BirthdayRegistrationScreen*/
+.seletBOD{
+  /* margin: 0 15% 0% 15%; */
+  width: 100%;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+  linear-gradient(135deg, green 50%, transparent 50%),
+  linear-gradient(45deg, transparent 50%, green 50%),
+  linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+/*  used in GenderRegistrationScreen*/
+.tablediv{
+  width: 60%;
+  margin: 0 14% 0 26%;
+  text-align: left;
+  font-size: 2em;
+}
+table {
+    width: 100%;
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/*  used in PhoneNumberRegistrationScreen*/
+.PhoneNumberTable{
+  width: 70%;
+  margin: 0 0% 0 15%;
+  text-align: left;
+  font-size: 2em;
+
+}
+
+.inputCountryCode{
+  width: 20%;
+}
+.inputPhoneNumber{
+  width: 77%;
+}
