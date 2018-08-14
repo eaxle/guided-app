@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './loginStyles.css';
 
-class Login extends React.Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {showComponent: false};
@@ -52,7 +51,7 @@ class Login extends React.Component {
               </NavLink>
               </div>
             <div id = "child2" className="row col-sm-12 center">or</div>
-            <div className="row col-sm-12 center"><button className="btn btnlogin generalbtn" onClick={this.intoLogin}>Login</button></div>
+            <div className="row col-sm-12 center"><NavLink className="btn btnlogin generalbtn" to="/MainLogin">Login</NavLink></div>
           </div>
             <div id = "child3" className="row font-weight-bold">
             <p>By continuing, you agree to Guided's</p>
@@ -61,7 +60,7 @@ class Login extends React.Component {
 
               <NavLink
               to="#" className="row col-sm-12 h4 font-weight-bold">
-              Continue as Guest
+               as Guest
               </NavLink>
               </div>
               </div>
