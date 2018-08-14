@@ -10,7 +10,7 @@ import MainRegistrationScreen from './screens/login/MainRegistrationScreen';
 import NameRegistrationScreen from './screens/login/NameRegistrationScreen';
 import BirthdayRegistrationScreen from './screens/login/BirthdayRegistrationScreen';
 import PhoneNumberRegistrationScreen from './screens/login/PhoneNumberRegistrationScreen';
-import Profile from './screens/Profile';
+import MainLoginPage from './screens/login/MainLoginPage';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 const client = new ApolloClient({
@@ -33,6 +33,7 @@ ReactDOM.render(
     <Route exact path="/BirthdayRegistrationScreen" render={pros=> <BirthdayRegistrationScreen {...pros}/>} />
     <Route exact path="/MainRegistrationScreen" render={pros=> <MainRegistrationScreen {...pros}/>}  />
     <Route exact path="/NameRegistrationScreen" render={pros=> <NameRegistrationScreen {...pros}/>}   />
+    <Route exact path="/MainLogin" render={pros=> <MainLoginPage {...pros}/>}   />
     </Switch>
     </div>
     </Router>
