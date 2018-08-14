@@ -109,7 +109,7 @@ class PasswordRegistrationScreen extends Component {
 
 
     render() {
-        let {data} = this.props
+        let {data} = this.props;
 
         return (
 

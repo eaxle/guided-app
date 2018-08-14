@@ -1,27 +1,14 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
 import gql from "graphql-tag";
-import {graphql} from "react-apollo";
+import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 
-const ADD_USER = gql`
-               mutation createUser($first_name: String!,
-                                   $last_name: String!,
-                                   $email: String!,
-                                   $birth: String!,
-                                   $phone: String!,
-                                   $gender: String!,
-                                   $password: String!) {
-                   createUser(first_name:$first_name,
-                                                                 last_name: $last_name,
-                                                                 email: $email,
-                                                                 birth: $birth,
-                                                                 phone: $phone,
-                                                                 gender: $gender,
-                                                                 password: $password) {
-                     id
 
+const LOGIN_USER = gql`
+               query loginViaEmail($email: String!,$password: String!) {
+                   loginViaEmail(email:$email,password: $password) {
+                     id
                    }
                  }
                `;
@@ -29,7 +16,7 @@ const ADD_USER = gql`
 class MainLoginPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {email: '', password: ''}
+        this.state = {email: '', password: ''};
         this.handleFormData = this.handleFormData.bind(this);
         this.submitForm = this.submitForm.bind(this);
     }
@@ -46,29 +33,31 @@ class MainLoginPage extends Component {
         }
     }
 
-    submitForm(e) {
-        e.preventDefault();
-        /*if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
-            return
-        }*/
-        this.props.mutate({
-            variables: {
-                email: this.state.email,
-                password: this.state.password
+    submitForm(data) {
+        console.log(data)
+        /* e.preventDefault();
+         /!*if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
+             return
+         }*!/
+         this.props.options({
+             variables: {
+                 email: this.state.email,
+                 password: this.state.password
 
-            }
-        }).then(res => {
-            localStorage.setItem('email', "");
-            ;
-            alert('success')
+             }
+         }).then(res => {
+             localStorage.setItem('email', "");
+             ;
+             alert('success')
 
-        }).catch(err => {
-            alert('error')
-        })
+         }).catch(err => {
+             alert('error')
+         })*/
     }
 
     render() {
-        let {data} = this.props
+        let {data} = this.props;
+
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
                 <div className="row col-sm-12 welcome">Welcome to Guided
@@ -95,10 +84,23 @@ class MainLoginPage extends Component {
                                        className="col-sm-4 form-control form-control-sm  "/>
                             </div>
 
-                            <button onClick={this.submitForm}
-                                    className="btn  btncreate generalbtn" disabled={this.state.disable}>
-                                Continue
-                            </button>
+                            <ApolloConsumer>
+                                {client => (
+                                    <button
+                                        onClick={async (e) => {
+                                            e.preventDefault();
+
+                                            const {data} = await client.query({
+                                                query: LOGIN_USER,
+                                                variables: {email: this.state.email, password: this.state.password}
+                                            });
+                                            this.submitForm(data);
+                                        }}
+                                    >
+                                        Click me!
+                                    </button>
+                                )}
+                            </ApolloConsumer>
                         </div>
                         <div className="row font-weight-bold h5">Already have an account?</div>
 
@@ -112,5 +114,13 @@ class MainLoginPage extends Component {
     }
 }
 
-MainLoginPage = graphql(ADD_USER)(MainLoginPage)
+/*const queryOptions={
+    options:props=>({
+        variables:{
+            email:props.state.email,
+            password:props.state.password
+        }
+    })
+}*/
+// MainLoginPage = graphql(LOGIN_USER,queryOptions)(MainLoginPage)
 export default MainLoginPage;
