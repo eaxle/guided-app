@@ -1,0 +1,65 @@
+.container {
+    margin: 0%;
+    padding: 0%;
+}
+
+Row {
+    padding: 0%;
+}
+
+.icon {
+    width: 50px;
+    box-shadow: 1px 1px 10px #888888;
+    position: absolute;
+    bottom: -8px;
+}
+
+.username {
+    font-size: 10px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.attr {
+    font-size: 14px;
+    padding: 0%;
+}
+
+.right {
+    float: right;
+}
+
+.section {
+    padding-top: 4px;
+}
+
+.floatButtonGroup {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+}
+
+.floatButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    width: 75px;
+    color: white;
+}
+
+.publish{
+  background-color: #3E9378;
+  border-color: #3E9378;
+}
+
+.draft{
+  background-color: #4C0C7E;
+  border-color: #4C0C7E;
+}
+
+.delete{
+  background-color: #CB191F;
+  border-color: #CB191F;
+}
