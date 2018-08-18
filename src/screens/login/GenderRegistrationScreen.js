@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Provider} from 'react-redux';
-import {NavLink} from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
+import './loginStyles.css';
 class GenderRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -29,38 +28,55 @@ class GenderRegistrationScreen extends Component {
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-                <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
+                <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
 
-                    <div className="col-sm-12 font-weight-bold h4">
-                        Choose an account creation option
-                    </div>
-                </div>
+                    <div className="col-sm-12 font-weight-bold subtitle">
+               <p>Whats your gender? </p>
+           </div>
 
-                <div className="row">
-                    <label className="radio-inline"><input type="radio" value="m" name="gender"
-                                                           onChange={this.handleFormData} checked/>Male</label>
-                    <label className="radio-inline"><input type="radio" value="f" name="gender"
-                                                           onChange={this.handleFormData}/>Female</label>
-                    <label className="radio-inline"><input type="radio" name="gender" value="b"
-                                                           onChange={this.handleFormData}/>both</label>
+                    <div className="col-sm-12 subsubtitle">
+             <p></p>
+                </div></div>
+
+                <div className="rowtablediv">
+
+           <table>
+               <tbody>
+             <tr>
+                    <td><label >Male</label></td>
+               <td><input type="radio" value="m" name="gender"
+                                                          checked onChange={this.handleFormData}/></td>
+             </tr>
+             <tr>
+               <td><label>
+                    Female</label></td>
+               <td><input type="radio" value="f" name="gender"
+                                                           onChange={this.handleFormData}/></td>
+             </tr>
+             <tr>
+               <td><label >other</label></td>
+                    <td> <input type="radio" value="o" name="gender"
+                                                           onChange={this.handleFormData}/></td>
+             </tr></tbody>
+           </table>
                 </div>
-                <div className="row col-sm-12">
+                <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink onClick={this.toogleButton} to={{
                         pathname: "/PasswordRegistrationScreen",
                         state: {value: this.state}
                     }}
-                             className="btn  btn-success" disabled={this.state.disable}>
+                             className="btn  btncreate generalbtn" disabled={this.state.disable}>
                         Continue
                     </NavLink>
                 </div>
-                <div className="row">
+                <div className="row"><div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
+          <footer className="page-footer footer-costomized">step 4 of 6</footer>
 
                 </div>
             </div>
         );
     }
 }
-
 export default GenderRegistrationScreen;

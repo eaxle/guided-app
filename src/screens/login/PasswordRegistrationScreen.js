@@ -5,6 +5,8 @@ import {graphql} from "react-apollo";
 import Recaptcha from 'react-recaptcha';
 import ReactPasswordStrength from 'react-password-strength';
 
+import './loginStyles.css';
+
 const ADD_USER = gql`
                mutation createUser($first_name: String!,
                                    $last_name: String!,
@@ -25,7 +27,6 @@ const ADD_USER = gql`
                    }
                  }
                `;
-
 class PasswordRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -56,7 +57,6 @@ class PasswordRegistrationScreen extends Component {
         this.setState({password: score.password}, this.matchPassword);
 
     }
-
     handleFormData(event) {
         event.preventDefault();
         if (event.target.name === "password") {
@@ -114,28 +114,33 @@ class PasswordRegistrationScreen extends Component {
         return (
 
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-                <div className="row col-sm-12 text-center font-weight-bold text-capitalize h2">welcome to the guided
+                <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
 
-                    <div className="col-sm-12 font-weight-bold h4">
-                        Choose an account creation option
+                    <div className="col-sm-12 font-weight-bold subtitle">
+                        <p>Choose a password </p>
+           </div>
+           <div className="col-sm-12 subsubtitle">
+             <p>Password must be at least 6 characters,</p>
+             <p>contain a number, a symbol, and a mix of </p>
+             <p>upper and lower-case letters</p>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-12 form-group">
+                    <div className="col-sm-12  inputs inputName">
                         <ReactPasswordStrength
-                            className="col-sm-12 form-group"
+                            className="form-group"
 
                             minLength={5}
                             minScore={2}
                             scoreWords={['weak', 'okay', 'good', 'strong', 'stronger']}
                             changeCallback={this.registerUser}
-                            inputProps={{name: this.state.password, autoComplete: "off", className: "form-control"}}
+                            inputProps={{name: this.state.password, autoComplete: "off", className: "col-sm-12  inputs inputName"}}
                         />
                     </div>
-                    <div className="col-sm-12 form-group">
+                    <div className="col-sm-12  inputs inputName">
                         <input type="password" placeholder="password here" name="rePassword"
                                value={this.state.rePassword} onChange={this.handleFormData}
                                className="col-sm-4 form-control form-control-sm  "/>
@@ -147,14 +152,15 @@ class PasswordRegistrationScreen extends Component {
                     />
                 </div>
 
-                <div className="row col-sm-12">
+                <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink disabled={this.state.disable}
-                             to="/#" className="btn  btn-success" onClick={this.submitForm}>
-                        Continue
+                             to="/#" className="btn  btncreate generalbtn" onClick={this.submitForm}>
+                        Sign Up
                     </NavLink></div>
-                <div className="row">
+                <div className="row"><div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
 
-                </div>
+                <footer className="page-footer footer-costomized">step 5 of 6</footer>
+         </div>
             </div>
 
         );

@@ -36,22 +36,22 @@ class Login extends Component {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </MetaTags>
         <div className="row col-sm-12 welcome">Welcome to Guided</div>
-        <div id="parent">
-          <div id="child1" className="col-sm-12 subtitle">
+        <div id="parent1">
+          <div id="child1" className="col-sm-12 h5 subtitle">
             <p>The social marketplace</p>
             <p>for  things to do or use,</p>
             <p>and places to stay</p>
           </div>
 
-          <div id = "buttons" >
-            <div className="row col-sm-12 center">
+          <div className="row" >
+            <div className="row col-sm-12">
               <NavLink
               to="/MainRegistrationScreen" className="btn btncreate generalbtn">
               Create Account
               </NavLink>
               </div>
-            <div id = "child2" className="row col-sm-12 center">or</div>
-            <div className="row col-sm-12 center"><NavLink className="btn btnlogin generalbtn" to="/MainLogin">Login</NavLink></div>
+            <div className="row col-sm-12 h5 ">or</div>
+            <div className="row col-sm-12"><NavLink to="/MainLogin" className="btn btnlogin generalbtn" onClick={this.intoLogin}>Login</NavLink></div>
           </div>
             <div id = "child3" className="row font-weight-bold">
             <p>By continuing, you agree to Guided's</p>
@@ -60,7 +60,7 @@ class Login extends Component {
 
               <NavLink
               to="#" className="row col-sm-12 h4 font-weight-bold">
-               as Guest
+              Continue as Guest
               </NavLink>
               </div>
               </div>

@@ -5,7 +5,6 @@ import './loginStyles.css';
 import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-
 class NameRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +20,7 @@ class NameRegistrationScreen extends Component {
     onBackButtonEvent = function (e) {
         e.preventDefault();
         localStorage.setItem('email', this.state.email);
-        e.goBack();
+    //    e.goBack();
     }
 
     componentDidMount() {
@@ -76,13 +75,14 @@ class NameRegistrationScreen extends Component {
                                        onChange={this.handleFormData}
                                        className="col-sm-4 form-control form-control-sm  "/>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 inputName">
                                 <Input type="text" placeholder="Last Name" name="lName" value={this.state.lName}
                                        onChange={this.handleFormData}
                                        className="col-sm-4 form-control form-control-sm  "/>
                             </div>
 
-                            <NavLink onClick={this.toogleButton} to={{
+                            <div className = "row col-sm-12 Continuebottonmargin">
+            <NavLink onClick={this.toogleButton} to={{
                                 pathname: "/BirthdayRegistrationScreen",
                                 state: {value: this.state}
                             }}
@@ -90,16 +90,16 @@ class NameRegistrationScreen extends Component {
                                 Continue
                             </NavLink>
                         </div>
-                        <div className="row font-weight-bold h5">Already have an account?</div>
-
-                        <div className="row">
                         </div>
-                        <footer>step 1 of 6</footer>
-                    </Form>
+      </Form>
+
+              <div className="row font-weight-bold h5" id = "account">Already have an account?</div>
+
+                        <footer className="page-footer footer-costomized">step 1 of 6</footer>
+
                 </div>
             </div>
         );
     }
 }
-
 export default NameRegistrationScreen;
