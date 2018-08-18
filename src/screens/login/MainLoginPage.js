@@ -34,7 +34,7 @@ class MainLoginPage extends Component {
     }
 
     submitForm(data) {
-        console.log(data)
+        alert(JSON.stringify(data));
 
     }
 
