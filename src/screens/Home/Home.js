@@ -4,7 +4,7 @@ import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-import CurrentPost from '../../containers/CurrentPost';
+import Setting from './SettingPages';
 import './styles.css';
 
 class Home extends Component {
