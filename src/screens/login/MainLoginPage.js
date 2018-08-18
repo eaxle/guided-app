@@ -22,7 +22,7 @@ class MainLoginPage extends Component {
     }
 
     handleFormData(e) {
-        if (e.target.name == 'email') {
+        if (e.target.name === 'email') {
             this.setState({email: e.target.value}, () => {
                 console.log(this.state.email);
             })
