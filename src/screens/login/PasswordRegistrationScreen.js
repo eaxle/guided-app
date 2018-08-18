@@ -70,7 +70,7 @@ class PasswordRegistrationScreen extends Component {
 
     matchPassword() {
         //console.log(this.state.password, this.rePassword);
-        if ((this.state.password == this.rePassword) && this.state.password.toString().trim().length) {
+        if ((this.state.password === this.rePassword) && this.state.password.toString().trim().length) {
             this.setState({disable: false});
         } else {
             this.setState({disable: true});
