@@ -35,24 +35,7 @@ class MainLoginPage extends Component {
 
     submitForm(data) {
         console.log(data)
-        /* e.preventDefault();
-         /!*if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
-             return
-         }*!/
-         this.props.options({
-             variables: {
-                 email: this.state.email,
-                 password: this.state.password
 
-             }
-         }).then(res => {
-             localStorage.setItem('email', "");
-             ;
-             alert('success')
-
-         }).catch(err => {
-             alert('error')
-         })*/
     }
 
     render() {
