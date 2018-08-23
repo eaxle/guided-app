@@ -27,6 +27,7 @@ const ADD_USER = gql`
                    }
                  }
                `;
+
 class PasswordRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -57,6 +58,7 @@ class PasswordRegistrationScreen extends Component {
         this.setState({password: score.password}, this.matchPassword);
 
     }
+
     handleFormData(event) {
         event.preventDefault();
         if (event.target.name === "password") {
@@ -92,13 +94,13 @@ class PasswordRegistrationScreen extends Component {
                 first_name: this.state.fName,
                 last_name: this.state.lName,
                 email: this.state.email,
-                birth: this.state.year,
+                birth: this.state.day + "-" + this.state.month + "-" + this.state.year,
                 phone: this.state.phone,
                 gender: this.state.gender,
                 password: this.state.password
             }
         }).then(res => {
-            localStorage.setItem('email', "");
+            localStorage.clear();
             ;
             alert('success')
 
@@ -120,11 +122,11 @@ class PasswordRegistrationScreen extends Component {
 
                     <div className="col-sm-12 font-weight-bold subtitle">
                         <p>Choose a password </p>
-           </div>
-           <div className="col-sm-12 subsubtitle">
-             <p>Password must be at least 6 characters,</p>
-             <p>contain a number, a symbol, and a mix of </p>
-             <p>upper and lower-case letters</p>
+                    </div>
+                    <div className="col-sm-12 subsubtitle">
+                        <p>Password must be at least 6 characters,</p>
+                        <p>contain a number, a symbol, and a mix of </p>
+                        <p>upper and lower-case letters</p>
                     </div>
                 </div>
 
@@ -137,7 +139,11 @@ class PasswordRegistrationScreen extends Component {
                             minScore={2}
                             scoreWords={['weak', 'okay', 'good', 'strong', 'stronger']}
                             changeCallback={this.registerUser}
-                            inputProps={{name: this.state.password, autoComplete: "off", className: "col-sm-12  inputs inputName"}}
+                            inputProps={{
+                                name: this.state.password,
+                                autoComplete: "off",
+                                className: "col-sm-12  inputs inputName"
+                            }}
                         />
                     </div>
                     <div className="col-sm-12  inputs inputName">
@@ -157,10 +163,11 @@ class PasswordRegistrationScreen extends Component {
                              to="/#" className="btn  btncreate generalbtn" onClick={this.submitForm}>
                         Sign Up
                     </NavLink></div>
-                <div className="row"><div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
+                <div className="row">
+                    <div className="row font-weight-bold h5" id="account">Already have an account?</div>
 
-                <footer className="page-footer footer-costomized">step 5 of 6</footer>
-         </div>
+                    <footer className="page-footer footer-costomized">step 5 of 6</footer>
+                </div>
             </div>
 
         );

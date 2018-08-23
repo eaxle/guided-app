@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './loginStyles.css';
+
 class GenderRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -16,11 +17,17 @@ class GenderRegistrationScreen extends Component {
             phone: this.props.location.state.value.phone || ''
         }
         this.handleFormData = this.handleFormData.bind(this);
+        if (localStorage.getItem('gender')) {
+
+            this.state.gender = localStorage.getItem('gender');
+
+        }
     }
 
     handleFormData(e) {
         e.preventDefault();
         this.setState({gender: e.target.value}, () => {
+            localStorage.setItem('gender', this.state.gender);
         });
 
     }
@@ -33,34 +40,36 @@ class GenderRegistrationScreen extends Component {
                 <div className="row">
 
                     <div className="col-sm-12 font-weight-bold subtitle">
-               <p>Whats your gender? </p>
-           </div>
+                        <p>Whats your gender? </p>
+                    </div>
 
                     <div className="col-sm-12 subsubtitle">
-             <p></p>
-                </div></div>
+                        <p></p>
+                    </div>
+                </div>
 
                 <div className="rowtablediv">
 
-           <table>
-               <tbody>
-             <tr>
-                    <td><label >Male</label></td>
-               <td><input type="radio" value="m" name="gender"
-                                                          checked onChange={this.handleFormData}/></td>
-             </tr>
-             <tr>
-               <td><label>
-                    Female</label></td>
-               <td><input type="radio" value="f" name="gender"
-                                                           onChange={this.handleFormData}/></td>
-             </tr>
-             <tr>
-               <td><label >other</label></td>
-                    <td> <input type="radio" value="o" name="gender"
-                                                           onChange={this.handleFormData}/></td>
-             </tr></tbody>
-           </table>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td><label>Male</label></td>
+                            <td><input type="radio" value="m" name="gender" checked={this.state.gender === 'm'}
+                                       onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><label>
+                                Female</label></td>
+                            <td><input type="radio" value="f" name="gender" checked={this.state.gender === 'f'}
+                                       onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><label>other</label></td>
+                            <td><input type="radio" value="o" name="gender" checked={this.state.gender === 'o'}
+                                       onChange={this.handleFormData}/></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink onClick={this.toogleButton} to={{
@@ -71,12 +80,14 @@ class GenderRegistrationScreen extends Component {
                         Continue
                     </NavLink>
                 </div>
-                <div className="row"><div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
-          <footer className="page-footer footer-costomized">step 4 of 6</footer>
+                <div className="row">
+                    <div className="row font-weight-bold h5" id="account">Already have an account?</div>
+                    <footer className="page-footer footer-costomized">step 4 of 6</footer>
 
                 </div>
             </div>
         );
     }
 }
+
 export default GenderRegistrationScreen;

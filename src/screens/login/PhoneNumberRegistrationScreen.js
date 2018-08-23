@@ -24,6 +24,12 @@ class PhoneNumberRegistrationScreen extends Component {
         this.handleFormData = this.handleFormData.bind(this);
         this.handler = this.handler.bind(this);
         this.checkStatus = this.checkStatus.bind(this);
+        if (localStorage.getItem('phone')) {
+            this.state.phone = localStorage.getItem('countryCode') + localStorage.getItem('phone');
+        }
+        if (localStorage.getItem('countryCode')) {
+            this.state.countryCode = localStorage.getItem('countryCode');
+        }
     }
 
     handleFormData(event) {
@@ -36,11 +42,21 @@ class PhoneNumberRegistrationScreen extends Component {
 
     handler(status, value, countryData, number, id) {
         console.log("status: " + status + "\n" + "value: " + value + "\n" + "countryData: " + JSON.stringify(countryData) + "\n" + "number: " + number + "\n id: " + id);
-        if (status == true) {
-            this.setState({phone: number});
+        if (status === true) {
+            this.setState({countryCode: countryData.dialCode}, () => {
+                localStorage.setItem('countryCode', this.state.countryCode)
+
+            });
+            this.setState({phone: number}, () => {
+
+                localStorage.setItem('phone', value);
+            });
             this.disable = false;
+            alert(value)
         } else {
-            this.setState({phone: ""});
+            this.setState({phone: ""}, () => {
+                localStorage.setItem('phone', this.state.phone)
+            });
 
             this.disable = true;
 
@@ -69,29 +85,19 @@ class PhoneNumberRegistrationScreen extends Component {
                         <p>won’t be made public by default.</p>
                     </div>
                 </div>
-                {/*<div className="PhoneNumberTable">
-                    <table>
-                        <tr>
-                            <td className = "inputCountryCode"><input type="Number" onChange={this.handleFormData} placeholder="Country code" name="countryCode" className=" form-control form-control-sm  " />
-                            </td>
-                            <td></td>
-                            <td className = "inputPhoneNumber"> <input type="Number" placeholder="Phone Number" onChange={this.handleFormData} name="phone" className=" form-control form-control-sm  " /></td>
-                        </tr>
-                    </table>
-                </div>*/}
+
                 <div className="row">
                     <div className="col-sm-2 form-group">
-                        {/*<input type="Number" onChange={this.handleFormData} placeholder="Country code" name="countryCode" className="col-sm-4 form-control form-control-sm  " />*/}
                         <IntlTelInput
                             preferredCountries={['au']}
                             onPhoneNumberChange={this.handler}
                             onPhoneNumberBlur={this.handler}
                             css={['intl-tel-input', 'form-control']}
                             utilsScript={'libphonenumber.js'}
+                            defaultValue={this.state.phone}
                         />
                     </div>
                     <div className="col-sm-2 form-group">
-                        {/*<input type="Number" placeholder="Phone Number" onChange={this.handleFormData} name="phone" className="col-sm-4 form-control form-control-sm  " />*/}
                     </div>
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
@@ -104,7 +110,7 @@ class PhoneNumberRegistrationScreen extends Component {
                     </NavLink>
                 </div>
                 <div className="row">
-                    <div className="row font-weight-bold h5" id = "account" >Already have an account?</div>
+                    <div className="row font-weight-bold h5" id="account">Already have an account?</div>
                     <footer className="page-footer footer-costomized">step 3 of 6</footer>
 
                 </div>
@@ -112,4 +118,5 @@ class PhoneNumberRegistrationScreen extends Component {
         );
     }
 }
+
 export default PhoneNumberRegistrationScreen;
