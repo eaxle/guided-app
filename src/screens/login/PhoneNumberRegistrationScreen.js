@@ -52,7 +52,7 @@ class PhoneNumberRegistrationScreen extends Component {
                 localStorage.setItem('phone', value);
             });
             this.disable = false;
-            alert(value)
+          //  alert(value)
         } else {
             this.setState({phone: ""}, () => {
                 localStorage.setItem('phone', this.state.phone)
