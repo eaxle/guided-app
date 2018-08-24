@@ -7,10 +7,6 @@ import Input from 'react-validation/build/input';
 import './loginStyles.css';
 
 
-const arr = [];
-const arrMonth = [];
-const arrDay = [];
-
 class BirthdayRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +18,9 @@ class BirthdayRegistrationScreen extends Component {
             month: '',
             year: ''
         };
+        /* this.arr = new Array();
+         this.arrMonth = [];
+         this.arrDay = [];*/
 
         this.handleFormData = this.handleFormData.bind(this);
         console.log(this.props)
@@ -37,6 +36,7 @@ class BirthdayRegistrationScreen extends Component {
     }
 
     handleFormData(event) {
+        console.log(event.target.value)
         if (event.target.name === "day") {
             this.setState({day: event.target.value}, () => {
                 localStorage.setItem('day', this.state.day);
@@ -49,20 +49,19 @@ class BirthdayRegistrationScreen extends Component {
             });
         } else {
             this.setState({year: event.target.value}, () => {
-                console.log(this.state)
                 localStorage.setItem('year', this.state.year);
 
             });
         }
-        console.log(JSON.stringify(this.state))
     }
 
     render() {
+        let arrDay = new Array();
+        let arrMonth = new Array();
+        let arr = new Array();
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-                <MetaTags>
-                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                </MetaTags>
+
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -85,9 +84,11 @@ class BirthdayRegistrationScreen extends Component {
                                         placeholder="Day" value={this.state.day} onChange={this.handleFormData}>
                                     <option>Day</option>
                                     {(function () {
+                                        //debugger
                                         for (let i = 1; i < 32; i++) {
                                             arrDay.push(<option value={i} key={'day_' + i}>{i}</option>);
                                         }
+
                                     })()}
                                     {arrDay}
                                 </select>
@@ -114,6 +115,7 @@ class BirthdayRegistrationScreen extends Component {
                                     <option>Year</option>
                                     {(function () {
                                         for (let i = 1994; i < new Date().getFullYear(); i++) {
+
                                             arr.push(<option value={i} key={'year_' + i}>{i}</option>);
                                         }
                                     })()}
@@ -132,16 +134,6 @@ class BirthdayRegistrationScreen extends Component {
                             <div className="row">
                             </div>
                         </div>
-
-                        {/*  <div className="col-sm-4 inputName">
-          <Input type="Number" name="day" placeholder="Day" className="form-control " value={this.state.day} onChange={this.handleFormData}/>
-          </div>
-        <div className="col-sm-4">
-            <Input type="text"  name="month" placeholder="Month" className="form-control " value={this.state.month} onChange={this.handleFormData}/>
-        </div>
-        <div className="col-sm-4">
-            <Input type="Number" name="year" placeholder="Year" className="form-control " value={this.state.year} onChange={this.handleFormData}/>
-        </div>*/}
                     </div>
                 </Form>
                 <div className="row col-sm-12">
