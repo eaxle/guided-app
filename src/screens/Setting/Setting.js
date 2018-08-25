@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import Calendar from 'react-calendar';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './styles.css';
-
+import {NavLink, Link } from "react-router-dom";
 
 
 // var ScrollArea = require('react-scrollbar');
@@ -22,12 +22,15 @@ class Setting extends Component {
                 <ListGroup>
                     <ListGroupItem className="text-left">
                     <h5>Settings</h5></ListGroupItem>
-                    <ListGroupItem className="subtext-left">
-                    Personal Information
-
+                    <ListGroupItem className="subtext-left" ><NavLink to="/PersonInf" className = "">
+                    <div>
+                    <h4>Personal Information</h4>
                     <h6>Update your name, email, and phone number.</h6>
+                    </div>
+                    </NavLink>
+
                     </ListGroupItem>
-                    <ListGroupItem className="subtext-left">Official Documents
+                    <ListGroupItem className="subtext-left" href ="https://react-bootstrap.github.io/components/list-group/#link1" hearder="" >Official Documents
                     <h6>Upload government ID and other certifications.</h6></ListGroupItem>
                     <ListGroupItem className="subtext-left">Payments Settings
                     <h6>Manage your transact.</h6></ListGroupItem>

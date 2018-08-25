@@ -1,65 +1,41 @@
-.container {
-    margin: 0%;
-    padding: 0%;
+box-shadow: h-shadow v-shadow blur spread color inset, h-shadow v-shadow blur spread color inset;
+/* overflow-x: scroll; */
+.text-left{
+  text-align: left;
+  padding: 1% 2% 1% 12%;
+  background: #ddd;
 }
 
-Row {
-    padding: 0%;
+.subtext-left{
+  text-align: left;
+  padding: 1% 2% 1% 15%;
 }
 
-.icon {
-    width: 50px;
-    box-shadow: 1px 1px 10px #888888;
-    position: absolute;
-    bottom: -8px;
+.container-fluid2 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.username {
-    font-size: 10px;
+h6 {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 0.8em;
+    color: black;
 }
 
-.title {
-    font-size: 20px;
+h4{
+  font-size: 110%;
+  color: black;
 }
 
-.attr {
-    font-size: 14px;
-    padding: 0%;
-}
-
-.right {
-    float: right;
-}
-
-.section {
-    padding-top: 4px;
-}
-
-.floatButtonGroup {
-    position: absolute;
-    right: 10px;
-    top: 60px;
-}
-
-.floatButton {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 6px;
-    width: 75px;
-    color: white;
-}
-
-.publish{
-  background-color: #3E9378;
-  border-color: #3E9378;
-}
-
-.draft{
-  background-color: #4C0C7E;
-  border-color: #4C0C7E;
-}
-
-.delete{
-  background-color: #CB191F;
-  border-color: #CB191F;
+.list-group-item {
+    position: relative;
+    display: block;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
 }
