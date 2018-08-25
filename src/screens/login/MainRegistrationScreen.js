@@ -62,7 +62,7 @@ required(value){
 
 
     <div className="row" id="child22">
-        <div className="col-sm-4" id="email">
+        <div className="col-sm-12" id="email">
         <Form className="form-group formEmail">
     <Input type="email" value={this.state.email} onChange={this.handleChange}
     placeholder="Email Address" validations={[this.required,this.email]}

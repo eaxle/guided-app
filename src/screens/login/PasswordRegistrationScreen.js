@@ -108,6 +108,7 @@ class PasswordRegistrationScreen extends Component {
     }
 
 
+
     render() {
         let {data} = this.props;
 
@@ -145,11 +146,12 @@ class PasswordRegistrationScreen extends Component {
                                value={this.state.rePassword} onChange={this.handleFormData}
                                className="col-sm-4 form-control form-control-sm  "/>
                     </div>
-
-                    <Recaptcha
+                    <div className="col-sm-12 ">
+                    <Recaptcha id="rc-imageselect"
                         verifyCallback={this.verifyCall}
                         sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
+                    </div>
                 </div>
 
                 <div className="row col-sm-12 Continuebottonmargin">

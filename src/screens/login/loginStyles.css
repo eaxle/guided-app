@@ -253,18 +253,29 @@ select.minimal:focus {
 /*  used in GenderRegistrationScreen*/
 .tablediv{
   width: 60%;
-  margin: 0 14% 0 26%;
+  margin: 0 0% 0 0%;
   text-align: left;
   font-size: 2em;
 }
 table {
     width: 100%;
     position: relative;
+    border: 1px;
+    margin: 0 30% 0 0%;
 }
 
-table {
+/* table {
     border-collapse: collapse;
-}
+} */
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10%;
+    font-weight: 700;
+    margin-top: 10%;
+    font-size: 2em;
+  }
 
 /*  used in PhoneNumberRegistrationScreen*/
 .PhoneNumberTable{
@@ -280,4 +291,13 @@ table {
 }
 .inputPhoneNumber{
   width: 77%;
+}
+
+
+.g-recaptcha {
+    transform:scale(0.7);
+    transform-origin:0 0;
+    margin: 5% 15% 0 15%;
+    display:inline-block;
+
 }
