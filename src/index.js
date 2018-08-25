@@ -4,14 +4,14 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import './index.css';
-import Home from './screens/Home';
 import registerServiceWorker from './registerServiceWorker';
+import HomeTwo from './screens/HomeTwo';
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home /> 
+    <HomeTwo />
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
