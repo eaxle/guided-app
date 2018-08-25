@@ -1,264 +1,65 @@
-/*box-shadow h-shadow v-shadow blur spread color inset, h-shadow v-shadow blur spread color inset*/
-/* overflow-x: scroll; */
-.text-left{
-  text-align: left;
-  padding: 1% 2% 1% 12%;
-
-
+.container {
+    margin: 0%;
+    padding: 0%;
 }
 
-.subtext-left{
-  text-align: left;
-  padding: 1% 2% 1% 15%;
+Row {
+    padding: 0%;
 }
 
-.container-fluid2 {
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+.icon {
+    width: 50px;
+    box-shadow: 1px 1px 10px #888888;
+    position: absolute;
+    bottom: -8px;
 }
 
-h6 {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    font-size: 0.8em;
-    color: black;
-    font-weight: 300;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
-
+.username {
+    font-size: 10px;
 }
 
-h4{
-  font-size: 105%;
-  color: black;
-  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue",
-  Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 500;
-  margin-top:0.5%;
-  margin-bottom: 0.5%;
+.title {
+    font-size: 20px;
 }
 
-.list-group-item {
-    position: relative;
-    display: block;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
-    margin-bottom: -1px;
-    border: 1px solid #ddd;
+.attr {
+    font-size: 14px;
+    padding: 0%;
 }
 
-.tableWidth{
-  width: 110%;
-}
-.tableWidth2{
-  width: 70%;
-}
-.wholeWidth{
-  width: 100%;
-}
-.btnEdit{
-  font-size: 0.9em;
-  border-radius: 10%;
-  color: #4a4a4a;
-  background-color: #ffffff;
-  border: solid 0.1em #4a4a4a;
-  padding: 3% 5% 3% 5%;
-  margin: 5% 20% 0% -40%;
-}
-.btnSave{
-  font-size: 0.9em;
-  border-radius: 10%;
-  color: #ffffff;
-  background-color: #3e9378;
-  border: solid 0.1em #3e9378;
-  padding: 3% 5% 3% 5%;
-  margin: 5% 20% 0% -40%;
-}
-.btnCancel{
-  font-size: 0.9em;
-    border-radius: 10%;
-    color: #4a4a4a;
-    background-color: #ffffff;
-    border: solid 0.1em #4a4a4a;
-    padding: 3% 5% 3% 5%;
-    margin: 5% 0% 0% 0%
+.right {
+    float: right;
 }
 
-.hearderbackground{
-  background-color: rgba(216, 216, 216, 0.5);
-}
-.email-input{
-  border: 1px solid #4A4A4A;
-  width: 80%;
-  padding:  1% 0% 1% 1%;
-  margin: 0 0 0 20%;
-}
-.errorMessage{
-  width:100%;
-  background: white;
-  border: 1px solid #4A4A4A;
-  padding: 10px 15px;
+.section {
+    padding-top: 4px;
 }
 
-.form-control{
-  border-radius: 0px;
-  border-color: #4A4A4A;
+.floatButtonGroup {
+    position: absolute;
+    right: 10px;
+    top: 60px;
 }
 
-/*  used in EditGender*/
-.tablediv{
-  width: 60%;
-  margin: 0 0% 0 0%;
-  text-align: left;
-  font-size: 2em;
-}
-/* td {
-  text-align:  left;
-} */
-table {
-    width: 100%;
-    position: relative;
-    border: 1px;
-    margin: 0 30% 0 0%;
+.floatButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    width: 75px;
+    color: white;
 }
 
-.rowtablediv{
-  width: 100%;
-  padding: 0% 0% 0% 0%;
-
+.publish{
+  background-color: #3E9378;
+  border-color: #3E9378;
 }
 
-input[type='radio'] {
-  transform: scale(1.4);
+.draft{
+  background-color: #4C0C7E;
+  border-color: #4C0C7E;
 }
 
-label {
-    display: inline-block;
-    max-width: 100%;
-    font-weight: 600;
-    font-size: 0.8em;
-    margin-top: 10%;
-  }
-
-  .cmn-toggle {
-  	position: absolute;
-  	margin-left: -9999px;
-  	visibility: hidden;
-  }
-
-  .cmn-toggle + label {
-  	display: block;
-  	position: relative;
-  	cursor: pointer;
-  	outline: none;
-  	user-select: none;
-  }
-
-  /* Round Style CSS Toggle Switch */
-
-  input.cmn-toggle-round + label {
-  	padding: 2px;
-  	width: 120px;
-  	height: 60px;
-  	background-color: #dddddd;
-  	border-radius: 60px;
-  }
-
-  input.cmn-toggle-round + label:before,
-  input.cmn-toggle-round + label:after {
-  	display: block;
-  	position: absolute;
-  	top: 1px;
-  	bottom: 1px;
-  	left: 1px;
-  	content: "";
-  }
-
-  input.cmn-toggle-round + label:before {
-  	right: 1px;
-  	background-color: #f1f1f1;
-  	border-radius: 60px;
-  	transition: background 0.4s;
-  }
-
-  input.cmn-toggle-round +label:after {
-  	width: 58px;
-  	background-color: #fff;
-  	border-radius: 100%;
-  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  input.cmn-toggle-round:checked + label:before {
-  	background-color: #8ce196;
-  }
-
-  input.cmn-toggle-round:checked + label:after {
-  	margin-left: 60px;
-  }
-
-
-  /* Round Style CSS Toggle Switch with Flat Finish*/
-  input.cmn-toggle-round-flat + label {
-  	padding: 2px;
-  	width: 33px;
-  	height: 20px;
-  	background-color: #4A4A4A;
-  	border-radius: 30px;
-  	transition: background 0.4s;
-  }
-
-  input.cmn-toggle-round-flat + label:before,
-  input.cmn-toggle-round-flat + label:after {
-  	display: block;
-  	position: absolute;
-  	content: "";
-  }
-
-  input.cmn-toggle-round-flat + label:before {
-  	top: 1px;
-  	left: 1px;
-  	bottom: 1px;
-  	right: 1px;
-  	background-color: #fff;
-  	border-radius: 30px;
-  	transition: 0.4s;
-  }
-
-  input.cmn-toggle-round-flat + label:after {
-    top: 4px;
-    left: 4px;
-    bottom: 4px;
-    width: 12px;
-    background-color: #3E9378;
-    border-radius: 20px;
-    -webkit-transition: margin 0.4s, background 0.4s;
-    -o-transition: margin 0.4s, background 0.4s;
-    transition: margin 0.4s, background 0.4s;
-}
-
-
-  input.cmn-toggle-round-flat:checked + label {
-  	background-color: #4A4A4A;
-  }
-
-  input.cmn-toggle-round-flat:checked + label:after {
-  	margin-left: 14px;
-  	background-color: #4A4A4A;
-  }
-
-
-.radioGender{
-  margin-top:  40%;
-  margin-right: 70%;
-}
-
-
-.leftText{
-  text-align: left;
-}
-
-.centerText{
-  text-align: center;
+.delete{
+  background-color: #CB191F;
+  border-color: #CB191F;
 }

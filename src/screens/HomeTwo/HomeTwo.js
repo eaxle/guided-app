@@ -4,7 +4,7 @@ import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-import Setting from './Setting';
+import Setting from '../Setting';
 import './styles.css';
 
 class Home extends Component {
@@ -33,8 +33,7 @@ class Home extends Component {
           <div className="content">
             <Setting />
           </div>
-          <BottomBar />
-          <SecBottomBar />
+
         </Sidebar>
 
       </div>
