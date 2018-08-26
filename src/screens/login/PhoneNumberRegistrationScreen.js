@@ -80,7 +80,7 @@ class PhoneNumberRegistrationScreen extends Component {
                     </table>
                 </div>*/}
                 <div className="row">
-                    <div className="col-sm-2 form-group">
+                    <div className="col-sm-12 form-group">
                         {/*<input type="Number" onChange={this.handleFormData} placeholder="Country code" name="countryCode" className="col-sm-4 form-control form-control-sm  " />*/}
                         <IntlTelInput
                             preferredCountries={['au']}
@@ -90,7 +90,7 @@ class PhoneNumberRegistrationScreen extends Component {
                             utilsScript={'libphonenumber.js'}
                         />
                     </div>
-                    <div className="col-sm-2 form-group">
+                    <div className="col-sm-12 form-group">
                         {/*<input type="Number" placeholder="Phone Number" onChange={this.handleFormData} name="phone" className="col-sm-4 form-control form-control-sm  " />*/}
                     </div>
                 </div>
