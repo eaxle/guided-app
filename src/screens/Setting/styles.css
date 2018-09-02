@@ -3,7 +3,8 @@ box-shadow: h-shadow v-shadow blur spread color inset, h-shadow v-shadow blur sp
 .text-left{
   text-align: left;
   padding: 1% 2% 1% 12%;
-  background: #ddd;
+
+
 }
 
 .subtext-left{
@@ -23,11 +24,20 @@ h6 {
     margin-bottom: 1%;
     font-size: 0.8em;
     color: black;
+    font-weight: 300;
+    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+
 }
 
 h4{
-  font-size: 110%;
+  font-size: 105%;
   color: black;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 500;
+  margin-top:0.5%;
+  margin-bottom: 0.5%;
 }
 
 .list-group-item {
@@ -36,6 +46,37 @@ h4{
     padding-top: 2.5%;
     padding-bottom: 2.5%;
     margin-bottom: -1px;
-    background-color: #fff;
     border: 1px solid #ddd;
+}
+
+.tableWidth{
+  width: 110%;
+}
+.tableWidth2{
+  width: 70%;
+}
+.wholeWidth{
+  width: 100%;
+}
+.btnEdit{
+  font-size: 0.9em;
+  border-radius: 10%;
+  color: #4a4a4a;
+  background-color: #ffffff;
+  border: solid 0.1em #4a4a4a;
+  padding: 3% 5% 3% 5%;
+  margin: 5% 20% 0% -40%;
+}
+.btnSave{
+  font-size: 0.9em;
+  border-radius: 10%;
+  color: #ffffff;
+  background-color: #3e9378;
+  border: solid 0.1em #3e9378;
+  padding: 3% 5% 3% 5%;
+  margin: 5% 20% 0% -40%;
+}
+
+.hearderbackground{
+  background-color: rgba(216, 216, 216, 0.5);
 }

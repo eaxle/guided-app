@@ -8,7 +8,7 @@ import {NavLink, Link } from "react-router-dom";
 const arr=[];
 const arrMonth = [];
 const arrDay = [];
-class Setting extends Component {
+class EditDOB extends Component {
   state = {
     date: new Date(),
   }
@@ -105,4 +105,4 @@ class Setting extends Component {
     )
   }
 }
-export default Setting;
+export default EditDOB;
