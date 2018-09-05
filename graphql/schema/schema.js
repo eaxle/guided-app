@@ -114,13 +114,13 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        // // Login using email address and password
-        // loginViaEmail: (root, args, context) => {
-        //     let session = context.driver.session();
-        //     let query = "";
-        //     return session.run(query, args)
-        //         .then(result => { return result.records.map(record => { return record.get("user").properties})});
-        // }
+        // Login using email address and password
+        loginViaEmail: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (u:User)--(:User_Account)--(:Login_Account)--(el:Email_Login), (el)--(:Email {value: {email}}), (el)--(:Password {value: {password}}) return u";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("u").properties})});
+        }
     },
 
     // Mutation is used for create, update, and delete data
