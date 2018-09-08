@@ -103,6 +103,7 @@ const typeDefs = `
 
     type Query {
         loginViaEmail(email: String, password: String): [User]
+        getUserFisrtNameById(uid: String): [First_Name]
     }
 
     type Mutation {
@@ -120,6 +121,14 @@ const resolvers = {
             let query = "match (u:User)--(:User_Account)--(:Login_Account)--(el:Email_Login), (el)--(:Email {value: {email}}), (el)--(:Password {value: {password}}) return u";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("u").properties})});
+        },
+
+        // Get user name by user id
+        getUserFisrtNameById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return fn";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("fn").properties})});
         }
     },
 
