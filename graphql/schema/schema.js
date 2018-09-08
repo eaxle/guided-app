@@ -104,6 +104,8 @@ const typeDefs = `
     type Query {
         loginViaEmail(email: String, password: String): [User]
         getUserFisrtNameById(uid: String): [First_Name]
+        getUserLastNameById(uid: String): [Last_Name]
+        getUserPreferNameById(uid: String): [Prefer_Name]
     }
 
     type Mutation {
@@ -123,12 +125,28 @@ const resolvers = {
                 .then(result => { return result.records.map(record => { return record.get("u").properties})});
         },
 
-        // Get user name by user id
+        // Get user first name by user id
         getUserFisrtNameById: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return fn";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("fn").properties})});
+        },
+
+        // Get user last name by user id
+        getUserLastNameById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return ln";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("ln").properties})});
+        },
+
+        // Get user prefer name by user id
+        getUserPreferNameById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return pn";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("pn").properties})});
         }
     },
 
