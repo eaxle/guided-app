@@ -106,6 +106,7 @@ const typeDefs = `
         getUserFisrtNameById(uid: String): [First_Name]
         getUserLastNameById(uid: String): [Last_Name]
         getUserPreferNameById(uid: String): [Prefer_Name]
+        getGenderById(uid: String): [Gender]
     }
 
     type Mutation {
@@ -147,6 +148,14 @@ const resolvers = {
             let query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return pn";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("pn").properties})});
+        },
+
+        // Get user gender by user id
+        getGenderById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (g:Gender)--(User_Profile)--(:User {id: {uid}}) return g";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("g").properties})});
         }
     },
 
