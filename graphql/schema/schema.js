@@ -107,6 +107,9 @@ const typeDefs = `
         getUserLastNameById(uid: String): [Last_Name]
         getUserPreferNameById(uid: String): [Prefer_Name]
         getGenderById(uid: String): [Gender]
+        getUserDOBYearById(uid: String): [Year]
+        getUserDOBMonthById(uid: String): [Month]
+        getUserDOBDayById(uid: String): [Day]
     }
 
     type Mutation {
@@ -118,7 +121,7 @@ const typeDefs = `
 const resolvers = {
     // Query is used for match data
     Query: {
-        // Login using email address and password
+        // Login using email address
         loginViaEmail: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (u:User)--(:User_Account)--(:Login_Account)--(el:Email_Login), (el)--(:Email {value: {email}}), (el)--(:Password {value: {password}}) return u";
@@ -126,7 +129,7 @@ const resolvers = {
                 .then(result => { return result.records.map(record => { return record.get("u").properties})});
         },
 
-        // Get user first name by user id
+        // Get user first name, last name, prefer name by user id
         getUserFisrtNameById: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return fn";
@@ -134,7 +137,6 @@ const resolvers = {
                 .then(result => { return result.records.map(record => { return record.get("fn").properties})});
         },
 
-        // Get user last name by user id
         getUserLastNameById: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return ln";
@@ -142,7 +144,6 @@ const resolvers = {
                 .then(result => { return result.records.map(record => { return record.get("ln").properties})});
         },
 
-        // Get user prefer name by user id
         getUserPreferNameById: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) return pn";
@@ -156,6 +157,28 @@ const resolvers = {
             let query = "match (g:Gender)--(User_Profile)--(:User {id: {uid}}) return g";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("g").properties})});
+        },
+
+        // Get user DOB year, month, day by user id
+        getUserDOBYearById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) return y";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("y").properties})});
+        },
+
+        getUserDOBMonthById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) return m";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("m").properties})});
+        },
+
+        getUserDOBDayById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) return d";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("d").properties})});
         }
     },
 
@@ -185,7 +208,7 @@ const resolvers = {
             "(ua:User_Account {name: 'User Account'}), (la:Login_Account {name: 'Login Account'}), (el:Email_Login {name: 'Email Login'}), (p:Password {name: 'Password', value: {password}})";
             let relation_query = 
             // Generate relation to user node
-            "create (u)-[:has]->(cd), (u)-[:has]->(up), (u)-[:has]->(ua), " +
+            "create (u)-[:has]->(cd), (u)-[:has]->(up), (u)-[:has]->(ua), (u)-[:following]->(u), " +
             // Generate relation to user account email login node
             "(ua)-[:has]->(la), (la)-[:has]->(el), (el)-[:has]->(p), (el)-[:has]->(e), " +
             // Generate relation to user profile node
