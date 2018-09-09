@@ -20,7 +20,7 @@ body { font-size: 62.5%; }
   align-items:center;
   /* width: 345px; */
   margin: -5% 0 25% 0;
-  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/ */
+  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
   justify-content:center;//子元素水平居中
   align-items:center;//子元素垂直居中
   display:-webkit-flex;
@@ -44,7 +44,7 @@ body { font-size: 62.5%; }
   width: 100%;
   padding: 10px 0px 20px 50px;
   margin: 0 0 0 0;
-  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/ */
+  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
   justify-content:center;//子元素水平居中
   align-items:center;//子元素垂直居中
   display:-webkit-flex;
@@ -55,7 +55,7 @@ body { font-size: 62.5%; }
   width: 100%;
   padding: 10px 60px 20px 60px;
   margin: 0 0 0 0;
-  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/ */
+  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
   justify-content:center;//子元素水平居中
   align-items:center;//子元素垂直居中
   display:-webkit-flex;
@@ -160,7 +160,7 @@ p{
   width: 100%;
   padding: 20px 0px 8px 0px;
   margin: 0 0 0 0;
-  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/ */
+  /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
   justify-content:center;//子元素水平居中
   align-items:center;//子元素垂直居中
   display:-webkit-flex;
@@ -257,6 +257,9 @@ select.minimal:focus {
   text-align: left;
   font-size: 2em;
 }
+td {
+  text-align: left;
+}
 table {
     width: 100%;
     position: relative;
@@ -265,6 +268,21 @@ table {
 table {
     border-collapse: collapse;
 }
+.rowtablediv{
+  width: 100%;
+  padding: 0% 0% 0% 20%;
+
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10%;
+    font-weight: 700;
+    margin-top: 10%;
+    font-size: 2.2em;
+  }
+input[type='radio'] { transform: scale(1.5); }
 
 /*  used in PhoneNumberRegistrationScreen*/
 .PhoneNumberTable{
@@ -280,4 +298,13 @@ table {
 }
 .inputPhoneNumber{
   width: 77%;
+}
+
+
+.g-recaptcha {
+    transform:scale(0.75);
+    transform-origin:0 0;
+    margin: 5% 15% 0 15%;
+    display:inline-block;
+
 }
