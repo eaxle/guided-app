@@ -4,24 +4,43 @@ import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import Recaptcha from 'react-recaptcha';
 import ReactPasswordStrength from 'react-password-strength';
-
 import './loginStyles.css';
 
 const ADD_USER = gql`
-               mutation createUser($first_name: String!,
-                                   $last_name: String!,
-                                   $email: String!,
-                                   $birth: String!,
-                                   $phone: String!,
-                                   $gender: String!,
-                                   $password: String!) {
-                   createUser(first_name:$first_name,
-                                                                 last_name: $last_name,
-                                                                 email: $email,
-                                                                 birth: $birth,
-                                                                 phone: $phone,
-                                                                 gender: $gender,
-                                                                 password: $password) {
+               mutation createUser(
+               $create_date: String!,
+               $update_date: String,
+               $f_name: String!,
+               $l_name: String!,
+               $p_name:String!,
+               $dob_y: String!,
+               $dob_m: String!,
+               $dob_d: String!,
+               $c_code: String,
+               $email: String!,
+               $birth: String!,
+               $phone: String!,
+               $gender: String!,
+               $password: String!,
+               $ph_num: String!) 
+               {
+               createUser(
+               create_date:$create_date,
+               update_date:$update_date,
+               first_name:$f_name,
+               last_name:$l_name,
+               personal_name:$p_name,
+               dob_y:$dob_y,
+               dob_m:$dob_m,
+               dob_d:$dob_d,
+               country_code:$c_code,
+               email:$email,
+               birth:$birth,
+               phone:$phone,
+               gender:$gender,
+               password:$password,
+               phone:$ph_num
+               ) {
                      id
 
                    }
@@ -36,6 +55,7 @@ class PasswordRegistrationScreen extends Component {
             email: this.props.location.state.value.email,
             fName: this.props.location.state.value.fName,
             lName: this.props.location.state.value.lName,
+            pName: this.props.location.state.value.pName,
             day: this.props.location.state.value.day,
             month: this.props.location.state.value.month,
             year: this.props.location.state.value.year,
@@ -91,13 +111,28 @@ class PasswordRegistrationScreen extends Component {
         }
         this.props.mutate({
             variables: {
+                create_date: new Date(),
+                update_date: new Date(),
                 first_name: this.state.fName,
                 last_name: this.state.lName,
+                personal_name: this.state.pName,
+                dob_y: this.state.year,
+                dob_m: this.state.month,
+                dob_d: this.state.day,
+                country_code: this.state.count,
                 email: this.state.email,
-                birth: this.state.day + "-" + this.state.month + "-" + this.state.year,
                 phone: this.state.phone,
                 gender: this.state.gender,
-                password: this.state.password
+                password: this.state.password,
+
+                /*
+                                first_name: this.state.fName,
+                                last_name: this.state.lName,
+                                email: this.state.email,
+                                birth: this.state.day + "-" + this.state.month + "-" + this.state.year,
+                                phone: this.state.phone,
+                                gender: this.state.gender,
+                                password: this.state.password*/
             }
         }).then(res => {
             localStorage.clear();
