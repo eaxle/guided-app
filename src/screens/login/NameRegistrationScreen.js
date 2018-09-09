@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import MetaTags from 'react-meta-tags';
-import {NavLink, Redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './loginStyles.css';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -14,6 +13,7 @@ class NameRegistrationScreen extends Component {
             email: '',
             fName: '',
             lName: '',
+            pName: '',
             disable: true
         };
 
@@ -25,7 +25,11 @@ class NameRegistrationScreen extends Component {
 
             this.state.lName = localStorage.getItem('lName')
         }
-        if (this.state.fName.toString().trim().length && this.state.lName.toString().trim().length) {
+        if (localStorage.getItem('pName')) {
+
+            this.state.pName = localStorage.getItem('pName')
+        }
+        if (this.state.fName.toString().trim().length && this.state.lName.toString().trim().length && this.state.pName.toString().trim().length) {
             this.state.disable = false;
         }
         if (localStorage.getItem('email')) {
@@ -44,7 +48,6 @@ class NameRegistrationScreen extends Component {
     onBackButtonEvent = function (e) {
         e.preventDefault();
         localStorage.setItem('email', this.state.email);
-        //    e.goBack();
     }
 
     componentDidMount() {
@@ -60,13 +63,16 @@ class NameRegistrationScreen extends Component {
                     this.state.fName
                 )
             });
-
             ;
-        } else {
+        } else if (event.target.name === "lName") {
             this.setState({lName: event.target.value}, () => {
                 localStorage.setItem('lName', this.state.lName)
             });
 
+        } else {
+            this.setState({pName: event.target.value}, () => {
+                localStorage.setItem('pName', this.state.pName)
+            });
         }
         if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length)) {
             this.setState({disable: true})
@@ -81,24 +87,21 @@ class NameRegistrationScreen extends Component {
 
     toogleButton(event) {
 
-        if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length)) {
+        if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) || (!this.state.pName.toString().trim().length)) {
             event.preventDefault();
             this.setState({disable: true})
         }
         else {
-            localStorage.setItem('email', this.state.email)
-            localStorage.setItem('fName', this.state.fName)
-            localStorage.setItem('lName', this.state.lName)
+            localStorage.setItem('email', this.state.email);
+            localStorage.setItem('fName', this.state.fName);
+            localStorage.setItem('lName', this.state.lName);
+            localStorage.setItem('pName', this.state.pName);
         }
     }
 
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-                <MetaTags>
-                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                </MetaTags>
-
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -118,6 +121,12 @@ class NameRegistrationScreen extends Component {
                             </div>
                             <div className="col-sm-12 inputName">
                                 <Input type="text" placeholder="Last Name" name="lName" value={this.state.lName}
+                                       onChange={this.handleFormData}
+                                       className="col-sm-4 form-control form-control-sm  "/>
+                            </div>
+                            <div className="col-sm-12 inputName">
+                                <Input type="text" placeholder="Preferred First Name" name="pName"
+                                       value={this.state.pName}
                                        onChange={this.handleFormData}
                                        className="col-sm-4 form-control form-control-sm  "/>
                             </div>

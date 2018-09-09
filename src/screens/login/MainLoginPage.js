@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-
+import {withCookies, Cookies} from 'react-cookie';
 
 const LOGIN_USER = gql`
                query loginViaEmail($email: String!,$password: String!) {
@@ -14,11 +14,15 @@ const LOGIN_USER = gql`
                `;
 
 class MainLoginPage extends Component {
+
+
     constructor(props) {
         super(props);
+        const {cookies} = props;
         this.state = {email: '', password: ''};
         this.handleFormData = this.handleFormData.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.cookies = Cookies.isRequired;
     }
 
     handleFormData(e) {
@@ -34,7 +38,13 @@ class MainLoginPage extends Component {
     }
 
     submitForm(data) {
-        alert(JSON.stringify(data));
+        if (!data.loginViaEmail.length) {
+
+        } else {
+            document.cookie = "id=" + data.loginViaEmail;
+            //   this.cookies.set('id', data.loginViaEmail, {path: '/'});
+        }
+        alert(JSON.stringify(data.loginViaEmail));
 
     }
 
