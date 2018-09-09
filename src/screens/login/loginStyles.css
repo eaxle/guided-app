@@ -257,6 +257,9 @@ select.minimal:focus {
   text-align: left;
   font-size: 2em;
 }
+td {
+  text-align: left;
+}
 table {
     width: 100%;
     position: relative;
@@ -264,9 +267,11 @@ table {
     margin: 0 30% 0 0%;
 }
 
-/* table {
-    border-collapse: collapse;
-} */
+.rowtablediv{
+  width: 100%;
+  padding: 0% 0% 0% 20%;
+
+}
 
 label {
     display: inline-block;
@@ -274,8 +279,9 @@ label {
     margin-bottom: 10%;
     font-weight: 700;
     margin-top: 10%;
-    font-size: 2em;
+    font-size: 2.2em;
   }
+input[type='radio'] { transform: scale(1.5); }
 
 /*  used in PhoneNumberRegistrationScreen*/
 .PhoneNumberTable{
@@ -295,7 +301,7 @@ label {
 
 
 .g-recaptcha {
-    transform:scale(0.7);
+    transform:scale(0.75);
     transform-origin:0 0;
     margin: 5% 15% 0 15%;
     display:inline-block;
