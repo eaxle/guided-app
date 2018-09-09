@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import IntlTelInput from 'react-intl-tel-input';
-import /*'file?name=libphonenumber.js!*/'../../../node_modules/react-intl-tel-input/dist/libphonenumber.js';
-import '../../../node_modules/react-intl-tel-input/dist/main.css';
-
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './styles.css';
 import {NavLink, Link } from "react-router-dom";
 
-
-// var ScrollArea = require('react-scrollbar');
-// var ReactDOM = require('react-dom');
-// var React = require('react');
-class Setting extends Component {
+class EditGender extends Component {
   state = {
     date: new Date(),
   }
@@ -78,4 +70,4 @@ class Setting extends Component {
     )
   }
 }
-export default Setting;
+export default EditGender;
