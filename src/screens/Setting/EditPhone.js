@@ -11,7 +11,7 @@ import {NavLink, Link } from "react-router-dom";
 // var ScrollArea = require('react-scrollbar');
 // var ReactDOM = require('react-dom');
 // var React = require('react');
-class Setting extends Component {
+class EditPhone extends Component {
   state = {
     date: new Date(),
   }
@@ -24,11 +24,12 @@ class Setting extends Component {
             <div>
                 <ListGroup>
                 <div className="">
+
                     <ListGroupItem className="text-left">
                     <table>
                       <tbody>
                       <tr>
-                        <td className="tableWidth"> <h4>Gender</h4> </td>
+                        <td className="tableWidth"> <h4>Phone</h4> </td>
                         <td ><div><button className="btn btnSave float-right ">Save</button></div></td>
                         <td className=""><div><button className="btn btnCancel float-right ">Cancel</button></div></td>
                       </tr>
@@ -36,36 +37,23 @@ class Setting extends Component {
                       </table></ListGroupItem>
                       <ListGroupItem className="text-left">
                       <table>
-                        <tbody>
-                        <tr>
-                          <td className = ""> <h4>Gender</h4> <h6>Male</h6></td>
-                        </tr>
-                        <tr>
-                          <div className="rowtablediv">
-
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td><label>Male</label></td>
-                            <td><input type="radio" value="m" name="gender" checked={this.state.gender === 'm'}
-                                       onChange={this.handleFormData}/></td>
-                        </tr>
-                        <tr>
-                            <td><label>
-                                Female</label></td>
-                            <td><input type="radio" value="f" name="gender" checked={this.state.gender === 'f'}
-                                       onChange={this.handleFormData}/></td>
-                        </tr>
-                        <tr>
-                            <td><label>other</label></td>
-                            <td><input type="radio" value="o" name="gender" checked={this.state.gender === 'o'}
-                                       onChange={this.handleFormData}/></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                          </div>
-                        </tr>
-                        </tbody>
+                      <tbody>
+                      <tr>
+                      <td className = ""> <h4>Phone Number</h4> <h6>+612345556</h6></td>
+                      </tr>
+                      <tr>
+                        <div className="form-group">
+                        <IntlTelInput
+                            preferredCountries={['au']}
+                            onPhoneNumberChange={this.handler}
+                            onPhoneNumberBlur={this.handler}
+                            css={['intl-tel-input', 'form-control']}
+                            utilsScript={'libphonenumber.js'}
+                            defaultValue={this.state.phone}
+                        />
+                        </div>
+                      </tr>
+                      </tbody>
                       </table>
                       </ListGroupItem>
                       <div className="errorMessage">
@@ -78,4 +66,4 @@ class Setting extends Component {
     )
   }
 }
-export default Setting;
+export default EditPhone;

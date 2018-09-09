@@ -76,7 +76,33 @@ h4{
   padding: 3% 5% 3% 5%;
   margin: 5% 20% 0% -40%;
 }
+.btnCancel{
+  font-size: 0.9em;
+    border-radius: 10%;
+    color: #4a4a4a;
+    background-color: #ffffff;
+    border: solid 0.1em #4a4a4a;
+    padding: 3% 5% 3% 5%;
+    margin: 5% 0% 0% 0%
+}
 
 .hearderbackground{
   background-color: rgba(216, 216, 216, 0.5);
+}
+.email-input{
+  border: 1px solid #4A4A4A;
+  width: 80%;
+  padding:  1% 0% 1% 1%;
+  margin: 0 0 0 20%;
+}
+.errorMessage{
+  width:100%;
+  background: white;
+  border: 1px solid #4A4A4A;
+  padding: 10px 15px;
+}
+
+.form-control{
+  border-radius: 0px;
+  border-color: #4A4A4A;
 }

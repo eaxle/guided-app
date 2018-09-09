@@ -39,24 +39,19 @@ class EditGender extends Component {
                         <tbody>
                         <tr>
                             <td><label>Male</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="m" name="gender" /></div></td>
+                            <td><input type="radio" value="m" name="gender" checked={this.state.gender === 'm'}
+                                       onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
-                            <td><label>Female</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="f" name="gender" /></div></td>
+                            <td><label>
+                                Female</label></td>
+                            <td><input type="radio" value="f" name="gender" checked={this.state.gender === 'f'}
+                                       onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
-                            <td><label>Other</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="o" name="gender" /></div></td>
-                        </tr>
-                        <tr>
-                          <td>Do not show gender</td>
-                          <td className="centerText">
-                            <div className="switch">
-                            <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" />
-                            <label for="cmn-toggle-4"></label>
-                            </div>
-                          </td>
+                            <td><label>other</label></td>
+                            <td><input type="radio" value="o" name="gender" checked={this.state.gender === 'o'}
+                                       onChange={this.handleFormData}/></td>
                         </tr>
                         </tbody>
                     </table>
@@ -64,13 +59,10 @@ class EditGender extends Component {
                         </tr>
                         </tbody>
                       </table>
-                      <div className="">
-                      <h6>We encourage you to list the gender that you are most comfortable with. Doing so may help
-                      you to better find listings that fit your needs. You may enter text into this box to identify
-                      an alternative gender if you so wish. You do not have to enter a value in this box and if you
-                      do not, “Other” will be the defaut.</h6></div>
                       </ListGroupItem>
-
+                      <div className="errorMessage">
+                      <h6>ERROR: The phone number that you have entered is incomplete or
+                      matches that of another user. Please try again.</h6></div>
                     </div>
                 </ListGroup>
             </div>
