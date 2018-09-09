@@ -64,7 +64,7 @@ class GenderRegistrationScreen extends Component {
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
-                            <td><label>other</label></td>
+                            <td><label>Other</label></td>
                             <td><input type="radio" value="o" name="gender" checked={this.state.gender === 'o'}
                                        onChange={this.handleFormData}/></td>
                         </tr>
