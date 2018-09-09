@@ -50,20 +50,22 @@ const ADD_USER = gql`
 class PasswordRegistrationScreen extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.location.state);
         this.recaptchaPass = false;
         this.state = {
-            email: this.props.location.state.value.email,
-            fName: this.props.location.state.value.fName,
-            lName: this.props.location.state.value.lName,
-            pName: this.props.location.state.value.pName,
-            day: this.props.location.state.value.day,
-            month: this.props.location.state.value.month,
-            year: this.props.location.state.value.year,
-            countryCode: this.props.location.state.value.countryCode,
-            phone: this.props.location.state.value.phone,
-            password: this.props.location.state.value.password,
-            rePassword: this.props.location.state.value.rePassword || "",
-            gender: this.props.location.state.value.gender,
+            create_date: new Date(),
+            update_date: new Date(),
+            fName: localStorage.getItem('fName'),
+            lName: localStorage.getItem('lName'),
+            pName: localStorage.getItem('pName'),
+            year: localStorage.getItem('day'),
+            month: localStorage.getItem('month'),
+            day: localStorage.getItem('day'),
+            countryCode: localStorage.getItem('countryCode'),
+            email: localStorage.getItem('email'),
+            phone: localStorage.getItem('phone'),
+            gender: localStorage.getItem('gender'),
+            password: '',
             disable: true
         };
         this.rePassword = "";
