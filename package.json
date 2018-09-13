@@ -33,7 +33,7 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
-    "start": "port=80 react-scripts start",
+    "start": "PORT=80 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
