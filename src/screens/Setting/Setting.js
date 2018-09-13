@@ -44,20 +44,19 @@ class Setting extends Component {
                         <tbody>
                         <tr>
                             <td><label>Male</label></td>
-                            <td><input type="radio" value="m" name="gender" /></td>
+                            <td className="centerText"><div className="radioGender"><input type="radio" value="m" name="gender" /></div></td>
                         </tr>
                         <tr>
-                            <td><label>
-                                Female</label></td>
-                            <td><input type="radio" value="f" name="gender" /></td>
+                            <td><label>Female</label></td>
+                            <td className="centerText"><div className="radioGender"><input type="radio" value="f" name="gender" /></div></td>
                         </tr>
                         <tr>
                             <td><label>Other</label></td>
-                            <td><input type="radio" value="o" name="gender" /></td>
+                            <td className="centerText"><div className="radioGender"><input type="radio" value="o" name="gender" /></div></td>
                         </tr>
                         <tr>
                           <td>Do not show gender</td>
-                          <td>
+                          <td className="centerText">
                             <div className="switch">
                             <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" />
                             <label for="cmn-toggle-4"></label>
