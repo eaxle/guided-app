@@ -7,7 +7,7 @@ import ReactPasswordStrength from 'react-password-strength';
 import './loginStyles.css';
 
 const ADD_USER = gql`
-               mutation createUser(
+               mutation registrationViaEmail(
                $create_date: String!,
                $update_date: String,
                $f_name: String!,
