@@ -109,10 +109,24 @@ class PasswordRegistrationScreen extends Component {
         if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
             return
         }
-        this.props.mutate({
+        this.props.mutate({/*
+        create_date: String,
+        update_date: String,
+        email: String,
+        f_name: String,
+        l_name: String,
+        p_name: String,
+        dob_y: String,
+        dob_m: String,
+        dob_d: String,
+        c_code: String,
+        ph_num: String,
+        gender: String,
+        password: String
+        */
             variables: {
-                create_date: new Date(),
-                update_date: new Date(),
+                create_date: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate(),
+                update_date: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate(),
                 first_name: this.state.fName,
                 last_name: this.state.lName,
                 personal_name: this.state.pName,
@@ -124,15 +138,6 @@ class PasswordRegistrationScreen extends Component {
                 phone: this.state.phone,
                 gender: this.state.gender,
                 password: this.state.password,
-
-                /*
-                                first_name: this.state.fName,
-                                last_name: this.state.lName,
-                                email: this.state.email,
-                                birth: this.state.day + "-" + this.state.month + "-" + this.state.year,
-                                phone: this.state.phone,
-                                gender: this.state.gender,
-                                password: this.state.password*/
             }
         }).then(res => {
             localStorage.clear();
