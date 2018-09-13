@@ -19,6 +19,9 @@ class TopBar extends Component {
                     <NavItem>
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </NavItem>
+                    <NavItem>
+                        <div><button className="btn btnEdit float-right">Back</button></div>
+                    </NavItem>
                 </Nav>
             </Navbar>
         );
