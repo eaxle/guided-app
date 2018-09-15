@@ -195,6 +195,17 @@ p{
   height:100px;
   background-color: #ffc0cb;
 } */
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
 .footer-costomized {
    position:absolute;
    bottom:0;
@@ -222,14 +233,15 @@ select.minimal {
     linear-gradient(135deg, gray 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
   background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
+    calc(110% - 20px) calc(1em + 2px),
+    calc(110% - 15px) calc(1em + 2px),
+    calc(110% - 2.5em) 0.5em;
   background-size:
     5px 5px,
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
+
 }
 
 select.minimal:focus {
