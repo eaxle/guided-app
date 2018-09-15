@@ -22,7 +22,7 @@ const ADD_USER = gql`
                $password: String!,
                $ph_num: String!) 
                {
-               createUser(
+               registrationViaEmail(
                create_date:$create_date,
                update_date:$update_date,
                f_name:$f_name,
@@ -117,7 +117,7 @@ class PasswordRegistrationScreen extends Component {
                 dob_y: this.state.year,
                 dob_m: this.state.month,
                 dob_d: this.state.day,
-                country_code: this.state.count,
+                c_code: this.state.count,
                 email: this.state.email,
                 ph_num: this.state.phone,
                 gender: this.state.gender,
