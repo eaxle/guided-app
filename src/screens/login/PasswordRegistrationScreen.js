@@ -18,7 +18,6 @@ const ADD_USER = gql`
                $dob_d: String!,
                $c_code: String,
                $email: String!,
-               $birth: String!,
                $gender: String!,
                $password: String!,
                $ph_num: String!) 
@@ -34,7 +33,6 @@ const ADD_USER = gql`
                dob_d:$dob_d,
                country_code:$c_code,
                email:$email,
-               birth:$birth,
                gender:$gender,
                password:$password,
                ph_num:$ph_num
