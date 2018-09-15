@@ -3,7 +3,12 @@ import gql from "graphql-tag";
 import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+import './loginStyles.css';
+import { NavLink,browserHistory } from 'react-router-dom';
+import FbLogin from './facebook/fb';
 import {withCookies, Cookies} from 'react-cookie';
+
+
 
 const LOGIN_USER = gql`
                query loginViaEmail($email: String!,$password: String!) {
@@ -40,15 +45,12 @@ class MainLoginPage extends Component {
 
         } else {
             document.cookie = "id=" + data.loginViaEmail;
-            //   this.cookies.set('id', data.loginViaEmail, {path: '/'});
         }
-        alert(JSON.stringify(data.loginViaEmail));
 
     }
 
     render() {
         let {data} = this.props;
-
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
                 <div className="row col-sm-12 welcome">Welcome to Guided
@@ -57,8 +59,6 @@ class MainLoginPage extends Component {
                     <div className="col-sm-12 font-weight-bold subtitle">
                         <p>Choose a login option </p>
                     </div>
-
-
                     <Form>
                         <div className="row">
                             <div className="col-sm-12 inputs inputName">
@@ -91,7 +91,6 @@ class MainLoginPage extends Component {
                                 )}
                             </ApolloConsumer>
                         </div>
-
                         <div className="row">
                         <div className="row font-weight-bold h5">Forget Password?</div>
 
@@ -121,13 +120,5 @@ class MainLoginPage extends Component {
     }
 }
 
-/*const queryOptions={
-    options:props=>({
-        variables:{
-            email:props.state.email,
-            password:props.state.password
-        }
-    })
-}*/
 // MainLoginPage = graphql(LOGIN_USER,queryOptions)(MainLoginPage)
 export default MainLoginPage;
