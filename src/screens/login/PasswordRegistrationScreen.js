@@ -37,7 +37,7 @@ const ADD_USER = gql`
                birth:$birth,
                gender:$gender,
                password:$password,
-               phone:$ph_num
+               ph_num:$ph_num
                ) {
                      id
 
@@ -121,7 +121,7 @@ class PasswordRegistrationScreen extends Component {
                 dob_d: this.state.day,
                 country_code: this.state.count,
                 email: this.state.email,
-                phone: this.state.phone,
+                ph_num: this.state.phone,
                 gender: this.state.gender,
                 password: this.state.password,
                 c_code:this.state.countryCode
