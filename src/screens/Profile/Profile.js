@@ -42,11 +42,58 @@ class Profile extends Component {
           <div className="content">
 
             <ProfileImageAndIcon/>
-            <div className="">
+            <div className="container">
+              <Grid>
+                <Row>
+                  <Col xs={12}>
+                  <p className="attr">Bio</p>
+                    <div>
+                      <h7>This is your personal bio area.</h7>
+                      <p>Tell us something interesting about yourself!</p>
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                  <p className="attr">Gender</p>
+                    <div>
+                      <h7>Male</h7>
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                  <p className="attr">Date of Birth</p>
+                    <div>
+                      <h7>01 May 1990</h7>
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                  <p className="attr">Languages Spoken</p>
+                    <div>
+                      <h7>English</h7>
+                      <p>Chinese</p>
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                  <p className="attr">Certification</p>
+                    <div>
+                      <p>Area of Expertise: skydiving
+                        Qualification Level: instructor
+                        Issuing Authority: SkyDive Oz</p>
+                    </div>
+                  </Col>
+                </Row>
+
+              </Grid>
 
             </div>
 
-          </div>
+            </div>
 
         </Sidebar>
         <BottomBar />
