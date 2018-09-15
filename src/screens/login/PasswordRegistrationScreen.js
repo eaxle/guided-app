@@ -89,7 +89,6 @@ class PasswordRegistrationScreen extends Component {
     }
 
     matchPassword() {
-        //console.log(this.state.password, this.rePassword);
         if ((this.state.password === this.rePassword) && this.state.password.toString().trim().length) {
             this.setState({disable: false});
         } else {
@@ -117,7 +116,6 @@ class PasswordRegistrationScreen extends Component {
                 dob_y: this.state.year,
                 dob_m: this.state.month,
                 dob_d: this.state.day,
-                c_code: this.state.count,
                 email: this.state.email,
                 ph_num: this.state.phone,
                 gender: this.state.gender,
