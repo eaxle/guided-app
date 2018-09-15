@@ -19,3 +19,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.project
+.settings/
+guided-spa.iml
+.idea/
+/debug.log
