@@ -127,16 +127,16 @@ class PasswordRegistrationScreen extends Component {
         }).then(res => {
             localStorage.clear();
             ;
-            this.title="SUCCESS!"
+            /*this.title="SUCCESS!"
             this.body="You've been successfully registered in the GUIDED. Please login to continue!"
-            document.getElementsByClassName("modal").show();
-            //alert('success')
+            document.getElementsByClassName("modal").show();*/
+            alert('success')
 
         }).catch(err => {
             alert('error')
-            this.title="ERROR!"
+            /*this.title="ERROR!"
             this.body="registration unsuccessful!. Please try again!";
-            document.getElementsByClassName("modal").show();
+            document.getElementsByClassName("modal").show();*/
 
         })
     }
@@ -200,7 +200,7 @@ class PasswordRegistrationScreen extends Component {
 
                     <footer className="page-footer footer-costomized">step 5 of 6</footer>
                 </div>
-                <div className="modal" tabIndex="-1" role="dialog">
+                {/*<div className="modal" tabIndex="-1" role="dialog">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -217,7 +217,7 @@ class PasswordRegistrationScreen extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
 
         );
