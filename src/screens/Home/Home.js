@@ -4,8 +4,7 @@ import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-// import CurrentPost from '../../containers/CurrentPost';
-import Login from '../login/login';
+import Setting from './Setting';
 import './styles.css';
 
 class Home extends Component {
@@ -32,11 +31,12 @@ class Home extends Component {
           onSetOpen={this.onSetSidebarOpen}
           styles={sidebarStyle}>
           <div className="content">
-            <Login />
+            <Setting />
           </div>
-          <SecBottomBar />
           <BottomBar />
+          <SecBottomBar />
         </Sidebar>
+
       </div>
     );
   }

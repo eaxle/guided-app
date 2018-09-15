@@ -6,7 +6,7 @@ export default class CalendarHeader extends React.Component {
       <div className="calendarHeader">
         <span className="prev"
               onClick={this.props.prevMonth}>
-          
+
         </span>
         <span className="next"
               onClick={this.props.nextMonth}>

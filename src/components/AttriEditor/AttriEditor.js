@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { FormControl, Col, Grid, Row } from 'react-bootstrap';
+import { FormControl, Col, Grid, Row, Button } from 'react-bootstrap';
 import './styles.css';
 
 class AttriEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       title: this.props.post.title,
       country: this.props.post.location.country,
       city: this.props.post.location.city,
@@ -18,7 +18,23 @@ class AttriEditor extends Component {
     }
 
     this.handleValueChange = this.handleValueChange.bind(this);
+    this.saveChanges = this.saveChanges.bind(this);
 
+  }
+
+  saveChanges(e) {
+    let newAttributes = {
+      title: this.state.title,
+      country: this.state.country,
+      duration: this.state.duration,
+      timeUnit: this.state.timeUnit,
+      currency: this.state.currency,
+      price: this.state.price,
+      guestNum: this.state.guestNum,
+      guestMax: this.state.guestMax
+
+    }
+    this.props.handleSubmit(newAttributes);
   }
 
   handleValueChange(e) {
@@ -73,8 +89,8 @@ class AttriEditor extends Component {
     }
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div>
         <form>
           <Grid>
@@ -192,10 +208,11 @@ class AttriEditor extends Component {
               </Col>
             </Row>
           </Grid>
+          <Button onClick={this.saveChanges}>Save</Button>
         </form>
-      </div> 
+      </div>
     )
   }
 }
- 
+
 export default AttriEditor;

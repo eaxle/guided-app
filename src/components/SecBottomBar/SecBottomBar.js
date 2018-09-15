@@ -28,7 +28,7 @@ class SecBottomBar extends Component {
 
     render() {
         return (
-            <Navbar fixedBottom id="secBar">
+            <Navbar className="mySecBtmBar" id="secBar">
                 <Grid>
                     <Row className="bottomRow">
                         <Col xs={4}>
