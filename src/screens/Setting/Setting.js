@@ -20,66 +20,38 @@ class Setting extends Component {
       <div className="container-fluid2 container ">
             <div>
                 <ListGroup>
-                <div className="">
                     <ListGroupItem className="text-left">
-                    <table>
-                      <tbody>
-                      <tr>
-                        <td className="tableWidth"> <h4>Gender</h4> </td>
-                        <td ><div><button className="btn btnSave float-right ">Save</button></div></td>
-                        <td className=""><div><button className="btn btnCancel float-right ">Cancel</button></div></td>
-                      </tr>
-                      </tbody>
-                      </table></ListGroupItem>
-                      <ListGroupItem className="text-left">
-                      <table>
-                        <tbody>
-                        <tr>
-                          <td className = ""> <h4>Gender</h4> <h6>Male</h6></td>
-                        </tr>
-                        <tr>
-                          <div className="rowtablediv">
-
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td><label>Male</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="m" name="gender" /></div></td>
-                        </tr>
-                        <tr>
-                            <td><label>Female</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="f" name="gender" /></div></td>
-                        </tr>
-                        <tr>
-                            <td><label>Other</label></td>
-                            <td className="centerText"><div className="radioGender"><input type="radio" value="o" name="gender" /></div></td>
-                        </tr>
-                        <tr>
-                          <td>Do not show gender</td>
-                          <td className="centerText">
-                            <div className="switch">
-                            <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" />
-                            <label for="cmn-toggle-4"></label>
-                            </div>
-                          </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                          </div>
-                        </tr>
-                        </tbody>
-                      </table>
-                      <div className="">
-                      <h6>We encourage you to list the gender that you are most comfortable with. Doing so may help
-                      you to better find listings that fit your needs. You may enter text into this box to identify
-                      an alternative gender if you so wish. You do not have to enter a value in this box and if you
-                      do not, “Other” will be the defaut.</h6></div>
-                      </ListGroupItem>
-
+                    <h5>Settings</h5></ListGroupItem>
+                    <ListGroupItem className="subtext-left" ><NavLink to={{pathname:"/PersonInf"}}>
+                    <div>
+                    <h4>Personal Information</h4>
+                    <h6>Update your name, email, and phone number.</h6>
                     </div>
+                    </NavLink>
+
+                    </ListGroupItem>
+                    <ListGroupItem className="subtext-left" href ="https://react-bootstrap.github.io/components/list-group/#link1" hearder="" >Official Documents
+                    <h6>Upload government ID and other certifications.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Payments Settings
+                    <h6>Manage your transact.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Security
+                    <h6>Change your password.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Privacy
+                    <h6>Control your information.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Advertising
+                    <h6>Set your preferences and learn how our ads work.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Notifications
+                    <h6>Decide how we should contact you.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Media
+                    <h6>Manage image, video, and sound controls.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Your Guided Activity
+                    <h6>View, download, and delete your information.</h6></ListGroupItem>
+                    <ListGroupItem className="subtext-left">Legals and Policies
+                    <h6>Our expectations and commitments to users.</h6></ListGroupItem>
                 </ListGroup>
             </div>
       </div>
+
     )
   }
 }

@@ -45,6 +45,8 @@ class MainLoginPage extends Component {
 
         } else {
             document.cookie = "id=" + data.loginViaEmail;
+            this.props.history.push('/setting');
+
         }
 
     }
