@@ -3,7 +3,11 @@ import gql from "graphql-tag";
 import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-import {withCookies, Cookies} from 'react-cookie';
+import './loginStyles.css';
+import { NavLink,browserHistory } from 'react-router-dom';
+import FbLogin from './facebook/fb';
+
+
 
 const LOGIN_USER = gql`
                query loginViaEmail($email: String!,$password: String!) {
@@ -14,15 +18,13 @@ const LOGIN_USER = gql`
                `;
 
 class MainLoginPage extends Component {
-
-
     constructor(props) {
         super(props);
-        const {cookies} = props;
+        // const {cookies} = props;
         this.state = {email: '', password: ''};
         this.handleFormData = this.handleFormData.bind(this);
         this.submitForm = this.submitForm.bind(this);
-        this.cookies = Cookies.isRequired;
+        // this.cookies = Cookies.isRequired;
     }
 
     handleFormData(e) {
@@ -57,11 +59,9 @@ class MainLoginPage extends Component {
                 </div>
                 <div className="row">
                     <div className="col-sm-12 font-weight-bold subtitle">
-                        <p>Whats your name? </p>
+                        <p>Choose a login option </p>
                     </div>
-                    <div className="col-sm-12 subsubtitle">
-                        <p>Please enter the name you use in real life</p>
-                    </div>
+
 
                     <Form>
                         <div className="row">
@@ -71,7 +71,7 @@ class MainLoginPage extends Component {
                                        onChange={this.handleFormData}
                                        className="col-sm-4 form-control form-control-sm  "/>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 inputs inputName">
                                 <Input type="password" placeholder="password" name="password" value={this.state.lName}
                                        onChange={this.handleFormData}
                                        className="col-sm-4 form-control form-control-sm  "/>
@@ -79,7 +79,7 @@ class MainLoginPage extends Component {
 
                             <ApolloConsumer>
                                 {client => (
-                                    <button
+                                    <button  className="btn  btncreate generalbtn"
                                         onClick={async (e) => {
                                             e.preventDefault();
 
@@ -90,16 +90,34 @@ class MainLoginPage extends Component {
                                             this.submitForm(data);
                                         }}
                                     >
-                                        Click me!
+                                        Continue
                                     </button>
                                 )}
                             </ApolloConsumer>
                         </div>
-                        <div className="row font-weight-bold h5">Already have an account?</div>
+
+                        <div className="row">
+                        <div className="row font-weight-bold h5">Forget Password?</div>
+
+                        <div className="row col-sm-12"><FbLogin><NavLink
+                              to="/login" className="btn btnfb generalbtn">
+                              Continue With Facebook
+                              </NavLink></FbLogin>
+                        </div>
+
+                        <div className="row col-sm-12"><NavLink
+                              to="/login" className="btn  btngg generalbtn">
+                            Continue With Google
+                            </NavLink></div>
+                        <div className="row col-sm-12"><NavLink
+                             to="/login" className="btn  btnlk generalbtn">
+                            Continue With LinkedIn
+                            </NavLink></div>
+                        </div>
 
                         <div className="row">
                         </div>
-                        <footer>step 1 of 6</footer>
+
                     </Form>
                 </div>
             </div>
