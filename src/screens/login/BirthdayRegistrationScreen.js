@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import MetaTags from 'react-meta-tags';
-import {Provider} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
 import './loginStyles.css';
 
 
@@ -18,9 +15,6 @@ class BirthdayRegistrationScreen extends Component {
             month: '',
             year: ''
         };
-        /* this.arr = new Array();
-         this.arrMonth = [];
-         this.arrDay = [];*/
 
         this.handleFormData = this.handleFormData.bind(this);
         console.log(this.props)
