@@ -275,8 +275,15 @@ const resolvers = {
         // Creat a do activity for a user
         createDoForUser: (root, args, context) => {
             let session = context.driver.session();
-            let node_query = "";
-            let relation_query = "";
+            let node_query = 
+            // Generate unique id for a do listing
+            "merge (id:UniqueId {name: 'Do', str: 'ld#'}) on create set id.count = 1 on match set id.count = id.count + 1 with id.str + id.count as ldid " +
+            "create (d:Do {name: 'Do', id: ldid}), ";
+            let relation_query =
+            // Match user id with do listing
+            "match (dl:Do_Listing)--(:User {id: {uid}}) " +
+            // Generate relation between user and do
+            "create (dl)-[:has]->(d)";
             let query = node_query + relation_query;
             session.run(query, args);
         }
