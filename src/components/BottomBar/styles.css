@@ -49,18 +49,10 @@
     margin-bottom: 5px;
 }
 
-.myBtmBar {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  z-index: 1;
-
-}
-
 .tab {
     text-align: center;
 }
 
 .active {
-    border-bottom: 3px solid #3E9378;
+    border-bottom: 2px solid purple;
 }

@@ -5,39 +5,40 @@ import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
 import Setting from '../Setting';
-import './style.css';
+import './styles.css';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            sidebarOpen: false
-        }
-
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    this.state = {
+      sidebarOpen: false
     }
 
-    onSetSidebarOpen() {
-        this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
-    }
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
 
-    render() {
-        return (
-            <div>
-                <TopBar toggleSidebar={this.onSetSidebarOpen}/>
-                <Sidebar sidebar={sidebarContent}
-                         open={this.state.sidebarOpen}
-                         onSetOpen={this.onSetSidebarOpen}
-                         styles={sidebarStyle}>
-                    <div className="content">
-                        <Setting />
-                    </div>
+  onSetSidebarOpen() {
+    this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
+  }
 
-                </Sidebar>
+  render() {
+    return (
+      <div>
+        <TopBar toggleSidebar={this.onSetSidebarOpen}/>
+        <Sidebar sidebar={sidebarContent}
+          open={this.state.sidebarOpen}
+          onSetOpen={this.onSetSidebarOpen}
+          styles={sidebarStyle}>
+          <div className="content">
+            <Setting />
+          </div>
 
-            </div>
-        );
-    }
+        </Sidebar>
+
+      </div>
+    );
+  }
 }
+
 export default Home;
