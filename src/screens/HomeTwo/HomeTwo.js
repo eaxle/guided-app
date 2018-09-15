@@ -5,7 +5,7 @@ import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
 import Setting from '../Setting';
-import './styles.css';
+import './style.css';
 
 class Home extends Component {
     constructor(props) {
@@ -40,5 +40,4 @@ class Home extends Component {
         );
     }
 }
-
 export default Home;

@@ -14,7 +14,7 @@ import MainLoginPage from './screens/login/MainLoginPage';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
-
+import Home from './screens/HomeTwo/HomeTwo';
 const client = new ApolloClient({
 //  uri: process.env.REACT_APP_GRAPHQL_URI
     uri: "http://45.32.189.215:3000/graphql",
@@ -43,6 +43,7 @@ ReactDOM.render(
                         <Route exact path="/NameRegistrationScreen"
                                render={pros => <NameRegistrationScreen {...pros}/>}/>
                         <Route exact path="/MainLogin" render={pros => <MainLoginPage {...pros}/>}/>
+                        <Route exact path="/setting" render={pros => <Home{...pros}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>
