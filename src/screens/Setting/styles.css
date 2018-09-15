@@ -231,7 +231,7 @@ label {
     left: 4px;
     bottom: 4px;
     width: 12px;
-    background-color: #3E9378;
+    background-color: #4A4A4A;
     border-radius: 20px;
     -webkit-transition: margin 0.4s, background 0.4s;
     -o-transition: margin 0.4s, background 0.4s;
@@ -245,7 +245,7 @@ label {
 
   input.cmn-toggle-round-flat:checked + label:after {
   	margin-left: 14px;
-  	background-color: #4A4A4A;
+  	background-color: #3E9378;
   }
 
 
@@ -261,4 +261,11 @@ label {
 
 .centerText{
   text-align: center;
+}
+.rightText{
+  text-align: right;
+}
+.switchMargin{
+  width: 80%;
+  margin-right: 10%;
 }
