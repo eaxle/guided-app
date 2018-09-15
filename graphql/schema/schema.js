@@ -101,8 +101,40 @@ const typeDefs = `
         value: String
     }
 
+    type Active_Status {
+        name: String
+        value: String
+    }
+
+    type Log_Notes_Listing {
+        name: String
+    }
+
+    type Log_Notes {
+        name: String
+        log: String
+        date: String
+    }
+
+    type Use_Listing {
+        name: String
+    }
+
+    type Do_Listing {
+        name: String
+    }
+
+    type Stay_Listing {
+        name: String
+    }
+
+    type User_Media {
+        name: String
+    }
+
     type Query {
         loginViaEmail(email: String, password: String): [User]
+        activeUser(uid: String): [Active_Status]
         getUserFisrtNameById(uid: String): [First_Name]
         getUserLastNameById(uid: String): [Last_Name]
         getUserPreferNameById(uid: String): [Prefer_Name]
@@ -127,6 +159,17 @@ const resolvers = {
             let query = "match (u:User)--(:User_Account)--(:Login_Account)--(el:Email_Login), (el)--(:Email {value: {email}}), (el)--(:Password {value: {password}}) return u";
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("u").properties})});
+        },
+
+        // Active user account
+        activeUser: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (as:Active_Status)--(u:User {id:{uid}}) " + 
+            "create(ul:Use_Listing {name: 'Use Listing'}), (sl:Stay_Listing {name: 'Stay Listing'}), (dl:Do_Listing {name: 'Do Listing'}), (um:User_Media {name: 'User Media'}) " + 
+            "create (u)-[:has]->(ul), (u)-[:has]->(sl), (u)-[:has]->(dl), (u)-[:has]->(um) " +
+            "set as.value = 1 return as";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("as").properties})});
         },
 
         // Get user first name, last name, prefer name by user id
@@ -191,11 +234,11 @@ const resolvers = {
             // Generate unique user id
             "merge (id:UniqueId{name: 'User', str: 'u#'}) on create set id.count = 1 on match set id.count = id.count + 1 with id.str + id.count as uid " +
             // Generate user node and create date node 
-            "create (u:User {name: 'User', id: uid}), (cd:Create_Date {name: 'Create Date', value: {create_date}}), " +
+            "create (u:User {name: 'User', id: uid}), (cd:Create_Date {name: 'Create Date', value: {create_date}}), (st:Active_Status {name: 'Active Status', value: 0}), " +
             // Generate user profile node and update date node
-            "(up:User_Profile {name: 'User Profile'}), (ud:Update_Date {name: 'Update Date', value: {update_date}}), " +
+            "(up:User_Profile {name: 'User Profile'}), (ud:Update_Date {name: 'Update Date', value: {update_date}}), (lln:Log_Notes_Listing {name: 'Log Notes Listing'}), " +
             // Generate email node and user name node
-            "(e:Email {name: 'Email', value: {email}}), (un:User_Name {name: 'User Name'}), " +
+            "(e:Email {name: 'Email', value: {email}}), (un:User_Name {name: 'User Name'}), (log:Log_Notes {name: 'Log', log: 'user is created', date: {create_date}}), " +
             // Generate name details node
             "(fn:First_Name {name: 'First Name', value: {f_name}}), (ln:Last_Name {name: 'Last Name', value: {l_name}}), (pn:Prefer_Name {name: 'Prefer Name', value: {p_name}}), " +
             // Generate dob nodes
@@ -208,11 +251,11 @@ const resolvers = {
             "(ua:User_Account {name: 'User Account'}), (la:Login_Account {name: 'Login Account'}), (el:Email_Login {name: 'Email Login'}), (p:Password {name: 'Password', value: {password}})";
             let relation_query = 
             // Generate relation to user node
-            "create (u)-[:has]->(cd), (u)-[:has]->(up), (u)-[:has]->(ua), (u)-[:following]->(u), " +
+            "create (u)-[:has]->(cd), (u)-[:has]->(up), (u)-[:has]->(ua), (u)-[:following]->(u), (u)-[:has]->(st), " +
             // Generate relation to user account email login node
-            "(ua)-[:has]->(la), (la)-[:has]->(el), (el)-[:has]->(p), (el)-[:has]->(e), " +
+            "(ua)-[:has]->(la), (la)-[:has]->(el), (el)-[:has]->(p), (el)-[:has]->(e), (u)-[:has]->(lln), (lln)-[:has]->(log), " +
             // Generate relation to user profile node
-            "(u)-[:has]->(up), (up)-[:has]->(e), (up)-[:has]->(ud), (up)-[:has]->(un), (up)-[:has]->(g), (up)-[:has]->(mb), (up)-[:has]->(dob), " +
+            "(up)-[:has]->(e), (up)-[:has]->(ud), (up)-[:has]->(un), (up)-[:has]->(g), (up)-[:has]->(mb), (up)-[:has]->(dob), " +
             // Generate relation to user name node
             "(un)-[:has]->(fn), (un)-[:has]->(ln), (un)-[:has]->(pn), " +
             // Generate relation to mobile node
