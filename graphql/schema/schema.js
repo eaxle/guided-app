@@ -132,6 +132,11 @@ const typeDefs = `
         name: String
     }
 
+    type Do {
+        name: String
+        id: String
+    }  
+
     type Query {
         loginViaEmail(email: String, password: String): [User]
         activeUser(uid: String): [Active_Status]
@@ -146,6 +151,7 @@ const typeDefs = `
 
     type Mutation {
         registrationViaEmail(create_date: String, update_date: String, email: String, f_name: String, l_name: String, p_name: String, dob_y: String, dob_m: String, dob_d: String, c_code: String, ph_num: String, gender: String, password: String): User
+        createDoForUser(uid: String, c_date: String, u_date: String): Do
     }
 `;
 
@@ -264,6 +270,15 @@ const resolvers = {
             "(dob)-[:has]->(y), (dob)-[:has]->(m), (dob)-[:has]->(d)";
             let query = node_query + relation_query;
             session.run(query, args);                
+        },
+
+        // Creat a do activity for a user
+        createDoForUser: (root, args, context) => {
+            let session = context.driver.session();
+            let node_query = "";
+            let relation_query = "";
+            let query = node_query + relation_query;
+            session.run(query, args);
         }
     }
 
