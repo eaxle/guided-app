@@ -28,7 +28,7 @@ const ADD_USER = gql`
                update_date:$update_date,
                f_name:$f_name,
                l_name:$l_name,
-               personal_name:$p_name,
+               p_name:$p_name,
                dob_y:$dob_y,
                dob_m:$dob_m,
                dob_d:$dob_d,
@@ -115,7 +115,7 @@ class PasswordRegistrationScreen extends Component {
                 update_date: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate(),
                 f_name: this.state.fName,
                 l_name: this.state.lName,
-                personal_name: this.state.pName,
+                p_name: this.state.pName,
                 dob_y: this.state.year,
                 dob_m: this.state.month,
                 dob_d: this.state.day,
@@ -124,6 +124,7 @@ class PasswordRegistrationScreen extends Component {
                 phone: this.state.phone,
                 gender: this.state.gender,
                 password: this.state.password,
+                c_code:this.state.countryCode
             }
         }).then(res => {
             localStorage.clear();
