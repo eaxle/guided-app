@@ -15,15 +15,15 @@ class ProfileImageAndIcon extends Component {
                             <Image className="icon" src="/sampleIcon.jpg" circle/>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="margintop">
                         <Col xs={5}>
                             <span className="title">John Smith</span>
                         </Col>
                         <Col xs={3}>
-                            <button className="btn">Edit Profile</button>
+                            <button className="btn editBtn">Edit Profile</button>
                         </Col>
                         <Col xs={3}>
-                            <button className="btn">Following</button>
+                            <button className="btn following">Following</button>
                         </Col>
 
                     </Row>
@@ -33,10 +33,10 @@ class ProfileImageAndIcon extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={4}>
+                        <Col xs={3}>
                             <span className="attr">Following??</span>
                         </Col>
-                        <Col xs={4}>
+                        <Col xs={5}>
                             <span className="attr right">Followed by ??</span>
                         </Col>
                     </Row>
