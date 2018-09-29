@@ -42,12 +42,17 @@ class Profile extends Component {
           onSetOpen={this.onSetSidebarOpen}
           styles={sidebarStyle}>
           <div className="content">
-
-            <ProfileImageAndIcon/>
-            <Bio/>
-
+            <div className="BlankHeight">
+              <p> this is used to make up of the space of the top </p>
+            </div>
+            <Card/>
+            <Card/>
+            <Card/>
+            <div className="BlankHeight">
+              <p> this is used to make up of the space of the bottom </p>
+              <p> this is used to make up of the space of the bottom </p>
+            </div>
           </div>
-
         </Sidebar>
         <BottomBar />
         <SecBottomBar/>

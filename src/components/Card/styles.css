@@ -1,0 +1,42 @@
+.margintop{
+  margin-top: 0%;
+}
+
+.icon2 {
+  width: 40px;
+  -webkit-box-shadow: 1px 1px 10px #888888;
+  box-shadow: 1px 1px 10px #888888;
+  position: absolute;
+  bottom: -40px
+}
+
+.TextDiv{
+  margin-top: 10%;
+}
+
+.postPictureSize{
+  width:96%;
+  border-radius: 8px;
+
+}
+.marginright{
+  margin-left: 20%;
+  margin-right: 11%;
+  margin-top: 5%;
+
+}
+.margin{
+  margin-right: 11%;
+  margin-top: 5%;
+}
+.margintop2{
+  margin-top: 5%;
+  margin-right: -6%;
+  margin-left: 5%;
+}
+.marginleft{
+  margin-left: -10%;
+}
+.glyphicon {
+    font-size: 140%;
+}
