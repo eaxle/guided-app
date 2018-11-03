@@ -138,6 +138,9 @@ const typeDefs = `
         getUserFisrtNameById(uid: String): [First_Name]
         getUserLastNameById(uid: String): [Last_Name]
         getUserPreferNameById(uid: String): [Prefer_Name]
+        getUserEmailById(uid: String): [Email]
+        getUserPhoneCodeById(uid: String): [Country_Code]
+        getUserPhoneNumberById(uid: String): [Phone_Number]
         getGenderById(uid: String): [Gender]
         getUserDOBYearById(uid: String): [Year]
         getUserDOBMonthById(uid: String): [Month]
@@ -193,6 +196,29 @@ const resolvers = {
             return session.run(query, args)
                 .then(result => { return result.records.map(record => { return record.get("pn").properties})});
         },
+
+        // Get user email address by user id
+        getUserEmailById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (e:Email)--(:User_Profile)--(:User {id: {uid}}) return e";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("e").properties})});
+        },
+
+        // Get use phone number by user id
+        getUserPhoneCodeById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) return phcc";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("phcc").properties})});
+        },
+
+        getUserPhoneNumberById: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) return phn";
+            return session.run(query, args)
+                .then(result => { return result.records.map(record => { return record.get("phn").properties})});
+        },        
 
         // Get user gender by user id
         getGenderById: (root, args, context) => {
