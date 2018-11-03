@@ -21,13 +21,15 @@ class PersonInf extends Component {
             <div className="container-fluid2 container ">
                 <div>
                     <ListGroup>
+
                         <div className="hearderbackground">
                             <ListGroupItem className="text-left">
                                 <h4>Personal Information</h4></ListGroupItem></div>
-                        <ListGroupItem className="text-left">
-                            <h4>Name</h4> <h6>John Smith</h6>
-                        </ListGroupItem>
-
+                        <NavLink to={{pathname: "/setting/PersonInf/name"}}>
+                            <ListGroupItem className="text-left">
+                                <h4>Name</h4> <h6>John Smith</h6>
+                            </ListGroupItem>
+                        </NavLink>
                         <ListGroupItem className="text-left">
                             <table>
                                 <tbody>
