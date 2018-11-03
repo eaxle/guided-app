@@ -3,11 +3,13 @@
 }
 
 .icon2 {
-  width: 40px;
+  width: 60%;
   -webkit-box-shadow: 1px 1px 10px #888888;
   box-shadow: 1px 1px 10px #888888;
   position: absolute;
-  bottom: -40px
+  top:0.5em;
+  right: 18%;
+
 }
 
 .TextDiv{
@@ -32,11 +34,35 @@
 .margintop2{
   margin-top: 5%;
   margin-right: -6%;
-  margin-left: 5%;
+  margin-left: 6%;
 }
 .marginleft{
   margin-left: -10%;
 }
 .glyphicon {
     font-size: 140%;
+}
+/* .explorePictureDiv{
+  width: 100%;
+   height: 200px;
+
+   background-repeat: no-repeat;
+   background-size: cover;
+   border: 1px solid red;
+}
+*/
+
+.responsive-image {
+  position: relative;
+  max-width: 100%;
+}
+
+.responsive-image__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 10%;
+  height: 10%;
 }
