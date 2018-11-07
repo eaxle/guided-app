@@ -58,19 +58,20 @@ ReactDOM.render(
                                render={pros => <NameRegistrationScreen {...pros}/>}/>
                         <Route exact path="/MainLogin" render={pros => <MainLoginPage {...pros}/>}/>
                         <Route exact path="/setting" render={pros => <Home{...pros}/>}/>
-                        <Route exact path="/setting/personInf" render={pros => <PersonInf{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/email" render={pros => <EditEmail{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/phone" render={pros => <EditPhone{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/gender" render={pros => <EditGender{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/name" render={pros => <EditName{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/language" render={pros => <EditLanguage{...pros}/>}/>
-                        <Route exact path="/setting/PersonInf/dob" render={pros => <EditDOB{...pros}/>}/>
-                        <Route exact path="/setting/officialdoc" render={pros => <OfficialDoc{...pros}/>}/>
-                        <Route exact path="/setting/payment" render={pros => <PaymentSetting{...pros}/>}/>
-                        <Route exact path="/setting/security" render={pros => <Security{...pros}/>}/>
-                        <Route exact path="/setting/privacy" render={pros => <Privacy{...pros}/>}/>
-                        <Route exact path="/setting/ad" render={pros => <Ad{...pros}/>}/>
-                        <Route exact path="/setting/media" render={pros => <Media{...pros}/>}/>
+                        <Route exact path="/setting/personInf" render={pros => <Home{...pros} tagName={PersonInf}/>} />
+                        <Route exact path="/setting/PersonInf/email" render={pros => <Home{...pros} tagName={EditEmail}/>}/>
+                        <Route exact path="/setting/PersonInf/phone" render={pros => <Home{...pros} tagName={EditPhone}/>}/>
+                        <Route exact path="/setting/PersonInf/gender" render={pros => <Home{...pros} tagName={EditGender}/>}/>
+                        <Route exact path="/setting/PersonInf/name" render={pros => <Home{...pros} tagName={EditName}/>}/>
+                        <Route exact path="/setting/PersonInf/language" render={pros => <Home{...pros} tagName={EditLanguage}/>}/>
+                        <Route exact path="/setting/PersonInf/dob" render={pros => <Home{...pros} tagName={EditDOB}/>}/>
+                        <Route exact path="/setting/officialdoc" render={pros => <Home{...pros} tagName={OfficialDoc}/>}/>
+                        <Route exact path="/setting/payment" render={pros => <Home{...pros} tagName={PaymentSetting}/>}/>
+                        <Route exact path="/setting/security" render={pros => <Home{...pros} tagName={Security}/>}/>
+                        <Route exact path="/setting/privacy" render={pros => <Home{...pros} tagName={Privacy}/>}/>
+                        <Route exact path="/setting/ad" render={pros => <Home{...pros} tagName={Ad}/>}/>
+                        <Route exact path="/setting/media" render={pros => <Home{...pros} tagName={Media}/>}/>
+                        <Route exact path="/setting/notification" render={pros => <Home{...pros} tagName={Notification}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>

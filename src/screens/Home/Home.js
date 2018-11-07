@@ -1,45 +1,49 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Sidebar from 'react-sidebar';
 import TopBar from '../../components/TopBar';
-import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
+import {Sidebar as sidebarContent, sidebarStyle} from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
 import Setting from './Setting';
+import PersonInf from './PersonInf/PersonInf';
 import './styles.css';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      sidebarOpen: false
+        this.state = {
+            sidebarOpen: false,
+            foo: Setting,
+            goo: PersonInf
+        }
+
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-  }
+    onSetSidebarOpen() {
+        this.setState((prevState) => ({sidebarOpen: !prevState.sidebarOpen}));
+    }
 
-  onSetSidebarOpen() {
-    this.setState((prevState) => ({ sidebarOpen: !prevState.sidebarOpen }));
-  }
+    render() {
+        const TagName = this.state.goo;
+        return (
+            <div>
+                <TopBar toggleSidebar={this.onSetSidebarOpen}/>
+                <Sidebar sidebar={sidebarContent}
+                         open={this.state.sidebarOpen}
+                         onSetOpen={this.onSetSidebarOpen}
+                         styles={sidebarStyle}>
+                    <div className="content">
+                        <TagName/>
+                    </div>
+                    <BottomBar/>
+                    <SecBottomBar/>
+                </Sidebar>
 
-  render() {
-    return (
-      <div>
-        <TopBar toggleSidebar={this.onSetSidebarOpen}/>
-        <Sidebar sidebar={sidebarContent}
-          open={this.state.sidebarOpen}
-          onSetOpen={this.onSetSidebarOpen}
-          styles={sidebarStyle}>
-          <div className="content">
-            <Setting />
-          </div>
-          <BottomBar />
-          <SecBottomBar />
-        </Sidebar>
-
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
 export default Home;
