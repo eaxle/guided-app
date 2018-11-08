@@ -149,6 +149,7 @@ const typeDefs = `
 
     type Mutation {
         registrationViaEmail(create_date: String, update_date: String, email: String, f_name: String, l_name: String, p_name: String, dob_y: String, dob_m: String, dob_d: String, c_code: String, ph_num: String, gender: String, password: String): User
+        updateUserEmail(uid: String, email: String): Email
     }
 `;
 
@@ -290,6 +291,17 @@ const resolvers = {
             "(dob)-[:has]->(y), (dob)-[:has]->(m), (dob)-[:has]->(d)";
             let query = node_query + relation_query;
             session.run(query, args);                
+        },
+
+        // Update user email address
+        updateUserEmail: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match email node to user id
+            "match (e:Email)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update email value
+            "set e.value = {email} return e.value";
+            session.run(query, args);
         }
     }
 
