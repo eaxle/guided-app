@@ -150,6 +150,12 @@ const typeDefs = `
     type Mutation {
         registrationViaEmail(create_date: String, update_date: String, email: String, f_name: String, l_name: String, p_name: String, dob_y: String, dob_m: String, dob_d: String, c_code: String, ph_num: String, gender: String, password: String): User
         updateUserEmail(uid: String, email: String): Email
+        updateUserPhoneCode(uid: String, code: String): Country_Code
+        updateUserPhoneNumber(uid: String, number: String): Phone_Number
+        updateUserGender(uid: String, gender: String): Gender
+        updateUserDOBYear(uid: String, year: String): Year
+        updateUserDOBMonth(uid: String, month: String): Month
+        updateUserDOBDay(uid: String, day: String): Day
     }
 `;
 
@@ -301,6 +307,69 @@ const resolvers = {
             "match (e:Email)--(:User_Profile)--(:User {id: {uid}})" +
             // Update email value
             "set e.value = {email} return e.value";
+            session.run(query, args);
+        },
+
+        // Update user phone number
+        updateUserPhoneCode: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match phone code node to user id
+            "match (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update phone code
+            "set phcc.value = {code} return phcc.value";
+            session.run(query, args);
+        },
+
+        updateUserPhoneNumber: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match phone number to user id
+            "match (phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update phone number
+            "set phn.value = {number} return phn.value";
+            session.run(query, args);
+        },
+
+        // Update user gender
+        updateUserGender: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match gender to user id
+            "match (g:Gender)--(User_Profile)--(:User {id: {uid}})" +
+            // Update gender
+            "set g.value = {gender} return g.value";
+            session.run(query, args);
+        },
+
+        // Update user DOB year, month, day
+        updateUserDOBYear: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match DOB year to user id
+            "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update DOB year
+            "set y.value = {year} return y.value";
+            session.run(query, args);
+        },
+
+        updateUserDOBMonth: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match DOB month to user id
+            "match (m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update DOB month
+            "set m.value = {month} return m.value";
+            session.run(query, args);
+        },
+
+        updateUserDOBDay: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            // Match DOB day to user id
+            "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
+            // Update DOB day
+            "set d.value = {day} return d.value";
             session.run(query, args);
         }
     }
