@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import './styles.css';
 
 
@@ -9,7 +9,7 @@ class TopBar extends Component {
             <Navbar fixedTop navbar-expand-sm>
                 <Nav bsStyle="pills" pullLeft>
                     <NavItem onClick={() => this.props.toggleSidebar()}>
-                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
                         John Smith
@@ -17,10 +17,12 @@ class TopBar extends Component {
                 </Nav>
                 <Nav pullRight>
                     <NavItem>
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
-                        <div><button className="btn btnSave float-right">Back</button></div>
+                        <div>
+                            <button classNameName="btn btnSave float-right" >Back</button>
+                        </div>
                     </NavItem>
                 </Nav>
             </Navbar>
