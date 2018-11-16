@@ -4,6 +4,16 @@ import './styles.css';
 
 
 class TopBar extends Component {
+    constructor(props) {
+        super(props);
+        this.goBack = this.goBack.bind(this);
+
+    }
+
+    goBack() {
+        window.history.back();
+    }
+
     render() {
         return (
             <Navbar fixedTop navbar-expand-sm>
@@ -21,7 +31,8 @@ class TopBar extends Component {
                     </NavItem>
                     <NavItem>
                         <div>
-                            <button classNameName="btn btnSave float-right" >Back</button>
+                            <button classNameName="btn btnSave float-right" onClick={this.goBack}>Back
+                            </button>
                         </div>
                     </NavItem>
                 </Nav>

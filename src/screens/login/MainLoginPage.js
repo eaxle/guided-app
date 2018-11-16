@@ -4,10 +4,9 @@ import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import './loginStyles.css';
-import { NavLink,browserHistory } from 'react-router-dom';
+import {NavLink, browserHistory} from 'react-router-dom';
 import FbLogin from './facebook/fb';
 import {withCookies, Cookies} from 'react-cookie';
-
 
 
 const LOGIN_USER = gql`
@@ -44,7 +43,8 @@ class MainLoginPage extends Component {
         if (!data.loginViaEmail.length) {
 
         } else {
-            document.cookie = "id=" + data.loginViaEmail;
+            document.cookie = "id=" + data.loginViaEmail[0].id;
+            // debugger
             this.props.history.push('/setting');
 
         }
@@ -77,16 +77,16 @@ class MainLoginPage extends Component {
 
                             <ApolloConsumer>
                                 {client => (
-                                    <button  className="btn  btncreate generalbtn"
-                                        onClick={async (e) => {
-                                            e.preventDefault();
+                                    <button className="btn  btncreate generalbtn"
+                                            onClick={async (e) => {
+                                                e.preventDefault();
 
-                                            const {data} = await client.query({
-                                                query: LOGIN_USER,
-                                                variables: {email: this.state.email, password: this.state.password}
-                                            });
-                                            this.submitForm(data);
-                                        }}
+                                                const {data} = await client.query({
+                                                    query: LOGIN_USER,
+                                                    variables: {email: this.state.email, password: this.state.password}
+                                                });
+                                                this.submitForm(data);
+                                            }}
                                     >
                                         Continue
                                     </button>
@@ -94,21 +94,21 @@ class MainLoginPage extends Component {
                             </ApolloConsumer>
                         </div>
                         <div className="row">
-                        <div className="row font-weight-bold h5">Forget Password?</div>
+                            <div className="row font-weight-bold h5">Forget Password?</div>
 
-                        <div className="row col-sm-12"><FbLogin><NavLink
-                              to="/login" className="btn btnfb generalbtn">
-                              Continue With Facebook
-                              </NavLink></FbLogin>
-                        </div>
+                            <div className="row col-sm-12"><FbLogin><NavLink
+                                to="/login" className="btn btnfb generalbtn">
+                                Continue With Facebook
+                            </NavLink></FbLogin>
+                            </div>
 
-                        <div className="row col-sm-12"><NavLink
-                              to="/login" className="btn  btngg generalbtn">
-                            Continue With Google
+                            <div className="row col-sm-12"><NavLink
+                                to="/login" className="btn  btngg generalbtn">
+                                Continue With Google
                             </NavLink></div>
-                        <div className="row col-sm-12"><NavLink
-                             to="/login" className="btn  btnlk generalbtn">
-                            Continue With LinkedIn
+                            <div className="row col-sm-12"><NavLink
+                                to="/login" className="btn  btnlk generalbtn">
+                                Continue With LinkedIn
                             </NavLink></div>
                         </div>
 
