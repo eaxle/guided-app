@@ -31,7 +31,7 @@ class TopBar extends Component {
                     </NavItem>
                     <NavItem>
                         <div>
-                            <button classNameName="btn btnSave float-right" onClick={this.goBack}>Back
+                            <button className="btn btnSave float-right" onClick={this.goBack}>Back
                             </button>
                         </div>
                     </NavItem>

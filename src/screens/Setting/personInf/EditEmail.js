@@ -7,23 +7,34 @@ import './styles.css';
 import {NavLink, Link} from "react-router-dom";
 import validator from 'validator';
 import gql from "graphql-tag";
-import {Query} from "react-apollo";
+import {graphql, Query} from "react-apollo";
 import {Mutation} from "react-apollo";
 
 const UPDATE_EMAIL = gql`
   mutation updateUserEmail($uid: String!,$email:String!) {
     updateUserEmail(uid: $uid,email:$email) {
-     Email
+     value
     }
   }
 `;
 const GET_EMAIL = gql`
                query getUserEmailById($uid:String!){
                    getUserEmailById(uid:$uid) {
-                     Email
+                     value
                    }
                  }
                `;
+const DogPhoto = ({uid}) => (<Query query={GET_EMAIL} variables={{uid}}>
+
+    {({loading, error, data}) => {
+        if (loading) return "Loading...";
+        if (error) return `Error! ${error.message}`;
+
+        return (
+            {data}
+        );
+    }}
+</Query>);
 
 class EditEmail extends Component {
     constructor(props) {
@@ -71,22 +82,24 @@ class EditEmail extends Component {
     }
 
 
-    render() {
-        let uid = document.cookie.split('id=')[1];
-
+    render(uid) {
+        uid = document.cookie.split('id=')[1];
         return (
 
             <div className="container-fluid2 container ">
                 <div>
                     <Query query={GET_EMAIL} variables={{uid}}>
-
                         {({loading, error, data}) => {
                             if (loading) return "Loading...";
                             if (error) return `Error! ${error.message}`;
 
-                            return (
-                                {data}
-                            );
+                            return (<select name="dog">
+                                {data.value == undefined ? "no data" : data.value.map(dog => (
+                                    <li key={dog.id}>
+                                        {dog}
+                                    </li>
+                                ))}
+                            </select>);
                         }}
                     </Query>
                     <ListGroup>
@@ -98,10 +111,10 @@ class EditEmail extends Component {
                                         updateUserEmail({
                                             variables: {
                                                 uid: uid,
-                                                email: 'eaxle07@gmail.com'
+                                                email: this.state.email
                                             }
                                         });
-                                        //input.value = "";
+
                                     }}>
                                         <ListGroupItem className="text-left">
                                             <table>

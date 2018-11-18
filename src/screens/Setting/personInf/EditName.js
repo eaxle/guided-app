@@ -11,7 +11,7 @@ import {Mutation} from "react-apollo";
 const UPDATE_USER = gql`
   mutation updateUserEmail($uid: String!,$email:String!) {
     updateUserEmail(uid: $uid,email:$email) {
-     Email
+     value
     }
   }
 `;
@@ -19,7 +19,7 @@ const UPDATE_USER = gql`
 const LOGIN_USER = gql`
                query getUserFisrtNameById($uid:String!){
                    getUserFisrtNameById(uid:$uid) {
-                     First_Name
+                     value
                    }
                  }
                `;
