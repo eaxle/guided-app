@@ -25,6 +25,8 @@ class MainLoginPage extends Component {
         this.handleFormData = this.handleFormData.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.cookies = Cookies.isRequired;
+        this.errMsg = false;
+
     }
 
     handleFormData(e) {
@@ -40,13 +42,16 @@ class MainLoginPage extends Component {
     }
 
     submitForm(data) {
-        if (!data.loginViaEmail.length) {
 
+        if (!data.loginViaEmail.length) {
+            this.errMsg = true;
+            this.forceUpdate()
         } else {
             document.cookie = "id=" + data.loginViaEmail[0].id;
             // debugger
             this.props.history.push('/setting');
-
+            this.errMsg = false;
+            this.forceUpdate()
         }
 
     }
@@ -95,6 +100,9 @@ class MainLoginPage extends Component {
                         </div>
                         <div className="row">
                             <div className="row font-weight-bold h5">Forget Password?</div>
+                            {this.errMsg ? <div className="row font-weight-bold h5 btn-danger">Username or Password is
+                                incorrect!
+                            </div> : ""}
 
                             <div className="row col-sm-12"><FbLogin><NavLink
                                 to="/login" className="btn btnfb generalbtn">

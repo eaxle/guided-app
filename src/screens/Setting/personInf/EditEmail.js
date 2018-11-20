@@ -24,17 +24,18 @@ const GET_EMAIL = gql`
                    }
                  }
                `;
-const DogPhoto = ({uid}) => (<Query query={GET_EMAIL} variables={{uid}}>
 
-    {({loading, error, data}) => {
-        if (loading) return "Loading...";
-        if (error) return `Error! ${error.message}`;
-
-        return (
-            {data}
-        );
-    }}
-</Query>);
+const GETUSER = ({uid}) => (
+        <Query query={GET_EMAIL} variables={{uid}} notifyOnNetworkStatusChange>
+            {({loading, error, data, refetch, networkStatus}) => {
+                if (loading) return "Loading...";
+                if (error) return `Error! ${error.message}`;
+                if (networkStatus === 4) return "Refetching!";
+                return (<span id="re_001" onClick={() => refetch()}> {data.getUserEmailById[0].value}</span>);
+            }}
+        </Query>
+    )
+;
 
 class EditEmail extends Component {
     constructor(props) {
@@ -48,10 +49,12 @@ class EditEmail extends Component {
         this.assignValue = this.assignValue.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.email = this.email.bind(this);
+        this.getResult = this.getResult.bind(this);
+        this.result = "";
     }
 
     validateEmail() {
-        console.log('called');
+        // console.log('called');
         if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
             this.setState({disable: false}, () => {
                 this.state.disable;
@@ -72,6 +75,7 @@ class EditEmail extends Component {
     }
 
     handleChange(event) {
+        event.preventDefault()
         this.setState({email: event.target.value}, () => {
 
         });
@@ -81,41 +85,38 @@ class EditEmail extends Component {
 
     }
 
+    getResult(data) {
+        // debugger
+        this.result = data.getUserEmailById[0].value;
+        this.forceUpdate();
+    }
 
-    render(uid) {
-        uid = document.cookie.split('id=')[1];
+    render() {
+        let uid = document.cookie.split('id=')[1];
         return (
-
             <div className="container-fluid2 container ">
                 <div>
-                    <Query query={GET_EMAIL} variables={{uid}}>
-                        {({loading, error, data}) => {
-                            if (loading) return "Loading...";
-                            if (error) return `Error! ${error.message}`;
-
-                            return (<select name="dog">
-                                {data.value == undefined ? "no data" : data.value.map(dog => (
-                                    <li key={dog.id}>
-                                        {dog}
-                                    </li>
-                                ))}
-                            </select>);
-                        }}
-                    </Query>
                     <ListGroup>
                         <div className="">
+
                             <Mutation mutation={UPDATE_EMAIL}>
-                                {(updateUserEmail, {data}) => (
+                                {(updateUserEmail, {loading, error}) => (
                                     <Form onSubmit={e => {
+                                        let that = this
                                         e.preventDefault();
                                         updateUserEmail({
                                             variables: {
                                                 uid: uid,
                                                 email: this.state.email
                                             }
-                                        });
+                                        }).then(function (data) {
+                                            document.getElementById('re_001').click();
+                                        }, function (error) {
 
-                                    }}>
+                                        });
+                                    }}
+                                    >
+
                                         <ListGroupItem className="text-left">
                                             <table>
                                                 <tbody>
@@ -130,7 +131,8 @@ class EditEmail extends Component {
                                                     </td>
                                                     <td className="">
                                                         <div>
-                                                            <button className="btn btnCancel float-right ">Cancel
+                                                            <button
+                                                                className="btn btnCancel float-right ">Cancel
                                                             </button>
                                                         </div>
                                                     </td>
@@ -145,13 +147,15 @@ class EditEmail extends Component {
                                                 <tbody>
                                                 <tr>
                                                     <td className=""><h4>Email Address</h4>
-                                                        <h6>John.smith@gmail.com</h6></td>
+                                                        <h6><GETUSER uid={uid}/></h6></td>
 
                                                     <td className="tableWidth2">
 
-                                                        <Input type="email" className="email-input " id="usr"
+                                                        <Input type="email" className="email-input "
+                                                               id="usr"
                                                                name="email"
-                                                               value={this.state.email} onChange={this.handleChange}
+                                                               value={this.state.email}
+                                                               onChange={this.handleChange}
                                                                validations={[this.validateEmail, this.email]}/>
 
                                                     </td>
@@ -162,11 +166,15 @@ class EditEmail extends Component {
                                         </ListGroupItem>
                                         <div
                                             className={validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length) ? "displayNone" : "errorMessage"}>
-                                            <h6>ERROR: The email address that you have entered is incomplete or matches
+                                            <h6>ERROR: The email address that you have entered is incomplete
+                                                or matches
                                                 that of
                                                 another user. Please try again.</h6></div>
+
                                     </Form>
+
                                 )}
+
                             </Mutation>
 
 
