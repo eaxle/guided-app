@@ -156,6 +156,9 @@ const typeDefs = `
         updateUserDOBYear(uid: String, year: String): Year
         updateUserDOBMonth(uid: String, month: String): Month
         updateUserDOBDay(uid: String, day: String): Day
+        updateUserFirstName(uid: String, fname: String): First_Name
+        updateUserLastName(uid: String, lname: String): Last_Name
+        updateUserPreferName(uid: String, pname: String): Prefer_Name
     }
 `;
 
@@ -370,6 +373,31 @@ const resolvers = {
             "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
             // Update DOB day
             "set d.value = {day} return d.value";
+            session.run(query, args);
+        },
+
+        // Update user name
+        updateUserFirstName: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
+            "set fn.value = {fname} return fn.value";
+            session.run(query, args);
+        },
+
+        updateUserLastName: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
+            "set ln.value = {fname} return ln.value";
+            session.run(query, args);
+        },
+
+        updateUserPreferName: (root, args, context) => {
+            let session = context.driver.session();
+            let query = 
+            "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
+            "set pn.value = {fname} return pn.value";
             session.run(query, args);
         }
     }
