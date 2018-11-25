@@ -391,7 +391,7 @@ const resolvers = {
             session.run(query, args);
         },
 
-        updateUserName: () => {
+        updateUserName: (root, args, context) => {
             let session = context.driver.session();
             let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), " +
             "(ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
