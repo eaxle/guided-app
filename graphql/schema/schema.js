@@ -160,6 +160,8 @@ const typeDefs = `
         updateUserLastName(uid: String, lname: String): Last_Name
         updateUserPreferName(uid: String, pname: String): Prefer_Name
         updateUserName(uid: String, fname: String, lname: String, pname: String): {First_Name, Last_Name, Prefer_Name}
+        updateUserMobile(uid: String, code: String, number: String): {Country_Code, Phone_Number}
+        updateUserDOB(uid: String, year: String, month: String, day: String): {Year, Month, Day}
     }
 `;
 
@@ -397,6 +399,22 @@ const resolvers = {
             "(ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
             "set fn.value = {fname}, ln.value = {lname}, pn.value = {pname} return fn.value, ln.value, pn.value";
             session.run(query, args);      
+        },
+
+        updateUserDOB: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), " +
+            "(m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) " +
+            "set y.value = {year}, m.value = {month}, d.value = {day} return y.value, m.value, d.value";
+            session.run(query, args);
+        },
+
+        updateUserMobile: (root, args, context) => {
+            let session = context.driver.session();
+            let query = "match  (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}), " +
+            "(phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) " +
+            "set phcc.value = {code}, phn.value = {number} return phcc.value, phn,value";
+            session.run(query, args);
         }
     }
 
