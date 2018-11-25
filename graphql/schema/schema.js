@@ -159,6 +159,7 @@ const typeDefs = `
         updateUserFirstName(uid: String, fname: String): First_Name
         updateUserLastName(uid: String, lname: String): Last_Name
         updateUserPreferName(uid: String, pname: String): Prefer_Name
+        updateUserName(uid: String, fname: String, lname: String, pname: String): User_Name
     }
 `;
 
@@ -358,21 +359,13 @@ const resolvers = {
 
         updateUserDOBMonth: (root, args, context) => {
             let session = context.driver.session();
-            let query = 
-            // Match DOB month to user id
-            "match (m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
-            // Update DOB month
-            "set m.value = {month} return m.value";
+            let query = "match (m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) set m.value = {month} return m.value";
             session.run(query, args);
         },
 
         updateUserDOBDay: (root, args, context) => {
             let session = context.driver.session();
-            let query = 
-            // Match DOB day to user id
-            "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}})" +
-            // Update DOB day
-            "set d.value = {day} return d.value";
+            let query = "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) set d.value = {day} return d.value";
             session.run(query, args);
         },
 
@@ -380,25 +373,30 @@ const resolvers = {
         updateUserFirstName: (root, args, context) => {
             let session = context.driver.session();
             let query = 
-            "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
-            "set fn.value = {fname} return fn.value";
+            "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set fn.value = {fname} return fn.value";
             session.run(query, args);
         },
 
         updateUserLastName: (root, args, context) => {
             let session = context.driver.session();
             let query = 
-            "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
-            "set ln.value = {fname} return ln.value";
+            "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set ln.value = {lname} return ln.value";
             session.run(query, args);
         },
 
         updateUserPreferName: (root, args, context) => {
             let session = context.driver.session();
             let query = 
-            "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}})" +
-            "set pn.value = {fname} return pn.value";
+            "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set pn.value = {pname} return pn.value";
             session.run(query, args);
+        },
+
+        updateUserName: () => {
+            let session = context.driver.session();
+            let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), " +
+            "(ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
+            "set fn.value = {fname}, ln.value = {lname}, pn.value = {pname} return fn.value, ln.value, pn.value";
+            session.run(query, args);      
         }
     }
 
