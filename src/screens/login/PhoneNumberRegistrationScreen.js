@@ -97,8 +97,6 @@ class PhoneNumberRegistrationScreen extends Component {
                             defaultValue={this.state.phone}
                         />
                     </div>
-                    <div className="col-sm-2 form-group">
-                    </div>
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink onClick={this.toogleButton} to={{

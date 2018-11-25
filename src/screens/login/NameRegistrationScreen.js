@@ -106,7 +106,7 @@ class NameRegistrationScreen extends Component {
                 </div>
                 <div className="row">
                     <div className="col-sm-12 font-weight-bold subtitle">
-                        <p>Whats your name? </p>
+                        <p>What's your name? </p>
                     </div>
                     <div className="col-sm-12 subsubtitle">
                         <p>Please enter the name you use in real life</p>

@@ -52,7 +52,7 @@ class Login extends Component {
                             </NavLink>
                         </div>
                         <div id="child2" className="row col-sm-12 center">or</div>
-                        <div className="row col-sm-12 center"><NavLink className="btn btnlogin generalbtn"
+                        <div className="row col-sm-12"><NavLink className="btn btnlogin generalbtn"
                                                                        to="/MainLogin">Login</NavLink></div>
                     </div>
                     <div id="child3" className="row font-weight-bold">
@@ -62,7 +62,7 @@ class Login extends Component {
                     </div>
 
                     <NavLink
-                        to="#" className="row col-sm-12 h4 font-weight-bold">
+                        to="#" className="row col-sm-12 subtitle font-weight-bold">
                         Continue as Guest
                     </NavLink>
                 </div>
