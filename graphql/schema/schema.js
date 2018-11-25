@@ -159,9 +159,9 @@ const typeDefs = `
         updateUserFirstName(uid: String, fname: String): First_Name
         updateUserLastName(uid: String, lname: String): Last_Name
         updateUserPreferName(uid: String, pname: String): Prefer_Name
-        updateUserName(uid: String, fname: String, lname: String, pname: String): First_Name
-        updateUserMobile(uid: String, code: String, number: String): Country_Code
-        updateUserDOB(uid: String, year: String, month: String, day: String): Year
+        updateUserName(uid: String, fname: String, lname: String, pname: String): User_Name
+        updateUserMobile(uid: String, code: String, number: String): Mobile_Number
+        updateUserDOB(uid: String, year: String, month: String, day: String): Date_Of_Birth
     }
 `;
 
@@ -395,9 +395,9 @@ const resolvers = {
 
         updateUserName: (root, args, context) => {
             let session = context.driver.session();
-            let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), " +
-            "(ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
-            "set fn.value = {fname}, ln.value = {lname}, pn.value = {pname} return fn.value, ln.value, pn.value";
+            let query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
+            // "(ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}), (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) " +
+            "set fn.value = {fname} return fn.value";
             session.run(query, args);      
         },
 
