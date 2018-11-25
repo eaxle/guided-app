@@ -395,9 +395,9 @@ const resolvers = {
 
         updateUserName: (root, args, context) => {
             let session = context.driver.session();
-            let fname_query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set fn.value = {fname} return fn.value;";
-            let lname_query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set ln.value = {lname} return ln.value;";
-            let pname_query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set pn.value = {pname} return pn.value;";
+            let fname_query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set fn.value = {fname} return fn.value";
+            let lname_query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set ln.value = {lname} return ln.value";
+            let pname_query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set pn.value = {pname} return pn.value";
             // let query = fname_query + lname_query + pname_query;
             // session.run(query, args);
             session.run(fname_query, args);
@@ -407,18 +407,28 @@ const resolvers = {
 
         updateUserDOB: (root, args, context) => {
             let session = context.driver.session();
-            let query = "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), " +
-            "(m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) " +
-            "set y.value = {year}, m.value = {month}, d.value = {day} return y.value, m.value, d.value";
-            session.run(query, args);
+            let year = "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) set y.value = {year} return y.value";
+            let month = "match (m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) set m.value = {month} return m.value";
+            let day = "match (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) set d.value = {day} return d.value";
+            session.run(year, args);
+            session.run(month, args);
+            session.run(day, args);
+            // let query = "match (y:Year)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), " +
+            // "(m:Month)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}), (d:Day)--(:Date_Of_Birth)--(:User_Profile)--(:User {id: {uid}}) " +
+            // "set y.value = {year}, m.value = {month}, d.value = {day} return y.value, m.value, d.value";
+            // session.run(query, args);
         },
 
         updateUserMobile: (root, args, context) => {
             let session = context.driver.session();
-            let query = "match  (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}), " +
-            "(phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) " +
-            "set phcc.value = {code}, phn.value = {number} return phcc.value, phn,value";
-            session.run(query, args);
+            let code = "match (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) set phcc.value = {code} return phcc.value";
+            let number = "match (phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) set phn.value = {number} return phn.value";
+            session.run(code, args);
+            session.run(number, args);
+            // let query = "match (phcc:Country_Code)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}), " +
+            // "(phn:Phone_Number)--(:Mobile_Number)--(:User_Profile)--(:User {id: {uid}}) " +
+            // "set phcc.value = {code}, phn.value = {number} return phcc.value, phn,value";
+            // session.run(query, args);
         }
     }
 
