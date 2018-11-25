@@ -159,7 +159,7 @@ const typeDefs = `
         updateUserFirstName(uid: String, fname: String): First_Name
         updateUserLastName(uid: String, lname: String): Last_Name
         updateUserPreferName(uid: String, pname: String): Prefer_Name
-        updateUserName(uid: String, fname: String, lname: String, pname: String): User_Name
+        updateUserName(uid: String, fname: String, lname: String, pname: String): First_Name, Last_Name. Prefer_Name
     }
 `;
 
