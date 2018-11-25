@@ -395,11 +395,14 @@ const resolvers = {
 
         updateUserName: (root, args, context) => {
             let session = context.driver.session();
-            let fname_query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set fn.value = {fname} return fn.value";
-            let lname_query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set ln.value = {lname} return ln.value";
-            let pname_query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set pn.value = {pname} return pn.value";
-            let query = fname_query + lname_query + pname_query;
-            session.run(query, args);      
+            let fname_query = "match (fn:First_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set fn.value = {fname} return fn.value;";
+            let lname_query = "match (ln:Last_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set ln.value = {lname} return ln.value;";
+            let pname_query = "match (pn:Prefer_Name)--(:User_Name)--(User_Profile)--(:User {id: {uid}}) set pn.value = {pname} return pn.value;";
+            // let query = fname_query + lname_query + pname_query;
+            // session.run(query, args);
+            session.run(fname_query, args);
+            session.run(lname_query, args);
+            session.run(pname_query. args);     
         },
 
         updateUserDOB: (root, args, context) => {
