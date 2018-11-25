@@ -159,9 +159,9 @@ const typeDefs = `
         updateUserFirstName(uid: String, fname: String): First_Name
         updateUserLastName(uid: String, lname: String): Last_Name
         updateUserPreferName(uid: String, pname: String): Prefer_Name
-        updateUserName(uid: String, fname: String, lname: String, pname: String): {First_Name, Last_Name, Prefer_Name}
-        updateUserMobile(uid: String, code: String, number: String): {Country_Code, Phone_Number}
-        updateUserDOB(uid: String, year: String, month: String, day: String): {Year, Month, Day}
+        updateUserName(uid: String, fname: String, lname: String, pname: String): First_Name
+        updateUserMobile(uid: String, code: String, number: String): Country_Code
+        updateUserDOB(uid: String, year: String, month: String, day: String): Year
     }
 `;
 
