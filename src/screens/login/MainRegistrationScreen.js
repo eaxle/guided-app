@@ -55,27 +55,23 @@ class MainRegistrationScreen extends Component {
 
     render() {
         return (
-            <div className="container-fluid text-center container ">
+            <div className="container-fluid text-center d-flex justify-content-center align-items-center container">
                 <div className="row col-sm-12 welcome">
                     Welcome to Guided
                 </div>
-                <div id="parent2">
-
-                    <div id="child21" className="row col-sm-12 h5 subtitle ">
+                    <div className="row col-sm-12 h5 subtitle ">
                         <p>Choose an account</p>
                         <p>creation option</p>
                     </div>
-
-
-                    <div className="row" id="child22">
-                        <div className="col-sm-4" id="email">
+                    <div className="row">
+                        <div className="row col-sm-12 ">
                             <Form className="form-group formEmail">
                                 <Input type="email" value={this.state.email} onChange={this.handleChange}
                                        placeholder="Email Address" validations={[this.required, this.email]}
-                                       className="col-sm-6 form-control form-control-sm  "/>
+                                       className="col-sm-12 form-control form-control-sm  "/>
                             </Form>
                         </div>
-                        <div className="row">
+
                             <div className="row col-sm-12">
                                 <NavLink onClick={this.toogleButton}
                                          to={{
@@ -84,10 +80,9 @@ class MainRegistrationScreen extends Component {
                                          }} className="btn btncreate generalbtn" disabled={this.state.disable}>
                                     Continue
                                 </NavLink></div>
-                        </div>
-                    </div>
+
                     <div className="row col-sm-12 h5 ">or</div>
-                    <div className="row">
+
                         <div className="row col-sm-12"><FbLogin><NavLink
                             to="/login" className="btn btnfb generalbtn">
                             Sign-Up With Facebook
@@ -103,7 +98,6 @@ class MainRegistrationScreen extends Component {
                             Sign-Up With LinkedIn
                         </NavLink></div>
                         <div className="row font-weight-bold h5">Already have an account?</div>
-                    </div>
                 </div>
             </div>
 

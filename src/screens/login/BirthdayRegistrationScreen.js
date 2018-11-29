@@ -108,7 +108,7 @@ class BirthdayRegistrationScreen extends Component {
                                         placeholder="Year" value={this.state.year} onChange={this.handleFormData}>
                                     <option>Year</option>
                                     {(function () {
-                                        for (let i = 1994; i < new Date().getFullYear(); i++) {
+                                        for (let i = 1925; i < new Date().getFullYear(); i++) {
 
                                             arr.push(<option value={i} key={'year_' + i}>{i}</option>);
                                         }
