@@ -104,6 +104,9 @@ class EditEmail extends Component {
                                     <Form onSubmit={e => {
                                         let that = this
                                         e.preventDefault();
+                                        if (this.state.email == '') {
+                                            return ''
+                                        }
                                         updateUserEmail({
                                             variables: {
                                                 uid: uid,
@@ -124,9 +127,9 @@ class EditEmail extends Component {
                                                     <td className="tableWidth"><h4>Email</h4></td>
                                                     <td>
                                                         <div>
-                                                            <button className="btn btnSave float-right "
-                                                                    type='submit'>Save
-                                                            </button>
+                                                            <input className="btn btnSave float-right "
+                                                                   type='submit' value='Save'/>
+
                                                         </div>
                                                     </td>
                                                     <td className="">

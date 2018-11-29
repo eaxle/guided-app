@@ -29,14 +29,10 @@ import Privacy from './screens/Setting/privacy/Privacy';
 import Ad from './screens/Setting/Ad/Ad';
 import Notification from './screens/Setting/notification/Notification';
 import Media from './screens/Setting/media/Media';
-const client = new ApolloClient({
-//  uri: process.env.REACT_APP_GRAPHQL_URI
+export const client = new ApolloClient({
     uri: "http://45.32.189.215:3000/graphql",
-    /* fetchOptions: {
-        mode: 'no-cors',
-      },*/
 });
-//alert(process.env.REACT_APP_GRAPHQL_URI)
+
 ReactDOM.render(
     <ApolloProvider client={client}>
         <Router>
