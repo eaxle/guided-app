@@ -194,19 +194,20 @@ class EditName extends Component {
                                                             <table>
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td className="tableWidth"><h4>Name</h4>
-                                                                        <div className="editField">
-                                                                            <button className=" btn btn-default"
+                                                                    <td className="tableWidth"><h4>Name</h4> </td>
+                                                                      <td className="float-right">
+                                                                        <div className="editField ">
+                                                                            <button className=" btn btnSaveOne "
                                                                                     onClick={this.revertChanges}
                                                                                     type="submit">Save
                                                                             </button>
-                                                                            <h4 className="btn btn-danger"
-                                                                                onClick={this.revertChanges}>Cancel</h4>
+                                                                            <button className="btn btnCancel "
+                                                                                onClick={this.revertChanges}>Cancel</button>
                                                                         </div>
                                                                     </td>
                                                                     <td className="">
                                                                         <div>
-                                                                            <button className="btn btnEdit float-right "
+                                                                            <button className="btn btnEditOne float-right "
                                                                                     id="edit-edit"
                                                                                     onClick={this.toogleField}>Edit
                                                                             </button>

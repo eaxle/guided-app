@@ -1,11 +1,13 @@
 .text-left {
     text-align: left;
     padding: 1% 2% 1% 12%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .subtext-left {
     text-align: left;
     padding: 1% 2% 1% 15%;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .container-fluid2 {
@@ -21,10 +23,17 @@ h6 {
     /*font-size: 0.8em;*/
     color: black;
     font-weight: 300;
-    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
 
 }
+
+.float-right{
+  /* float: right; */
+  /* display: inline-block; */
+}
+
+
 
 
 
@@ -38,7 +47,7 @@ h6 {
 }
 
 .tableWidth {
-    width: 110%;
+    width: 69%;
 }
 
 .tableWidth2 {
@@ -56,7 +65,17 @@ h6 {
     background-color: #ffffff;
     border: solid 0.1em #4a4a4a;
     padding: 3% 5% 3% 5%;
-    margin: 5% 20% 0% -40%;
+    margin: 5% 0% 0% 50%;
+}
+
+.btnEditOne {
+    font-size: 0.9em;
+    border-radius: 10%;
+    color: #4a4a4a;
+    background-color: #ffffff;
+    border: solid 0.1em #4a4a4a;
+    padding: 3% 5% 3% 5%;
+    margin: 5% 0% 0% 52%;
 }
 
 .btnSave {
@@ -68,7 +87,15 @@ h6 {
     padding: 3% 5% 3% 5%;
     margin: 5% 20% 0% 8%;
 }
-
+.btnSaveOne {
+    font-size: 1em;
+    border-radius: 10%;
+    color: #ffffff;
+    background-color: #3e9378;
+    border: solid 0.1em #3e9378;
+    padding: 3% 5% 3% 5%;
+    margin: 5% 5% 0% 0%;
+}
 .btnCancel {
     font-size: 0.9em;
     border-radius: 10%;
@@ -295,4 +322,13 @@ input.cmn-toggle-round-flat:checked + label:after {
 
 .normal{
   font-weight: normal;
+}
+
+.medium{
+  font-weight: 500;
+
+}
+
+.lighter{
+  font-weight: lighter;
 }

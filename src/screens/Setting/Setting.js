@@ -39,15 +39,17 @@ class Setting extends Component {
                         <h6>Change your password.</h6></NavLink></ListGroupItem>
 
                     <ListGroupItem className="subtext-left"><NavLink to={{pathname: "/setting/privacy"}} className="inactive" activeClassName="active" exact={true}>
-                        <h4>Privacy</h4>
+                        <h4 className="medium">Privacy (h4 medium)</h4>
+                        <h4 className="lighter">Notifications (h4 lighter)</h4>
+                        <h4 className=""> Notifications (h4 nothing)</h4>
                         <h6>Control your information.</h6></NavLink></ListGroupItem>
 
                     <ListGroupItem className="subtext-left"><NavLink to={{pathname: "/setting/ad"}} className="inactive" activeClassName="active" exact={true}>
-                        <h4>Advertising</h4>
+                        <h5 className="medium">Advertising (h5 medium)</h5>
                         <h6>Set your preferences and learn how our ads work.</h6></NavLink></ListGroupItem>
 
                     <ListGroupItem className="subtext-left"><NavLink to={{pathname: "/setting/notification"}} className="inactive" activeClassName="active" exact={true}>
-                        <h4>Notifications</h4>
+                        <h4 className="lighter">Notifications (h4 lighter)</h4>
                         <h6>Decide how we should contact you.</h6></NavLink></ListGroupItem>
 
                     <ListGroupItem className="subtext-left"><NavLink to={{pathname: "/setting/media"}} className="inactive" activeClassName="active" exact={true}>
