@@ -6,62 +6,73 @@ import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
 import Form from "react-validation/build/form";
+import {client} from '../../../index'
 
 const UPDATE_GENDER = gql`
   mutation updateUserGender($uid: String!,$gender:String!) {
     updateUserGender(uid: $uid,gender:$gender) {
-     Gender
+     value
     }
   }
 `;
 const GET_GENDER = gql`
                query getGenderById($uid:String!){
                    getGenderById(uid:$uid) {
-                     Gender
+                     value
                    }
                  }
                `;
+const GETGENDER = ({uid}) => (
+    <Query query={GET_GENDER} variables={{uid}} notifyOnNetworkStatusChange>
+        {({loading, error, data, refetch, networkStatus}) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+            if (networkStatus === 4) return "Refetching!";
+            return (<span id="re_006" onClick={() => refetch()} hidden={true}> {data.getGenderById[0].value}</span>);
 
+        }}
+    </Query>
+);
 
 class EditGender extends Component {
     constructor(props) {
         super(props);
         this.state = {
             date: new Date(),
-            toogle: true
-        };
+            gender: ''
+        }
+
+        ;
         this.toogleOther = this.toogleOther.bind(this);
     }
 
-    toogleOther(changeEvent) {
-        //debugger
-        this.setState({toogle: changeEvent.target.value}, () => {
-            this.toogle;
+    componentDidMount() {
+        const that = this;
+        client.query({query: GET_GENDER, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({gender: data.data.getGenderById[0].value}, () => {
+            })
+        }, function (error) {
+
         })
-        console.log(this.state.toogle)
+        this.setState({gender: 'M'}, () => {
+                console.log(this.state.gender)
+            }
+        );
     }
 
-    // onChange = date => this.setState({date})
+    toogleOther(changeEvent) {
+        this.setState({gender: changeEvent.target.value}, () => {
+        });
+    }
 
     render() {
         let uid = document.cookie.split('id=')[1];
-
         return (
             <div className="container-fluid2 container ">
                 <div>
-                    <Query query={GET_GENDER} variables={{uid}}>
-
-                        {({loading, error, data}) => {
-                            if (loading) return "Loading...";
-                            if (error) return `Error! ${error.message}`;
-
-                            return (
-                                {data}
-                            );
-                        }}
-                    </Query>
                     <ListGroup>
                         <div className="">
+                            <GETGENDER uid={uid}/>
                             <Mutation mutation={UPDATE_GENDER}>
                                 {(updateUserGender, {data}) => (
                                     <Form onSubmit={e => {
@@ -69,10 +80,14 @@ class EditGender extends Component {
                                         updateUserGender({
                                             variables: {
                                                 uid: uid,
-                                                gender: 'M'
+                                                gender: this.state.gender
                                             }
+                                        }).then(function () {
+                                            document.getElementById('re_006').click();
+
+                                        }, function (error) {
+
                                         });
-                                        //input.value = "";
                                     }}>
                                         <ListGroupItem className="text-left">
                                             <table>
@@ -88,7 +103,8 @@ class EditGender extends Component {
                                                     </td>
                                                     <td className="">
                                                         <div>
-                                                            <button className="btn btnCancel float-right ">Cancel
+                                                            <button
+                                                                className="btn btnCancel float-right ">Cancel
                                                             </button>
                                                         </div>
                                                     </td>
@@ -100,47 +116,55 @@ class EditGender extends Component {
                                             <table>
                                                 <tbody>
                                                 <tr>
-                                                    <td className=""><h4>Gender</h4> <h6>Male</h6></td>
+                                                    <td className=""><h4>Gender</h4> <h6>
+                                                    </h6></td>
                                                 </tr>
                                                 <tr>
                                                     <div className="rowtablediv">
-
                                                         <table>
                                                             <tbody>
                                                             <tr>
                                                                 <td><label>Male</label></td>
                                                                 <td className="centerText">
-                                                                    <div className="radioGender"><input type="radio"
-                                                                                                        value="m"
-                                                                                                        onChange={this.toogleOther}
-                                                                                                        name="gender"/>
+
+                                                                    <div className="radioGender"><input
+                                                                        type="radio"
+                                                                        checked={'M' === this.state.gender}
+                                                                        value="M"
+                                                                        onChange={this.toogleOther}
+                                                                        name="gender"/>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Female</label></td>
                                                                 <td className="centerText">
-                                                                    <div className="radioGender"><input type="radio"
-                                                                                                        value="f"
-                                                                                                        onChange={this.toogleOther}
-                                                                                                        name="gender"/>
+                                                                    <div className="radioGender"><input
+                                                                        type="radio"
+                                                                        checked={'F' === this.state.gender}
+                                                                        value="F"
+                                                                        onChange={this.toogleOther}
+                                                                        name="gender"/>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td><label>Other</label></td>
                                                                 <td className="centerText">
-                                                                    <div className="radioGender"><input type="radio"
-                                                                                                        value="o"
-                                                                                                        onChange={this.toogleOther}
-                                                                                                        name="gender"/>
+                                                                    <div className="radioGender"><input
+                                                                        type="radio"
+                                                                        checked={'O' === this.state.gender}
+                                                                        value="O"
+                                                                        onChange={this.toogleOther}
+                                                                        name="gender"/>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td className={this.state.toogle != 'o' ? "displayNone" : "centerText"}>
-                                                                    <div className="radioGender"><input type="text"
-                                                                                                        name="other"/>
+                                                                <td className={this.state.toogle != 'O' ? "displayNone" : "centerText"}>
+                                                                    <div className="radioGender"><input
+                                                                        type="text"
+                                                                        name="gender"/>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -149,9 +173,10 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="switch">
                                                                         <input id="cmn-toggle-4"
-                                                                               class="cmn-toggle cmn-toggle-round-flat"
+                                                                               className="cmn-toggle cmn-toggle-round-flat"
                                                                                type="checkbox"/>
-                                                                        <label for="cmn-toggle-4"></label>
+                                                                        <label
+                                                                            htmlFor="cmn-toggle-4"></label>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -162,13 +187,16 @@ class EditGender extends Component {
                                                 </tbody>
                                             </table>
                                             <div className="">
-                                                <h6>We encourage you to list the gender that you are most comfortable
+                                                <h6>We encourage you to list the gender that you are most
+                                                    comfortable
                                                     with. Doing so
                                                     may help
-                                                    you to better find listings that fit your needs. You may enter text
+                                                    you to better find listings that fit your needs. You may
+                                                    enter text
                                                     into this
                                                     box to identify
-                                                    an alternative gender if you so wish. You do not have to enter a
+                                                    an alternative gender if you so wish. You do not have to
+                                                    enter a
                                                     value in this
                                                     box and if you
                                                     do not, “Other” will be the defaut.</h6></div>
@@ -177,12 +205,12 @@ class EditGender extends Component {
                                 )}
                             </Mutation>
                         </div>
-                        <
-                        /ListGroup>
+                    </ListGroup>)
+
                 </div>
             </div>
-    )
+        )
     }
-    }
+}
 
-    export default EditGender;
+export default EditGender;
