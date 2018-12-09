@@ -20,7 +20,7 @@ const ADD_USER = gql`
                $email: String!,
                $gender: String!,
                $password: String!,
-               $ph_num: String!) 
+               $ph_num: String!)
                {
                registrationViaEmail(
                create_date:$create_date,
@@ -72,6 +72,10 @@ class PasswordRegistrationScreen extends Component {
         this.submitForm = this.submitForm.bind(this);
         this.matchPassword = this.matchPassword.bind(this);
         this.verifyCall = this.verifyCall.bind(this);
+    }
+
+    goBack() {
+        window.history.back();
     }
 
     registerUser(score, password, isValid) {
@@ -142,6 +146,9 @@ class PasswordRegistrationScreen extends Component {
         return (
 
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
+              <div className="row col-sm-12 righttop ">
+                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+              </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
