@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 import './styles.css';
 
 
@@ -17,17 +18,19 @@ class TopBar extends Component {
     render() {
         return (
             <Navbar fixedTop navbar-expand-sm>
+            <Grid>
+              <Row>
                 <Nav bsStyle="pills" pullLeft>
                     <NavItem onClick={() => this.props.toggleSidebar()}>
-                        <span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-align-justify iconfont" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
-                        John Smith
+                      <h4> John Smith</h4>
                     </NavItem>
                 </Nav>
                 <Nav pullRight>
                     <NavItem>
-                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-search iconfont" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
                         <div>
@@ -36,6 +39,8 @@ class TopBar extends Component {
                         </div>
                     </NavItem>
                 </Nav>
+              </Row>
+              </Grid>
             </Navbar>
         );
     }
