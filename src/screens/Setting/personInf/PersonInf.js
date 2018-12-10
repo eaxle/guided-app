@@ -160,11 +160,23 @@ class PersonInf extends Component {
                         <div className="hearderbackground">
                             <ListGroupItem className="text-left">
                                 <h4>Personal Information</h4></ListGroupItem></div>
-                        <NavLink to={{pathname: "/setting/PersonInf/name"}}>
-                            <ListGroupItem className="text-left">
-                                <h4>Name</h4> <h6>{this.state.pName}</h6>
-                            </ListGroupItem>
-                        </NavLink>
+
+                        <ListGroupItem className="text-left">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td className="tableWidth"><h4>Name</h4> <h6>{this.state.pName}</h6></td>
+                                    <td className="">
+                                        <div>
+                                            <button className="btn btnEdit float-right "><NavLink
+                                                to={{pathname: "/setting/PersonInf/name"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </ListGroupItem>
+
                         <ListGroupItem className="text-left">
                             <table>
                                 <tbody>
@@ -173,7 +185,7 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/email"}}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/email"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -189,7 +201,7 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/phone"}}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/phone"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -204,7 +216,7 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/gender"}}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/gender"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -220,7 +232,7 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/dob"}}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/dob"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -236,7 +248,7 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/language"}}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/language"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>

@@ -63,6 +63,10 @@ class PhoneNumberRegistrationScreen extends Component {
         }
     };
 
+    goBack() {
+        window.history.back();
+    }
+
     checkStatus(e) {
         if (this.disable) {
             e.preventDefault();
@@ -72,6 +76,9 @@ class PhoneNumberRegistrationScreen extends Component {
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
+              <div className="row col-sm-12 righttop ">
+                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+              </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">

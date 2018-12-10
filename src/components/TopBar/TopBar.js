@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 import './styles.css';
 import gql from "graphql-tag";
 import {client} from "../../index";
@@ -68,19 +69,20 @@ class TopBar extends Component {
         let uid = document.cookie.split('id=')[1];
         return (
             <Navbar fixedTop navbar-expand-sm>
+            <Grid>
+              <Row>
                 <Nav bsStyle="pills" pullLeft>
                     <NavItem onClick={() => this.props.toggleSidebar()}>
-                        <span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-align-justify iconfont" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
-
                         <GETPNAME uid={uid}/> <GETLNAME uid={uid}/>
 
                     </NavItem>
                 </Nav>
                 <Nav pullRight>
                     <NavItem>
-                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <span className="glyphicon glyphicon-search iconfont" aria-hidden="true"></span>
                     </NavItem>
                     <NavItem>
                         <div>
@@ -89,6 +91,8 @@ class TopBar extends Component {
                         </div>
                     </NavItem>
                 </Nav>
+              </Row>
+              </Grid>
             </Navbar>
         );
     }

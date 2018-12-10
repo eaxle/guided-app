@@ -7,6 +7,7 @@ import './mainRegistrationScreenStyles.css';
 import './loginStyles.css';
 import FbLogin from './facebook/fb';
 
+
 class MainRegistrationScreen extends Component {
     constructor(props) {
         super(props);
@@ -19,6 +20,10 @@ class MainRegistrationScreen extends Component {
         this.required = this.required.bind(this);
         this.email = this.email.bind(this);
         this.toogleButton = this.toogleButton.bind(this);
+    }
+    
+    goBack() {
+        window.history.back();
     }
 
     toogleButton(event) {
@@ -56,6 +61,9 @@ class MainRegistrationScreen extends Component {
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container">
+              <div className="row col-sm-12 righttop ">
+                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+              </div>
                 <div className="row col-sm-12 welcome">
                     Welcome to Guided
                 </div>

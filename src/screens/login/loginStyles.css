@@ -330,3 +330,16 @@ input[type='radio'] {
     display: inline-block;
 
 }
+.righttop{
+  float: right;
+  margin: 5% -3% 0% 0%;
+}
+.btnBack {
+  font-size: 1em;
+  border-radius: 10%;
+  color: #ffffff;
+  background-color: #3e9378;
+  border: solid 0.1em #3e9378;
+  padding: 3% 5% 3% 5%;
+  margin: 6% 0% 0% 0%;
+}
