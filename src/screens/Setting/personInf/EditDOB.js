@@ -119,25 +119,44 @@ class EditDOB extends Component {
                 this.state
             })
         }
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     componentDidMount() {
+        console.log('componentdidmount')
         const that = this;
-        client.query({query: GET_DOB_DAY, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+        client.query({
+            query: GET_DOB_DAY,
+            variables: {uid: document.cookie.split('id=')[1]},
+            fetchPolicy: "network-only",
+            notifyOnNetworkStatusChange: true,
+
+        }).then(function (data) {
             that.setState({day: data.data.getUserDOBDayById[0].value}, () => {
             })
         }, function (error) {
 
         });
-        client.query({query: GET_DOB_MONTH, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+        client.query({
+            query: GET_DOB_MONTH,
+            variables: {uid: document.cookie.split('id=')[1]},
+            notifyOnNetworkStatusChange: true,
+            fetchPolicy: "network-only"
+
+        }).then(function (data) {
             that.setState({month: data.data.getUserDOBMonthById[0].value}, () => {
             })
         }, function (error) {
 
         })
-        ;client.query({query: GET_DOB_YEAR, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+        ;client.query({
+            query: GET_DOB_YEAR,
+            variables: {uid: document.cookie.split('id=')[1]},
+            notifyOnNetworkStatusChange: true,
+            fetchPolicy: "network-only"
+        }).then(function (data) {
             that.setState({year: data.data.getUserDOBYearById[0].value}, () => {
+
             })
         }, function (error) {
 
@@ -190,7 +209,7 @@ class EditDOB extends Component {
                                                         }, function (error) {
 
                                                         });
-                                                        //input.value = "";
+                                                        this.componentDidMount()
                                                     }}>
                                                         <ListGroupItem className="text-left">
                                                             <table>
@@ -214,7 +233,9 @@ class EditDOB extends Component {
                                                             <table>
                                                                 <tbody className="wholeWidth">
                                                                 <tr>
-                                                                    <td className="tableWidth2"><h4>Day</h4></td>
+                                                                    <td className="tableWidth2">
+                                                                        <h4>Day <br/><GETFDOBBYDAY
+                                                                            uid={uid}/></h4></td>
                                                                     <td className="">
                                                                         <div className="col-sm-4">
                                                                             <select value={this.state.day}
@@ -242,7 +263,9 @@ class EditDOB extends Component {
                                                             <table className="wholeWidth">
                                                                 <tbody className="wholeWidth">
                                                                 <tr>
-                                                                    <td className="tableWidth2"><h4>Month</h4></td>
+                                                                    <td className="tableWidth2">
+                                                                        <h4>Month <br/><GETFDOBBYMONTH uid={uid}/></h4>
+                                                                    </td>
                                                                     <td className="">
                                                                         <div className="col-sm-4 ">
                                                                             <select
@@ -271,7 +294,9 @@ class EditDOB extends Component {
                                                             <table>
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td className="tableWidth2"><h4>Year</h4></td>
+                                                                    <td className="tableWidth2">
+                                                                        <h4>Year <br/><GETFDOBBYYEAR
+                                                                            uid={uid}/></h4></td>
                                                                     <td className="">
                                                                         <div className="col-sm-4 ">
                                                                             <select
@@ -282,7 +307,7 @@ class EditDOB extends Component {
                                                                                 id='yearddl' placeholder="Year">
                                                                                 <option>Year</option>
                                                                                 {(function () {
-                                                                                    for (var i = 1994; i < new Date().getFullYear(); i++) {
+                                                                                    for (var i = 1930; i < new Date().getFullYear(); i++) {
                                                                                         arr.push(<option
                                                                                             value={i}>{i}</option>);
                                                                                     }

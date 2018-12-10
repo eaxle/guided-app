@@ -6,6 +6,7 @@ import {NavLink, Link} from "react-router-dom";
 import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
+import {client} from "../../../index";
 
 const UPDATE_USER_FNAME = gql`
   mutation updateUserFirstName($uid: String!,$fname:String!) {
@@ -56,7 +57,6 @@ const GETFNAME = ({uid}) => (
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                 if (networkStatus === 4) return "Refetching!";
-                // debugger;
                 return (<span id="re_002" onClick={() => refetch()}> {data.getUserFisrtNameById[0].value}</span>);
             }}
         </Query>
@@ -68,7 +68,6 @@ const GETLNAME = ({uid}) => (
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                 if (networkStatus === 4) return "Refetching!";
-                // debugger;
                 return (<span id="re_003" onClick={() => refetch()}> {data.getUserLastNameById[0].value}</span>);
             }}
         </Query>
@@ -79,7 +78,6 @@ const GETLNAME = ({uid}) => (
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                 if (networkStatus === 4) return "Refetching!";
-                // debugger;
                 return (<span id="re_004" onClick={() => refetch()}> {data.getUserPreferNameById[0].value}</span>);
             }}
         </Query>
@@ -98,6 +96,7 @@ class EditName extends Component {
         this.toogleField = this.toogleField.bind(this);
         this.revertChanges = this.revertChanges.bind(this);
         this.updateChange = this.updateChange.bind(this);
+        this.whenUpdated = this.whenUpdated.bind(this);
 
     }
 
@@ -125,20 +124,69 @@ class EditName extends Component {
         for (var i = 0; i < document.getElementsByClassName('editField').length; i++) {
             document.getElementsByClassName('editField')[i].style.display = 'none';
         }
+        const that = this;
+        client.query({query: GET_USER_FNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({fName: data.data.getUserFisrtNameById[0].value}, () => {
+            })
+        }, function (error) {
 
+        });
+        client.query({query: GET_USER_LNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+
+            that.setState({lName: data.data.getUserLastNameById[0].value}, () => {
+            })
+        }, function (error) {
+
+        });
+        client.query({query: GET_USER_PNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({pName: data.data.getUserPreferNameById[0].value}, () => {
+
+            })
+        }, function (error) {
+
+        });
+    }
+
+    whenUpdated() {
+        const that = this;
+        client.query({query: GET_USER_FNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({fName: data.data.getUserFisrtNameById[0].value}, () => {
+            })
+        }, function (error) {
+
+        });
+        client.query({query: GET_USER_LNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+
+            // debugger;
+            that.setState({lName: data.data.getUserLastNameById[0].value}, () => {
+            })
+        }, function (error) {
+
+        });
+        client.query({query: GET_USER_PNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({pName: data.data.getUserPreferNameById[0].value}, () => {
+            })
+        }, function (error) {
+
+        });
+
+        this.props.setData(this.state.pName, this.state.lName);
     }
 
     toogleField(e) {
         e.preventDefault();
-
         for (var i = 0; i < document.getElementsByClassName('editField').length; i++) {
             document.getElementsByClassName('editField')[i].style.display = 'inline';
         }
         document.getElementById('edit-edit').style.display = 'none';
+        this.whenUpdated();
     };
 
     revertChanges(e) {
-        // e.preventDefault();
+        // debugger
+        if (e.target.innerText === 'Cancel') {
+            e.preventDefault();
+        }
         for (var i = 0; i < document.getElementsByClassName('editField').length; i++) {
             document.getElementsByClassName('editField')[i].style.display = 'none';
         }
@@ -149,10 +197,9 @@ class EditName extends Component {
 
     render() {
         let uid = document.cookie.split('id=')[1];
-
         return (
-            <div className="container-fluid2 container ">
-                <div>
+            <div>
+                <div className="container-fluid2 container ">
                     < Mutation mutation={UPDATE_USER_FNAME}>
                         {(updateUserFirstName, {data}) => (
                             < Mutation mutation={UPDATE_USER_LNAME}>
@@ -186,7 +233,7 @@ class EditName extends Component {
                                                 }, function (error) {
 
                                                 });
-                                                this.setState({fName: '', lName: '', pName: ''})
+                                                this.whenUpdated();
                                             }}>
                                                 < ListGroup>
                                                     < div className="hearderbackground">
@@ -263,12 +310,11 @@ class EditName extends Component {
 
                         )}
                     </Mutation>
-                    <
-                    /div>
                 </div>
+            </div>
 
-                )
-                }
-                }
+        )
+    }
+}
 
-                export default EditName;
+export default EditName;

@@ -53,7 +53,7 @@ class EditGender extends Component {
             })
         }, function (error) {
 
-        })
+        });
         this.setState({gender: 'M'}, () => {
                 console.log(this.state.gender)
             }

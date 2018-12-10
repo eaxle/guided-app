@@ -14,9 +14,17 @@ class Home extends Component {
 
         this.state = {
             sidebarOpen: false,
+            pName: '',
+            lName: ''
         };
 
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+        this.getData = this.getData.bind(this);
+    }
+
+    getData(pName, lName) {
+        console.log('helo world!');
+        this.setState({pName: pName, lName: lName})
     }
 
     onSetSidebarOpen() {
@@ -28,13 +36,13 @@ class Home extends Component {
 
         return (
             <div>
-                <TopBar toggleSidebar={this.onSetSidebarOpen}/>
+                <TopBar toggleSidebar={this.onSetSidebarOpen} pName={this.state.pName} lName={this.state.lName}/>
                 <Sidebar sidebar={sidebarContent}
                          open={this.state.sidebarOpen}
                          onSetOpen={this.onSetSidebarOpen}
                          styles={sidebarStyle}>
                     <div className="content">
-                        <TagName/>
+                        <TagName setData={this.getData}/>
                     </div>
 
                 </Sidebar>
