@@ -44,6 +44,13 @@ class EditGender extends Component {
 
         ;
         this.toogleOther = this.toogleOther.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        e.preventDefault();
+        this.setState({gender: e.target.value}, () => {
+        })
     }
 
     componentDidMount() {
@@ -153,7 +160,7 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="radioGender"><input
                                                                         type="radio"
-                                                                        checked={'O' === this.state.gender}
+                                                                        checked={'F' != this.state.gender && 'O' != this.state.gender}
                                                                         value="O"
                                                                         onChange={this.toogleOther}
                                                                         name="gender"/>
@@ -173,6 +180,8 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="switch">
                                                                         <input id="cmn-toggle-4"
+                                                                               value={this.state.gender}
+                                                                               onChange={this.handleChange}
                                                                                className="cmn-toggle cmn-toggle-round-flat"
                                                                                type="checkbox"/>
                                                                         <label
