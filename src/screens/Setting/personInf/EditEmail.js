@@ -9,6 +9,7 @@ import validator from 'validator';
 import gql from "graphql-tag";
 import {graphql, Query} from "react-apollo";
 import {Mutation} from "react-apollo";
+import {client} from "../../../index";
 
 const UPDATE_EMAIL = gql`
   mutation updateUserEmail($uid: String!,$email:String!) {
@@ -57,12 +58,12 @@ class EditEmail extends Component {
         // console.log('called');
         if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
             this.setState({disable: false}, () => {
-                this.state.disable;
+                // this.state.disable;
             });
 
         } else {
             this.setState({disable: true}, () => {
-                this.state.disable;
+                // this.state.disable;
             });
         }
 
@@ -91,6 +92,16 @@ class EditEmail extends Component {
         this.forceUpdate();
     }
 
+    componentDidMount() {
+        let that = this;
+        client.query({query: GET_EMAIL, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+            that.setState({email: data.data.getUserEmailById[0].value}, () => {
+            })
+        }, function (error) {
+
+        });
+    }
+
     render() {
         let uid = document.cookie.split('id=')[1];
         return (
@@ -98,25 +109,26 @@ class EditEmail extends Component {
                 <div>
                     <ListGroup>
                         <div className="">
-
                             <Mutation mutation={UPDATE_EMAIL}>
                                 {(updateUserEmail, {loading, error}) => (
                                     <Form onSubmit={e => {
-                                        let that = this
-                                        e.preventDefault();
-                                        if (this.state.email == '') {
-                                            return ''
-                                        }
-                                        updateUserEmail({
-                                            variables: {
-                                                uid: uid,
-                                                email: this.state.email
+                                        if (e.target.value === 'save') {
+                                            let that = this
+                                            e.preventDefault();
+                                            if (this.state.email == '') {
+                                                return ''
                                             }
-                                        }).then(function (data) {
-                                            document.getElementById('re_001').click();
-                                        }, function (error) {
+                                            updateUserEmail({
+                                                variables: {
+                                                    uid: uid,
+                                                    email: this.state.email
+                                                }
+                                            }).then(function (data) {
+                                                document.getElementById('re_001').click();
+                                            }, function (error) {
 
-                                        });
+                                            });
+                                        }
                                     }}
                                     >
 
@@ -129,7 +141,6 @@ class EditEmail extends Component {
                                                         <div>
                                                             <input className="btn btnSave float-right "
                                                                    type='submit' value='Save'/>
-
                                                         </div>
                                                     </td>
                                                     <td className="">

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import IntlTelInput from 'react-intl-tel-input';
-import /*'file?name=libphonenumber.js!*/'../../../node_modules/react-intl-tel-input/dist/libphonenumber.js';
+import /*'file?name=main.js!*/'../../../node_modules/react-intl-tel-input/dist/main.js';
 import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import './loginStyles.css';
 

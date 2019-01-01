@@ -9,7 +9,6 @@ import MapSnap from '../../components/MapSnap';
 import LocSearchBox from '../../components/LocSearchBox';
 import EventTimeDisplay from '../../components/EventTimeDisplay';
 import './styles.css';
-
 class PostDetail extends Component {
   constructor(props) {
     super(props);

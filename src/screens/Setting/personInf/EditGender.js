@@ -39,7 +39,11 @@ class EditGender extends Component {
         super(props);
         this.state = {
             date: new Date(),
-            gender: ''
+            gender: {
+                type: 'M',
+                value: 'Male',
+                show: true
+            }
         }
 
         ;
@@ -49,22 +53,24 @@ class EditGender extends Component {
 
     handleChange(e) {
         e.preventDefault();
-        this.setState({gender: e.target.value}, () => {
-        })
+        if (e.target.type === 'checkbox')
+            this.setState({show: e.target.value}, () => {
+            })
     }
 
     componentDidMount() {
         const that = this;
-        client.query({query: GET_GENDER, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({gender: data.data.getGenderById[0].value}, () => {
-            })
-        }, function (error) {
+        /*     client.query({query: GET_GENDER, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+                 that.setState({gender: data.data.getGenderById[0].value}, () => {
+                 })
+             }, function (error) {
 
-        });
-        this.setState({gender: 'M'}, () => {
-                console.log(this.state.gender)
-            }
-        );
+             });
+             this.setState({gender: 'M'}, () => {
+                     console.log(this.state.gender)
+                 }
+             );
+        */
     }
 
     toogleOther(changeEvent) {
@@ -76,6 +82,7 @@ class EditGender extends Component {
         let uid = document.cookie.split('id=')[1];
         return (
             <div className="container-fluid2 container ">
+
                 <div>
                     <ListGroup>
                         <div className="">
@@ -136,7 +143,7 @@ class EditGender extends Component {
 
                                                                     <div className="radioGender"><input
                                                                         type="radio"
-                                                                        checked={'M' === this.state.gender}
+                                                                        checked={'M' === this.state.gender.type}
                                                                         value="M"
                                                                         onChange={this.toogleOther}
                                                                         name="gender"/>
@@ -148,7 +155,7 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="radioGender"><input
                                                                         type="radio"
-                                                                        checked={'F' === this.state.gender}
+                                                                        checked={'F' === this.state.gender.type}
                                                                         value="F"
                                                                         onChange={this.toogleOther}
                                                                         name="gender"/>
@@ -160,7 +167,7 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="radioGender"><input
                                                                         type="radio"
-                                                                        checked={'F' != this.state.gender && 'O' != this.state.gender}
+                                                                        checked={'O' === this.state.gender.type}
                                                                         value="O"
                                                                         onChange={this.toogleOther}
                                                                         name="gender"/>
@@ -180,7 +187,7 @@ class EditGender extends Component {
                                                                 <td className="centerText">
                                                                     <div className="switch">
                                                                         <input id="cmn-toggle-4"
-                                                                               value={this.state.gender}
+                                                                               value={this.state.gender.show}
                                                                                onChange={this.handleChange}
                                                                                className="cmn-toggle cmn-toggle-round-flat"
                                                                                type="checkbox"/>

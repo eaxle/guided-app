@@ -106,17 +106,17 @@ class EditDOB extends Component {
         e.preventDefault();
         if (e.target.name === 'day') {
             this.setState({day: e.target.value}, () => {
-                this.state
+
             })
         }
         if (e.target.name === 'month') {
             this.setState({month: e.target.value}, () => {
-                this.state
+
             })
         }
         if (e.target.name === 'year') {
             this.setState({year: e.target.value}, () => {
-                this.state
+
             })
         }
         // console.log(this.state)
