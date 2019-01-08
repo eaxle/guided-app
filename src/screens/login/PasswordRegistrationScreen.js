@@ -7,38 +7,33 @@ import ReactPasswordStrength from 'react-password-strength';
 import './loginStyles.css';
 
 const ADD_USER = gql`
-               mutation registrationViaEmail(
-               $create_date: String!,
-               $update_date: String,
-               $f_name: String!,
-               $l_name: String!,
-               $p_name:String!,
-               $dob_y: String!,
-               $dob_m: String!,
-               $dob_d: String!,
-               $c_code: String!,
+               mutation email_registration(
+               $first_name: String!,
+               $last_name: String!,
+               $preferred_name:String!,
+               $dob_year: String!,
+               $dob_month: String!,
+               $dob_day: String!,
+               $country_code: String!,
                $email: String!,
                $gender: String!,
                $password: String!,
-               $ph_num: String!)
+               $phone_number: String!)
                {
-               registrationViaEmail(
-               create_date:$create_date,
-               update_date:$update_date,
-               f_name:$f_name,
-               l_name:$l_name,
-               p_name:$p_name,
-               dob_y:$dob_y,
-               dob_m:$dob_m,
-               dob_d:$dob_d,
-               c_code:$c_code,
+               email_registration(
+               first_name:$first_name,
+               last_name:$last_name,
+               preferred_name:$preferred_name,
+               dob_year:$dob_year,
+               dob_month:$dob_month,
+               dob_day:$dob_day,
+               country_code:$country_code,
                email:$email,
                gender:$gender,
                password:$password,
-               ph_num:$ph_num
+               phone_number:$phone_number
                ) {
-                     id
-
+                user_id
                    }
                  }
                `;
@@ -48,8 +43,8 @@ class PasswordRegistrationScreen extends Component {
         super(props);
         console.log(this.props.location.state);
         this.recaptchaPass = false;
-        this.title='';
-        this.body='';
+        this.title = '';
+        this.body = '';
         this.state = {
             create_date: new Date(),
             update_date: new Date(),
@@ -72,6 +67,8 @@ class PasswordRegistrationScreen extends Component {
         this.submitForm = this.submitForm.bind(this);
         this.matchPassword = this.matchPassword.bind(this);
         this.verifyCall = this.verifyCall.bind(this);
+        this.showSuccessMessage = null;
+        this.showErrorMessage = null;
     }
 
     goBack() {
@@ -86,10 +83,11 @@ class PasswordRegistrationScreen extends Component {
     handleFormData(event) {
         event.preventDefault();
         if (event.target.name === "password") {
-            this.setState({password: event.target.value});
+            this.setState({password: event.target.value}, () => {
+            });
         } else {
-            this.setState({rePassword: event.target.value});
             this.rePassword = event.target.value;
+
         }
         this.matchPassword();
     }
@@ -108,33 +106,38 @@ class PasswordRegistrationScreen extends Component {
     };
 
     submitForm(e) {
+
         e.preventDefault();
-        if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
+        /*if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
             return
-        }
+        }*/
+
         this.props.mutate({
             variables: {
-                create_date: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate(),
-                update_date: new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate(),
-                f_name: this.state.fName,
-                l_name: this.state.lName,
-                p_name: this.state.pName,
-                dob_y: this.state.year,
-                dob_m: this.state.month,
-                dob_d: this.state.day,
+                first_name: this.state.fName,
+                last_name: this.state.lName,
+                preferred_name: this.state.pName,
+                dob_year: this.state.year,
+                dob_month: this.state.month,
+                dob_day: this.state.day,
                 email: this.state.email,
-                ph_num: this.state.phone,
+                phone_number: this.state.phone,
                 gender: this.state.gender,
                 password: this.state.password,
-                c_code:this.state.countryCode
+                country_code: this.state.countryCode
             }
         }).then(res => {
             localStorage.clear();
-            ;
-            alert('success')
 
+            this.showSuccessMessage = true;
+            this.showErrorMessage = false;
+            setTimeout(function () {
+                //window.location.href = '/MainLogin'
+            }, 3000)
         }).catch(err => {
-            alert('error')
+            // alert('error')
+            this.showSuccessMessage = false;
+            this.showErrorMessage = true;
 
         })
     }
@@ -146,9 +149,9 @@ class PasswordRegistrationScreen extends Component {
         return (
 
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-              <div className="row col-sm-12 righttop ">
-                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-              </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -164,10 +167,14 @@ class PasswordRegistrationScreen extends Component {
                 </div>
 
                 <div className="row">
+                    {this.showSuccessMessage &&
+                    <span className='btn btn-success'>You've successfully registered your account. Welcome to the Family!</span>
+                    }
+                    {this.showErrorMessage &&
+                    <span className='btn btn-danger'>Oops! Something has gone wrong. Please try again.</span>}
                     <div className="col-sm-12  inputs inputName">
                         <ReactPasswordStrength
                             className="form-group"
-
                             minLength={5}
                             minScore={2}
                             scoreWords={['weak', 'okay', 'good', 'strong', 'stronger']}

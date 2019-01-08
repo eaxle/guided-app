@@ -1,3 +1,9 @@
+.myBtmBar {
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+}
+
 @media only screen and (min-width: 320px) {
     .collapse {
         display: block;
@@ -12,21 +18,24 @@
     }
 
     .navbar-nav.navbar-left {
-       float: left;
-       margin: 0;
+        float: left;
+        margin: 0;
     }
 
     .navbar-nav.navbar-right {
-       float: right;
-       margin: 0;
+        float: right;
+        margin: 0;
     }
-    .navbar-nav>li {
+
+    .navbar-nav > li {
         float: left;
     }
-    .navbar-nav>li>a {
+
+    .navbar-nav > li > a {
         padding-top: 15px;
         padding-bottom: 15px;
     }
+
     .navbar {
         min-height: 30px;
         margin: auto;
@@ -35,11 +44,11 @@
 
 @media only screen and (max-width: 420px) {
     .collapse {
-    display: none;
+        display: none;
     }
 
     .navbar-header {
-    display: block;
+        display: block;
     }
 }
 

@@ -8,7 +8,7 @@ class BottomBar extends Component {
         super(props);
         this.state = {
             curTab: "Post"
-        }
+        };
         this.changeTab = this.changeTab.bind(this);
     }
 

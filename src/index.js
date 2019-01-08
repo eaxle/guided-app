@@ -30,6 +30,8 @@ import Ad from './screens/Setting/Ad/Ad';
 import Notification from './screens/Setting/notification/Notification';
 import Media from './screens/Setting/media/Media';
 import PostDetail from './screens/PostDetail/PostDetail';
+import Profile from './screens/Profile/Profile';
+import Explore from './screens/Explore/explore';
 export const client = new ApolloClient({
     uri: "http://45.32.189.215:3000/graphql",
 });
@@ -70,6 +72,8 @@ ReactDOM.render(
                         <Route exact path="/setting/media" render={pros => <Home{...pros} tagName={Media}/>}/>
                         <Route exact path="/setting/notification" render={pros => <Home{...pros} tagName={Notification}/>}/>
                         <Route exact path="/post" render={pros => <Home{...pros} tagName={PostDetail}/>}/>
+                        <Route exact path="/profile" render={pros => <Home{...pros} tagName={Profile}/>}/>
+                        <Route exact path="/explore" render={pros => <Home{...pros} tagName={Explore}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>

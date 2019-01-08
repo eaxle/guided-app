@@ -10,9 +10,9 @@ import {withCookies, Cookies} from 'react-cookie';
 
 
 const LOGIN_USER = gql`
-               query loginViaEmail($email: String!,$password: String!) {
-                   loginViaEmail(email:$email,password: $password) {
-                     id
+               query email_login($email: String!,$password: String!) {
+                   email_login(email:$email,password: $password) {
+                     user_id
                    }
                  }
                `;

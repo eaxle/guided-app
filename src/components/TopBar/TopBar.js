@@ -7,20 +7,15 @@ import {client} from "../../index";
 import {Query} from "react-apollo";
 
 const GET_USER_LNAME = gql`
-               query getUserLastNameById($uid:String!){
-                   getUserLastNameById(uid:$uid) {
-                     value
+               query get_user_name_by_id($user_id:String!){
+                   get_user_name_by_id(user_id:$user_id) {
+                     first_name,
+                     last_name,
+                     preferred_name
+                     
                    }
                  }
                `;
-const GET_USER_PNAME = gql`
-               query getUserPreferNameById($uid:String!){
-                   getUserPreferNameById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-
 
 const GETLNAME = ({uid}) => (
         <Query query={GET_USER_LNAME} variables={{uid}} notifyOnNetworkStatusChange>
@@ -28,22 +23,12 @@ const GETLNAME = ({uid}) => (
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                 if (networkStatus === 4) return "Refetching!";
+                debugger;
                 return (<span id="re_003" onClick={() => refetch()}> {data.getUserLastNameById[0].value}</span>);
             }}
         </Query>
     )
-;const GETPNAME = ({uid}) => (
-        <Query query={GET_USER_PNAME} variables={{uid}} notifyOnNetworkStatusChange>
-            {({loading, error, data, refetch, networkStatus}) => {
-                if (loading) return "Loading...";
-                if (error) return `Error! ${error.message}`;
-                if (networkStatus === 4) return "Refetching!";
-                return (<span id="re_004" onClick={() => refetch()}> {data.getUserPreferNameById[0].value}</span>);
-            }}
-        </Query>
-    )
 ;
-
 class TopBar extends Component {
     constructor(props) {
         super(props);
@@ -75,8 +60,8 @@ class TopBar extends Component {
                     <NavItem onClick={() => this.props.toggleSidebar()}>
                         <span className="glyphicon glyphicon-align-justify iconfont" aria-hidden="true"></span>
                     </NavItem>
-                    <NavItem>
-                        <GETPNAME uid={uid}/> <GETLNAME uid={uid}/>
+                    <NavItem>{/*
+                        <GETLNAME uid={uid}/>*/}
 
                     </NavItem>
                 </Nav>
@@ -97,5 +82,4 @@ class TopBar extends Component {
         );
     }
 }
-
 export default TopBar;

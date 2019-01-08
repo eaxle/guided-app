@@ -17,14 +17,17 @@ class BirthdayRegistrationScreen extends Component {
         };
 
         this.handleFormData = this.handleFormData.bind(this);
-        console.log(this.props)
+        console.log(this.props);
         if (localStorage.getItem('day')) {
+            // this.setState({day: localStorage.getItem('day')});
             this.state.day = localStorage.getItem('day');
         }
         if (localStorage.getItem('month')) {
+            // this.setState({day: localStorage.getItem('month')});
             this.state.month = localStorage.getItem('month');
         }
         if (localStorage.getItem('year')) {
+            // this.setState({day: localStorage.getItem('year')});
             this.state.year = localStorage.getItem('year');
         }
     }
@@ -59,9 +62,9 @@ class BirthdayRegistrationScreen extends Component {
         let arr = new Array();
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-              <div className="row col-sm-12 righttop ">
-                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-              </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -70,7 +73,7 @@ class BirthdayRegistrationScreen extends Component {
                         <p>Whats your date of birth?</p>
                     </div>
                     <div className="col-sm-12 subsubtitle">
-                        <p>This information wont be made public.</p>
+                        <p>This information won't be made public.</p>
                     </div>
                 </div>
 
@@ -114,7 +117,7 @@ class BirthdayRegistrationScreen extends Component {
                                         placeholder="Year" value={this.state.year} onChange={this.handleFormData}>
                                     <option>Year</option>
                                     {(function () {
-                                        for (let i = 1925; i < new Date().getFullYear(); i++) {
+                                        for (let i = 1925; i <= new Date().getFullYear(); i++) {
 
                                             arr.push(<option value={i} key={'year_' + i}>{i}</option>);
                                         }

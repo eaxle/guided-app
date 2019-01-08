@@ -12,13 +12,12 @@ class GenderRegistrationScreen extends Component {
             day: this.props.location.state.value.day || '',
             month: this.props.location.state.value.month || '',
             year: this.props.location.state.value.year || '',
-            gender: this.props.location.state.value.gender || 'm',
+            gender: this.props.location.state.value.gender || 'M',
             countryCode: this.props.location.state.value.countryCode || '',
             phone: this.props.location.state.value.phone || ''
-        }
+        };
         this.handleFormData = this.handleFormData.bind(this);
         if (localStorage.getItem('gender')) {
-
             this.state.gender = localStorage.getItem('gender');
 
         }
@@ -29,19 +28,19 @@ class GenderRegistrationScreen extends Component {
     }
 
     handleFormData(e) {
-        e.preventDefault();
         this.setState({gender: e.target.value}, () => {
             localStorage.setItem('gender', this.state.gender);
-        });
 
+        });
+        console.log(this.state.gender)
     }
 
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-              <div className="row col-sm-12 righttop ">
-                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-              </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -61,18 +60,18 @@ class GenderRegistrationScreen extends Component {
                         <tbody>
                         <tr>
                             <td><label>Male</label></td>
-                            <td><input type="radio" value="m" name="gender" checked={this.state.gender === 'm'}
+                            <td><input type="radio" value="M" name="gender" checked={this.state.gender === "M"}
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
                             <td><label>
                                 Female</label></td>
-                            <td><input type="radio" value="f" name="gender" checked={this.state.gender === 'f'}
+                            <td><input type="radio" value="F" name="gender" checked={this.state.gender === "F"}
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
                             <td><label>Other</label></td>
-                            <td><input type="radio" value="o" name="gender" checked={this.state.gender === 'o'}
+                            <td><input type="radio" value="O" name="gender" checked={this.state.gender === "O"}
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         </tbody>

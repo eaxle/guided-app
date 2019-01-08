@@ -8,7 +8,7 @@ class SecBottomBar extends Component {
         super(props);
         this.state = {
             curTab: "Explore"
-        }
+        };
         this.changeTab = this.changeTab.bind(this);
     }
 

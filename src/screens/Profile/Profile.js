@@ -23,7 +23,7 @@ class Profile extends Component {
 
     this.state = {
       sidebarOpen: false
-    }
+    };
 
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
@@ -33,6 +33,7 @@ class Profile extends Component {
   }
 
   render() {
+
     return (
       <div>
         <TopBar toggleSidebar={this.onSetSidebarOpen}/>
@@ -46,8 +47,8 @@ class Profile extends Component {
             <Bio/>
           </div>
 
-        </Sidebar>
-        <BottomBar />
+        </Sidebar >
+        <BottomBar  />
         <SecBottomBar/>
 
       </div>
