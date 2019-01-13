@@ -32,6 +32,7 @@ import Media from './screens/Setting/media/Media';
 import PostDetail from './screens/PostDetail/PostDetail';
 import Profile from './screens/Profile/Profile';
 import Explore from './screens/Explore/explore';
+import User_Menu_Media from './screens/new/User_Menu_Media';
 export const client = new ApolloClient({
     uri: "http://45.32.189.215:3000/graphql",
 });
@@ -43,19 +44,19 @@ ReactDOM.render(
                 <div>
                     <Route exact path="/" render={pros => <Login {...pros}/>}/>
                     <Switch>
-                        <Route exact path="/PasswordRegistrationScreen"
+                        <Route exact path="/register/password"
                                render={pros => <PasswordRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/GenderRegistrationScreen"
+                        <Route exact path="/register/gender"
                                render={pros => <GenderRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/PhoneNumberRegistrationScreen"
+                        <Route exact path="/register/phone"
                                render={pros => <PhoneNumberRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/BirthdayRegistrationScreen"
+                        <Route exact path="/register/dob"
                                render={pros => <BirthdayRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/MainRegistrationScreen"
+                        <Route exact path="/register/main"
                                render={pros => <MainRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/NameRegistrationScreen"
+                        <Route exact path="/register/name"
                                render={pros => <NameRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/MainLogin" render={pros => <MainLoginPage {...pros}/>}/>
+                        <Route exact path="/login" render={pros => <MainLoginPage {...pros}/>}/>
                         <Route exact path="/setting" render={pros => <Home{...pros}/>}/>
                         <Route exact path="/setting/personInf" render={pros => <Home{...pros} tagName={PersonInf}/>} />
                         <Route exact path="/setting/PersonInf/email" render={pros => <Home{...pros} tagName={EditEmail}/>}/>
@@ -74,6 +75,7 @@ ReactDOM.render(
                         <Route exact path="/post" render={pros => <Home{...pros} tagName={PostDetail}/>}/>
                         <Route exact path="/profile" render={pros => <Home{...pros} tagName={Profile}/>}/>
                         <Route exact path="/explore" render={pros => <Home{...pros} tagName={Explore}/>}/>
+                        <Route exact path="/menu" render={pros => <Home{...pros} tagName={User_Menu_Media}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>
