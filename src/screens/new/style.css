@@ -5,9 +5,9 @@
     margin-right: 10px;
     display: grid;
     grid-template-columns: 32% 32% 32%;
-    grid-template-rows: repeat(100, 33%);
+    /*grid-template-rows: repeat(100, 10%);*/
     grid-column-gap: 2%;
-    grid-row-gap: 74px;
+    grid-row-gap: 2%;
 }
 
 .grid_cols {
@@ -15,9 +15,7 @@
     background: #D8D8D8;
     border-radius: 4px;
     text-align: center;
-    min-height: 120%;
-    height: 400%;
-    /*margin-top: -2%;*/
+    height: 120px;
 
 }
 
@@ -33,5 +31,7 @@
 }
 
 .glyphicon-plus {
+
+    padding-top: 25px;
     font-size: -webkit-xxx-large;
 }

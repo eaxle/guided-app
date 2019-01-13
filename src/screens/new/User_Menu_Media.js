@@ -15,7 +15,7 @@ class User_Menu_Media extends Component {
                 <div className="user_media">Media</div>
                 <div className="grid_container">
                     <div className="grid_cols">
-                        {/*  <span className="glyphicon glyphicon-plus "></span>*/}
+                        <span className="glyphicon glyphicon-plus "></span>
 
                     </div>
                     <div className="grid_cols">
