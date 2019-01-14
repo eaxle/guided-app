@@ -75,7 +75,7 @@ ReactDOM.render(
                         <Route exact path="/post" render={pros => <Home{...pros} tagName={PostDetail}/>}/>
                         <Route exact path="/profile" render={pros => <Home{...pros} tagName={Profile}/>}/>
                         <Route exact path="/explore" render={pros => <Home{...pros} tagName={Explore}/>}/>
-                        <Route exact path="/menu" render={pros => <Home{...pros} tagName={User_Menu_Media}/>}/>
+                        <Route exact path="/media" render={pros => <Home{...pros} tagName={User_Menu_Media}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>

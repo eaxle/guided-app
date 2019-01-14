@@ -1,6 +1,8 @@
 //@info created by ramesh khadka 1/9/2019
 import React, {Component} from 'react';
 import './style.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircle} from '@fortawesome/free-solid-svg-icons'
 
 class User_Menu_Media extends Component {
     constructor(props) {
@@ -12,6 +14,7 @@ class User_Menu_Media extends Component {
 
         return (
             <div>
+
                 <div className="user_media">Media</div>
                 <div className="grid_container">
                     <div className="grid_cols">
@@ -19,26 +22,32 @@ class User_Menu_Media extends Component {
 
                     </div>
                     <div className="grid_cols">
-                        2
+                        <FontAwesomeIcon icon={faCircle}/>
                     </div>
 
                     <div className="grid_cols">
-                        3
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
                     <div className="grid_cols">
-                        4
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
                     <div className="grid_cols">
-                        5
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
                     <div className="grid_cols">
-                        6
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
                     <div className="grid_cols">
-                        6
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
                     <div className="grid_cols">
-                        6
+                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
 
                 </div>

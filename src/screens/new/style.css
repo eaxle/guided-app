@@ -31,7 +31,16 @@
 }
 
 .glyphicon-plus {
-
     padding-top: 25px;
     font-size: -webkit-xxx-large;
+}
+
+.svg-inline--fa.fa-w-16 {
+    width: 180% !important;
+}
+.row {
+    /* margin-right: -15px; */
+    /* margin-left: -15px; */
+margin-left: 0px !important;
+margin-right: 0px !important;
 }
