@@ -7,7 +7,7 @@
     grid-template-columns: 32% 32% 32%;
     /*grid-template-rows: repeat(100, 10%);*/
     grid-column-gap: 6px;
-    grid-row-gap: 6px;
+    grid-row-gap: 60px;
 }
 
 .grid_cols {
