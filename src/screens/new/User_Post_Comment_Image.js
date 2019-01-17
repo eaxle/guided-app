@@ -6,7 +6,7 @@ import {faSmile, faUpload, faCamera, faFileImage} from '@fortawesome/free-solid-
 import Bottom_Image_Video_Folder from './Bottom_Image_Video_Folder';
 import BottomBar from '../../components/BottomBar';
 
-class User_Post_Comment_Image extends Component {
+class UserPostCommentImage extends Component {
     constructor(props) {
         super(props);
     }
@@ -69,4 +69,4 @@ class User_Post_Comment_Image extends Component {
     }
 }
 
-export default User_Post_Comment_Image;
+export default UserPostCommentImage;

@@ -3,10 +3,10 @@ import React, {Component} from 'react';
 import './style.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircle} from '@fortawesome/free-solid-svg-icons'
-import Bottom_Image_Video_Folder from './Bottom_Image_Video_Folder';
+import BottomImageVideoFolder from './Bottom_Image_Video_Folder';
 import BottomBar from '../../components/BottomBar';
 
-class User_Menu_Media extends Component {
+class UserMenuMedia extends Component {
     constructor(props) {
         super(props);
     }
@@ -54,7 +54,7 @@ class User_Menu_Media extends Component {
 
                 </div>
                 <div className="">
-                    <Bottom_Image_Video_Folder/>
+                    <BottomImageVideoFolder/>
                     <BottomBar/>
                 </div>
             </div>
@@ -62,4 +62,4 @@ class User_Menu_Media extends Component {
     }
 }
 
-export default User_Menu_Media;
+export default UserMenuMedia;

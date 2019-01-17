@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import './Bottom_Image_Video_Folder.css';
 
-class Bottom_Image_Video_Folder extends Component {
+class BottomImageVideoFolder extends Component {
     constructor(props) {
         super(props);
     }
@@ -25,4 +25,4 @@ class Bottom_Image_Video_Folder extends Component {
     }
 }
 
-export default Bottom_Image_Video_Folder;
+export default BottomImageVideoFolder;
