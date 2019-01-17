@@ -33,7 +33,7 @@ import PostDetail from './screens/PostDetail/PostDetail';
 import Profile from './screens/Profile/Profile';
 import Explore from './screens/Explore/explore';
 import UserMenuMedia from './screens/new/User_Menu_Media';
-import UserPostCommentImage from './screens/new/User_Post_Comment_Image';
+import UserPostCommentImage from './screens/new/UserPostCommentImage';
 export const client = new ApolloClient({
     uri: "http://45.32.189.215:3000/graphql",
 });
