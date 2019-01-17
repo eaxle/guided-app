@@ -1,5 +1,6 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-
+nohub.out
+nohup.out
 # dependencies
 /node_modules
 
