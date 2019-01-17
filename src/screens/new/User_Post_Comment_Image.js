@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './style.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSmile, faUpload, faCamera, faFileImage} from '@fortawesome/free-solid-svg-icons'
-import Bottom_Image_Video_Folder from './Bottom_Image_Video_Folder';
+import BottomImageVideoFolder from './Bottom_Image_Video_Folder';
 import BottomBar from '../../components/BottomBar';
 
 class UserPostCommentImage extends Component {
@@ -61,7 +61,7 @@ class UserPostCommentImage extends Component {
 
                 </div>
                 <div className="">
-                    <Bottom_Image_Video_Folder/>
+                    <BottomImageVideoFolder/>
                     <BottomBar/>
                 </div>
             </div>
