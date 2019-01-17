@@ -4181,3 +4181,1028 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /root/.npm/_logs/2019-01-15T11_38_21_202Z-debug.log
+
+> guided-spa@0.1.0 start /home/guided-spa
+> PORT=80 react-scripts start
+
+Starting the development server...
+
+Compiled with warnings.
+
+./src/screens/PostDetail/PostDetail.js
+  Line 110:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 119:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 128:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 138:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 148:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 159:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 170:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PasswordRegistrationScreen.js
+  Line 147:  'data' is assigned a value but never used  no-unused-vars
+
+./src/screens/Explore/explore.js
+  Line 2:  'Button' is defined but never used               no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used            no-unused-vars
+  Line 2:  'Image' is defined but never used                no-unused-vars
+  Line 2:  'Grid' is defined but never used                 no-unused-vars
+  Line 2:  'Row' is defined but never used                  no-unused-vars
+  Line 2:  'Col' is defined but never used                  no-unused-vars
+  Line 2:  'ListGroup' is defined but never used            no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used        no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used         no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used          no-unused-vars
+  Line 5:   'OverflowText' is defined but never used         no-unused-vars
+  Line 6:   'TextFrom' is defined but never used             no-unused-vars
+  Line 7:   'ListEditor' is defined but never used           no-unused-vars
+  Line 8:   'MapSnap' is defined but never used              no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used         no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used     no-unused-vars
+  Line 16:  'ProfileImageAndIcon' is defined but never used  no-unused-vars
+  Line 17:  'Bio' is defined but never used                  no-unused-vars
+
+./src/screens/Profile/Profile.js
+  Line 2:  'Button' is defined but never used            no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used         no-unused-vars
+  Line 2:  'Image' is defined but never used             no-unused-vars
+  Line 2:  'Grid' is defined but never used              no-unused-vars
+  Line 2:  'Row' is defined but never used               no-unused-vars
+  Line 2:  'Col' is defined but never used               no-unused-vars
+  Line 2:  'ListGroup' is defined but never used         no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used     no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used      no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used       no-unused-vars
+  Line 5:   'OverflowText' is defined but never used      no-unused-vars
+  Line 6:   'TextFrom' is defined but never used          no-unused-vars
+  Line 7:   'ListEditor' is defined but never used        no-unused-vars
+  Line 8:   'MapSnap' is defined but never used           no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used      no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used  no-unused-vars
+
+./src/screens/login/MainRegistrationScreen.js
+  Line 2:  'browserHistory' is defined but never used  no-unused-vars
+
+./src/components/Bio/Bio.js
+  Line 2:  'Image' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditName.js
+  Line 2:      'ReactDOM' is defined but never used  no-unused-vars
+  Line 5:      'NavLink' is defined but never used   no-unused-vars
+  Line 5:     'Link' is defined but never used      no-unused-vars
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:  Expected '===' and instead saw '=='   eqeqeq
+
+./src/screens/Setting/media/Media.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/payment/PaymentSetting.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/Ad/Ad.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/notification/Notification.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/privacy/Privacy.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/security/Security.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/officialDocuments/OfficialDoc.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 4:   'NavLink' is defined but never used        no-unused-vars
+  Line 4:  'Link' is defined but never used           no-unused-vars
+
+./src/components/OverflowText/OverflowText.js
+  Line 34:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/Card/Card.js
+  Line 3:  'Navbar' is defined but never used   no-unused-vars
+  Line 3:  'Nav' is defined but never used      no-unused-vars
+  Line 3:  'NavItem' is defined but never used  no-unused-vars
+
+./src/components/TopBar/TopBar.js
+  Line 3:   'Col' is defined but never used                no-unused-vars
+  Line 6:    'client' is defined but never used             no-unused-vars
+  Line 20:   'GETLNAME' is assigned a value but never used  no-unused-vars
+  Line 54:  'uid' is assigned a value but never used       no-unused-vars
+
+./src/components/LocSearchBox/LocSearchBox.js
+  Line 41:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PhoneNumberRegistrationScreen.js
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:  Unexpected string concatenation of literals  no-useless-concat
+  Line 113:  No duplicate props allowed                   react/jsx-no-duplicate-props
+
+./src/screens/Setting/personInf/PersonInf.js
+  Line 4:  'Link' is defined but never used                    no-unused-vars
+  Line 30:  'GET_USER_CODE' is assigned a value but never used  no-unused-vars
+
+./src/screens/Setting/Setting.js
+  Line 4:  'Link' is defined but never used  no-unused-vars
+
+./src/components/ProfileImageAndIcon/ProfileImageAndIcon.js
+  Line 4:  'Rating' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditGender.js
+  Line 4:     'NavLink' is defined but never used        no-unused-vars
+  Line 4:    'Link' is defined but never used           no-unused-vars
+  Line 9:     'client' is defined but never used         no-unused-vars
+  Line 62:   'that' is assigned a value but never used  no-unused-vars
+  Line 178:  Expected '!==' and instead saw '!='        eqeqeq
+
+./src/screens/Setting/personInf/EditDOB.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditLanguage.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+  Line 5:   'Navbar' is defined but never used   no-unused-vars
+  Line 5:  'Nav' is defined but never used      no-unused-vars
+  Line 5:  'NavItem' is defined but never used  no-unused-vars
+
+./src/screens/HomeTwo/HomeTwo.js
+  Line 5:  'BottomBar' is defined but never used     no-unused-vars
+  Line 6:  'SecBottomBar' is defined but never used  no-unused-vars
+  Line 8:  'PersonInf' is defined but never used     no-unused-vars
+
+./src/screens/login/BirthdayRegistrationScreen.js
+  Line 60:  The array literal notation [] is preferable  no-array-constructor
+  Line 61:  The array literal notation [] is preferable  no-array-constructor
+  Line 62:  The array literal notation [] is preferable  no-array-constructor
+
+./src/screens/login/MainLoginPage.js
+  Line 7:   'browserHistory' is defined but never used    no-unused-vars
+  Line 9:    'withCookies' is defined but never used       no-unused-vars
+  Line 23:  'cookies' is assigned a value but never used  no-unused-vars
+  Line 63:  'data' is assigned a value but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditPhone.js
+  Line 7:     'NavLink' is defined but never used          no-unused-vars
+  Line 7:    'Link' is defined but never used             no-unused-vars
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:  Unexpected string concatenation of literals  no-useless-concat
+
+./src/screens/Setting/personInf/EditEmail.js
+  Line 7:     'NavLink' is defined but never used        no-unused-vars
+  Line 7:    'Link' is defined but never used           no-unused-vars
+  Line 10:    'graphql' is defined but never used        no-unused-vars
+  Line 116:  'that' is assigned a value but never used  no-unused-vars
+  Line 118:  Expected '===' and instead saw '=='        eqeqeq
+
+./src/screens/new/User_Menu_Media.js
+  Line 8:  Useless constructor  no-useless-constructor
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+
+> guided-spa@0.1.0 start /home/guided-spa
+> PORT=80 react-scripts start
+
+Starting the development server...
+
+Compiled with warnings.
+
+./src/screens/PostDetail/PostDetail.js
+  Line 110:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 119:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 128:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 138:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 148:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 159:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 170:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PasswordRegistrationScreen.js
+  Line 147:  'data' is assigned a value but never used  no-unused-vars
+
+./src/screens/Explore/explore.js
+  Line 2:  'Button' is defined but never used               no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used            no-unused-vars
+  Line 2:  'Image' is defined but never used                no-unused-vars
+  Line 2:  'Grid' is defined but never used                 no-unused-vars
+  Line 2:  'Row' is defined but never used                  no-unused-vars
+  Line 2:  'Col' is defined but never used                  no-unused-vars
+  Line 2:  'ListGroup' is defined but never used            no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used        no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used         no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used          no-unused-vars
+  Line 5:   'OverflowText' is defined but never used         no-unused-vars
+  Line 6:   'TextFrom' is defined but never used             no-unused-vars
+  Line 7:   'ListEditor' is defined but never used           no-unused-vars
+  Line 8:   'MapSnap' is defined but never used              no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used         no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used     no-unused-vars
+  Line 16:  'ProfileImageAndIcon' is defined but never used  no-unused-vars
+  Line 17:  'Bio' is defined but never used                  no-unused-vars
+
+./src/screens/Profile/Profile.js
+  Line 2:  'Button' is defined but never used            no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used         no-unused-vars
+  Line 2:  'Image' is defined but never used             no-unused-vars
+  Line 2:  'Grid' is defined but never used              no-unused-vars
+  Line 2:  'Row' is defined but never used               no-unused-vars
+  Line 2:  'Col' is defined but never used               no-unused-vars
+  Line 2:  'ListGroup' is defined but never used         no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used     no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used      no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used       no-unused-vars
+  Line 5:   'OverflowText' is defined but never used      no-unused-vars
+  Line 6:   'TextFrom' is defined but never used          no-unused-vars
+  Line 7:   'ListEditor' is defined but never used        no-unused-vars
+  Line 8:   'MapSnap' is defined but never used           no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used      no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used  no-unused-vars
+
+./src/screens/login/MainRegistrationScreen.js
+  Line 2:  'browserHistory' is defined but never used  no-unused-vars
+
+./src/components/Bio/Bio.js
+  Line 2:  'Image' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditName.js
+  Line 2:      'ReactDOM' is defined but never used  no-unused-vars
+  Line 5:      'NavLink' is defined but never used   no-unused-vars
+  Line 5:     'Link' is defined but never used      no-unused-vars
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:  Expected '===' and instead saw '=='   eqeqeq
+
+./src/screens/Setting/privacy/Privacy.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/payment/PaymentSetting.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/Ad/Ad.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/security/Security.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/media/Media.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/notification/Notification.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/officialDocuments/OfficialDoc.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 4:   'NavLink' is defined but never used        no-unused-vars
+  Line 4:  'Link' is defined but never used           no-unused-vars
+
+./src/components/OverflowText/OverflowText.js
+  Line 34:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/Card/Card.js
+  Line 3:  'Navbar' is defined but never used   no-unused-vars
+  Line 3:  'Nav' is defined but never used      no-unused-vars
+  Line 3:  'NavItem' is defined but never used  no-unused-vars
+
+./src/components/TopBar/TopBar.js
+  Line 3:   'Col' is defined but never used                no-unused-vars
+  Line 6:    'client' is defined but never used             no-unused-vars
+  Line 20:   'GETLNAME' is assigned a value but never used  no-unused-vars
+  Line 54:  'uid' is assigned a value but never used       no-unused-vars
+
+./src/components/LocSearchBox/LocSearchBox.js
+  Line 41:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PhoneNumberRegistrationScreen.js
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:  Unexpected string concatenation of literals  no-useless-concat
+  Line 113:  No duplicate props allowed                   react/jsx-no-duplicate-props
+
+./src/screens/Setting/personInf/PersonInf.js
+  Line 4:  'Link' is defined but never used                    no-unused-vars
+  Line 30:  'GET_USER_CODE' is assigned a value but never used  no-unused-vars
+
+./src/screens/Setting/Setting.js
+  Line 4:  'Link' is defined but never used  no-unused-vars
+
+./src/components/ProfileImageAndIcon/ProfileImageAndIcon.js
+  Line 4:  'Rating' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditGender.js
+  Line 4:     'NavLink' is defined but never used        no-unused-vars
+  Line 4:    'Link' is defined but never used           no-unused-vars
+  Line 9:     'client' is defined but never used         no-unused-vars
+  Line 62:   'that' is assigned a value but never used  no-unused-vars
+  Line 178:  Expected '!==' and instead saw '!='        eqeqeq
+
+./src/screens/Setting/personInf/EditDOB.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditLanguage.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+  Line 5:   'Navbar' is defined but never used   no-unused-vars
+  Line 5:  'Nav' is defined but never used      no-unused-vars
+  Line 5:  'NavItem' is defined but never used  no-unused-vars
+
+./src/screens/HomeTwo/HomeTwo.js
+  Line 5:  'BottomBar' is defined but never used     no-unused-vars
+  Line 6:  'SecBottomBar' is defined but never used  no-unused-vars
+  Line 8:  'PersonInf' is defined but never used     no-unused-vars
+
+./src/screens/login/BirthdayRegistrationScreen.js
+  Line 60:  The array literal notation [] is preferable  no-array-constructor
+  Line 61:  The array literal notation [] is preferable  no-array-constructor
+  Line 62:  The array literal notation [] is preferable  no-array-constructor
+
+./src/screens/login/MainLoginPage.js
+  Line 7:   'browserHistory' is defined but never used    no-unused-vars
+  Line 9:    'withCookies' is defined but never used       no-unused-vars
+  Line 23:  'cookies' is assigned a value but never used  no-unused-vars
+  Line 63:  'data' is assigned a value but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditPhone.js
+  Line 7:     'NavLink' is defined but never used          no-unused-vars
+  Line 7:    'Link' is defined but never used             no-unused-vars
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:  Unexpected string concatenation of literals  no-useless-concat
+
+./src/screens/Setting/personInf/EditEmail.js
+  Line 7:     'NavLink' is defined but never used        no-unused-vars
+  Line 7:    'Link' is defined but never used           no-unused-vars
+  Line 10:    'graphql' is defined but never used        no-unused-vars
+  Line 116:  'that' is assigned a value but never used  no-unused-vars
+  Line 118:  Expected '===' and instead saw '=='        eqeqeq
+
+./src/screens/new/User_Menu_Media.js
+  Line 8:  Useless constructor  no-useless-constructor
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/screens/new/User_Menu_Media.js
+  Line 10:   Useless constructor                                                     no-useless-constructor
+  Line 57:  Imported JSX component Bottom_Image_Video_Folder must be in PascalCase  react/jsx-pascal-case
+
+./src/screens/new/User_Post_Comment_Image.js
+  Line 10:   Useless constructor                                                     no-useless-constructor
+  Line 64:  Imported JSX component Bottom_Image_Video_Folder must be in PascalCase  react/jsx-pascal-case
+
+./src/screens/PostDetail/PostDetail.js
+  Line 110:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 119:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 128:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 138:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 148:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 159:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 170:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PasswordRegistrationScreen.js
+  Line 147:  'data' is assigned a value but never used  no-unused-vars
+
+./src/screens/Explore/explore.js
+  Line 2:  'Button' is defined but never used               no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used            no-unused-vars
+  Line 2:  'Image' is defined but never used                no-unused-vars
+  Line 2:  'Grid' is defined but never used                 no-unused-vars
+  Line 2:  'Row' is defined but never used                  no-unused-vars
+  Line 2:  'Col' is defined but never used                  no-unused-vars
+  Line 2:  'ListGroup' is defined but never used            no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used        no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used         no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used          no-unused-vars
+  Line 5:   'OverflowText' is defined but never used         no-unused-vars
+  Line 6:   'TextFrom' is defined but never used             no-unused-vars
+  Line 7:   'ListEditor' is defined but never used           no-unused-vars
+  Line 8:   'MapSnap' is defined but never used              no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used         no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used     no-unused-vars
+  Line 16:  'ProfileImageAndIcon' is defined but never used  no-unused-vars
+  Line 17:  'Bio' is defined but never used                  no-unused-vars
+
+./src/screens/Profile/Profile.js
+  Line 2:  'Button' is defined but never used         no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used      no-unused-vars
+  Line 2:  'Image' is defined but never used          no-unused-vars
+  Line 2:  'Grid' is defined but never used           no-unused-vars
+  Line 2:  'Row' is defined but never used            no-unused-vars
+  Line 2:  'Col' is defined but never used            no-unused-vars
+  Line 2:  'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+
+./src/screens/login/MainRegistrationScreen.js
+  Line 2:  'browserHistory' is defined but never used  no-unused-vars
+
+./src/components/Bio/Bio.js
+  Line 2:  'Image' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditName.js
+  Line 2:      'ReactDOM' is defined but never used  no-unused-vars
+  Line 5:      'NavLink' is defined but never used   no-unused-vars
+  Line 5:     'Link' is defined but never used      no-unused-vars
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:  Expected '===' and instead saw '=='   eqeqeq
+
+./src/screens/Setting/Ad/Ad.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/media/Media.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/payment/PaymentSetting.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/notification/Notification.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/security/Security.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/privacy/Privacy.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/officialDocuments/OfficialDoc.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 4:   'NavLink' is defined but never used        no-unused-vars
+  Line 4:  'Link' is defined but never used           no-unused-vars
+
+./src/components/OverflowText/OverflowText.js
+  Line 34:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/Card/Card.js
+  Line 3:  'Navbar' is defined but never used   no-unused-vars
+  Line 3:  'Nav' is defined but never used      no-unused-vars
+  Line 3:  'NavItem' is defined but never used  no-unused-vars
+
+./src/components/TopBar/TopBar.js
+  Line 3:   'Col' is defined but never used                no-unused-vars
+  Line 6:    'client' is defined but never used             no-unused-vars
+  Line 20:   'GETLNAME' is assigned a value but never used  no-unused-vars
+  Line 54:  'uid' is assigned a value but never used       no-unused-vars
+
+./src/components/LocSearchBox/LocSearchBox.js
+  Line 41:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PhoneNumberRegistrationScreen.js
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:  Unexpected string concatenation of literals  no-useless-concat
+  Line 113:  No duplicate props allowed                   react/jsx-no-duplicate-props
+
+./src/screens/Setting/personInf/PersonInf.js
+  Line 4:  'Link' is defined but never used                    no-unused-vars
+  Line 30:  'GET_USER_CODE' is assigned a value but never used  no-unused-vars
+
+./src/screens/Setting/Setting.js
+  Line 4:  'Link' is defined but never used  no-unused-vars
+
+./src/components/ProfileImageAndIcon/ProfileImageAndIcon.js
+  Line 4:  'Rating' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditGender.js
+  Line 4:     'NavLink' is defined but never used        no-unused-vars
+  Line 4:    'Link' is defined but never used           no-unused-vars
+  Line 9:     'client' is defined but never used         no-unused-vars
+  Line 62:   'that' is assigned a value but never used  no-unused-vars
+  Line 178:  Expected '!==' and instead saw '!='        eqeqeq
+
+./src/screens/Setting/personInf/EditDOB.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditLanguage.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+  Line 5:   'Navbar' is defined but never used   no-unused-vars
+  Line 5:  'Nav' is defined but never used      no-unused-vars
+  Line 5:  'NavItem' is defined but never used  no-unused-vars
+
+./src/screens/HomeTwo/HomeTwo.js
+  Line 5:  'BottomBar' is defined but never used     no-unused-vars
+  Line 6:  'SecBottomBar' is defined but never used  no-unused-vars
+  Line 8:  'PersonInf' is defined but never used     no-unused-vars
+
+./src/screens/login/BirthdayRegistrationScreen.js
+  Line 60:  The array literal notation [] is preferable  no-array-constructor
+  Line 61:  The array literal notation [] is preferable  no-array-constructor
+  Line 62:  The array literal notation [] is preferable  no-array-constructor
+
+./src/screens/new/Bottom_Image_Video_Folder.js
+  Line 6:  Useless constructor  no-useless-constructor
+
+./src/screens/login/MainLoginPage.js
+  Line 7:   'browserHistory' is defined but never used    no-unused-vars
+  Line 9:    'withCookies' is defined but never used       no-unused-vars
+  Line 23:  'cookies' is assigned a value but never used  no-unused-vars
+  Line 63:  'data' is assigned a value but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditPhone.js
+  Line 7:     'NavLink' is defined but never used          no-unused-vars
+  Line 7:    'Link' is defined but never used             no-unused-vars
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:  Unexpected string concatenation of literals  no-useless-concat
+
+./src/screens/Setting/personInf/EditEmail.js
+  Line 7:     'NavLink' is defined but never used        no-unused-vars
+  Line 7:    'Link' is defined but never used           no-unused-vars
+  Line 10:    'graphql' is defined but never used        no-unused-vars
+  Line 116:  'that' is assigned a value but never used  no-unused-vars
+  Line 118:  Expected '===' and instead saw '=='        eqeqeq
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+
+> guided-spa@0.1.0 start /home/guided-spa
+> PORT=80 react-scripts start
+
+Something is already running on port 80.
+The build failed because the process exited too early. This probably means the system ran out of memory or someone called `kill -9` on the process.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! guided-spa@0.1.0 start: `PORT=80 react-scripts start`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the guided-spa@0.1.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-01-17T10_12_43_445Z-debug.log
+
+> guided-spa@0.1.0 start /home/guided-spa
+> PORT=80 react-scripts start
+
+Starting the development server...
+
+Compiled with warnings.
+
+./src/screens/new/User_Menu_Media.js
+  Line 10:   Useless constructor                                                     no-useless-constructor
+  Line 57:  Imported JSX component Bottom_Image_Video_Folder must be in PascalCase  react/jsx-pascal-case
+
+./src/screens/new/User_Post_Comment_Image.js
+  Line 10:   Useless constructor                                                     no-useless-constructor
+  Line 64:  Imported JSX component Bottom_Image_Video_Folder must be in PascalCase  react/jsx-pascal-case
+
+./src/screens/PostDetail/PostDetail.js
+  Line 110:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 119:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 128:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 138:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 148:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 159:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 170:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PasswordRegistrationScreen.js
+  Line 147:  'data' is assigned a value but never used  no-unused-vars
+
+./src/screens/Explore/explore.js
+  Line 2:  'Button' is defined but never used               no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used            no-unused-vars
+  Line 2:  'Image' is defined but never used                no-unused-vars
+  Line 2:  'Grid' is defined but never used                 no-unused-vars
+  Line 2:  'Row' is defined but never used                  no-unused-vars
+  Line 2:  'Col' is defined but never used                  no-unused-vars
+  Line 2:  'ListGroup' is defined but never used            no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used        no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used         no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used          no-unused-vars
+  Line 5:   'OverflowText' is defined but never used         no-unused-vars
+  Line 6:   'TextFrom' is defined but never used             no-unused-vars
+  Line 7:   'ListEditor' is defined but never used           no-unused-vars
+  Line 8:   'MapSnap' is defined but never used              no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used         no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used     no-unused-vars
+  Line 16:  'ProfileImageAndIcon' is defined but never used  no-unused-vars
+  Line 17:  'Bio' is defined but never used                  no-unused-vars
+
+./src/screens/Profile/Profile.js
+  Line 2:  'Button' is defined but never used         no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used      no-unused-vars
+  Line 2:  'Image' is defined but never used          no-unused-vars
+  Line 2:  'Grid' is defined but never used           no-unused-vars
+  Line 2:  'Row' is defined but never used            no-unused-vars
+  Line 2:  'Col' is defined but never used            no-unused-vars
+  Line 2:  'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+
+./src/screens/login/MainRegistrationScreen.js
+  Line 2:  'browserHistory' is defined but never used  no-unused-vars
+
+./src/components/Bio/Bio.js
+  Line 2:  'Image' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditName.js
+  Line 2:      'ReactDOM' is defined but never used  no-unused-vars
+  Line 5:      'NavLink' is defined but never used   no-unused-vars
+  Line 5:     'Link' is defined but never used      no-unused-vars
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:  Expected '===' and instead saw '=='   eqeqeq
+
+./src/screens/Setting/Ad/Ad.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/notification/Notification.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/payment/PaymentSetting.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/media/Media.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/security/Security.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/privacy/Privacy.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/officialDocuments/OfficialDoc.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 4:   'NavLink' is defined but never used        no-unused-vars
+  Line 4:  'Link' is defined but never used           no-unused-vars
+
+./src/components/OverflowText/OverflowText.js
+  Line 34:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/Card/Card.js
+  Line 3:  'Navbar' is defined but never used   no-unused-vars
+  Line 3:  'Nav' is defined but never used      no-unused-vars
+  Line 3:  'NavItem' is defined but never used  no-unused-vars
+
+./src/components/TopBar/TopBar.js
+  Line 3:   'Col' is defined but never used                no-unused-vars
+  Line 6:    'client' is defined but never used             no-unused-vars
+  Line 20:   'GETLNAME' is assigned a value but never used  no-unused-vars
+  Line 54:  'uid' is assigned a value but never used       no-unused-vars
+
+./src/components/LocSearchBox/LocSearchBox.js
+  Line 41:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PhoneNumberRegistrationScreen.js
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:  Unexpected string concatenation of literals  no-useless-concat
+  Line 113:  No duplicate props allowed                   react/jsx-no-duplicate-props
+
+./src/screens/Setting/personInf/PersonInf.js
+  Line 4:  'Link' is defined but never used                    no-unused-vars
+  Line 30:  'GET_USER_CODE' is assigned a value but never used  no-unused-vars
+
+./src/screens/Setting/Setting.js
+  Line 4:  'Link' is defined but never used  no-unused-vars
+
+./src/components/ProfileImageAndIcon/ProfileImageAndIcon.js
+  Line 4:  'Rating' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditGender.js
+  Line 4:     'NavLink' is defined but never used        no-unused-vars
+  Line 4:    'Link' is defined but never used           no-unused-vars
+  Line 9:     'client' is defined but never used         no-unused-vars
+  Line 62:   'that' is assigned a value but never used  no-unused-vars
+  Line 178:  Expected '!==' and instead saw '!='        eqeqeq
+
+./src/screens/Setting/personInf/EditDOB.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditLanguage.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+  Line 5:   'Navbar' is defined but never used   no-unused-vars
+  Line 5:  'Nav' is defined but never used      no-unused-vars
+  Line 5:  'NavItem' is defined but never used  no-unused-vars
+
+./src/screens/HomeTwo/HomeTwo.js
+  Line 5:  'BottomBar' is defined but never used     no-unused-vars
+  Line 6:  'SecBottomBar' is defined but never used  no-unused-vars
+  Line 8:  'PersonInf' is defined but never used     no-unused-vars
+
+./src/screens/login/BirthdayRegistrationScreen.js
+  Line 60:  The array literal notation [] is preferable  no-array-constructor
+  Line 61:  The array literal notation [] is preferable  no-array-constructor
+  Line 62:  The array literal notation [] is preferable  no-array-constructor
+
+./src/screens/new/Bottom_Image_Video_Folder.js
+  Line 6:  Useless constructor  no-useless-constructor
+
+./src/screens/login/MainLoginPage.js
+  Line 7:   'browserHistory' is defined but never used    no-unused-vars
+  Line 9:    'withCookies' is defined but never used       no-unused-vars
+  Line 23:  'cookies' is assigned a value but never used  no-unused-vars
+  Line 63:  'data' is assigned a value but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditPhone.js
+  Line 7:     'NavLink' is defined but never used          no-unused-vars
+  Line 7:    'Link' is defined but never used             no-unused-vars
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:  Unexpected string concatenation of literals  no-useless-concat
+
+./src/screens/Setting/personInf/EditEmail.js
+  Line 7:     'NavLink' is defined but never used        no-unused-vars
+  Line 7:    'Link' is defined but never used           no-unused-vars
+  Line 10:    'graphql' is defined but never used        no-unused-vars
+  Line 116:  'that' is assigned a value but never used  no-unused-vars
+  Line 118:  Expected '===' and instead saw '=='        eqeqeq
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+The build failed because the process exited too early. This probably means the system ran out of memory or someone called `kill -9` on the process.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! guided-spa@0.1.0 start: `PORT=80 react-scripts start`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the guided-spa@0.1.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-01-17T10_17_27_388Z-debug.log
+
+> guided-spa@0.1.0 start /home/guided-spa
+> PORT=80 react-scripts start
+
+Starting the development server...
+
+Compiled with warnings.
+
+./src/screens/new/User_Post_Comment_Image.js
+  Line 10:  Useless constructor  no-useless-constructor
+
+./src/screens/new/User_Menu_Media.js
+  Line 10:  Useless constructor  no-useless-constructor
+
+./src/screens/PostDetail/PostDetail.js
+  Line 110:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 119:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 128:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 138:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 148:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 159:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md         jsx-a11y/anchor-is-valid
+  Line 170:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PasswordRegistrationScreen.js
+  Line 147:  'data' is assigned a value but never used  no-unused-vars
+
+./src/screens/Explore/explore.js
+  Line 2:  'Button' is defined but never used               no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used            no-unused-vars
+  Line 2:  'Image' is defined but never used                no-unused-vars
+  Line 2:  'Grid' is defined but never used                 no-unused-vars
+  Line 2:  'Row' is defined but never used                  no-unused-vars
+  Line 2:  'Col' is defined but never used                  no-unused-vars
+  Line 2:  'ListGroup' is defined but never used            no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used        no-unused-vars
+  Line 3:   'AttriDisplay' is defined but never used         no-unused-vars
+  Line 4:   'AttriEditor' is defined but never used          no-unused-vars
+  Line 5:   'OverflowText' is defined but never used         no-unused-vars
+  Line 6:   'TextFrom' is defined but never used             no-unused-vars
+  Line 7:   'ListEditor' is defined but never used           no-unused-vars
+  Line 8:   'MapSnap' is defined but never used              no-unused-vars
+  Line 9:   'LocSearchBox' is defined but never used         no-unused-vars
+  Line 10:  'EventTimeDisplay' is defined but never used     no-unused-vars
+  Line 16:  'ProfileImageAndIcon' is defined but never used  no-unused-vars
+  Line 17:  'Bio' is defined but never used                  no-unused-vars
+
+./src/screens/Profile/Profile.js
+  Line 2:  'Button' is defined but never used         no-unused-vars
+  Line 2:  'Thumbnail' is defined but never used      no-unused-vars
+  Line 2:  'Image' is defined but never used          no-unused-vars
+  Line 2:  'Grid' is defined but never used           no-unused-vars
+  Line 2:  'Row' is defined but never used            no-unused-vars
+  Line 2:  'Col' is defined but never used            no-unused-vars
+  Line 2:  'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+
+./src/screens/login/MainRegistrationScreen.js
+  Line 2:  'browserHistory' is defined but never used  no-unused-vars
+
+./src/components/Bio/Bio.js
+  Line 2:  'Image' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditName.js
+  Line 2:      'ReactDOM' is defined but never used  no-unused-vars
+  Line 5:      'NavLink' is defined but never used   no-unused-vars
+  Line 5:     'Link' is defined but never used      no-unused-vars
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:   Expected '===' and instead saw '=='   eqeqeq
+  Line 211:  Expected '===' and instead saw '=='   eqeqeq
+
+./src/screens/Setting/Ad/Ad.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/privacy/Privacy.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/media/Media.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/security/Security.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/notification/Notification.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/payment/PaymentSetting.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 3:   'NavLink' is defined but never used        no-unused-vars
+  Line 3:  'Link' is defined but never used           no-unused-vars
+
+./src/screens/Setting/officialDocuments/OfficialDoc.js
+  Line 2:   'ListGroup' is defined but never used      no-unused-vars
+  Line 2:  'ListGroupItem' is defined but never used  no-unused-vars
+  Line 4:   'NavLink' is defined but never used        no-unused-vars
+  Line 4:  'Link' is defined but never used           no-unused-vars
+
+./src/components/OverflowText/OverflowText.js
+  Line 34:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/Card/Card.js
+  Line 3:  'Navbar' is defined but never used   no-unused-vars
+  Line 3:  'Nav' is defined but never used      no-unused-vars
+  Line 3:  'NavItem' is defined but never used  no-unused-vars
+
+./src/components/TopBar/TopBar.js
+  Line 3:   'Col' is defined but never used                no-unused-vars
+  Line 6:    'client' is defined but never used             no-unused-vars
+  Line 20:   'GETLNAME' is assigned a value but never used  no-unused-vars
+  Line 54:  'uid' is assigned a value but never used       no-unused-vars
+
+./src/components/LocSearchBox/LocSearchBox.js
+  Line 41:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/screens/login/PhoneNumberRegistrationScreen.js
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:   Unexpected string concatenation of literals  no-useless-concat
+  Line 44:  Unexpected string concatenation of literals  no-useless-concat
+  Line 113:  No duplicate props allowed                   react/jsx-no-duplicate-props
+
+./src/screens/Setting/personInf/PersonInf.js
+  Line 4:  'Link' is defined but never used                    no-unused-vars
+  Line 30:  'GET_USER_CODE' is assigned a value but never used  no-unused-vars
+
+./src/screens/Setting/Setting.js
+  Line 4:  'Link' is defined but never used  no-unused-vars
+
+./src/components/ProfileImageAndIcon/ProfileImageAndIcon.js
+  Line 4:  'Rating' is defined but never used  no-unused-vars
+
+./src/screens/Setting/personInf/EditGender.js
+  Line 4:     'NavLink' is defined but never used        no-unused-vars
+  Line 4:    'Link' is defined but never used           no-unused-vars
+  Line 9:     'client' is defined but never used         no-unused-vars
+  Line 62:   'that' is assigned a value but never used  no-unused-vars
+  Line 178:  Expected '!==' and instead saw '!='        eqeqeq
+
+./src/screens/Setting/personInf/EditDOB.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditLanguage.js
+  Line 4:   'NavLink' is defined but never used  no-unused-vars
+  Line 4:  'Link' is defined but never used     no-unused-vars
+  Line 5:   'Navbar' is defined but never used   no-unused-vars
+  Line 5:  'Nav' is defined but never used      no-unused-vars
+  Line 5:  'NavItem' is defined but never used  no-unused-vars
+
+./src/screens/HomeTwo/HomeTwo.js
+  Line 5:  'BottomBar' is defined but never used     no-unused-vars
+  Line 6:  'SecBottomBar' is defined but never used  no-unused-vars
+  Line 8:  'PersonInf' is defined but never used     no-unused-vars
+
+./src/screens/login/BirthdayRegistrationScreen.js
+  Line 60:  The array literal notation [] is preferable  no-array-constructor
+  Line 61:  The array literal notation [] is preferable  no-array-constructor
+  Line 62:  The array literal notation [] is preferable  no-array-constructor
+
+./src/screens/new/Bottom_Image_Video_Folder.js
+  Line 6:  Useless constructor  no-useless-constructor
+
+./src/screens/login/MainLoginPage.js
+  Line 7:   'browserHistory' is defined but never used    no-unused-vars
+  Line 9:    'withCookies' is defined but never used       no-unused-vars
+  Line 23:  'cookies' is assigned a value but never used  no-unused-vars
+  Line 63:  'data' is assigned a value but never used     no-unused-vars
+
+./src/screens/Setting/personInf/EditPhone.js
+  Line 7:     'NavLink' is defined but never used          no-unused-vars
+  Line 7:    'Link' is defined but never used             no-unused-vars
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:   Unexpected string concatenation of literals  no-useless-concat
+  Line 82:  Unexpected string concatenation of literals  no-useless-concat
+
+./src/screens/Setting/personInf/EditEmail.js
+  Line 7:     'NavLink' is defined but never used        no-unused-vars
+  Line 7:    'Link' is defined but never used           no-unused-vars
+  Line 10:    'graphql' is defined but never used        no-unused-vars
+  Line 116:  'that' is assigned a value but never used  no-unused-vars
+  Line 118:  Expected '===' and instead saw '=='        eqeqeq
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
