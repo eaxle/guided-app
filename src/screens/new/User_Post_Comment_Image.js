@@ -1,12 +1,12 @@
-//@info created by ramesh khadka 1/9/2019
+//@info created by ramesh khadka 1/17/2019 8:30 p.m-9:03 p.m
 import React, {Component} from 'react';
 import './style.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircle} from '@fortawesome/free-solid-svg-icons'
+import {faSmile, faUpload, faCamera, faFileImage} from '@fortawesome/free-solid-svg-icons'
 import Bottom_Image_Video_Folder from './Bottom_Image_Video_Folder';
 import BottomBar from '../../components/BottomBar';
 
-class User_Menu_Media extends Component {
+class User_Post_Comment_Image extends Component {
     constructor(props) {
         super(props);
     }
@@ -16,39 +16,46 @@ class User_Menu_Media extends Component {
 
         return (
             <div>
-
-                <div className="user_media">Media</div>
+                <div className="user_media">
+                    <span>Select Media</span>
+                    <FontAwesomeIcon icon={faSmile}/>
+                    <FontAwesomeIcon icon={faUpload}/>
+                    <FontAwesomeIcon icon={faCamera}/>
+                    <FontAwesomeIcon icon={faFileImage}/>
+                    <br/>
+                    <span>Use the tabs to find media stored across your account.</span>
+                </div>
                 <div className="grid_container">
                     <div className="grid_cols">
-                        <span className="glyphicon glyphicon-plus "></span>
+                        {/* <span className="glyphicon glyphicon-plus "></span>*/}
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
                     </div>
 
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
+
 
                     </div>
 
@@ -62,4 +69,4 @@ class User_Menu_Media extends Component {
     }
 }
 
-export default User_Menu_Media;
+export default User_Post_Comment_Image;

@@ -16,12 +16,12 @@
     border-radius: 4px;
     text-align: center;
     height: 120px;
-
 }
 
 .user_media {
     padding-left: 10px;
     margin-top: 58px;
+    padding-top: 2%;
     background: #D8D8D8;
     text-align: left;
     font-family: "Times New Roman";
@@ -38,9 +38,15 @@
 .svg-inline--fa.fa-w-16 {
     width: 180% !important;
 }
+
 .row {
     /* margin-right: -15px; */
     /* margin-left: -15px; */
-margin-left: 0px !important;
-margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.user_media svg {
+    max-width: 6%;
+    margin-left: 10%;
 }
