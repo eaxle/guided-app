@@ -24,33 +24,24 @@ class UserMenuMedia extends Component {
 
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-                    </div>
-
-                    <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-
-                    </div>
-                    <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-
-                    </div>
-                    <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-
-                    </div>
-                    <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
+                    </div><div className="grid_cols">
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
                     </div>
                     <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
-
+                        <FontAwesomeIcon icon={faCircle} className="grid_cols_circle"/>
                     </div>
-                    <div className="grid_cols">
-                        <FontAwesomeIcon icon={faCircle}/>
 
-                    </div>
 
                 </div>
                 <div className="">

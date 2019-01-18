@@ -34,6 +34,7 @@ import Profile from './screens/Profile/Profile';
 import Explore from './screens/Explore/explore';
 import UserMenuMedia from './screens/new/User_Menu_Media';
 import UserPostCommentImage from './screens/new/UserPostCommentImage';
+import UserMediaSelectFromFolder from './screens/new/UserMediaSelectFromFolder';
 export const client = new ApolloClient({
     uri: "http://45.32.189.215:3000/graphql",
 });
@@ -78,6 +79,7 @@ ReactDOM.render(
                         <Route exact path="/explore" render={pros => <Home{...pros} tagName={Explore}/>}/>
                         <Route exact path="/media" render={pros => <Home{...pros} tagName={UserMenuMedia}/>}/>
                         <Route exact path="/comment" render={pros => <Home{...pros} tagName={UserPostCommentImage}/>}/>
+                        <Route exact path="/folder" render={pros => <Home{...pros} tagName={UserMediaSelectFromFolder}/>}/>
                     </Switch>
                 </div>
             </CookiesProvider>

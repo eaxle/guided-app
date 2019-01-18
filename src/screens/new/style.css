@@ -5,7 +5,6 @@
     margin-right: 10px;
     display: grid;
     grid-template-columns: 32% 32% 32%;
-    /*grid-template-rows: repeat(100, 10%);*/
     grid-column-gap: 6px;
     grid-row-gap: 6px;
 }
@@ -15,8 +14,10 @@
     background: #D8D8D8;
     border-radius: 4px;
     text-align: center;
-    height: 120px;
+    height: 110px;
+    max-width: 132px;
 }
+
 
 .user_media {
     padding-left: 10px;
@@ -35,13 +36,11 @@
     font-size: -webkit-xxx-large;
 }
 
-.svg-inline--fa.fa-w-16 {
+.grid_cols_circle {
     width: 180% !important;
 }
 
 .row {
-    /* margin-right: -15px; */
-    /* margin-left: -15px; */
     margin-left: 0px !important;
     margin-right: 0px !important;
 }
@@ -49,4 +48,17 @@
 .user_media svg {
     max-width: 6%;
     margin-left: 10%;
+    color: grey;
+}
+
+.grid_container svg {
+    color: black;
+}
+
+.user_media button {
+    background: purple;
+    font-size: small;
+    color: white;
+    float: right;
+    margin-right: 3%;
 }
