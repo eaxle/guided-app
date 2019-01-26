@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-column-gap: 6px;
-    grid-row-gap: 6px;
+    grid-row-gap: 3px;
 }
 
 .grid_cols {
@@ -53,6 +53,8 @@
 
 .grid_container svg {
     color: black;
+    /*font-size: 9em;*/
+
 }
 
 .user_media button {
@@ -61,4 +63,63 @@
     color: white;
     float: right;
     margin-right: 3%;
+}
+
+@media only screen and (max-width: 600px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 9em;
+    }
+
+    .grid_cols {
+        margin-top: 13px;
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 98px;
+        max-width: 132px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 8em;
+    }
+
+    .grid_cols {
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 87px;;
+        max-width: 132px;
+    }
+
+    .glyphicon-plus {
+        padding-top: 15px;
+        font-size: -webkit-xxx-large;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 7em;
+    }
+
+    .grid_cols {
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 73px;
+        max-width: 132px;
+    }
+
+    .glyphicon-plus {
+        padding-top: 10px;
+        font-size: -webkit-xxx-large;
+    }
 }

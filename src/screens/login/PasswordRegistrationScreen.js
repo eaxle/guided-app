@@ -108,9 +108,9 @@ class PasswordRegistrationScreen extends Component {
     submitForm(e) {
 
         e.preventDefault();
-        /*if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
+        if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
             return
-        }*/
+        }
 
         this.props.mutate({
             variables: {

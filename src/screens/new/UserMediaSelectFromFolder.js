@@ -16,18 +16,22 @@ class UserMediaSelectFromFolder extends Component {
     }
 
     changeIconSize() {
+        /*if (window.innerHeight > window.innerWidth) {
+            this.setState({size: "9x"})
+            console.log('hey heeeey')
+        }*/
         console.log(window.outerWidth);
-        if (window.outerWidth < 419) {
-            this.setState({size: "7x"})
+        /*if (window.outerWidth <= 700) {
+            this.setState({size: "5x"})
         } else {
             this.setState({size: "9x"})
 
-        }
+        }*/
     }
 
-    /*componentDidMount() {
+    componentDidMount() {
         window.addEventListener("resize", this.changeIconSize);
-    }*/
+    }
 
     render() {
         return (

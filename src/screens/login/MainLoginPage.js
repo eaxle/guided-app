@@ -28,6 +28,7 @@ class MainLoginPage extends Component {
         this.errMsg = false;
 
     }
+
     goBack() {
         window.history.back();
     }
@@ -46,11 +47,11 @@ class MainLoginPage extends Component {
 
     submitForm(data) {
 
-        if (!data.loginViaEmail.length) {
+        if (!data.email_login.length) {
             this.errMsg = true;
             this.forceUpdate()
         } else {
-            document.cookie = "id=" + data.loginViaEmail[0].id;
+            document.cookie = "id=" + data.email_login[0].id;
             // debugger
             this.props.history.push('/setting');
             this.errMsg = false;
@@ -63,9 +64,9 @@ class MainLoginPage extends Component {
         let {data} = this.props;
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-            <div className="row col-sm-12 righttop ">
-              <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-            </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
