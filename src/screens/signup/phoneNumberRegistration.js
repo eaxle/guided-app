@@ -3,9 +3,9 @@ import {NavLink} from 'react-router-dom';
 import IntlTelInput from 'react-intl-tel-input';
 import /*'file?name=main.js!*/'../../../node_modules/react-intl-tel-input/dist/main.js';
 import '../../../node_modules/react-intl-tel-input/dist/main.css';
-import './loginStyles.css';
+import '../login/loginStyles.css';
 
-class PhoneNumberRegistrationScreen extends Component {
+class PhoneNumberRegistration extends Component {
     constructor(props) {
         super(props);
         console.log(this.props.location.state);
@@ -107,7 +107,7 @@ class PhoneNumberRegistrationScreen extends Component {
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink onClick={this.toogleButton} to={{
-                        pathname: "/GenderRegistrationScreen",
+                        pathname: "/register/gender",
                         state: {value: this.state}
                     }}
                              className="btn  btncreate generalbtn" disabled={this.disable} onClick={this.checkStatus}>
@@ -124,4 +124,4 @@ class PhoneNumberRegistrationScreen extends Component {
     }
 }
 
-export default PhoneNumberRegistrationScreen;
+export default PhoneNumberRegistration;

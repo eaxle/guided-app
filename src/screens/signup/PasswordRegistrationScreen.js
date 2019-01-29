@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import Recaptcha from 'react-recaptcha';
 import ReactPasswordStrength from 'react-password-strength';
-import './loginStyles.css';
+import '../login/loginStyles.css';
 
 const ADD_USER = gql`
                mutation email_registration(
@@ -59,7 +59,9 @@ class PasswordRegistrationScreen extends Component {
             phone: localStorage.getItem('phone'),
             gender: localStorage.getItem('gender'),
             password: '',
-            disable: true
+            disable: true,
+            showSuccessMessage: false,
+            showErrorMessage: false
         };
         this.rePassword = "";
         this.handleFormData = this.handleFormData.bind(this);
@@ -67,8 +69,14 @@ class PasswordRegistrationScreen extends Component {
         this.submitForm = this.submitForm.bind(this);
         this.matchPassword = this.matchPassword.bind(this);
         this.verifyCall = this.verifyCall.bind(this);
-        this.showSuccessMessage = null;
-        this.showErrorMessage = null;
+        this.cleanMessage = this.cleanMessage.bind(this);
+        // this.showSuccessMessage = false;
+        // this.showErrorMessage = false;
+    }
+
+
+    cleanMessage() {
+        this.setState({showErrorMessage: false, showSuccessMessage: false});
     }
 
     goBack() {
@@ -111,7 +119,6 @@ class PasswordRegistrationScreen extends Component {
         if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
             return
         }
-
         this.props.mutate({
             variables: {
                 first_name: this.state.fName,
@@ -126,20 +133,20 @@ class PasswordRegistrationScreen extends Component {
                 password: this.state.password,
                 country_code: this.state.countryCode
             }
-        }).then(res => {
+        }).then((success) => {
+            console.log(success);
             localStorage.clear();
-
-            this.showSuccessMessage = true;
-            this.showErrorMessage = false;
+            this.setState({showErrorMessage: false, showSuccessMessage: true});
             setTimeout(function () {
-                //window.location.href = '/MainLogin'
+                window.location.href = '/login'
             }, 3000)
-        }).catch(err => {
-            // alert('error')
-            this.showSuccessMessage = false;
-            this.showErrorMessage = true;
 
-        })
+        }).catch((error) => {
+                console.log(this);
+                this.setState({showErrorMessage: true, showSuccessMessage: false})
+
+            }
+        );
     }
 
 
@@ -167,11 +174,13 @@ class PasswordRegistrationScreen extends Component {
                 </div>
 
                 <div className="row">
-                    {this.showSuccessMessage &&
-                    <span className='btn btn-success'>You've successfully registered your account. Welcome to the Family!</span>
+                    {this.state.showSuccessMessage &&
+                    <span
+                        className='btn-success col-sm-12'>You've successfully registered your account.
+                        Welcome to the Family!</span>
                     }
-                    {this.showErrorMessage &&
-                    <span className='btn btn-danger'>Oops! Something has gone wrong. Please try again.</span>}
+                    {this.state.showErrorMessage &&
+                    <span className='btn-danger'>Oops! Something has gone wrong. Please try again.</span>}
                     <div className="col-sm-12  inputs inputName">
                         <ReactPasswordStrength
                             className="form-group"
@@ -182,38 +191,56 @@ class PasswordRegistrationScreen extends Component {
                             inputProps={{
                                 name: this.state.password,
                                 autoComplete: "off",
-                                className: "col-sm-12  inputs inputName"
+                                className: "col-sm-12  inputs inputName",
+                                onFocus: this.cleanMessage
                             }}
                         />
                     </div>
                     <div className="col-sm-12  inputs inputName">
                         <input type="password" placeholder="password here" name="rePassword"
+                               onFocus={this.cleanMessage}
                                value={this.state.rePassword} onChange={this.handleFormData}
                                className="col-sm-4 form-control form-control-sm  "/>
                     </div>
-
-                    <Recaptcha
-                        verifyCallback={this.verifyCall}
-                        sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
+                </div>
+                <div className="row">
+                    <Recaptcha type="audio|image"
+                               className="g-recaptcha col-sm-12  inputs inputName"
+                               theme="dark"
+                               render="explicit"
+                               verifyCallback={this.verifyCall}
+                               sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
                 </div>
 
-                <div className="row col-sm-12 Continuebottonmargin">
-                    <NavLink disabled={this.state.disable}
-                             to="/#" className="btn  btncreate generalbtn" onClick={this.submitForm}>
-                        Sign Up
-                    </NavLink></div>
-                <div className="row">
-                    <div className="row font-weight-bold h5" id="account">Already have an account?</div>
+                <div className="row ">
+                    <div className="col-sm-12 Continuebottonmargin">
+                        <NavLink disabled={this.state.disable}
+                                 to="/#" className="btn  btncreate generalbtn" onClick={this.submitForm}>
+                            Sign Up
+                        </NavLink>
+                    </div>
+                </div>
+                < div className="row">
+                    < div className="row font-weight-bold h5" id="account"> Already
+                        have
+                        an
+                        account ?
+                    </div>
 
-                    <footer className="page-footer footer-costomized">step 5 of 6</footer>
+                    <footer className="page-footer footer-costomized"> step
+                        5
+                        of
+                        6
+                    </footer>
+
                 </div>
 
             </div>
-
-        );
+        )
+            ;
     }
 }
 
-PasswordRegistrationScreen = graphql(ADD_USER)(PasswordRegistrationScreen)
+PasswordRegistrationScreen = graphql(ADD_USER)(PasswordRegistrationScreen);
 export default PasswordRegistrationScreen;

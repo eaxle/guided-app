@@ -8,23 +8,9 @@ import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
 import {client} from "../../../index";
 
-const UPDATE_USER_FNAME = gql`
-  mutation updateUserFirstName($uid: String!,$fname:String!) {
-    updateUserFirstName(uid: $uid,fname:$fname) {
-     value
-    }
-  }
-`;
-const UPDATE_USER_LNAME = gql`
-  mutation updateUserLastName($uid: String!,$lname:String!) {
-    updateUserLastName(uid: $uid,lname:$lname) {
-     value
-    }
-  }
-`;
-const UPDATE_USER_PNAME = gql`
-  mutation updateUserPreferName($uid: String!,$pname:String!) {
-    updateUserPreferName(uid: $uid,pname:$pname) {
+const UPDATE_USER_NAME = gql`
+  mutation update_user_name($user_id: String!,$first_name:String!,$last_name:String!,$preferred_name:String!) {
+    update_user_name(user_id: user_id,first_name:$first_name,last_name:$last_name,preferred_name:$preferred_name) {
      value
     }
   }
@@ -200,114 +186,100 @@ class EditName extends Component {
         return (
             <div>
                 <div className="container-fluid2 container ">
-                    < Mutation mutation={UPDATE_USER_FNAME}>
-                        {(updateUserFirstName, {data}) => (
-                            < Mutation mutation={UPDATE_USER_LNAME}>
-                                {(updateUserLastName, {data}) => (
-                                    < Mutation mutation={UPDATE_USER_PNAME}>
-                                        {(updateUserPreferName, {data}) => (
-                                            <form onSubmit={e => {
-                                                e.preventDefault();
-                                                if (this.state.fName == "" && this.state.lName == "" && this.state.pName == "") {
-                                                    return 0
-                                                }
-                                                updateUserLastName({
-                                                    variables: {uid: uid, lname: this.state.lName}
-                                                }).then(function (data) {
-                                                    document.getElementById('re_003').click();
-                                                }, function (error) {
+                    < Mutation mutation={UPDATE_USER_NAME}>
+                        {(update_user_name, {data}) => (
+                            <form onSubmit={e => {
+                                e.preventDefault();
+                                if (this.state.fName == "" && this.state.lName == "" && this.state.pName == "") {
+                                    return 0
+                                }
+                                update_user_name({
+                                    variables: {
+                                        user_id: uid,
+                                        first_name: this.state.fName,
+                                        last_name: this.state.lName,
+                                        preferred_name: this.state.pName
+                                    }
+                                }).then(function (data) {
+                                    document.getElementById('re_004').click();
+                                }, function (error) {
 
-                                                });
-
-                                                updateUserFirstName({
-                                                    variables: {uid: uid, fname: this.state.fName}
-                                                }).then(function (data) {
-                                                    document.getElementById('re_002').click();
-                                                }, function (error) {
-
-                                                });
-                                                updateUserPreferName({
-                                                    variables: {uid: uid, pname: this.state.pName}
-                                                }).then(function (data) {
-                                                    document.getElementById('re_004').click();
-                                                }, function (error) {
-
-                                                });
-                                                this.whenUpdated();
-                                            }}>
-                                                < ListGroup>
-                                                    < div className="hearderbackground">
-                                                        <ListGroupItem className="text-left">
-                                                            <table>
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td className="tableWidth"><h4>Name</h4> </td>
-                                                                      <td className="float-right">
-                                                                        <div className="editField ">
-                                                                            <button className=" btn btnSaveOne "
-                                                                                    onClick={this.revertChanges}
-                                                                                    type="submit">Save
-                                                                            </button>
-                                                                            <button className="btn btnCancel "
-                                                                                onClick={this.revertChanges}>Cancel</button>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td className="">
-                                                                        <div>
-                                                                            <button className="btn btnEditOne float-right "
-                                                                                    id="edit-edit"
-                                                                                    onClick={this.toogleField}>Edit
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </ListGroupItem>
-                                                        <ListGroupItem className="text-left">
-                                                            <h4>First Name</h4> <h6><GETFNAME uid={uid}/></h6>
-                                                            <div><input type="text" className="editField" id='fName'
-                                                                        value={this.state.fName}
-                                                                        onChange={this.updateChange}/></div>
-                                                        </ListGroupItem>
-                                                        <ListGroupItem className="text-left">
-                                                            <h4>Last Name</h4> <h6><GETLNAME uid={uid}/></h6>
-                                                            <div><input type="text" className="editField"
-                                                                        value={this.state.lName}
-                                                                        id='lName'
-                                                                        onChange={this.updateChange}/></div>
-                                                        </ListGroupItem>
-                                                        <ListGroupItem className="text-left">
-                                                            <h4>Preferred Name</h4> <h6><GETPNAME uid={uid}/></h6>
-                                                            <div><input type="text" className="editField"
-                                                                        value={this.state.pName}
-                                                                        id='pName'
-                                                                        onChange={this.updateChange}/></div>
-                                                        </ListGroupItem>
-                                                        <ListGroupItem className="text-left">
-                                                            <h4>Please Note</h4><h6>At Guided we take the accuracy of
-                                                            names
-                                                            seriously
-                                                            for
-                                                            legal
-                                                            and
-                                                            banking reasons.
-                                                            A change to a First or Last Name will require corresponding
-                                                            changes
-                                                            to
-                                                            appear on
-                                                            payment
-                                                            and government
-                                                            documents that you may have, or will provide. Click <a
-                                                                href="null">here</a> to
-                                                            visit
-                                                            your government issued documents.</h6>
-                                                        </ListGroupItem>
-                                                    </div>
-                                                </ListGroup>
-                                            </form>
-                                        )}</Mutation>
-                                )}</Mutation>
+                                });
+                                this.whenUpdated();
+                            }}>
+                                < ListGroup>
+                                    < div className="hearderbackground">
+                                        <ListGroupItem className="text-left">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td className="tableWidth"><h4>Name</h4></td>
+                                                    <td className="float-right">
+                                                        <div className="editField ">
+                                                            <button className=" btn btnSaveOne "
+                                                                    onClick={this.revertChanges}
+                                                                    type="submit">Save
+                                                            </button>
+                                                            <button className="btn btnCancel "
+                                                                    onClick={this.revertChanges}>Cancel
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td className="">
+                                                        <div>
+                                                            <button
+                                                                className="btn btnEditOne float-right "
+                                                                id="edit-edit"
+                                                                onClick={this.toogleField}>Edit
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </ListGroupItem>
+                                        <ListGroupItem className="text-left">
+                                            <h4>First Name</h4> <h6><GETFNAME uid={uid}/></h6>
+                                            <div><input type="text" className="editField" id='fName'
+                                                        value={this.state.fName}
+                                                        onChange={this.updateChange}/></div>
+                                        </ListGroupItem>
+                                        <ListGroupItem className="text-left">
+                                            <h4>Last Name</h4> <h6><GETLNAME uid={uid}/></h6>
+                                            <div><input type="text" className="editField"
+                                                        value={this.state.lName}
+                                                        id='lName'
+                                                        onChange={this.updateChange}/></div>
+                                        </ListGroupItem>
+                                        <ListGroupItem className="text-left">
+                                            <h4>Preferred Name</h4> <h6><GETPNAME uid={uid}/></h6>
+                                            <div><input type="text" className="editField"
+                                                        value={this.state.pName}
+                                                        id='pName'
+                                                        onChange={this.updateChange}/></div>
+                                        </ListGroupItem>
+                                        <ListGroupItem className="text-left">
+                                            <h4>Please Note</h4><h6>At Guided we take the accuracy of
+                                            names
+                                            seriously
+                                            for
+                                            legal
+                                            and
+                                            banking reasons.
+                                            A change to a First or Last Name will require corresponding
+                                            changes
+                                            to
+                                            appear on
+                                            payment
+                                            and government
+                                            documents that you may have, or will provide. Click <a
+                                                href="null">here</a> to
+                                            visit
+                                            your government issued documents.</h6>
+                                        </ListGroupItem>
+                                    </div>
+                                </ListGroup>
+                            </form>
 
                         )}
                     </Mutation>

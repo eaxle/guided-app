@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import Form from 'react-validation/build/form';
-import './loginStyles.css';
+import '../login/loginStyles.css';
 
 
 class BirthdayRegistrationScreen extends Component {
@@ -15,7 +15,9 @@ class BirthdayRegistrationScreen extends Component {
             month: '',
             year: ''
         };
-
+        this.sizeDay = 1;
+        this.sizeMonth = 1;
+        this.sizeDay = 1;
         this.handleFormData = this.handleFormData.bind(this);
         console.log(this.props);
         if (localStorage.getItem('day')) {
@@ -37,6 +39,7 @@ class BirthdayRegistrationScreen extends Component {
     }
 
     handleFormData(event) {
+        this.sizeDay = 1;
         console.log(event.target.value)
         if (event.target.name === "day") {
             this.setState({day: event.target.value}, () => {
@@ -60,6 +63,7 @@ class BirthdayRegistrationScreen extends Component {
         let arrDay = new Array();
         let arrMonth = new Array();
         let arr = new Array();
+
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
                 <div className="row col-sm-12 righttop ">
@@ -76,15 +80,21 @@ class BirthdayRegistrationScreen extends Component {
                         <p>This information won't be made public.</p>
                     </div>
                 </div>
-
-
                 <table>
                     <tbody>
                     <tr>
                         <td>
                             <div className="col-sm-4">
                                 <select className="form-control  seletBOD minimal" name='day' id='dayddl'
-                                        placeholder="Day" value={this.state.day} onChange={this.handleFormData}>
+                                        size={this.sizeDay}
+                                        placeholder="Day" value={this.state.day}
+                                        onFocus={() => {
+                                            this.sizeDay = 10;
+                                        }}
+                                        onBlur={() => {
+                                            this.sizeDay = 1;
+                                        }}
+                                        onChange={this.handleFormData}>
                                     <option>Day</option>
                                     {(function () {
                                         //debugger
@@ -141,7 +151,7 @@ class BirthdayRegistrationScreen extends Component {
                 </Form>
                 <div className="row col-sm-12">
                     <NavLink onClick={this.toogleButton} to={{
-                        pathname: "/PhoneNumberRegistrationScreen",
+                        pathname: "/register/phone",
                         state: {value: this.state}
                     }}
                              className="btn btncreate generalbtn" disabled={this.state.disable}>

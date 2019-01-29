@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import './loginStyles.css';
+import '../login/loginStyles.css';
 
 class GenderRegistrationScreen extends Component {
     constructor(props) {
@@ -17,10 +17,15 @@ class GenderRegistrationScreen extends Component {
             phone: this.props.location.state.value.phone || ''
         };
         this.handleFormData = this.handleFormData.bind(this);
+        this.toogleButton = this.toogleButton.bind(this);
         if (localStorage.getItem('gender')) {
             this.state.gender = localStorage.getItem('gender');
 
         }
+    }
+
+    toogleButton() {
+        localStorage.setItem('gender', this.state.gender);
     }
 
     goBack() {
@@ -79,7 +84,7 @@ class GenderRegistrationScreen extends Component {
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
                     <NavLink onClick={this.toogleButton} to={{
-                        pathname: "/PasswordRegistrationScreen",
+                        pathname: "/register/password",
                         state: {value: this.state}
                     }}
                              className="btn  btncreate generalbtn" disabled={this.state.disable}>

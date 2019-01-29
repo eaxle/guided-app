@@ -176,7 +176,7 @@ p {
     font-size: 1em;
     padding: 0 0 0 0;
     margin: -27% 0 5% 0;
-    color:black;
+    color: black;
 }
 
 .Continuebottonmargin {
@@ -289,7 +289,7 @@ table {
 .rowtablediv {
     width: 100%;
     padding: 0% 0% 0% 20%;
-    margin:0% 0% 0% 10%;
+    margin: 0% 0% 0% 10%;
 
 }
 
@@ -306,7 +306,7 @@ input[type='radio'] {
     transform: scale(1.5);
 }
 
-/*  used in PhoneNumberRegistrationScreen*/
+/*  used in PhoneNumberRegistration*/
 .PhoneNumberTable {
     width: 70%;
     margin: 0 0% 0 15%;
@@ -330,16 +330,40 @@ input[type='radio'] {
     display: inline-block;
 
 }
-.righttop{
-  float: right;
-  margin: 5% -3% 0% 0%;
+
+.righttop {
+    float: right;
+    margin: 5% -3% 0% 0%;
 }
+
 .btnBack {
-  font-size: 1em;
-  border-radius: 10%;
-  color: #ffffff;
-  background-color: #3e9378;
-  border: solid 0.1em #3e9378;
-  padding: 3% 5% 3% 5%;
-  margin: 6% 0% 0% 0%;
+    font-size: 1em;
+    border-radius: 10%;
+    color: #ffffff;
+    background-color: #3e9378;
+    border: solid 0.1em #3e9378;
+    padding: 3% 5% 3% 5%;
+    margin: 6% 0% 0% 0%;
+}
+
+.ReactPasswordStrength-input {
+    /* min-width: 100% !important; */
+    border: none;
+    box-sizing: border-box;
+    font-size: 26px !important;;
+    padding: 0px 12px !important;
+    width: 100% !important;;
+    margin: 0px !important;
+}
+
+.ReactPasswordStrength-strength-desc {
+    color: transparent;
+    font-style: italic;
+    padding: 14px 12px;
+    position: absolute;
+    top: 54% !important;
+    right: 60% !important;
+    text-align: right;
+    transition: color 250ms ease-in-out;
+    width: 100% !important;
 }

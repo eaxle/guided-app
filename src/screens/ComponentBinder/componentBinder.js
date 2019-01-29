@@ -4,11 +4,11 @@ import TopBar from '../../components/TopBar';
 import {Sidebar as sidebarContent, sidebarStyle} from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-import Setting from './Setting';
-import PersonInf from './PersonInf/PersonInf';
+import Setting from '../Setting';
+import PersonInf from '../Setting/personInf/PersonInf';
 import './styles.css';
 
-class Home extends Component {
+class ComponentBinder extends Component {
     constructor(props) {
         super(props);
 
@@ -46,4 +46,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default ComponentBinder;

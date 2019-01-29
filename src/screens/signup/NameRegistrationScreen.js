@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import './loginStyles.css';
+import '../login/loginStyles.css';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 
@@ -48,7 +48,7 @@ class NameRegistrationScreen extends Component {
     goBack() {
         window.history.back();
     }
-    
+
     onBackButtonEvent = function (e) {
         e.preventDefault();
         localStorage.setItem('email', this.state.email);
@@ -94,8 +94,7 @@ class NameRegistrationScreen extends Component {
         if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) || (!this.state.pName.toString().trim().length)) {
             event.preventDefault();
             this.setState({disable: true})
-        }
-        else {
+        } else {
             localStorage.setItem('email', this.state.email);
             localStorage.setItem('fName', this.state.fName);
             localStorage.setItem('lName', this.state.lName);
@@ -106,9 +105,9 @@ class NameRegistrationScreen extends Component {
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-              <div className="row col-sm-12 righttop ">
-                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-              </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -116,7 +115,7 @@ class NameRegistrationScreen extends Component {
                         <p>What's your name? </p>
                     </div>
                     <div className="col-sm-12 subsubtitle">
-                        <p>Please enter the name you use in real life</p>
+                        <p>Pleaise enter the name you use in real life</p>
                     </div>
 
                     <Form>
@@ -140,7 +139,7 @@ class NameRegistrationScreen extends Component {
 
                             <div className="row col-sm-12 Continuebottonmargin">
                                 <NavLink onClick={this.toogleButton} to={{
-                                    pathname: "/BirthdayRegistrationScreen",
+                                    pathname: "/register/dob",
                                     state: {value: this.state}
                                 }}
                                          className="btn  btncreate generalbtn" disabled={this.state.disable}>
