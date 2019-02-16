@@ -1,0 +1,369 @@
+
+body {
+    /*font-size: 62.5%;*/
+}
+
+.welcome {
+    position: relative;
+    min-height: 1em;
+    padding: 10% 5% 5% 5%;
+    font-size: 2.5em;
+    color: black;
+    font-family: "Helvetica Neue";
+    margin-top: 10%;
+}
+
+.subtitle {
+    position: relative;
+    font-size: 1.7em;
+    color: black;
+    /* font-family:"Helvetica Neue"; */
+    padding: 5% 5% 5% 5%;
+    align-items: center;
+    /* width: 345px; */
+    margin: -5% 0 25% 0;
+    /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    justify-content: center;
+/ / 子元素水平居中 align-items: center;
+/ / 子元素垂直居中 display: -webkit-flex;
+
+}
+
+#parent {
+    text-align: center;
+    padding-left: auto;
+    padding-right: auto;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    padding-bottom: 50px;
+    width: 345px;
+}
+
+#child2 {
+    position: relative;
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+    margin: 0 0 0 0;
+    /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    justify-content: center;
+    margin-bottom: -8px;
+    margin-top: 10px;
+}
+
+#child3 {
+    position: relative;
+    width: 100%;
+    padding: 10px 60px 20px 60px;
+    margin: 0 0 0 0;
+    /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    justify-content: center;
+/ / 子元素水平居中 align-items: center;
+/ / 子元素垂直居中 display: -webkit-flex;
+    font-size: 10px;
+}
+
+/* #child22{
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 55px;
+} */
+
+p {
+    margin: 0 2% 0 2%;
+}
+
+#buttons {
+    width: inherit;
+    padding: 158px 40px 60px 0px;
+    border: 4px solid #beceeb; /*为了便于观察，显示出边框*/
+}
+
+.center {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.generalbtn {
+    height: 12%;
+    width: 60%;
+    font-size: 1em;
+    margin-bottom: 1%;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.btncreate {
+    color: #fff;
+    background-color: #3E9378;
+    border-color: #3E9378;
+}
+
+.btnlogin {
+
+    color: #fff;
+    background-color: #4C0C7E;
+    border-color: #4C0C7E;
+
+}
+
+.btnfb {
+    color: #fff;
+    background-color: #4267B2;
+    border-color: #4267B2;
+}
+
+.btngg {
+    color: #fff;
+    background-color: #4285F4;
+    border-color: #4285F4;
+}
+
+.btnlk {
+    color: #fff;
+    background-color: #0077B5;
+    border-color: #0077B5;
+}
+
+/* .form1 {
+    display: block;
+    width: 210px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+} */
+
+.formEmail {
+    margin: 0 00% 2% 20%;
+    width: 60%;
+    align-items: center;
+    text-align: center;
+}
+
+#or {
+    position: relative;
+    width: 100%;
+    padding: 20px 0px 8px 0px;
+    margin: 0 0 0 0;
+    /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    justify-content: center;
+/ / 子元素水平居中 align-items: center;
+/ / 子元素垂直居中 display: -webkit-flex;
+}
+
+/*  Associated with NameRegistrationScreen*/
+
+.inputName {
+    margin: 0 15% 0% 15%;
+    width: 70%;
+}
+
+.subsubtitle {
+    font-size: 1em;
+    padding: 0 0 0 0;
+    margin: -27% 0 5% 0;
+    color: black;
+}
+
+.Continuebottonmargin {
+    margin: 2% 0 0% 0;
+
+}
+
+#account {
+    margin: 5% 0 0 0;
+}
+
+/*
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:100px;
+  background-color: #ffc0cb;
+} */
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+    display: none;
+}
+
+.footer-costomized {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%; /* Height of the footer */
+    background-color: transparent;
+    font-size: 1em;
+
+}
+
+.container {
+    min-height: 100%;
+}
+
+.footer {
+    height: 100px;
+    margin-top: -100px;
+    background-color: #ffc0cb;
+}
+
+/* margin-top（负值的）高度等于footer的height值 */
+
+/*  Used in BirthdayRegistrationScreen*/
+.seletBOD {
+    /* margin: 0 15% 0% 15%; */
+    width: 100%;
+}
+
+select.minimal {
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(110% - 20px) calc(1em + 2px),
+    calc(110% - 15px) calc(1em + 2px),
+    calc(110% - 2.5em) 0.5em;
+    background-size: 5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+
+}
+
+select.minimal:focus {
+    background-image: linear-gradient(135deg, green 50%, transparent 50%),
+    linear-gradient(45deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+}
+
+/*  used in GenderRegistrationScreen*/
+.tablediv {
+    width: 60%;
+    margin: 0 14% 0 26%;
+    text-align: left;
+    font-size: 2em;
+}
+
+td {
+    text-align: left;
+}
+
+table {
+    width: 100%;
+    position: relative;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.rowtablediv {
+    width: 100%;
+    padding: 0% 0% 0% 20%;
+    margin: 0% 0% 0% 10%;
+
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10%;
+    font-weight: 700;
+    margin-top: 10%;
+    font-size: 2.2em;
+}
+
+input[type='radio'] {
+    transform: scale(1.5);
+}
+
+/*  used in PhoneNumberRegistration*/
+.PhoneNumberTable {
+    width: 70%;
+    margin: 0 0% 0 15%;
+    text-align: left;
+    font-size: 2em;
+
+}
+
+.inputCountryCode {
+    width: 20%;
+}
+
+.inputPhoneNumber {
+    width: 77%;
+}
+
+.g-recaptcha {
+    transform: scale(0.75);
+    transform-origin: 0 0;
+    margin: 5% 15% 0 15%;
+    display: inline-block;
+
+}
+
+.righttop {
+    float: right;
+    margin: 5% -3% 0% 0%;
+}
+
+.btnBack {
+    font-size: 1em;
+    border-radius: 10%;
+    color: #ffffff;
+    background-color: #3e9378;
+    border: solid 0.1em #3e9378;
+    padding: 3% 5% 3% 5%;
+    margin: 6% 0% 0% 0%;
+}
+
+.ReactPasswordStrength-input {
+    /* min-width: 100% !important; */
+    border: none;
+    box-sizing: border-box;
+    font-size: 26px !important;;
+    padding: 0px 12px !important;
+    width: 100% !important;;
+    margin: 0px !important;
+}
+
+.ReactPasswordStrength-strength-desc {
+    color: transparent;
+    font-style: italic;
+    padding: 14px 12px;
+    position: absolute;
+    top: 54% !important;
+    right: 60% !important;
+    text-align: right;
+    transition: color 250ms ease-in-out;
+    width: 100% !important;
+}

@@ -1,0 +1,63 @@
+.container {
+    margin: 0%;
+    padding: 0%;
+}
+
+Row {
+    padding: 0%;
+}
+
+.icon {
+    width: 50px;
+    box-shadow: 1px 1px 10px #888888;
+    position: absolute;
+    bottom: -8px;
+}
+
+.username {
+    font-size: 10px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.attr {
+    font-size: 14px;
+    padding: 0%;
+}
+
+.right {
+    float: right;
+}
+
+.editBtn{
+  border-radius: 8px;
+  border-color: #4A4A4A;
+  background: #fff;
+  margin: 1% 1% 1% 1%;
+  padding: 2% 5% 2% 5%;
+  text-decoration-color: #4A4A4A;
+
+}
+
+.following{
+  border-radius: 8px;
+  border-color: #4A4A4A;
+  background: #4C0C7E;
+  margin: 1% 1% 1% 1%;
+  padding: 2% 5% 2% 5%;
+  color: white;
+}
+
+.follow{
+  border-radius: 8px;
+  border-color: #4A4A4A;
+  background: #3E9378;
+  margin: 1% 1% 1% 1%;
+  padding: 2% 5% 2% 5%;
+  color: white;
+}
+.margintop{
+  margin-top: 4%;
+}

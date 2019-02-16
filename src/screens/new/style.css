@@ -1,0 +1,125 @@
+
+.grid_container {
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    grid-column-gap: 6px;
+    grid-row-gap: 3px;
+}
+
+.grid_cols {
+    border: 1px solid grey;
+    background: #D8D8D8;
+    border-radius: 4px;
+    text-align: center;
+    height: 110px;
+    max-width: 132px;
+}
+
+
+.user_media {
+    padding-left: 10px;
+    margin-top: 58px;
+    padding-top: 2%;
+    background: #D8D8D8;
+    text-align: left;
+    font-family: "Times New Roman";
+    font-size: large;
+    border: 1px gray;
+
+}
+
+.glyphicon-plus {
+    padding-top: 25px;
+    font-size: -webkit-xxx-large;
+}
+
+.grid_cols_circle {
+    width: 180% !important;
+}
+
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.user_media svg {
+    max-width: 6%;
+    margin-left: 10%;
+    color: grey;
+}
+
+.grid_container svg {
+    color: black;
+    /*font-size: 9em;*/
+
+}
+
+.user_media button {
+    background: purple;
+    font-size: small;
+    color: white;
+    float: right;
+    margin-right: 3%;
+}
+
+@media only screen and (max-width: 600px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 9em;
+    }
+
+    .grid_cols {
+        margin-top: 13px;
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 98px;
+        max-width: 132px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 8em;
+    }
+
+    .grid_cols {
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 87px;;
+        max-width: 132px;
+    }
+
+    .glyphicon-plus {
+        padding-top: 15px;
+        font-size: -webkit-xxx-large;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    [data-icon="folder"] {
+        color: black;
+        font-size: 7em;
+    }
+
+    .grid_cols {
+        border: 1px solid grey;
+        background: #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        height: 73px;
+        max-width: 132px;
+    }
+
+    .glyphicon-plus {
+        padding-top: 10px;
+        font-size: -webkit-xxx-large;
+    }
+}
