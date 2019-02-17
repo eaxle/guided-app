@@ -1,0 +1,9 @@
+@import '../../1-settings/variables';
+
+.header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $global-nav-height;
+}
+

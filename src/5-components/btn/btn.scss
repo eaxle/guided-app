@@ -1,0 +1,9 @@
+@import '../../1-settings/variables';
+/* btn */
+
+.btn {
+  background: $color-primary;
+  border: 1px solid $color-grey;
+  box-sizing: border-box;
+  border-radius: 5px;
+}

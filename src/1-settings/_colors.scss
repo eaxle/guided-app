@@ -1,0 +1,45 @@
+/* colors */
+
+$color-primary: #3E9378; // https://www.htmlcsscolor.com/hex/3E9378
+
+$color-secondary: #5a2e6e; //https://www.htmlcsscolor.com/hex/5A2E6E I went lighter than the original mocks, with the triadic color of our green
+
+$color-danger: #BC3C60; //https://www.htmlcsscolor.com/hex/BC3C60 this is tradingview's red but it works better with our green and purple palatte
+
+$color-grey-light: #979797; //borders of shapes (text-boxes, images)
+
+$color-grey-200: #e9ecef; // form-group add-ons if we use them
+
+$color-grey-dark: #4A4A4A; // icons, button-text
+
+$color-black: #14171a; // nav-text, heading, and body-text -- twitter's body text (not quite black, reads easier) https://www.htmlcsscolor.com/hex/14171a
+
+$color-midnight: #262b3e; // header -- midnight-express https://www.htmlcsscolor.com/hex/262B3E
+
+$color-white: #FFFFFF;  // background
+
+$color-blue:#4581C7; //link visited or normal
+
+$color-facebook: #4267B2;
+
+$color-google:#4285F4;
+
+$color-linkedin: #0077B5;
+
+// Hover options - buttons: go a shade darker, even if grey fill - icons: primary color (except: heart = red, share = yellow?
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   $color-white !default;
+$body-color:                $color-black !default;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $color-blue !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
