@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFolder, faUpload, faCamera, faFileImage} from '@fortawesome/free-solid-svg-icons'
+import {faFolder} from '@fortawesome/free-solid-svg-icons'
 import BottomImageVideoFolder from './Bottom_Image_Video_Folder';
 import BottomBar from '../../components/BottomBar';
 

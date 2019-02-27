@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+// import {NavLink, Link} from "react-router-dom";
 import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
 import Form from "react-validation/build/form";
-import {client} from '../../../index'
+// import {client} from '../../../index'
 
 const UPDATE_GENDER = gql`
   mutation updateUserGender($uid: String!,$gender:String!) {
@@ -59,7 +59,7 @@ class EditGender extends Component {
     }
 
     componentDidMount() {
-        const that = this;
+
         /*     client.query({query: GET_GENDER, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
                  that.setState({gender: data.data.getGenderById[0].value}, () => {
                  })
@@ -175,7 +175,7 @@ class EditGender extends Component {
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td className={this.state.toogle != 'O' ? "displayNone" : "centerText"}>
+                                                                <td className={this.state.toogle !== 'O' ? "displayNone" : "centerText"}>
                                                                     <div className="radioGender"><input
                                                                         type="text"
                                                                         name="gender"/>

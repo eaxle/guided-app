@@ -8,22 +8,19 @@ import '../login/loginStyles.css';
 class PhoneNumberRegistration extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.location.state);
-        // debugger;
         this.disable = true;
         this.state = {
-            email: this.props.location.state.value.email,
-            fName: this.props.location.state.value.fName,
-            lName: this.props.location.state.value.lName,
+            email: '',
+            fName: '',
+            lName: '',
             day: '',
             month: '',
             year: '',
             countryCode: '',
             phone: ''
-        }
+        };
         this.handleFormData = this.handleFormData.bind(this);
         this.handler = this.handler.bind(this);
-        this.checkStatus = this.checkStatus.bind(this);
         if (localStorage.getItem('phone')) {
             this.state.phone = localStorage.getItem('countryCode') + localStorage.getItem('phone');
         }
@@ -41,7 +38,6 @@ class PhoneNumberRegistration extends Component {
     }
 
     handler(status, value, countryData, number, id) {
-        console.log("status: " + status + "\n" + "value: " + value + "\n" + "countryData: " + JSON.stringify(countryData) + "\n" + "number: " + number + "\n id: " + id);
         if (status === true) {
             this.setState({countryCode: countryData.dialCode}, () => {
                 localStorage.setItem('countryCode', this.state.countryCode)
@@ -52,7 +48,6 @@ class PhoneNumberRegistration extends Component {
                 localStorage.setItem('phone', value);
             });
             this.disable = false;
-            //  alert(value)
         } else {
             this.setState({phone: ""}, () => {
                 localStorage.setItem('phone', this.state.phone)
@@ -67,18 +62,13 @@ class PhoneNumberRegistration extends Component {
         window.history.back();
     }
 
-    checkStatus(e) {
-        if (this.disable) {
-            e.preventDefault();
-        }
-    }
 
     render() {
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
-              <div className="row col-sm-12 righttop ">
-                <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
-              </div>
+                <div className="row col-sm-12 righttop ">
+                    <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
+                </div>
                 <div className="row col-sm-12 welcome">Welcome to Guided
                 </div>
                 <div className="row">
@@ -106,11 +96,11 @@ class PhoneNumberRegistration extends Component {
                     </div>
                 </div>
                 <div className="row col-sm-12 Continuebottonmargin">
-                    <NavLink onClick={this.toogleButton} to={{
+                    <NavLink to={{
                         pathname: "/register/gender",
                         state: {value: this.state}
                     }}
-                             className="btn  btncreate generalbtn" disabled={this.disable} onClick={this.checkStatus}>
+                             className="btn  btncreate generalbtn">
                         Continue
                     </NavLink>
                 </div>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+// import {NavLink, Link} from "react-router-dom";
 import gql from "graphql-tag";
 import {Mutation, Query} from "react-apollo";
 import Form from "react-validation/build/form";

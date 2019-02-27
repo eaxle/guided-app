@@ -27,7 +27,7 @@ class EmailRegistration extends Component {
     }
 
     toogleButton(event) {
-        if (!validator.isEmail(this.state.email) || (!this.state.email.toString().trim().length)) {
+        if (!validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
             event.preventDefault();
         }
     }
@@ -36,7 +36,6 @@ class EmailRegistration extends Component {
         this.setState({email: event.target.value}, () => {
             localStorage.setItem('email', this.state.email);
         });
-        this.props = {email: event.target.value};
         if (validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
             this.setState({disable: false});
         } else {
@@ -46,15 +45,16 @@ class EmailRegistration extends Component {
     }
 
     required(value) {
-        if (!value.toString().trim().length) {
+        /* if (!value.toString().trim().length) {
 
-            return <p className='form-control alert alert-danger'>required!</p>;
-        }
+             return <p className='form-control alert alert-danger'>required!</p>;
+         }*/
     };
 
     email() {
+        console.log(!validator.isEmail(this.state.email))
         if (!validator.isEmail(this.state.email)) {
-            return <p className="form-control alert alert-danger">{this.state.email} is not a valid email!</p>;
+            return <p className="  alert-danger">{this.state.email} is not a valid email!</p>;
         }
     };
 
@@ -75,7 +75,7 @@ class EmailRegistration extends Component {
                     <div className="row col-sm-12 ">
                         <Form className="form-group formEmail">
                             <Input type="email" value={this.state.email} onChange={this.handleChange}
-                                   placeholder="Email Address" validations={[this.required, this.email]}
+                                   placeholder="Email Address" validations={[/*this.required, */this.email]}
                                    className="col-sm-12 form-control form-control-sm  "/>
                         </Form>
                     </div>
@@ -85,7 +85,7 @@ class EmailRegistration extends Component {
                                  to={{
                                      pathname: "/register/name",
                                      state: {email: this.state.email}
-                                 }} className="btn btncreate generalbtn" disabled={this.state.disable}>
+                                 }} className="btn btncreate generalbtn">
                             Continue
                         </NavLink></div>
 

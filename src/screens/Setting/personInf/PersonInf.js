@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {client} from '../../../index';
 import gql from "graphql-tag";
 
@@ -26,14 +26,14 @@ const GET_USER_PHONE = gql`
                    }
                  }
                `;
-
+/*
 const GET_USER_CODE = gql`
                query getUserCodeById($uid:String!){
                    getUserCodeById(uid:$uid) {
                      value
                    }
                  }
-               `;
+               `;*/
 const GET_GENDER = gql`
                query getGenderById($uid:String!){
                    getGenderById(uid:$uid) {

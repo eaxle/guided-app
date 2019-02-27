@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import './Bottom_Image_Video_Folder.css';
 
 class BottomImageVideoFolder extends Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-    }
+    }*/
 
 
     render() {

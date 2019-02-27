@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
+/*import { Button, Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
 import AttriDisplay from '../../components/AttriDisplay';
 import AttriEditor from '../../components/AttriEditor';
 import OverflowText from '../../components/OverflowText';
@@ -7,14 +7,14 @@ import TextFrom from '../../components/TextForm';
 import ListEditor from '../../components/ListEditor';
 import MapSnap from '../../components/MapSnap';
 import LocSearchBox from '../../components/LocSearchBox';
-import EventTimeDisplay from '../../components/EventTimeDisplay';
+import EventTimeDisplay from '../../components/EventTimeDisplay';*/
 import Sidebar from 'react-sidebar';
 import TopBar from '../../components/TopBar';
 import { Sidebar as sidebarContent, sidebarStyle } from '../Sidebar';
 import BottomBar from '../../components/BottomBar';
 import SecBottomBar from '../../components/SecBottomBar';
-import ProfileImageAndIcon from '../../components/ProfileImageAndIcon';
-import Bio from '../../components/Bio';
+/*import ProfileImageAndIcon from '../../components/ProfileImageAndIcon';
+import Bio from '../../components/Bio';*/
 import Card from '../../components/Card';
 import './styles.css';
 

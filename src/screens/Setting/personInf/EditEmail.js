@@ -4,10 +4,10 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+// import {NavLink, Link} from "react-router-dom";
 import validator from 'validator';
 import gql from "graphql-tag";
-import {graphql, Query} from "react-apollo";
+import { Query} from "react-apollo";
 import {Mutation} from "react-apollo";
 import {client} from "../../../index";
 

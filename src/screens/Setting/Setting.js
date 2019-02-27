@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './personInf/styles.css';
-import {NavLink, Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 class Setting extends Component {
     state = {

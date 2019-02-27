@@ -8,28 +8,22 @@ class BirthdayRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: this.props.location.state.value.email,
-            fName: this.props.location.state.value.fName,
-            lName: this.props.location.state.value.lName,
+            email: '',
+            fName: '',
+            lName: '',
             day: '',
             month: '',
             year: ''
         };
-        this.sizeDay = 1;
-        this.sizeMonth = 1;
-        this.sizeDay = 1;
+
         this.handleFormData = this.handleFormData.bind(this);
-        console.log(this.props);
         if (localStorage.getItem('day')) {
-            // this.setState({day: localStorage.getItem('day')});
             this.state.day = localStorage.getItem('day');
         }
         if (localStorage.getItem('month')) {
-            // this.setState({day: localStorage.getItem('month')});
             this.state.month = localStorage.getItem('month');
         }
         if (localStorage.getItem('year')) {
-            // this.setState({day: localStorage.getItem('year')});
             this.state.year = localStorage.getItem('year');
         }
     }
@@ -60,9 +54,9 @@ class BirthdayRegistrationScreen extends Component {
     }
 
     render() {
-        let arrDay = new Array();
-        let arrMonth = new Array();
-        let arr = new Array();
+        let arrDay = [];
+        let arrMonth = [];
+        let arr = [];
 
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
@@ -86,18 +80,10 @@ class BirthdayRegistrationScreen extends Component {
                         <td>
                             <div className="col-sm-4">
                                 <select className="form-control  seletBOD minimal" name='day' id='dayddl'
-                                        size={this.sizeDay}
                                         placeholder="Day" value={this.state.day}
-                                        onFocus={() => {
-                                            this.sizeDay = 10;
-                                        }}
-                                        onBlur={() => {
-                                            this.sizeDay = 1;
-                                        }}
                                         onChange={this.handleFormData}>
                                     <option>Day</option>
                                     {(function () {
-                                        //debugger
                                         for (let i = 1; i < 32; i++) {
                                             arrDay.push(<option value={i} key={'day_' + i}>{i}</option>);
                                         }

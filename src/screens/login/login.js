@@ -4,9 +4,9 @@ import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import './loginStyles.css';
-import {NavLink, browserHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import FbLogin from './facebook/fb';
-import {withCookies, Cookies} from 'react-cookie';
+import { Cookies} from 'react-cookie';
 
 
 const LOGIN_USER = gql`

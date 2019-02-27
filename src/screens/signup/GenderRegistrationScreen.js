@@ -6,15 +6,15 @@ class GenderRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: this.props.location.state.value.email || '',
-            fName: this.props.location.state.value.fName || '',
-            lName: this.props.location.state.value.lName || '',
-            day: this.props.location.state.value.day || '',
-            month: this.props.location.state.value.month || '',
-            year: this.props.location.state.value.year || '',
-            gender: this.props.location.state.value.gender || 'M',
-            countryCode: this.props.location.state.value.countryCode || '',
-            phone: this.props.location.state.value.phone || ''
+            email: '',
+            fName: '',
+            lName: '',
+            day: '',
+            month:'',
+            year: '',
+            gender:'M',
+            countryCode:'',
+            phone:''
         };
         this.handleFormData = this.handleFormData.bind(this);
         this.toogleButton = this.toogleButton.bind(this);

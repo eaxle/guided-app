@@ -29,13 +29,13 @@ class NameRegistrationScreen extends Component {
 
             this.state.pName = localStorage.getItem('pName')
         }
-        if (this.state.fName.toString().trim().length && this.state.lName.toString().trim().length && this.state.pName.toString().trim().length) {
+        /*if (this.state.fName.toString().trim().length && this.state.lName.toString().trim().length /!*&& this.state.pName.toString().trim().length*!/) {
             this.state.disable = false;
-        }
+        }*/
         if (localStorage.getItem('email')) {
             this.state.email = localStorage.getItem('email');
         } else {
-            this.props.history.push('/MainLogin');
+            // this.props.history.push('/login');
         }
         // this.state.email = this.props.location.state.email;
         this.handleFormData = this.handleFormData.bind(this);
@@ -89,17 +89,16 @@ class NameRegistrationScreen extends Component {
         console.log(this.state)
     }
 
-    toogleButton(event) {
-
-        if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) || (!this.state.pName.toString().trim().length)) {
-            event.preventDefault();
-            this.setState({disable: true})
-        } else {
-            localStorage.setItem('email', this.state.email);
-            localStorage.setItem('fName', this.state.fName);
-            localStorage.setItem('lName', this.state.lName);
-            localStorage.setItem('pName', this.state.pName);
-        }
+    toogleButton(/*event*/) {
+        // event.preventDefault();
+        /* if ((!this.state.fName.toString().trim().length) || (!this.state.lName.toString().trim().length) || (!this.state.pName.toString().trim().length)) {
+             this.setState({disable: true})
+         } else {*/
+        localStorage.setItem('email', this.state.email);
+        localStorage.setItem('fName', this.state.fName);
+        localStorage.setItem('lName', this.state.lName);
+        localStorage.setItem('pName', this.state.pName);
+        /*}*/
     }
 
     render() {
@@ -142,7 +141,7 @@ class NameRegistrationScreen extends Component {
                                     pathname: "/register/dob",
                                     state: {value: this.state}
                                 }}
-                                         className="btn  btncreate generalbtn" disabled={this.state.disable}>
+                                         className="btn  btncreate generalbtn">
                                     Continue
                                 </NavLink>
                             </div>
