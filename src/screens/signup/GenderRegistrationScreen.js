@@ -10,11 +10,11 @@ class GenderRegistrationScreen extends Component {
             fName: '',
             lName: '',
             day: '',
-            month:'',
+            month: '',
             year: '',
-            gender:'M',
-            countryCode:'',
-            phone:''
+            gender: 'M',
+            countryCode: '',
+            phone: ''
         };
         this.handleFormData = this.handleFormData.bind(this);
         this.toogleButton = this.toogleButton.bind(this);
@@ -78,6 +78,15 @@ class GenderRegistrationScreen extends Component {
                             <td><label>Other</label></td>
                             <td><input type="radio" value="O" name="gender" checked={this.state.gender === "O"}
                                        onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"
+                                       onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis illum nulla
+                                praesentium quia quo, veritatis? Consequuntur nam quia tempora!</p>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

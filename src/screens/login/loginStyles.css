@@ -24,8 +24,8 @@ body {
     margin: -5% 0 25% 0;
     /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
     justify-content: center;
-/*/ / 子元素水平居中 align-items: center;
-/ / 子元素垂直居中 display: -webkit-flex;*/
+    /*/ / 子元素水平居中 align-items: center;
+    / / 子元素垂直居中 display: -webkit-flex;*/
 
 }
 
@@ -57,10 +57,10 @@ body {
     margin: 0 0 0 0;
     /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
     justify-content: center;
-/*
-/ / 子元素水平居中 align-items: center;
-/ / 子元素垂直居中 display: -webkit-flex;
-*/
+    /*
+    / / 子元素水平居中 align-items: center;
+    / / 子元素垂直居中 display: -webkit-flex;
+    */
     font-size: 10px;
 }
 
@@ -163,10 +163,10 @@ p {
     margin: 0 0 0 0;
     /* border:4px solid #beceeb; /*为了便于观察，显示出边框*/
     justify-content: center;
-/*
-/ / 子元素水平居中 align-items: center;
-/ / 子元素垂直居中 display: -webkit-flex;
-*/
+    /*
+    / / 子元素水平居中 align-items: center;
+    / / 子元素垂直居中 display: -webkit-flex;
+    */
 }
 
 /*  Associated with NameRegistrationScreen*/
@@ -282,12 +282,10 @@ td {
 }
 
 table {
-    width: 100%;
+    max-width: 65%;
     position: relative;
-}
-
-table {
     border-collapse: collapse;
+    margin: -8% 0% 0 7% !important;
 }
 
 .rowtablediv {
@@ -308,6 +306,20 @@ label {
 
 input[type='radio'] {
     transform: scale(1.5);
+}
+
+tr {
+    line-height: 10px;
+}
+
+td > input[type='text'] {
+    width: 105% !important;
+}
+
+td > p {
+    margin-top: 6px;
+    text-align: justify;
+    line-height: 100%;
 }
 
 /*  used in PhoneNumberRegistration*/
