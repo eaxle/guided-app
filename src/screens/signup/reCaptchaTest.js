@@ -29,6 +29,7 @@ const ADD_USER = gql`
             country_code:$country_code,
             email:$email,
             gender:$gender,
+            gender_type:$gender,
             password:$password,
             phone_number:$phone_number
         ) {
@@ -40,16 +41,11 @@ const ADD_USER = gql`
 class ReCaptchaTest extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.location.state);
         this.recaptchaPass = false;
-        this.title = '';
-        this.body = '';
         this.state = {
-            create_date: new Date(),
-            update_date: new Date(),
             fName: localStorage.getItem('fName'),
             lName: localStorage.getItem('lName'),
-            pName: localStorage.getItem('pName'),
+            pName: localStorage.getItem('pName') || localStorage.getItem('fName'),
             year: localStorage.getItem('day'),
             month: localStorage.getItem('month'),
             day: localStorage.getItem('day'),
@@ -57,67 +53,34 @@ class ReCaptchaTest extends Component {
             email: localStorage.getItem('email'),
             phone: localStorage.getItem('phone'),
             gender: localStorage.getItem('gender'),
-            password: '',
-            disable: true,
+            genderType: localStorage.getItem('genderType'),
+            password: localStorage.getItem('password'),
             showSuccessMessage: false,
             showErrorMessage: false
         };
-        this.rePassword = "";
-        this.handleFormData = this.handleFormData.bind(this);
-        this.registerUser = this.registerUser.bind(this);
         this.submitForm = this.submitForm.bind(this);
-        this.matchPassword = this.matchPassword.bind(this);
         this.verifyCall = this.verifyCall.bind(this);
-        this.cleanMessage = this.cleanMessage.bind(this);
-        // this.showSuccessMessage = false;
-        // this.showErrorMessage = false;
+        this.goBack = this.goBack.bind(this);
     }
 
-
-    cleanMessage() {
-        this.setState({showErrorMessage: false, showSuccessMessage: false});
-    }
 
     goBack() {
-        window.history.back();
+
+        this.props.history.push('/register/password');
     }
 
-    registerUser(score, password, isValid) {
-        this.setState({password: score.password}, this.matchPassword);
-
-    }
-
-    handleFormData(event) {
-        event.preventDefault();
-        if (event.target.name === "password") {
-            this.setState({password: event.target.value}, () => {
-            });
-        } else {
-            this.rePassword = event.target.value;
-
-        }
-        this.matchPassword();
-    }
-
-    matchPassword() {
-        if ((this.state.password === this.rePassword) && this.state.password.toString().trim().length) {
-            this.setState({disable: false});
-        } else {
-            this.setState({disable: true});
-        }
-    }
 
     verifyCall(response) {
+        console.log(response)
         this.recaptchaPass = true;
-        // console.log(response);
     };
 
     submitForm(e) {
-
-        // e.preventDefault();
-        if (this.state.disable || !this.state.password.toString().trim().length || !this.recaptchaPass) {
+        e.preventDefault();
+        if (!this.recaptchaPass) {
             return
         }
+
         this.props.mutate({
             variables: {
                 first_name: this.state.fName,
@@ -129,6 +92,7 @@ class ReCaptchaTest extends Component {
                 email: this.state.email,
                 phone_number: this.state.phone,
                 gender: this.state.gender,
+                gender_type: this.state.genderType,
                 password: this.state.password,
                 country_code: this.state.countryCode
             }
@@ -137,7 +101,7 @@ class ReCaptchaTest extends Component {
             localStorage.clear();
             this.setState({showErrorMessage: false, showSuccessMessage: true});
             setTimeout(function () {
-                window.location.href = '/login'
+                this.props.history.push("/login");
             }, 3000)
 
         }).catch((error) => {
@@ -150,7 +114,7 @@ class ReCaptchaTest extends Component {
 
 
     render() {
-        let {data} = this.props;
+        // let {data} = this.props;
 
         return (
 
@@ -174,7 +138,6 @@ class ReCaptchaTest extends Component {
                 <div className="row">
                     <Recaptcha type="audio|image"
                                className="g-recaptcha col-sm-12  inputs inputName"
-                               theme="dark"
                                render="explicit"
                                verifyCallback={this.verifyCall}
                                sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"

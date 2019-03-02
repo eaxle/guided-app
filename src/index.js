@@ -38,7 +38,7 @@ import UserMediaSelectFromFolder from './screens/new/UserMediaSelectFromFolder';
 import ReCaptchaTest from './screens/signup/reCaptchaTest';
 
 export const client = new ApolloClient({
-    uri: process.env.REACT_APP_GRAPHQL_URI,
+    uri: process.env.REACT_APP_GRAPHQL_URI || "https://db.guided.app/graphql",
 });
 
 ReactDOM.render(
@@ -57,6 +57,8 @@ ReactDOM.render(
                         <Route exact path="/register/dob"
                                render={pros => <BirthdayRegistrationScreen {...pros}/>}/>
                         <Route exact path="/register/email"
+                               render={pros => <EmailRegistration {...pros}/>}/>
+                        <Route exact path="/register"
                                render={pros => <EmailRegistration {...pros}/>}/>
                         <Route exact path="/register/final"
                                render={pros =>

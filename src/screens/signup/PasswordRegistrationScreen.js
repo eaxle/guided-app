@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import '../login/loginStyles.css';
 
 class PasswordRegistrationScreen extends Component {
@@ -25,10 +25,12 @@ class PasswordRegistrationScreen extends Component {
         this.rePassword = "";
         this.handleFormData = this.handleFormData.bind(this);
         this.validateData = this.validateData.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     goBack() {
-        window.history.back();
+
+        this.props.history.push('/register/gender');
     }
 
     handleFormData(event) {
@@ -59,7 +61,7 @@ class PasswordRegistrationScreen extends Component {
             this.state.email.length === 0 ||
             this.state.phone.length === 0 ||
             this.state.gender.length === 0) {
-            this.setState({errMsg: "Registration form is not completely filled."});
+            this.setState({errMsg: "Form not completely filled out."});
 
             e.preventDefault();
         } else {

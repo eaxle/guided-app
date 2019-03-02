@@ -74,7 +74,7 @@ class BirthdayRegistrationScreen extends Component {
                         <p>This information won't be made public.</p>
                     </div>
                 </div>
-                <table>
+                <table className="table-dob">
                     <tbody>
                     <tr>
                         <td>
