@@ -80,7 +80,6 @@ class ReCaptchaTest extends Component {
         if (!this.recaptchaPass) {
             return
         }
-
         this.props.mutate({
             variables: {
                 first_name: this.state.fName,

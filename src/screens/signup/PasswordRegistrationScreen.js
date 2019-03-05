@@ -8,16 +8,16 @@ class PasswordRegistrationScreen extends Component {
         this.title = '';
         this.body = '';
         this.state = {
-            fName: '',
-            lName: '',
-            pName: '',
-            year: '',
-            month: '',
-            day: '',
-            countryCode: '',
-            email: '',
-            phone: '',
-            gender: '',
+            fName: localStorage.getItem('fName') || '',
+            lName: localStorage.getItem('lName') || '',
+            pName: localStorage.getItem('pName') || '',
+            year: localStorage.getItem('year') || '',
+            month: localStorage.getItem('month') || '',
+            day: localStorage.getItem('day') || '',
+            countryCode: localStorage.getItem('countryCode') || '',
+            email: localStorage.getItem('email') || '',
+            phone: localStorage.getItem('phone') || '',
+            gender: localStorage.getItem('gender') || '',
             password: '',
             disable: true,
             errMsg: ""
@@ -27,6 +27,7 @@ class PasswordRegistrationScreen extends Component {
         this.validateData = this.validateData.bind(this);
         this.goBack = this.goBack.bind(this);
     }
+
 
     goBack() {
 
@@ -61,6 +62,7 @@ class PasswordRegistrationScreen extends Component {
             this.state.email.length === 0 ||
             this.state.phone.length === 0 ||
             this.state.gender.length === 0) {
+            debugger;
             this.setState({errMsg: "Form not completely filled out."});
 
             e.preventDefault();

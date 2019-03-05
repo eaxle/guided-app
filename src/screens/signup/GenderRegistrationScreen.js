@@ -6,11 +6,13 @@ class GenderRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gender: 'Others',
-            genderType: 'O'
-        };
+            gender: localStorage.getItem('gender') || 'Others',
+            genderType: localStorage.getItem('gender_type') || 'O'
+        }
+        ;
         this.handleFormData = this.handleFormData.bind(this);
         this.toogleButton = this.toogleButton.bind(this);
+        this.goBack = this.goBack.bind(this);
         if (localStorage.getItem('gender')) {
             this.state.gender = localStorage.getItem('gender');
 
@@ -23,7 +25,7 @@ class GenderRegistrationScreen extends Component {
     }
 
     goBack() {
-        this.props.history.push("/register/phone");
+        this.props.history.push('/register/phone');
     }
 
     handleFormData(e) {

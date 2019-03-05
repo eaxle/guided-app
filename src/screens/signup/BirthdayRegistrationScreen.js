@@ -8,9 +8,6 @@ class BirthdayRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            fName: '',
-            lName: '',
             day: '',
             month: '',
             year: ''
@@ -26,15 +23,14 @@ class BirthdayRegistrationScreen extends Component {
         if (localStorage.getItem('year')) {
             this.state.year = localStorage.getItem('year');
         }
+        this.goBack = this.goBack.bind(this);
     }
 
     goBack() {
-        window.history.back();
+        this.props.history.push('/register/name');
     }
 
     handleFormData(event) {
-        this.sizeDay = 1;
-        console.log(event.target.value)
         if (event.target.name === "day") {
             this.setState({day: event.target.value}, () => {
                 localStorage.setItem('day', this.state.day);
@@ -113,7 +109,7 @@ class BirthdayRegistrationScreen extends Component {
                                         placeholder="Year" value={this.state.year} onChange={this.handleFormData}>
                                     <option>Year</option>
                                     {(function () {
-                                        for (let i = 1925; i <= new Date().getFullYear(); i++) {
+                                        for (let i = new Date().getFullYear(); i >= 1925; i--) {
 
                                             arr.push(<option value={i} key={'year_' + i}>{i}</option>);
                                         }
@@ -136,7 +132,7 @@ class BirthdayRegistrationScreen extends Component {
                     </div>
                 </Form>
                 <div className="row col-sm-12">
-                    <NavLink onClick={this.toogleButton} to={{
+                    <NavLink to={{
                         pathname: "/register/phone",
                         state: {value: this.state}
                     }}

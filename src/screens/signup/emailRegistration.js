@@ -17,7 +17,6 @@ class EmailRegistration extends Component {
             this.state.disable = false;
         }
         this.handleChange = this.handleChange.bind(this);
-        this.required = this.required.bind(this);
         this.email = this.email.bind(this);
         this.toogleButton = this.toogleButton.bind(this);
     }
@@ -29,6 +28,8 @@ class EmailRegistration extends Component {
     toogleButton(event) {
         if (!validator.isEmail(this.state.email) && (this.state.email.toString().trim().length)) {
             event.preventDefault();
+        } else {
+            localStorage.setItem('email', this.state.email);
         }
     }
 
@@ -44,12 +45,6 @@ class EmailRegistration extends Component {
 
     }
 
-    required(value) {
-        /* if (!value.toString().trim().length) {
-
-             return <p className='form-control alert alert-danger'>required!</p>;
-         }*/
-    };
 
     email() {
         console.log(!validator.isEmail(this.state.email))

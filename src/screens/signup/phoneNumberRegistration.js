@@ -10,17 +10,12 @@ class PhoneNumberRegistration extends Component {
         super(props);
         this.disable = true;
         this.state = {
-            email: '',
-            fName: '',
-            lName: '',
-            day: '',
-            month: '',
-            year: '',
             countryCode: '',
             phone: ''
         };
         this.handleFormData = this.handleFormData.bind(this);
         this.handler = this.handler.bind(this);
+        this.goBack = this.goBack.bind(this);
         if (localStorage.getItem('phone')) {
             this.state.phone = localStorage.getItem('countryCode') + localStorage.getItem('phone');
         }
@@ -59,7 +54,7 @@ class PhoneNumberRegistration extends Component {
     };
 
     goBack() {
-        window.history.back();
+        this.props.history.push("/register/dob");
     }
 
 
