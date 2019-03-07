@@ -19,7 +19,7 @@ const ADD_USER = gql`
     $password: String!,
     $phone_number: String!)
     {
-        email_registration(
+        emailRegistration(
             first_name:$first_name,
             last_name:$last_name,
             preferred_name:$preferred_name,
@@ -55,8 +55,8 @@ class ReCaptchaTest extends Component {
             gender: localStorage.getItem('gender'),
             genderType: localStorage.getItem('genderType'),
             password: localStorage.getItem('password'),
-            showSuccessMessage: false,
-            showErrorMessage: false
+            message: "",
+
         };
         this.submitForm = this.submitForm.bind(this);
         this.verifyCall = this.verifyCall.bind(this);
@@ -78,7 +78,7 @@ class ReCaptchaTest extends Component {
     submitForm(e) {
         e.preventDefault();
         if (!this.recaptchaPass) {
-            return
+            // return
         }
         this.props.mutate({
             variables: {
@@ -98,25 +98,22 @@ class ReCaptchaTest extends Component {
         }).then((success) => {
             console.log(success);
             localStorage.clear();
-            this.setState({showErrorMessage: false, showSuccessMessage: true});
+            this.setState({message: 'Registration Successful!'});
             setTimeout(function () {
-                this.props.history.push("/login");
+                window.location.href = '/login';
+
             }, 3000)
 
         }).catch((error) => {
                 console.log(this);
-                this.setState({showErrorMessage: true, showSuccessMessage: false})
-
+                this.setState({message: 'Registration Failed!'});
             }
         );
     }
 
 
     render() {
-        // let {data} = this.props;
-
         return (
-
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
                 <div className="row col-sm-12 righttop ">
                     <button className="btn btnBack float-right" onClick={this.goBack}>Back</button>
@@ -142,7 +139,7 @@ class ReCaptchaTest extends Component {
                                sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
                 </div>
-
+                <p>{this.state.message}</p>
                 <div className="row ">
                     <div className="col-sm-12 Continuebottonmargin">
                         <NavLink

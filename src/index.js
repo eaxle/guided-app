@@ -38,7 +38,7 @@ import UserMediaSelectFromFolder from './screens/new/UserMediaSelectFromFolder';
 import ReCaptchaTest from './screens/signup/reCaptchaTest';
 
 export const client = new ApolloClient({
-    uri: process.env.REACT_APP_GRAPHQL_URI || "https://db.guided.app/graphql",
+    uri: process.env.REACT_APP_GRAPHQL_URI || "http://45.32.189.215:3000/graphql",
 });
 
 ReactDOM.render(

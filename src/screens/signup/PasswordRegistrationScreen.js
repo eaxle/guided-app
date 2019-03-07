@@ -62,11 +62,10 @@ class PasswordRegistrationScreen extends Component {
             this.state.email.length === 0 ||
             this.state.phone.length === 0 ||
             this.state.gender.length === 0) {
-            debugger;
             this.setState({errMsg: "Form not completely filled out."});
-
             e.preventDefault();
         } else {
+            localStorage.setItem('password', this.state.password);
             this.setState({disable: true});
         }
     }
