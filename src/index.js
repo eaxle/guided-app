@@ -13,8 +13,8 @@ import PhoneNumberRegistration from './screens/signup/phoneNumberRegistration';
 import Login from './screens/login/login';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {CookiesProvider} from 'react-cookie';
 import ComponentBinder from './screens/ComponentBinder';
+import Setting from './screens/Setting';
 import PersonInf from './screens/Setting/personInf/PersonInf';
 import EditEmail from './screens/Setting/personInf/EditEmail';
 import EditGender from './screens/Setting/personInf/EditGender';
@@ -44,68 +44,66 @@ export const client = new ApolloClient({
 ReactDOM.render(
     <ApolloProvider client={client}>
         <Router>
-            <CookiesProvider>
-                <div>
-                    <Route exact path="/" render={pros => <Welcome{...pros}/>}/>
-                    <Switch>
-                        <Route exact path="/register/password"
-                               render={pros => <PasswordRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/register/gender"
-                               render={pros => <GenderRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/register/phone"
-                               render={pros => <PhoneNumberRegistration {...pros}/>}/>
-                        <Route exact path="/register/dob"
-                               render={pros => <BirthdayRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/register/email"
-                               render={pros => <EmailRegistration {...pros}/>}/>
-                        <Route exact path="/register"
-                               render={pros => <EmailRegistration {...pros}/>}/>
-                        <Route exact path="/register/final"
-                               render={pros =>
-                                   <ReCaptchaTest {...pros}/>}/>
-                        <Route exact path="/register/name"
-                               render={pros => <NameRegistrationScreen {...pros}/>}/>
-                        <Route exact path="/login" render={pros => <Login {...pros}/>}/>
-                        <Route exact path="/setting" render={pros => <ComponentBinder{...pros}/>}/>
-                        <Route exact path="/setting/personInf"
-                               render={pros => <ComponentBinder{...pros} tagName={PersonInf}/>}/>
-                        <Route exact path="/setting/PersonInf/email"
-                               render={pros => <ComponentBinder{...pros} tagName={EditEmail}/>}/>
-                        <Route exact path="/setting/PersonInf/phone"
-                               render={pros => <ComponentBinder{...pros} tagName={EditPhone}/>}/>
-                        <Route exact path="/setting/PersonInf/gender"
-                               render={pros => <ComponentBinder{...pros} tagName={EditGender}/>}/>
-                        <Route exact path="/setting/PersonInf/name"
-                               render={pros => <ComponentBinder{...pros} tagName={EditName}/>}/>
-                        <Route exact path="/setting/PersonInf/language"
-                               render={pros => <ComponentBinder{...pros} tagName={EditLanguage}/>}/>
-                        <Route exact path="/setting/PersonInf/dob"
-                               render={pros => <ComponentBinder{...pros} tagName={EditDOB}/>}/>
-                        <Route exact path="/setting/officialdoc"
-                               render={pros => <ComponentBinder{...pros} tagName={OfficialDoc}/>}/>
-                        <Route exact path="/setting/payment"
-                               render={pros => <ComponentBinder{...pros} tagName={PaymentSetting}/>}/>
-                        <Route exact path="/setting/security"
-                               render={pros => <ComponentBinder{...pros} tagName={Security}/>}/>
-                        <Route exact path="/setting/privacy"
-                               render={pros => <ComponentBinder{...pros} tagName={Privacy}/>}/>
-                        <Route exact path="/setting/ad" render={pros => <ComponentBinder{...pros} tagName={Ad}/>}/>
-                        <Route exact path="/setting/media"
-                               render={pros => <ComponentBinder{...pros} tagName={Media}/>}/>
-                        <Route exact path="/setting/notification"
-                               render={pros => <ComponentBinder{...pros} tagName={Notification}/>}/>
-                        <Route exact path="/post" render={pros => <ComponentBinder{...pros} tagName={PostDetail}/>}/>
-                        <Route exact path="/profile" render={pros => <ComponentBinder{...pros} tagName={Profile}/>}/>
-                        <Route exact path="/explore" render={pros => <ComponentBinder{...pros} tagName={Explore}/>}/>
-                        <Route exact path="/media"
-                               render={pros => <ComponentBinder{...pros} tagName={UserMenuMedia}/>}/>
-                        <Route exact path="/comment"
-                               render={pros => <ComponentBinder{...pros} tagName={UserPostCommentImage}/>}/>
-                        <Route exact path="/folder"
-                               render={pros => <ComponentBinder{...pros} tagName={UserMediaSelectFromFolder}/>}/>
-                    </Switch>
-                </div>
-            </CookiesProvider>
+            <div>
+                <Route exact path="/" render={pros => <Welcome{...pros}/>}/>
+                <Switch>
+                    <Route exact path="/register/password"
+                           render={pros => <PasswordRegistrationScreen {...pros}/>}/>
+                    <Route exact path="/register/gender"
+                           render={pros => <GenderRegistrationScreen {...pros}/>}/>
+                    <Route exact path="/register/phone"
+                           render={pros => <PhoneNumberRegistration {...pros}/>}/>
+                    <Route exact path="/register/dob"
+                           render={pros => <BirthdayRegistrationScreen {...pros}/>}/>
+                    <Route exact path="/register/email"
+                           render={pros => <EmailRegistration {...pros}/>}/>
+                    <Route exact path="/register"
+                           render={pros => <EmailRegistration {...pros}/>}/>
+                    <Route exact path="/register/final"
+                           render={pros =>
+                               <ReCaptchaTest {...pros}/>}/>
+                    <Route exact path="/register/name"
+                           render={pros => <NameRegistrationScreen {...pros}/>}/>
+                    <Route exact path="/login" render={pros => <Login {...pros}/>}/>
+                    <Route exact path="/setting" render={pros => <ComponentBinder{...pros} tagName={Setting}/>}/>
+                    <Route exact path="/setting/personInf"
+                           render={pros => <ComponentBinder{...pros} tagName={PersonInf}/>}/>
+                    <Route exact path="/setting/PersonInf/email"
+                           render={pros => <ComponentBinder{...pros} tagName={EditEmail}/>}/>
+                    <Route exact path="/setting/PersonInf/phone"
+                           render={pros => <ComponentBinder{...pros} tagName={EditPhone}/>}/>
+                    <Route exact path="/setting/PersonInf/gender"
+                           render={pros => <ComponentBinder{...pros} tagName={EditGender}/>}/>
+                    <Route exact path="/setting/PersonInf/name"
+                           render={pros => <ComponentBinder{...pros} tagName={EditName}/>}/>
+                    <Route exact path="/setting/PersonInf/language"
+                           render={pros => <ComponentBinder{...pros} tagName={EditLanguage}/>}/>
+                    <Route exact path="/setting/PersonInf/dob"
+                           render={pros => <ComponentBinder{...pros} tagName={EditDOB}/>}/>
+                    <Route exact path="/setting/officialdoc"
+                           render={pros => <ComponentBinder{...pros} tagName={OfficialDoc}/>}/>
+                    <Route exact path="/setting/payment"
+                           render={pros => <ComponentBinder{...pros} tagName={PaymentSetting}/>}/>
+                    <Route exact path="/setting/security"
+                           render={pros => <ComponentBinder{...pros} tagName={Security}/>}/>
+                    <Route exact path="/setting/privacy"
+                           render={pros => <ComponentBinder{...pros} tagName={Privacy}/>}/>
+                    <Route exact path="/setting/ad" render={pros => <ComponentBinder{...pros} tagName={Ad}/>}/>
+                    <Route exact path="/setting/media"
+                           render={pros => <ComponentBinder{...pros} tagName={Media}/>}/>
+                    <Route exact path="/setting/notification"
+                           render={pros => <ComponentBinder{...pros} tagName={Notification}/>}/>
+                    <Route exact path="/post" render={pros => <ComponentBinder{...pros} tagName={PostDetail}/>}/>
+                    <Route exact path="/profile" render={pros => <ComponentBinder{...pros} tagName={Profile}/>}/>
+                    <Route exact path="/explore" render={pros => <ComponentBinder{...pros} tagName={Explore}/>}/>
+                    <Route exact path="/media"
+                           render={pros => <ComponentBinder{...pros} tagName={UserMenuMedia}/>}/>
+                    <Route exact path="/comment"
+                           render={pros => <ComponentBinder{...pros} tagName={UserPostCommentImage}/>}/>
+                    <Route exact path="/folder"
+                           render={pros => <ComponentBinder{...pros} tagName={UserMediaSelectFromFolder}/>}/>
+                </Switch>
+            </div>
         </Router>
     </ApolloProvider>,
     document.getElementById('root'));
