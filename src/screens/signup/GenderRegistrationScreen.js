@@ -6,18 +6,13 @@ class GenderRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: this.props.location.state.value.email || '',
-            fName: this.props.location.state.value.fName || '',
-            lName: this.props.location.state.value.lName || '',
-            day: this.props.location.state.value.day || '',
-            month: this.props.location.state.value.month || '',
-            year: this.props.location.state.value.year || '',
-            gender: this.props.location.state.value.gender || 'M',
-            countryCode: this.props.location.state.value.countryCode || '',
-            phone: this.props.location.state.value.phone || ''
-        };
+            gender: localStorage.getItem('gender') || 'Others',
+            genderType: localStorage.getItem('gender_type') || 'O'
+        }
+        ;
         this.handleFormData = this.handleFormData.bind(this);
         this.toogleButton = this.toogleButton.bind(this);
+        this.goBack = this.goBack.bind(this);
         if (localStorage.getItem('gender')) {
             this.state.gender = localStorage.getItem('gender');
 
@@ -26,18 +21,30 @@ class GenderRegistrationScreen extends Component {
 
     toogleButton() {
         localStorage.setItem('gender', this.state.gender);
+        localStorage.setItem('gender_type', this.state.genderType);
     }
 
     goBack() {
-        window.history.back();
+        this.props.history.push('/register/phone');
     }
 
     handleFormData(e) {
-        this.setState({gender: e.target.value}, () => {
-            localStorage.setItem('gender', this.state.gender);
+        if (e.target.type.toLowerCase() === "radio") {
+            this.setState({genderType: e.target.value}, () => {
+                localStorage.setItem('gender', this.state.gender);
+                if (this.state.genderType === 'F') {
+                    this.setState({gender: "Female"})
 
-        });
-        console.log(this.state.gender)
+                } else if (this.state.genderType === 'M') {
+                    this.setState({gender: "Male"})
+                } else {
+                    this.setState({gender: "Other"})
+                }
+
+            });
+        } else {
+            this.setState({gender: e.target.value})
+        }
     }
 
     render() {
@@ -61,23 +68,37 @@ class GenderRegistrationScreen extends Component {
 
                 <div className="rowtablediv">
 
-                    <table>
+                    <table className="table-gender">
+
                         <tbody>
                         <tr>
                             <td><label>Male</label></td>
-                            <td><input type="radio" value="M" name="gender" checked={this.state.gender === "M"}
+                            <td><input type="radio" value="M" name="gender" checked={this.state.genderType === "M"}
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
                             <td><label>
                                 Female</label></td>
-                            <td><input type="radio" value="F" name="gender" checked={this.state.gender === "F"}
+                            <td><input type="radio" value="F" name="gender" checked={this.state.genderType === "F"}
                                        onChange={this.handleFormData}/></td>
                         </tr>
                         <tr>
                             <td><label>Other</label></td>
-                            <td><input type="radio" value="O" name="gender" checked={this.state.gender === "O"}
+                            <td><input type="radio" value="O" name="gender" checked={this.state.genderType === 'O'}
                                        onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" value={this.state.gender}
+                                       onChange={this.handleFormData}/></td>
+                        </tr>
+                        <tr>
+                            <td><p>We encourage you to list the gender that you are most comfortable with. Doing so may
+                                help you to better
+                                find listings that fit you needs. You may enter text into this box to identify an
+                                alternative gender if you so wish.
+                                you do not have to enter a value in this box and if you do not, "other" will be
+                                default. </p>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -87,7 +108,7 @@ class GenderRegistrationScreen extends Component {
                         pathname: "/register/password",
                         state: {value: this.state}
                     }}
-                             className="btn  btncreate generalbtn" disabled={this.state.disable}>
+                             className="btn  btncreate generalbtn">
                         Continue
                     </NavLink>
                 </div>

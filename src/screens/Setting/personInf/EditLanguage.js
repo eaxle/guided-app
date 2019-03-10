@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
+// import {NavLink, Link} from "react-router-dom";
+// import {Navbar, Nav, NavItem} from 'react-bootstrap';
 
 class EditLanguage extends Component {
     state = {

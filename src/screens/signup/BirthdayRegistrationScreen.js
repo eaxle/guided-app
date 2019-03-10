@@ -8,39 +8,29 @@ class BirthdayRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: this.props.location.state.value.email,
-            fName: this.props.location.state.value.fName,
-            lName: this.props.location.state.value.lName,
             day: '',
             month: '',
             year: ''
         };
-        this.sizeDay = 1;
-        this.sizeMonth = 1;
-        this.sizeDay = 1;
+
         this.handleFormData = this.handleFormData.bind(this);
-        console.log(this.props);
         if (localStorage.getItem('day')) {
-            // this.setState({day: localStorage.getItem('day')});
             this.state.day = localStorage.getItem('day');
         }
         if (localStorage.getItem('month')) {
-            // this.setState({day: localStorage.getItem('month')});
             this.state.month = localStorage.getItem('month');
         }
         if (localStorage.getItem('year')) {
-            // this.setState({day: localStorage.getItem('year')});
             this.state.year = localStorage.getItem('year');
         }
+        this.goBack = this.goBack.bind(this);
     }
 
     goBack() {
-        window.history.back();
+        this.props.history.push('/register/name');
     }
 
     handleFormData(event) {
-        this.sizeDay = 1;
-        console.log(event.target.value)
         if (event.target.name === "day") {
             this.setState({day: event.target.value}, () => {
                 localStorage.setItem('day', this.state.day);
@@ -60,9 +50,9 @@ class BirthdayRegistrationScreen extends Component {
     }
 
     render() {
-        let arrDay = new Array();
-        let arrMonth = new Array();
-        let arr = new Array();
+        let arrDay = [];
+        let arrMonth = [];
+        let arr = [];
 
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
@@ -80,24 +70,16 @@ class BirthdayRegistrationScreen extends Component {
                         <p>This information won't be made public.</p>
                     </div>
                 </div>
-                <table>
+                <table className="table-dob">
                     <tbody>
                     <tr>
                         <td>
                             <div className="col-sm-4">
                                 <select className="form-control  seletBOD minimal" name='day' id='dayddl'
-                                        size={this.sizeDay}
                                         placeholder="Day" value={this.state.day}
-                                        onFocus={() => {
-                                            this.sizeDay = 10;
-                                        }}
-                                        onBlur={() => {
-                                            this.sizeDay = 1;
-                                        }}
                                         onChange={this.handleFormData}>
                                     <option>Day</option>
                                     {(function () {
-                                        //debugger
                                         for (let i = 1; i < 32; i++) {
                                             arrDay.push(<option value={i} key={'day_' + i}>{i}</option>);
                                         }
@@ -127,7 +109,7 @@ class BirthdayRegistrationScreen extends Component {
                                         placeholder="Year" value={this.state.year} onChange={this.handleFormData}>
                                     <option>Year</option>
                                     {(function () {
-                                        for (let i = 1925; i <= new Date().getFullYear(); i++) {
+                                        for (let i = new Date().getFullYear(); i >= 1925; i--) {
 
                                             arr.push(<option value={i} key={'year_' + i}>{i}</option>);
                                         }
@@ -150,7 +132,7 @@ class BirthdayRegistrationScreen extends Component {
                     </div>
                 </Form>
                 <div className="row col-sm-12">
-                    <NavLink onClick={this.toogleButton} to={{
+                    <NavLink to={{
                         pathname: "/register/phone",
                         state: {value: this.state}
                     }}

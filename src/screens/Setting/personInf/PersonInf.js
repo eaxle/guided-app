@@ -1,67 +1,47 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {client} from '../../../index';
 import gql from "graphql-tag";
 
-const GET_USER_PNAME = gql`
-               query getUserPreferNameById($uid:String!){
-                   getUserPreferNameById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
+const GET_USER_NAME = gql`
+    query getUserNameById($user_id:String!){
+        getUserNameById(user_id:$user_id) {
+            first_name
+            last_name
+            preferred_name
+        }
+    }
+`;
 const GET_USER_EMAIL = gql`
-               query getUserEmailById($uid:String!){
-                   getUserEmailById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
+    query getUserEmailById($user_id:String!){
+        getUserEmailById(user_id:$user_id) {
+            email
+        }
+    }
+`;
 const GET_USER_PHONE = gql`
-               query getUserPhoneNumberById($uid:String!){
-                   getUserPhoneNumberById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-
-const GET_USER_CODE = gql`
-               query getUserCodeById($uid:String!){
-                   getUserCodeById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_GENDER = gql`
-               query getGenderById($uid:String!){
-                   getGenderById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_DOB_DAY = gql`
-               query getUserDOBDayById($uid:String!){
-                   getUserDOBDayById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_DOB_MONTH = gql`
-               query getUserDOBMonthById($uid:String!){
-                   getUserDOBMonthById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_DOB_YEAR = gql`
-               query getUserDOBYearById($uid:String!){
-                   getUserDOBYearById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
+    query getUserPhoneNumberById($user_id:String!){
+        getUserPhoneNumberById(user_id:$user_id) {
+            phone_number
+        }
+    }
+`;
+const GET_USER_GENDER = gql`
+    query getUserGenderById($user_id:String!){
+        getUserGenderById(user_id:$user_id) {
+            gender
+        }
+    }
+`;
+const GET_USER_DOB = gql`
+    query getUserDateOfBirthById($user_id:String!){
+        getUserDateOfBirthById(user_id:$user_id) {
+            Date_of_Birth
+        }
+    }
+`;
 
 class PersonInf extends Component {
     constructor(props) {
@@ -69,6 +49,7 @@ class PersonInf extends Component {
         this.state = {
             date: new Date(),
             pName: '',
+            lName: '',
             email: '',
             phone: '',
             gender: '',
@@ -82,69 +63,65 @@ class PersonInf extends Component {
     componentDidMount() {
         const that = this;
         client.query({
-            query: GET_USER_PNAME,
-            variables: {uid: document.cookie.split('id=')[1]}
+            query: GET_USER_NAME,
+            variables: {user_id: document.cookie.split('id=')[1]}
         }).then(function (data) {
-            that.setState({pName: data.data.getUserPreferNameById[0].value}, () => {
+
+            that.setState({lName: data.data.getUserNameById[0].last_name}, () => {
+            })
+            that.setState({pName: data.data.getUserNameById[0].preferred_name}, () => {
             })
         }, function (error) {
 
         });
         client.query({
             query: GET_USER_EMAIL,
-            variables: {uid: document.cookie.split('id=')[1]}
+            variables: {user_id: document.cookie.split('id=')[1]}
         }).then(function (data) {
-            that.setState({email: data.data.getUserEmailById[0].value}, () => {
+            that.setState({email: data.data.getUserEmailById[0].email}, () => {
             })
         }, function (error) {
 
         });
         client.query({
             query: GET_USER_PHONE,
-            variables: {uid: document.cookie.split('id=')[1]}
+            variables: {user_id: document.cookie.split('id=')[1]}
         }).then(function (data) {
-            that.setState({phone: data.data.getUserPhoneNumberById[0].value}, () => {
+            that.setState({phone: data.data.getUserPhoneNumberById[0].phone_number}, () => {
             })
         }, function (error) {
 
         });
-        client.query({query: GET_GENDER, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({gender: data.data.getGenderById[0].value}, () => {
-                if (data.data.getGenderById[0].value === 'M') {
+        client.query({
+            query: GET_USER_GENDER,
+            variables: {user_id: document.cookie.split('id=')[1]}
+        }).then(function (data) {
+            that.setState({gender: data.data.getUserGenderById[0].gender}, () => {
+                /*if (data.data.getUserGenderById[0].value === 'M') {
                     that.setState({gender: 'Male'}, () => {
                     })
-                }
-                else if (data.data.getGenderById[0].value === 'F') {
+                } else if (data.data.getUserGenderById[0].value === 'F') {
                     that.setState({gender: 'Female'}, () => {
                     })
-                }
-                else {
-                    that.setState({gender: data.data.getGenderById[0].value}, () => {
+                } else {
+                    that.setState({gender: data.data.getUserGenderById[0].value}, () => {
                     })
-                }
+                }*/
+                that.setState({gender: data.data.getUserGenderById[0].gender});
             })
 
         }, function (error) {
 
         })
-        client.query({query: GET_DOB_DAY, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({day: data.data.getUserDOBDayById[0].value}, () => {
+        client.query({
+            query: GET_USER_DOB,
+            variables: {user_id: document.cookie.split('id=')[1]}
+        }).then(function (data) {
+            that.setState({day: data.data.getUserDateOfBirthById[0].Date_of_Birth}, () => {
             })
         }, function (error) {
 
         });
-        client.query({query: GET_DOB_MONTH, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({month: data.data.getUserDOBMonthById[0].value}, () => {
-            })
-        }, function (error) {
-
-        })
-        ;client.query({query: GET_DOB_YEAR, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({year: data.data.getUserDOBYearById[0].value}, () => {
-            })
-        }, function (error) {
-
-        })
 
     }
 
@@ -153,7 +130,7 @@ class PersonInf extends Component {
     render() {
 
         return (
-            <div className="container-fluid2 container ">
+            <div className="container-fluser_id2 container ">
                 <div>
                     <ListGroup>
 
@@ -165,11 +142,13 @@ class PersonInf extends Component {
                             <table>
                                 <tbody>
                                 <tr>
-                                    <td className="tableWidth"><h4>Name</h4> <h6>{this.state.pName}</h6></td>
+                                    <td className="tableWidth"><h4>Name</h4>
+                                        <h6>{this.state.pName} {this.state.lName}</h6></td>
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/name"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/name"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -185,7 +164,8 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/email"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/email"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -201,7 +181,8 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/phone"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/phone"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -216,7 +197,8 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/gender"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/gender"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -232,7 +214,8 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/dob"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/dob"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -248,7 +231,8 @@ class PersonInf extends Component {
                                     <td className="">
                                         <div>
                                             <button className="btn btnEdit float-right "><NavLink
-                                                to={{pathname: "/setting/PersonInf/language"}} className="inactive" activeClassName="active" exact={true}>Edit</NavLink></button>
+                                                to={{pathname: "/setting/PersonInf/language"}} className="inactive"
+                                                activeClassName="active" exact={true}>Edit</NavLink></button>
                                         </div>
                                     </td>
                                 </tr>

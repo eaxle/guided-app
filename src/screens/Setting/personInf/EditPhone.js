@@ -4,7 +4,7 @@ import /*'file?name=main.js!*/'../../../../node_modules/react-intl-tel-input/dis
 import '../../../../node_modules/react-intl-tel-input/dist/main.css';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
+// import {NavLink, Link} from "react-router-dom";
 import gql from "graphql-tag";
 import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
@@ -79,7 +79,7 @@ class EditPhone extends Component {
     };
 
     handler(status, value, countryData, number, id) {
-        console.log("status: " + status + "\n" + "value: " + value + "\n" + "countryData: " + JSON.stringify(countryData) + "\n" + "number: " + number + "\n id: " + id);
+        // console.log("status: " + status + "\n" + "value: " + value + "\n" + "countryData: " + JSON.stringify(countryData) + "\n" + "number: " + number + "\n id: " + id);
         if (status === true) {
             this.setState({countryCode: countryData.dialCode}, () => {
                 // localStorage.setItem('countryCode', this.state.countryCode)
