@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Thumbnail, Image, Grid, Row, Col } from 'react-bootstrap';
 import './styles.css';
-import Rating from '../Rating';
+// import Rating from '../Rating';
 
 class ProfileImageAndIcon extends Component {
     state = {}

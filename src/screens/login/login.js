@@ -4,27 +4,25 @@ import {ApolloConsumer} from "react-apollo";
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import './loginStyles.css';
-import {NavLink, browserHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import FbLogin from './facebook/fb';
-import {withCookies, Cookies} from 'react-cookie';
 
 
 const LOGIN_USER = gql`
-               query email_login($email: String!,$password: String!) {
-                   email_login(email:$email,password: $password) {
-                     user_id
-                   }
-                 }
-               `;
+    query emailLogin($email: String!,$password: String!) {
+        emailLogin(email:$email,password: $password) {
+            user_id
+        }
+    }
+`;
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        const {cookies} = props;
+
         this.state = {email: '', password: ''};
         this.handleFormData = this.handleFormData.bind(this);
         this.submitForm = this.submitForm.bind(this);
-        this.cookies = Cookies.isRequired;
         this.errMsg = false;
 
     }
@@ -46,13 +44,11 @@ class Login extends Component {
     }
 
     submitForm(data) {
-
-        if (!data.email_login.length) {
+        if (!data.emailLogin.length) {
             this.errMsg = true;
             this.forceUpdate()
         } else {
-            document.cookie = "id=" + data.email_login[0].id;
-            // debugger
+            document.cookie = "id=" + data.emailLogin[0].user_id;
             this.props.history.push('/setting');
             this.errMsg = false;
             this.forceUpdate()
@@ -61,7 +57,6 @@ class Login extends Component {
     }
 
     render() {
-        let {data} = this.props;
         return (
             <div className="container-fluid text-center d-flex justify-content-center align-items-center container ">
                 <div className="row col-sm-12 righttop ">
@@ -137,5 +132,4 @@ class Login extends Component {
     }
 }
 
-// Login = graphql(LOGIN_USER,queryOptions)(Login)
 export default Login;

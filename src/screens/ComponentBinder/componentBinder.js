@@ -16,7 +16,7 @@ class ComponentBinder extends Component {
             sidebarOpen: false,
             foo: Setting,
             goo: PersonInf
-        }
+        };
 
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
@@ -26,7 +26,7 @@ class ComponentBinder extends Component {
     }
 
     render() {
-        const TagName = this.state.goo;
+        const TagName = this.props.tagName;
         return (
             <div>
                 <TopBar toggleSidebar={this.onSetSidebarOpen}/>
