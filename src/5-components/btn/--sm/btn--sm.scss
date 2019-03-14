@@ -1,0 +1,8 @@
+@import "../../1-settings/variables.scss";
+
+.c-btn--sm {
+    border-radius: $btn-border-radius-sm;
+    font-size: $btn-font-size-sm;
+    font-weight: $btn-font-weight-sm;
+    line-height: $btn-line-height-sm
+  }

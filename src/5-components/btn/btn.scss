@@ -1,9 +1,46 @@
-@import '../../1-settings/variables';
-/* btn */
+@import "../../1-settings/variables.scss";
 
-.btn {
-  background: $color-primary;
-  border: 1px solid $color-grey;
+.c-btn {
+  background: $color-white;
+  border: 1px solid $border-color-dark;
   box-sizing: border-box;
-  border-radius: 5px;
+  box-shadow: $box-shadow-sm;
+  border-radius: $btn-border-radius-base;
+  font-size: $btn-font-size-base;
+  font-weight: $btn-font-weight-base;
+  text-align: center;
+  line-height: $btn-line-height-base;
+  color: $color-grey-dark;
+}
+
+.c-btn--danger {
+  background: $color-danger;
+  border: $color-danger;
+  color: $color-white;
+}
+
+.c-btn--primary {
+  background: $color-primary;
+  border: $color-primary;
+  color: $color-white;
+}
+
+.c-btn--secondary {
+  background: $color-secondary;
+  border: $color-secondary;
+  color: $color-white;
+}
+
+.c-btn--lg {
+  border-radius: $btn-border-radius-lg;
+  font-size: $btn-font-size-lg;
+  font-weight: $btn-font-weight-lg;
+  line-height: $btn-line-height-lg
+}
+
+.c-btn--sm {
+  border-radius: $btn-border-radius-sm;
+  font-size: $btn-font-size-sm;
+  font-weight: $btn-font-weight-sm;
+  line-height: $btn-line-height-sm
 }

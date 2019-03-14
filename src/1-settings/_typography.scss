@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 /* typography */
 
@@ -85,6 +85,7 @@ $headings-color:              $color-black !default;
 
 $border-width:                1px !default;
 $border-color:                $color-grey-light !default;
+$border-color-dark:           $color-grey-dark !default;
 
 $border-radius-base:          8px !default; // buttons
 $border-radius-lg:            20px !default; // large buttons for sign-up and sign-in
@@ -247,7 +248,7 @@ $custom-control-label-disabled-color:           $color-grey-200 !default;
 
 $custom-control-indicator-checked-color:        $component-active-color !default;
 $custom-control-indicator-checked-bg:           $component-active-bg !default; // could use $body-bg as well
-$custom-control-indicator-checked-disabled-bg:  rgba($color-primary), .5) !default; // does this disable the background when checked?
+$custom-control-indicator-checked-disabled-bg:  $color-primary, .5 !default; // does this disable the background when checked?
 $custom-control-indicator-checked-box-shadow:   none !default;
 $custom-control-indicator-checked-border-color: $custom-control-indicator-border-color !default;
 
@@ -440,7 +441,7 @@ $nav-link-disabled-color:           $color-grey-dark !default;
 
 // tab selected bar
 $nav-tabs-border-bottom-color:                      $color-white !default; // do I even need this? Probably doesn't hurt, but why load the elemnt?
-$nav-tabs-border-bottom-width:                      5px solid !default;
+$nav-tabs-border-bottom-width:                      5px solid !default; // remember, border width is an offset value, so even if you think it's height, it's still width
 $nav-tabs-border-bottom-radius:                     0 !default;
 $nav-tabs-active-border-bottom-primary-color:       $color-primary !default;
 $nav-tabs-active-bottom-secondary-color:            $color-secondary !default;
