@@ -3,7 +3,7 @@ nohub.out
 nohup.out
 # dependencies
 /node_modules
-
+.vscode/
 # testing
 /coverage
 
