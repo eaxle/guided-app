@@ -144,9 +144,15 @@ $btn-font-weight-lg:          $font-weight-base !default;
 $btn-line-height-lg:          $line-height-lg !default;
 $btn-border-radius-lg:        $border-radius-lg !default;
 
-$btn-focus-width:             .2rem !default;
-$btn-focus-color:             rgba($component-active-bg, .25) !default; //for keyboard selection highlighting - I need to override 'component-active-bg' for buttons that aren't green!
-$btn-focus-box-shadow:        0 0 0 $btn-focus-width $btn-focus-color !default;
+$btn-focus-width:                   .2rem !default;
+$btn-focus-color:                   $color-white !default; 
+$btn-focus-box-shadow:              0 0 0 $btn-focus-width $btn-focus-color !default;
+$btn-hover-base-color:              $color-grey-light !default;
+$btn-hover-primary-color:           darken($color-primary, 15%) !default;
+$btn-hover-secondary-color:         darken($color-secondary, 15%) !default;
+$btn-hover-danger-color:            darken($color-danger, 15%) !default;
+$btn-hover-link-base-color:         darken($color-grey-dark, 15%) !default;
+$btn-hover-link-inverted-color:     darken($color-white, 15%) !default;
 $btn-disabled-opacity:        .65 !default;
 $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
 
@@ -440,21 +446,22 @@ $nav-link-padding-x:                1rem !default;
 $nav-link-disabled-color:           $color-grey-dark !default;
 
 // tab selected bar
-$nav-tabs-border-bottom-color:                      $color-white !default; // do I even need this? Probably doesn't hurt, but why load the elemnt?
 $nav-tabs-border-bottom-width:                      5px solid !default; // remember, border width is an offset value, so even if you think it's height, it's still width
 $nav-tabs-border-bottom-radius:                     0 !default;
-$nav-tabs-active-border-bottom-primary-color:       $color-primary !default;
-$nav-tabs-active-bottom-secondary-color:            $color-secondary !default;
+$nav-tabs-active-primary-color:                     $color-primary !default;
+$nav-tabs-active-secondary-color:                   $color-secondary !default;
+$nav-tabs-hover-primary-color:                      darken($color-primary, 15%) !default;
+$nav-tabs-hover-secondary-color:                    darken($color-secondary, 15%) !default;
+$nav-tabs-focus-primary-color:                      $color-primary !default;
+$nav-tabs-focus-secondary-color:                    $color-secondary !default;
 
-$nav-tabs-link-hover-primary-color:                 $color-primary !default;
-$nav-tabs-link-hover-primary-color:                 $color-secondary !default;
-$nav-tabs-link-hover-border-bottom-primary-color:   $color-primary !default;
-$nav-tabs-link-hover-border-bottom-primary-color:   $color-secondary !default;
+$nav-tabs-link-color:                               $color-black !default;
+$nav-tabs-bg-color:                                 $body-bg !default;
+$nav-tabs-link-font-size:                           $h4-font-size !default;
+$nav-tabs-link-font-weight:                         $font-weight-bold !default;
+$nav-tabs-link-line-height:                         $line-height-lg !default;
 
-$nav-tabs-link-active-color:        $color-black !default;
-$nav-tabs-link-active-bg:           $body-bg !default;
-
-$nav-divider-color:                 $gray-200 !default;
+$nav-divider-color:                 $gray-200 !default; // not using any of this divider stuff
 $nav-divider-margin-y:              $spacer / 2 !default;
 
 

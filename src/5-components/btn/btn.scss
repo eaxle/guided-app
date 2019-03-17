@@ -13,8 +13,6 @@
   color: $color-grey-dark;
 }
 
-// I need to add hover and focus //
-
 .c-btn--danger {
   background: $color-danger;
   border: $color-danger;
@@ -46,3 +44,33 @@
   font-weight: $btn-font-weight-sm;
   line-height: $btn-line-height-sm
 }
+
+.c-btn:hover {
+  border-color: $btn-hover-base-color;
+  background-color: $btn-hover-base-color;
+  color: $link-hover-color;
+}
+
+.c-btn--primary:hover {
+  border-color: $btn-hover-primary-color;
+  background-color: $btn-hover-primary-color;
+  color: $btn-hover-link-inverted-color;
+}
+
+.c-btn--secondary:hover {
+  border-color: $btn-hover-secondary-color;
+  background-color: $btn-hover-secondary-color;
+  color: $btn-hover-link-inverted-color;
+}
+
+.c-btn--danger:hover {
+  border-color: $btn-hover-danger-color;
+  background-color: $btn-hover-danger-color;
+  color: $btn-hover-link-inverted-color;
+}
+
+.c-btn:focus {
+  border-color: $btn-focus-color;
+  border-width: $btn-focus-width;
+}
+

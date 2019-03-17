@@ -1,0 +1,86 @@
+@import "../../1-settings/variables.scss";
+
+// i need to set some constraints on the navbar width for larger viewport sizes 
+// max-width for .c-nav is probably a key one
+
+.c-nav {
+    width: 100%;
+    height: 50px;
+    border: 0.5px solid $border-color;
+    position: fixed;
+    bottom: 0;
+    background: $color-white;
+    box-sizing: border-box;
+}
+
+.c-nav--secondary {
+    z-index: 1;
+}
+
+
+.c-nav__tab-primary {
+    float: left;
+    text-align: center;
+    border-width: 5px solid $nav-tabs-bg-color;
+    margin: 2px 2px 2px 2px;
+    outline-width: 2px solid;
+    outline-color: $nav-tabs-bg-color;
+    height: 45px;
+    width: calc(25% - 4px); //78px plus margin?
+    color: $nav-tabs-link-color;
+    background: $nav-tabs-bg-color;
+    box-sizing: border-box;
+    font-size: $nav-tabs-link-font-size;
+    font-weight: $nav-tabs-link-font-weight;
+    line-height: $nav-tabs-link-line-height;
+}
+
+.c-nav__tab-secondary {
+    float: left;
+    text-align: center;
+    border-width: 5px solid $nav-tabs-bg-color;
+    margin: 2px 2px 2px 2px;
+    outline-width: 2px solid;
+    outline-color: $nav-tabs-bg-color;
+    height: 45px;
+    width: calc(33.333333% - 4px); //105px plus margin?
+    color: $nav-tabs-link-color;
+    background: $nav-tabs-bg-color;
+    box-sizing: border-box;
+    font-size: $nav-tabs-link-font-size;
+    font-weight: $nav-tabs-link-font-weight;
+    line-height: $nav-tabs-link-line-height;
+}
+
+// multiple borders link - https://css-tricks.com/snippets/css/multiple-borders/ //
+
+.c-nav__tab-primary:active {
+    border-bottom-width: $nav-tabs-border-bottom-width; // is this necessary when I already have full borders set at the same #? //
+    border-bottom-color: $nav-tabs-active-primary-color;
+}
+
+.c-nav__tab-secondary:active {
+    border-bottom-width: $nav-tabs-border-bottom-width;
+    border-bottom-color: $nav-tabs-active-secondary-color;
+}
+
+.c-nav__tab-primary:hover {
+    outline-color: $nav-tabs-hover-primary-color;
+    border-color: $nav-tabs-hover-primary-color;
+    background-color: $nav-tabs-hover-primary-color;
+}
+
+.c-nav__tab-secondary:hover {
+    outline-color: $nav-tabs-hover-secondary-color;
+    border-color: $nav-tabs-hover-secondary-color;
+    background-color: $nav-tabs-hover-secondary-color;
+}
+
+.c-nav__tab-primary:focus {
+    outline-color: $nav-tabs-focus-primary-color;
+}
+
+.c-nav__tab-secondary:focus {
+    outline-color: $nav-tabs-focus-secondary-color;
+}
+
