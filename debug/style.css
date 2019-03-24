@@ -1,0 +1,14 @@
+.btn {
+  color: red;
+  background: purple; }
+
+.btn:active {
+  color: blue;
+  background: green; }
+
+.btn:hover {
+  color: orange;
+  background: black; }
+
+body {
+  background: brown; }
