@@ -2,73 +2,9 @@ import React, {Component} from 'react';
 import {ReactDOM} from 'react-dom';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
-import {NavLink, Link} from "react-router-dom";
-import gql from "graphql-tag";
-import {Query} from "react-apollo";
 import {Mutation} from "react-apollo";
-import {client} from "../../../index";
-
-const UPDATE_USER_NAME = gql`
-  mutation update_user_name($user_id: String!,$first_name:String!,$last_name:String!,$preferred_name:String!) {
-    update_user_name(user_id: user_id,first_name:$first_name,last_name:$last_name,preferred_name:$preferred_name) {
-     value
-    }
-  }
-`;
-const GET_USER_FNAME = gql`
-               query getUserFisrtNameById($uid:String!){
-                   getUserFisrtNameById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_USER_LNAME = gql`
-               query getUserLastNameById($uid:String!){
-                   getUserLastNameById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-const GET_USER_PNAME = gql`
-               query getUserPreferNameById($uid:String!){
-                   getUserPreferNameById(uid:$uid) {
-                     value
-                   }
-                 }
-               `;
-
-const GETFNAME = ({uid}) => (
-        <Query query={GET_USER_FNAME} variables={{uid}} notifyOnNetworkStatusChange>
-            {({loading, error, data, refetch, networkStatus}) => {
-                if (loading) return "Loading...";
-                if (error) return `Error! ${error.message}`;
-                if (networkStatus === 4) return "Refetching!";
-                return (<span id="re_002" onClick={() => refetch()}> {data.getUserFisrtNameById[0].value}</span>);
-            }}
-        </Query>
-    )
-;
-const GETLNAME = ({uid}) => (
-        <Query query={GET_USER_LNAME} variables={{uid}} notifyOnNetworkStatusChange>
-            {({loading, error, data, refetch, networkStatus}) => {
-                if (loading) return "Loading...";
-                if (error) return `Error! ${error.message}`;
-                if (networkStatus === 4) return "Refetching!";
-                return (<span id="re_003" onClick={() => refetch()}> {data.getUserLastNameById[0].value}</span>);
-            }}
-        </Query>
-    )
-;const GETPNAME = ({uid}) => (
-        <Query query={GET_USER_PNAME} variables={{uid}} notifyOnNetworkStatusChange>
-            {({loading, error, data, refetch, networkStatus}) => {
-                if (loading) return "Loading...";
-                if (error) return `Error! ${error.message}`;
-                if (networkStatus === 4) return "Refetching!";
-                return (<span id="re_004" onClick={() => refetch()}> {data.getUserPreferNameById[0].value}</span>);
-            }}
-        </Query>
-    )
-;
+// import {client} from "../../../index";
+import {GET_USER_NAME, UPDATE_USER_NAME, getClientName} from "../../../services/userService";
 
 class EditName extends Component {
     constructor(props) {
@@ -83,6 +19,7 @@ class EditName extends Component {
         this.revertChanges = this.revertChanges.bind(this);
         this.updateChange = this.updateChange.bind(this);
         this.whenUpdated = this.whenUpdated.bind(this);
+        this.getClientName = this.getClientName.bind(this);
 
     }
 
@@ -106,56 +43,38 @@ class EditName extends Component {
             this.setState({pName: event.target.value});
     }
 
+    getClientName() {
+        let that = this;
+        getClientName().then(function (data) {
+            console.log(data.data);
+            that.state.fName = data.data.getUsertNameById[0].first_name;
+            that.state.lName = data.data.getUsertNameById[0].last_name;
+            that.state.pName = data.data.getUsertNameById[0].preferred_name;
+        }, function (error) {
+        });
+    }
+
     componentDidMount() {
         for (var i = 0; i < document.getElementsByClassName('editField').length; i++) {
             document.getElementsByClassName('editField')[i].style.display = 'none';
         }
-        const that = this;
-        client.query({query: GET_USER_FNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({fName: data.data.getUserFisrtNameById[0].value}, () => {
-            })
+        this.getClientName();
+        this.state.fName=getClientName().then(function (data) {
+            console.log(data);
         }, function (error) {
-
         });
-        client.query({query: GET_USER_LNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
 
-            that.setState({lName: data.data.getUserLastNameById[0].value}, () => {
-            })
-        }, function (error) {
-
-        });
-        client.query({query: GET_USER_PNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({pName: data.data.getUserPreferNameById[0].value}, () => {
-
-            })
-        }, function (error) {
-
-        });
     }
 
     whenUpdated() {
-        const that = this;
-        client.query({query: GET_USER_FNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
+        /*const that = this;
+        client.query({query: GET_USER_NAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
             that.setState({fName: data.data.getUserFisrtNameById[0].value}, () => {
             })
         }, function (error) {
 
         });
-        client.query({query: GET_USER_LNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-
-            // debugger;
-            that.setState({lName: data.data.getUserLastNameById[0].value}, () => {
-            })
-        }, function (error) {
-
-        });
-        client.query({query: GET_USER_PNAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({pName: data.data.getUserPreferNameById[0].value}, () => {
-            })
-        }, function (error) {
-
-        });
-
+*/
         this.props.setData(this.state.pName, this.state.lName);
     }
 
@@ -239,20 +158,20 @@ class EditName extends Component {
                                             </table>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>First Name</h4> <h6><GETFNAME uid={uid}/></h6>
+                                            <h4>First Name</h4> <h6>{this.state.fName}{/*<GETFNAME uid={uid}/>*/}</h6>
                                             <div><input type="text" className="editField" id='fName'
                                                         value={this.state.fName}
                                                         onChange={this.updateChange}/></div>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>Last Name</h4> <h6><GETLNAME uid={uid}/></h6>
+                                            <h4>Last Name</h4> <h6>{/*<GETLNAME uid={uid}/>*/}</h6>
                                             <div><input type="text" className="editField"
                                                         value={this.state.lName}
                                                         id='lName'
                                                         onChange={this.updateChange}/></div>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>Preferred Name</h4> <h6><GETPNAME uid={uid}/></h6>
+                                            <h4>Preferred Name</h4> <h6>{/*<GETPNAME uid={uid}/>*/}</h6>
                                             <div><input type="text" className="editField"
                                                         value={this.state.pName}
                                                         id='pName'
