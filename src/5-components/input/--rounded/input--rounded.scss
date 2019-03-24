@@ -1,0 +1,14 @@
+@import "../../1-settings/variables.scss";
+
+
+// for rounded inputs around the platform
+.c-input--rounded {
+    padding-left: $input-padding-x-base;
+    padding-right: $input-padding-x-base;
+    padding-top: $input-padding-y-base;
+    padding-bottom: $input-padding-y-base;
+    font-size: $input-font-size-base;
+    font-weight: $input-font-weight-base;
+    line-height: $input-line-height-base;
+    border-radius: $input-border-radius-base;
+}

@@ -1,0 +1,15 @@
+@import "../../1-settings/variables.scss";
+
+
+// for registration sequence where inputs are a little larger
+
+.c-input--squared-lg {
+    padding-left: $input-padding-x-lg;
+    padding-right: $input-padding-x-lg;
+    padding-top: $input-padding-y-lg;
+    padding-bottom: $input-padding-y-lg;
+    font-size: $input-font-size-lg;
+    font-weight: $input-font-weight-lg;
+    line-height: $input-line-height-lg;
+    border-radius: $input-border-radius-lg; 
+}

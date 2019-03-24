@@ -2,7 +2,7 @@
 
 .c-btn {
   background: $color-white;
-  border: 1px solid $border-color-dark;
+  border: $border-width solid $border-color-dark;
   box-sizing: border-box;
   box-shadow: $box-shadow-sm;
   border-radius: $btn-border-radius-base;
@@ -74,3 +74,7 @@
   border-width: $btn-focus-width;
 }
 
+.c-btn:disabled {
+  color: $btn-link-disabled-color;
+  background: $brn-disabled-opacity;
+}

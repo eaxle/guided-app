@@ -1,0 +1,34 @@
+@import "../../1-settings/variables.scss";
+
+.c-nav__tab-secondary {
+    float: left;
+    text-align: center;
+    border-width: 5px solid $nav-tabs-bg-color;
+    margin: 2px 2px 2px 2px;
+    outline-width: 2px solid;
+    outline-color: $nav-tabs-bg-color;
+    height: 45px;
+    width: calc(33.333333% - 4px); //105px plus margin?
+    color: $nav-tabs-link-color;
+    background: $nav-tabs-bg-color;
+    box-sizing: border-box;
+    font-size: $nav-tabs-link-font-size;
+    font-weight: $nav-tabs-link-font-weight;
+    line-height: $nav-tabs-link-line-height;
+    text-align: center;
+}
+
+.c-nav__tab-secondary:active {
+    border-bottom-width: $nav-tabs-border-bottom-width;
+    border-bottom-color: $nav-tabs-active-secondary-color;
+}
+
+.c-nav__tab-secondary:hover {
+    outline-color: $nav-tabs-hover-secondary-color;
+    border-color: $nav-tabs-hover-secondary-color;
+    background-color: $nav-tabs-hover-secondary-color;
+}
+
+.c-nav__tab-secondary:focus {
+    outline-color: $nav-tabs-focus-secondary-color;
+}

@@ -1,16 +1,5 @@
 @import '../../1-settings/variables';
 
-.c-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $global-nav-height;
-    box-sizing: border-box;
-    border: 0.5px solid $color-midnight;
-    background: $color-midnight;
-}
-
 .c-header__user-name {
     border: $border-width transparent;
     color: $color-white;

@@ -85,6 +85,10 @@ $headings-font-weight:        $font-weight-bold;
 $headings-line-height:        $line-height-sm !default; //19px and a bit off of 16px or h4
 $headings-color:              $color-black !default;
 
+$header-hover-color:          darken($color-white, 15%) !default;
+$header-focus-width:          .2rem !default;
+$header-focus-color:          $color-white !default; 
+
 // Components
 //
 // Define common padding and border radius sizes and more.
@@ -180,7 +184,7 @@ $input-font-weight-base:                $font-weight-base !default;
 $input-line-height-base:                $line-height-sm !default;
 $input-border-radius-base:              $border-radius-sm !default;
 
-// for 'settings' pages' squared-off inputs
+// for 'settings pages' or 'long-form description' squared-off inputs
 $input-padding-y-sm:                    .25rem !default;
 $input-padding-x-sm:                    .5rem !default;
 $input-font-size-sm:                    $h5-font-size !default; //12px
@@ -208,8 +212,10 @@ $input-placeholder-color:               $color-grey-dark !default;
 $input-placeholder-font-size:           $h5-font-size  !default; // 12px
 $input-placeholder-font-weight:         $font-weight-light  !default;
 
+$input-hover-bg:                        $color-grey-light !default;
+
 $input-focus-bg:                        $input-bg !default;
-$input-focus-border-color:              lighten($component-active-bg, 25%) !default;
+$input-focus-border-color:              $color-primary !default; // was originally lighten($component-active-bg, 25%) but i think we need it to 'pop'
 $input-focus-color:                     $input-color !default;
 $input-focus-width:                     .2rem !default;
 $input-focus-box-shadow:                0 0 0 $input-focus-width $input-focus-color !default;
