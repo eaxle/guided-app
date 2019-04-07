@@ -3,45 +3,13 @@ import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
 import {NavLink} from "react-router-dom";
 import {client} from '../../../index';
-import gql from "graphql-tag";
-
-const GET_USER_NAME = gql`
-    query getUserNameById($user_id:String!){
-        getUserNameById(user_id:$user_id) {
-            first_name
-            last_name
-            preferred_name
-        }
-    }
-`;
-const GET_USER_EMAIL = gql`
-    query getUserEmailById($user_id:String!){
-        getUserEmailById(user_id:$user_id) {
-            email
-        }
-    }
-`;
-const GET_USER_PHONE = gql`
-    query getUserPhoneNumberById($user_id:String!){
-        getUserPhoneNumberById(user_id:$user_id) {
-            phone_number
-        }
-    }
-`;
-const GET_USER_GENDER = gql`
-    query getUserGenderById($user_id:String!){
-        getUserGenderById(user_id:$user_id) {
-            gender
-        }
-    }
-`;
-const GET_USER_DOB = gql`
-    query getUserDateOfBirthById($user_id:String!){
-        getUserDateOfBirthById(user_id:$user_id) {
-            Date_of_Birth
-        }
-    }
-`;
+import {
+    GET_USER_NAME,
+    GET_USER_DOB,
+    GET_USER_EMAIL,
+    GET_USER_GENDER,
+    GET_USER_PHONE
+} from "../../../services/userService";
 
 class PersonInf extends Component {
     constructor(props) {
@@ -117,7 +85,11 @@ class PersonInf extends Component {
             query: GET_USER_DOB,
             variables: {user_id: document.cookie.split('id=')[1]}
         }).then(function (data) {
-            that.setState({day: data.data.getUserDateOfBirthById[0].Date_of_Birth}, () => {
+            that.setState({day: data.data.getUserDateOfBirthById[0].day}, () => {
+            })
+            that.setState({month: data.data.getUserDateOfBirthById[0].month}, () => {
+            })
+            that.setState({year: data.data.getUserDateOfBirthById[0].year}, () => {
             })
         }, function (error) {
 
