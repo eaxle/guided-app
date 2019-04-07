@@ -44,7 +44,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "styles": "node-sass --include-path scss src/index.scss debug/style.css"
+    "styles": "node-sass --include-path scss src/index.scss debug/style.css --output-style compressed"
   },
   "browserslist": [
     ">0.2%",

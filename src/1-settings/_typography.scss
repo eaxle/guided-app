@@ -6,6 +6,40 @@ $input-btn-font-size: 1em;
 $input-btn-line-height: 1em;
 $border-radius: 2px;
 
+
+/**
+
+GO THROUGH THESE
+
+**/
+$input-btn-font-size: 1;
+$input-btn-padding-y: 1;
+$input-btn-font-size-sm: 1;
+$input-btn-line-height-sm: 1;
+$input-btn-padding-y-sm: 1;
+$input-btn-font-size-lg: 1;
+$input-btn-line-height-lg: 1;
+$input-btn-padding-y-lg: 1;
+$input-line-height: auto;
+$input-height-inner: 1;
+$input-height-base: auto;
+$input-font-weight: normal;
+$input-border-radius: 0;
+$small-font-size: auto;
+$color-dark-grey: #333;
+$gray-200: #222;
+$line-height-base: 1;
+$font-size-lg: auto;
+$btn-border-radius: 0;
+$white: #fff;
+$navbar-light-active-color: white;
+$navbar-dark-active-color: #151515;
+$btn-font-size-sm: auto;
+$brn-disabled-opacity: 0.5;
+/**
+
+**/
+
 /* typography */
 
 // Paragraphs
@@ -222,14 +256,14 @@ $input-focus-box-shadow:                0 0 0 $input-focus-width $input-focus-co
 
 $input-height-border:                   $input-border-width * 2 !default;
 
-// $input-height-inner:                    ($input-btn-font-size * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
-// $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default;
+$input-height-inner:                    ($input-btn-font-size * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
+$input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default;
 
-// $input-height-inner-sm:                 ($input-btn-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
-// $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+$input-height-inner-sm:                 ($input-btn-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
 
-// $input-height-inner-lg:                 ($input-btn-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
-// $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+$input-height-inner-lg:                 ($input-btn-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 
 $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -296,8 +330,8 @@ $custom-switch-indicator-border-radius:         $custom-control-indicator-size /
 $custom-switch-indicator-size:                  calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4}) !default;
 
 // select menus (where the desired item appears and takes the place of a placeholder value)
-$custom-select-padding-y:           $input-padding-y !default;
-$custom-select-padding-x:           $input-padding-x !default;
+$custom-select-padding-y:           $input-padding-y-base !default;
+$custom-select-padding-x:           $input-padding-x-base !default;
 $custom-select-height:              $input-height !default;
 $custom-select-indicator-padding:   1rem !default; // Extra padding to account for the presence of the background-image based indicator
 $custom-select-line-height:         $input-line-height !default;
@@ -372,8 +406,8 @@ $custom-file-focus-border-color:    $input-focus-border-color !default;
 $custom-file-focus-box-shadow:      $input-focus-box-shadow !default;
 $custom-file-disabled-bg:           $input-disabled-bg !default;
 
-$custom-file-padding-y:             $input-padding-y !default;
-$custom-file-padding-x:             $input-padding-x !default;
+$custom-file-padding-y:             $input-padding-y-base !default;
+$custom-file-padding-x:             $input-padding-x-base !default;
 $custom-file-line-height:           $input-line-height !default;
 $custom-file-font-weight:           $input-font-weight !default;
 $custom-file-color:                 $input-color !default;

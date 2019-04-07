@@ -5,11 +5,14 @@
 
 .c-input {
   background: $input-bg;
+  display: inline-block; //block is what bootstrap had for their form-control class but i don't know what it does, inline-block is what they have as an option so you don't have to use .c-form-group
+  width: auto;
   border: $border-width solid $border-color;
   box-sizing: border-box;
   box-shadow: $input-box-shadow;
   text-align: left;
   color: $input-color;
+  vertical-align: middle; //bootstrap had this as an option if you don't want to use .c-form-group, i don't know if we need it
 }
 
 // for rounded inputs around the platform
@@ -51,6 +54,7 @@
 
 .c-input:disabled {
     background: $input-disabled-bg;
+    opacity: 1;
 }
 
 .c-input:focus {
@@ -69,4 +73,44 @@
     color: $input-placeholder-color;
     font-size: $input-placeholder-font-size;
     font-weight: $input-placeholder-font-weight;
+    opacity: 1;
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+select.c-input {
+    &[size],
+    &[multiple] {
+      height: auto;
+    }
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+textarea.c-input {
+    height: auto;
+}
+
+// Readonly controls as plain text - IF WE EVER NEED IT
+//
+// Apply class to a readonly input to make it appear like regular plain
+// text (without any border, background color, focus indicator)
+
+.c-input--plaintext {
+    display: block;
+    width: 100%;
+    padding-top: $input-padding-y;
+    padding-bottom: $input-padding-y;
+    margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+    line-height: $input-line-height;
+    color: $input-plaintext-color;
+    background-color: transparent;
+    border: solid transparent;
+    box-shadow: transparent;
+    border-width: $input-border-width 0;
+  
+    &.c-input--rounded,
+    &.c-input--squared-sm,
+    &.c-input--squared-lg {
+      padding-right: 0;
+      padding-left: 0;
+    }
 }
