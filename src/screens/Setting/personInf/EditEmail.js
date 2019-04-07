@@ -12,27 +12,27 @@ import {Mutation} from "react-apollo";
 import {client} from "../../../index";
 
 const UPDATE_EMAIL = gql`
-  mutation updateUserEmail($uid: String!,$email:String!) {
-    updateUserEmail(uid: $uid,email:$email) {
-     value
+  mutation updateUserEmail($user_id: String!,$email:String!) {
+      updateUserEmailById(user_id: $user_id,email:$email) {
+          email
     }
   }
 `;
 const GET_EMAIL = gql`
-               query getUserEmailById($uid:String!){
-                   getUserEmailById(uid:$uid) {
-                     value
+               query getUserEmailById($user_id:String!){
+                   getUserEmailById(user_id:$user_id) {
+                       email
                    }
                  }
                `;
 
-const GETUSER = ({uid}) => (
-        <Query query={GET_EMAIL} variables={{uid}} notifyOnNetworkStatusChange>
+const GETUSER = ({user_id}) => (
+        <Query query={GET_EMAIL} variables={{user_id}} notifyOnNetworkStatusChange>
             {({loading, error, data, refetch, networkStatus}) => {
                 if (loading) return "Loading...";
                 if (error) return `Error! ${error.message}`;
                 if (networkStatus === 4) return "Refetching!";
-                return (<span id="re_001" onClick={() => refetch()}> {data.getUserEmailById[0].value}</span>);
+                return (<span id="re_001" onClick={() => refetch()}> {data.getUserEmailById[0].email}</span>);
             }}
         </Query>
     )
@@ -161,7 +161,7 @@ class EditEmail extends Component {
                                                 <tbody>
                                                 <tr>
                                                     <td className=""><h4>Email Address</h4>
-                                                        <h6><GETUSER uid={uid}/></h6></td>
+                                                        <h6><GETUSER user_id={uid}/></h6></td>
 
                                                     <td className="tableWidth2">
 
