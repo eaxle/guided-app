@@ -1,0 +1,18 @@
+image: node:6.9.4
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - npm install
+          - npm run styles
+    - step:
+        script:
+          - pipe: atlassian/sftp-deploy:0.3.1
+            variables:
+              USER: 'root'
+              SERVER: '149.28.180.16'
+              REMOTE_PATH: '/var/www/html'
+              LOCAL_PATH: 'build'
