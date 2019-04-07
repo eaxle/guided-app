@@ -46,12 +46,13 @@ class EditName extends Component {
     getClientName() {
         let that = this;
         getClientName().then(function (data) {
-            console.log(data.data);
-            that.state.fName = data.data.getUsertNameById[0].first_name;
-            that.state.lName = data.data.getUsertNameById[0].last_name;
-            that.state.pName = data.data.getUsertNameById[0].preferred_name;
+            console.log(data.data.getUserNameById[0].first_name);
+            that.state.fName = data.data.getUserNameById[0].first_name;
+            that.state.lName = data.data.getUserNameById[0].last_name;
+            that.state.pName = data.data.getUserNameById[0].preferred_name;
         }, function (error) {
         });
+
     }
 
     componentDidMount() {
@@ -59,23 +60,11 @@ class EditName extends Component {
             document.getElementsByClassName('editField')[i].style.display = 'none';
         }
         this.getClientName();
-        this.state.fName=getClientName().then(function (data) {
-            console.log(data);
-        }, function (error) {
-        });
-
     }
 
     whenUpdated() {
-        /*const that = this;
-        client.query({query: GET_USER_NAME, variables: {uid: document.cookie.split('id=')[1]}}).then(function (data) {
-            that.setState({fName: data.data.getUserFisrtNameById[0].value}, () => {
-            })
-        }, function (error) {
 
-        });
-*/
-        this.props.setData(this.state.pName, this.state.lName);
+        this.getClientName();
     }
 
     toogleField(e) {
@@ -158,20 +147,20 @@ class EditName extends Component {
                                             </table>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>First Name</h4> <h6>{this.state.fName}{/*<GETFNAME uid={uid}/>*/}</h6>
+                                            <h4>First Name</h4> <h6>{this.state.fName}</h6>
                                             <div><input type="text" className="editField" id='fName'
                                                         value={this.state.fName}
                                                         onChange={this.updateChange}/></div>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>Last Name</h4> <h6>{/*<GETLNAME uid={uid}/>*/}</h6>
+                                            <h4>Last Name</h4> <h6>{this.state.lName}</h6>
                                             <div><input type="text" className="editField"
                                                         value={this.state.lName}
                                                         id='lName'
                                                         onChange={this.updateChange}/></div>
                                         </ListGroupItem>
                                         <ListGroupItem className="text-left">
-                                            <h4>Preferred Name</h4> <h6>{/*<GETPNAME uid={uid}/>*/}</h6>
+                                            <h4>Preferred Name</h4> <h6>{this.state.pName}</h6>
                                             <div><input type="text" className="editField"
                                                         value={this.state.pName}
                                                         id='pName'
