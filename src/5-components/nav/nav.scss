@@ -13,11 +13,6 @@
     box-sizing: border-box;
 }
 
-.c-nav--secondary {
-    z-index: 1;
-}
-
-
 .c-nav__tab-primary {
     float: left;
     text-align: center;
@@ -52,6 +47,7 @@
     font-weight: $nav-tabs-link-font-weight;
     line-height: $nav-tabs-link-line-height;
     text-align: center;
+    z-index: 1;
 }
 
 // multiple borders link - https://css-tricks.com/snippets/css/multiple-borders/ //

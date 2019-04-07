@@ -28,9 +28,9 @@ class NavComponent extends Component {
 
     render() {
         return (
-            <Navbar className="myBtmBar">
+            <Navbar className="c-nav">
                 <Grid>
-                    <Row className="bottomRow">
+                    <Row className="c-nav__tab-primary">
                         <Col xs={3}>
                             <div className={this.getClassName("Post")} onClick={this.changeTab}>Post</div>
                         </Col>
@@ -44,6 +44,17 @@ class NavComponent extends Component {
                             <div className={this.getClassName("Stay")} onClick={this.changeTab}>Stay</div>
                         </Col>
                     </Row>
+                    <Row className="c-nav__tab-secondary">
+                       <Col xs={4}>
+                           <div className={this.getClassName("Explore")} onClick={this.changeTab}>Explore</div>
+                       </Col>
+                       <Col xs={4}>
+                           <div className={this.getClassName("Offered")} onClick={this.changeTab}>Offered</div>
+                       </Col>
+                       <Col xs={4}>
+                           <div className={this.getClassName("Booked")} onClick={this.changeTab}>Booked</div>
+                       </Col>
+                   </Row>
                 </Grid>
             </Navbar>
         )
