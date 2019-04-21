@@ -38,7 +38,7 @@ import ReCaptchaView from './8-views/signupViews/signupViews-6-ReCaptcha';
 import MediaSettingsView from "./8-views/settingsViews/mediaSettingsView/mediaSettingsView";
 
 export const client = new ApolloClient({
-    uri: process.env.REACT_APP_GRAPHQL_URI || "http://45.32.189.215:3000/graphql",
+    uri: "https://45.32.189.215:3000/graphql",
 });
 
 ReactDOM.render(
