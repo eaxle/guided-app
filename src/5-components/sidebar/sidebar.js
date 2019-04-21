@@ -2,7 +2,7 @@ import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './styles.css';
 
-const Sidebar = (
+export const Sidebar  = (
     <div className="sidebarContainer">
         <ListGroup>
             <ListGroupItem className="type">Communicate</ListGroupItem>
@@ -23,5 +23,3 @@ const Sidebar = (
         </ListGroup>
     </div>
 );
-
-export default Sidebar;

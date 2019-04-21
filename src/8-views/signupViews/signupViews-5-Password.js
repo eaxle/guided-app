@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink, Redirect} from 'react-router-dom';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 class PasswordRegistrationView extends Component {
     constructor(props) {

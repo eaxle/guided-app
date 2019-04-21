@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import {client} from "../index";
+import {client} from "../../index";
 import {Query} from "react-apollo";
 import React from "react";
 

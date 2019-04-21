@@ -4,8 +4,8 @@ import validator from 'validator';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import './mainRegistrationScreenStyles.css';
-import '../login/loginStyles.css';
-import FbLogin from '../login/facebook/fb';
+import '../loginView/loginStyles.css';
+import FbLogin from '../loginView/facebook/fb';
 
 
 class EmailRegistrationView extends Component {

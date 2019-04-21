@@ -4,7 +4,7 @@ import './style.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircle} from '@fortawesome/free-solid-svg-icons'
 import BottomImageVideoFolder from './Bottom_Image_Video_Folder';
-import NavComponent from '../../5-components/NavComponent';
+import NavComponent from '../../5-components/nav/nav';
 
 class UserMenuMedia extends Component {
     constructor(props) {

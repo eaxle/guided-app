@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import Recaptcha from 'react-recaptcha';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 const ADD_USER = gql`
     mutation email_registration(

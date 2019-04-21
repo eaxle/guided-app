@@ -2,40 +2,40 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {ApolloProvider} from 'react-apollo';
 import ApolloClient from "apollo-boost";
-import './index.css';
-import WelcomeView from './screens/welcome/welcome';
-import PasswordRegistrationView from './screens/signup/PasswordRegistrationView';
-import GenderRegistrationView from './screens/signup/GenderRegistrationView';
-import EmailRegistrationView from './screens/signup/emailRegistration';
-import NameRegistrationView from './screens/signup/NameRegistrationView';
-import BirthdayRegistrationView from './screens/signup/BirthdayRegistrationView';
-import PhoneNumberRegistrationView from './screens/signup/phoneNumberRegistration';
-import LoginView from './screens/login/login';
+// import './index.css';
+import WelcomeView from './8-views/welcomeView/welcomeView';
+import PasswordRegistrationView from './8-views/signupViews/signupViews-5-Password';
+import GenderRegistrationView from './8-views/signupViews/signupViews-4-Gender';
+import EmailRegistrationView from './8-views/signupViews/signupViews-0-Email';
+import NameRegistrationView from './8-views/signupViews/signupViews-1-Name';
+import BirthdayRegistrationView from './8-views/signupViews/signupViews-2-DOB';
+import PhoneNumberRegistrationView from './8-views/signupViews/signupViews-3-PhoneNumber';
+import LoginView from './8-views/loginView/loginView';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import ComponentBinder from './screens/ComponentBinder';
-import SettingsView from './screens/Setting';
-import PersonalInfoSettingsView from './screens/Setting/personInf/PersonInf';
-import EditEmail from './screens/Setting/personInf/EditEmail';
-import EditGender from './screens/Setting/personInf/EditGender';
-import EditPhone from './screens/Setting/personInf/EditPhone';
-import EditName from './screens/Setting/personInf/EditName';
-import EditLanguage from './screens/Setting/personInf/EditLanguage';
-import EditDOB from './screens/Setting/personInf/EditDOB';
-import OfficialDoc from './screens/Setting/officialDocuments/OfficialDoc';
-import PaymentSetting from './screens/Setting/payment/PaymentSetting';
-import Security from './screens/Setting/security/Security';
-import Privacy from './screens/Setting/privacy/Privacy';
-import AdSettingsView from './screens/Setting/Ad/Ad';
-import Notification from './screens/Setting/notification/Notification';
-import Media from './screens/Setting/media/Media';
-import ListingViewOwner from './screens/ListingViewOwner/ListingViewOwner';
+import ComponentBinder from './5-components/componentBinder/componentBinder';
+import SettingsView from './8-views/settingsViews/settingsView';
+import PersonalInfoSettingsView from './8-views/settingsViews/personalInfoSettingsView/personalInfoSettingsView';
+import EditEmail from './8-views/settingsViews/personalInfoSettingsView/EditEmail';
+import EditGender from './8-views/settingsViews/personalInfoSettingsView/EditGender';
+import EditPhone from './8-views/settingsViews/personalInfoSettingsView/EditPhone';
+import EditName from './8-views/settingsViews/personalInfoSettingsView/EditName';
+import EditLanguage from './8-views/settingsViews/personalInfoSettingsView/EditLanguage';
+import EditDOB from './8-views/settingsViews/personalInfoSettingsView/EditDOB';
+import OfficialDocsSettingsView from './8-views/settingsViews/officialDocsSettingsView/officialDocsSettingsView';
+import PaymentSettingsView from './8-views/settingsViews/paymentSettingsView/paymentSettingsView';
+import SecuritySettingsView from './8-views/settingsViews/securitySettingsView/securitySettingsView';
+import PrivacySettingsView from './8-views/settingsViews/privacySettingsView/privacySettingsView';
+import AdSettingsView from './8-views/settingsViews/adSettingsView/adSettingsView';
+import NotificationSettingsView from './8-views/settingsViews/notificationSettingsView/notificationSettingsView';
+import ListingViewOwner from './8-views/listingViewOwner/listingViewOwner';
 import ProfileView from './8-views/profileView/profileView';
-import Explore from './screens/Explore/exploreView';
-import UserMenuMedia from './screens/new/User_Menu_Media';
-import UserPostCommentImage from './screens/new/UserPostCommentImage';
-import UserMediaSelectFromFolder from './screens/new/UserMediaSelectFromFolder';
-import ReCaptchaView from './screens/signup/reCaptchaTest';
+import Explore from './8-views/exploreView/exploreView';
+import UserMenuMedia from './8-views/mediaUploadView/User_Menu_Media';
+import UserPostCommentImage from './8-views/mediaUploadView/UserPostCommentImage';
+import UserMediaSelectFromFolder from './8-views/mediaUploadView/UserMediaSelectFromFolder';
+import ReCaptchaView from './8-views/signupViews/signupViews-6-ReCaptcha';
+import MediaSettingsView from "./8-views/settingsViews/mediaSettingsView/mediaSettingsView";
 
 export const client = new ApolloClient({
     uri: process.env.REACT_APP_GRAPHQL_URI || "http://45.32.189.215:3000/graphql",
@@ -45,7 +45,7 @@ ReactDOM.render(
     <ApolloProvider client={client}>
         <Router>
             <div>
-                <Route exact path="/" render={pros => <Welcome{...pros}/>}/>
+                <Route exact path="/" render={pros => <WelcomeView{...pros}/>}/>
                 <Switch>
                     <Route exact path="/register/password"
                            render={pros => <PasswordRegistrationView {...pros}/>}/>
@@ -55,6 +55,9 @@ ReactDOM.render(
                            render={pros => <PhoneNumberRegistrationView {...pros}/>}/>
                     <Route exact path="/register/dob"
                            render={pros => <BirthdayRegistrationView {...pros}/>}/>
+                    <Route exact path="/register/"
+                           render={pros =>
+                               <EmailRegistrationView {...pros}/>}/>
                     <Route exact path="/register/email"
                            render={pros => <EmailRegistrationView {...pros}/>}/>
                     <Route exact path="/register"
@@ -81,18 +84,19 @@ ReactDOM.render(
                     <Route exact path="/setting/PersonInf/dob"
                            render={pros => <ComponentBinder{...pros} tagName={EditDOB}/>}/>
                     <Route exact path="/setting/officialdoc"
-                           render={pros => <ComponentBinder{...pros} tagName={OfficialDoc}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={OfficialDocsSettingsView}/>}/>
                     <Route exact path="/setting/payment"
-                           render={pros => <ComponentBinder{...pros} tagName={PaymentSetting}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={PaymentSettingsView}/>}/>
                     <Route exact path="/setting/security"
-                           render={pros => <ComponentBinder{...pros} tagName={Security}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={SecuritySettingsView}/>}/>
                     <Route exact path="/setting/privacy"
-                           render={pros => <ComponentBinder{...pros} tagName={Privacy}/>}/>
-                    <Route exact path="/setting/ad" render={pros => <ComponentBinder{...pros} tagName={AdSettingsView}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={PrivacySettingsView}/>}/>
+                    <Route exact path="/setting/ad"
+                           render={pros => <ComponentBinder{...pros} tagName={AdSettingsView}/>}/>
                     <Route exact path="/setting/media"
-                           render={pros => <ComponentBinder{...pros} tagName={Media}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={MediaSettingsView}/>}/>
                     <Route exact path="/setting/notification"
-                           render={pros => <ComponentBinder{...pros} tagName={Notification}/>}/>
+                           render={pros => <ComponentBinder{...pros} tagName={NotificationSettingsView}/>}/>
                     <Route exact path="/post" render={pros => <ComponentBinder{...pros} tagName={ListingViewOwner}/>}/>
                     <Route exact path="/profile" render={pros => <ComponentBinder{...pros} tagName={ProfileView}/>}/>
                     <Route exact path="/exploreView" render={pros => <ComponentBinder{...pros} tagName={Explore}/>}/>

@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
 import Sidebar from 'react-sidebar';
-import Header from '../../5-components/TopBar';
-import {Sidebar as sidebarContent, sidebarStyle} from '../Sidebar';
-import NavComponent from '../../5-components/NavComponent';
-//import NavComponent from '../../5-components/NavComponent';
-import SettingsView from '../SettingsView';
-import PersonalInfoSettingsView from '../SettingsView/personInf/PersonInf';
-import './styles.css';
+import Header from '../../5-components/header/header';
+import {Sidebar as sidebarContent/*, sidebarStyle*/} from '../../5-components/sidebar/sidebar';
+import NavComponent from '../../5-components/nav/nav';
+// import './styles.css';
 
 class ComponentBinder extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            sidebarOpen: false,
-            foo: SettingsView,
-            goo: PersonalInfoSettingsView
+            sidebarOpen: false
         };
 
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
@@ -33,7 +28,7 @@ class ComponentBinder extends Component {
                 <Sidebar sidebar={sidebarContent}
                          open={this.state.sidebarOpen}
                          onSetOpen={this.onSetSidebarOpen}
-                         styles={sidebarStyle}>
+                         /*styles={sidebarStyle}*/>
                     <div className="content">
                         <TagName/>
                     </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 class GenderRegistrationView extends Component {
     constructor(props) {

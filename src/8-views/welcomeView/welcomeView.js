@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import MetaTags from 'react-meta-tags';
 import {NavLink} from 'react-router-dom';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 class WelcomeView extends Component {
     constructor(props) {

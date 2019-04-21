@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import IntlTelInput from 'react-intl-tel-input';
 import /*'file?name=main.js!*/'../../../node_modules/react-intl-tel-input/dist/main.js';
 import '../../../node_modules/react-intl-tel-input/dist/main.css';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 class PhoneNumberRegistrationView extends Component {
     constructor(props) {

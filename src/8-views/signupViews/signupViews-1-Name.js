@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 

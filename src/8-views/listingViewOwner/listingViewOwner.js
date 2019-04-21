@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Button, Thumbnail, Image, Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap';
-import AttriDisplay from '../../5-components/AttriDisplay';
-import AttriEditor from '../../5-components/AttriEditor';
-import OverflowText from '../../5-components/OverflowText';
-import TextFrom from '../../5-components/TextForm';
-import ListEditor from '../../5-components/ListEditor';
-import MapSnap from '../../5-components/MapSnap';
-import LocSearchBox from '../../5-components/LocSearchBox';
-import EventTimeDisplay from '../../5-components/EventTimeDisplay';
+import AttriDisplay from '../../5-components/listing-do/AttriDisplay';
+import AttriEditor from '../../5-components/listing-do/AttriEditor';
+import OverflowText from '../../5-components/listing-do/OverflowText';
+import TextFrom from '../../5-components/listing-do/TextForm';
+import ListEditor from '../../5-components/listing-do/ListEditor';
+import MapSnap from '../../5-components/listing-do/MapSnap';
+import LocSearchBox from '../../5-components/listing-do/LocSearchBox';
+// import EventTimeDisplay from '../../5-components/EventTimeDisplay';
 import './styles.css';
 
 class ListingViewOwner extends Component {
@@ -163,7 +163,7 @@ class ListingViewOwner extends Component {
                     </div>
                     <div className="section">
                         <span className="title">When will we meet?</span>
-                        <EventTimeDisplay/>
+                        {/*<EventTimeDisplay/>*/}
                     </div>
                     <div className="section">
                         <span className="title">Cancelation Policy</span>

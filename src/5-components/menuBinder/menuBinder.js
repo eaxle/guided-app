@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Sidebar from 'react-sidebar';
-import Header from '../../5-components/TopBar';
+import Header from '../../5-components/header/header';
 import {Sidebar as sidebarContent, sidebarStyle} from '../Sidebar';
 import NavComponent from '../../5-components/NavComponent';
 import NavComponent from '../../5-components/NavComponent';

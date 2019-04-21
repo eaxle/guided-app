@@ -9,7 +9,7 @@ import {
     GET_USER_EMAIL,
     GET_USER_GENDER,
     GET_USER_PHONE
-} from "../../../services/userService";
+} from "../../../5-components/services/userService";
 
 class PersonalInfoSettingsView extends Component {
     constructor(props) {

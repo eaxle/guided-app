@@ -4,7 +4,7 @@ import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import './styles.css';
 import {Mutation} from "react-apollo";
 // import {client} from "../../../index";
-import {GET_USER_NAME, UPDATE_USER_NAME, getClientName} from "../../../services/userService";
+import {GET_USER_NAME, UPDATE_USER_NAME, getClientName} from "./../../../5-components/services/userService";
 
 class EditName extends Component {
     constructor(props) {

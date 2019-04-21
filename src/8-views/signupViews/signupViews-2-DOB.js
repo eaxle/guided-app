@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import Form from 'react-validation/build/form';
-import '../login/loginStyles.css';
+import '../loginView/loginStyles.css';
 
 
 class BirthdayRegistrationView extends Component {
