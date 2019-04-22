@@ -134,7 +134,7 @@ class ReCaptchaView extends Component {
                 <div className="row">
                     <Recaptcha type="audio|image"
                                className="g-recaptcha col-sm-12  inputs inputName"
-                               render="explicit"
+                               /*render="explicit"*/
                                verifyCallback={this.verifyCall}
                                sitekey="6Lc3MmgUAAAAALxmVo0T2oNJsL2n_xfmqQH-atDd"
                     />
