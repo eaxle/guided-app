@@ -99,7 +99,7 @@ ReactDOM.render(
                            render={pros => <ComponentBinder{...pros} tagName={NotificationSettingsView}/>}/>
                     <Route exact path="/post" render={pros => <ComponentBinder{...pros} tagName={ListingViewOwner}/>}/>
                     <Route exact path="/profile" render={pros => <ComponentBinder{...pros} tagName={ProfileView}/>}/>
-                    <Route exact path="/exploreView" render={pros => <ComponentBinder{...pros} tagName={Explore}/>}/>
+                    <Route exact path="/explore" render={pros => <ComponentBinder{...pros} tagName={Explore}/>}/>
                     <Route exact path="/media"
                            render={pros => <ComponentBinder{...pros} tagName={UserMenuMedia}/>}/>
                     <Route exact path="/comment"
